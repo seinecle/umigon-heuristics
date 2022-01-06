@@ -13,7 +13,7 @@ Includes lists of lexicons with conditional expressions, heuristics and heuristi
 # To do
 The repo includes lexicons, heuristics, and classes making use of these heuristics to identify semantic features in a text.
 
-The denominations (what is a heuristic? a conditional expression?) is not super clear and consistent. It should get straightened up.
+The denominations (what is a heuristic? a conditional expression?) are not super clear and consistent. It should get straightened up.
 
 Also, there is a small entanglement between lexicons, conditional expressions, heuristics and the applications they can serve. For instance, you will find classes or methods that relate to sentiment analysis.
 

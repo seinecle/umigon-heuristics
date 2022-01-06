@@ -12,5 +12,7 @@ module net.clementlevallois.umigon.heuristics {
     requires org.apache.commons.lang3;
     requires emoji.java;
     requires mvel2;
+    
     exports net.clementlevallois.umigon.heuristics;
+    exports net.clementlevallois.umigon.heuristics.model;
 }
