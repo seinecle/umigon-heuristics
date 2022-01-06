@@ -1,0 +1,727 @@
+a de la chance	!isImmediatelyPrecededByANegation	11:12
+à l aise	!isImmediatelyPrecededByANegation	11:12
+à tomber	!isImmediatelyPrecededByANegativeOpinion	11:12
+abondance	!isImmediatelyPrecededByANegation	11:12
+abonder	!isImmediatelyPrecededByANegation	11:12
+admirable	!isImmediatelyPrecededByANegation	11:12
+admirables	!isImmediatelyPrecededByANegation	11:12
+admiratif	!isImmediatelyFollowedByANegation	11:12
+admiratifs	!isImmediatelyFollowedByANegation	11:12
+adora	!isImmediatelyFollowedByNegation	11:12
+adorai	!isImmediatelyFollowedByNegation	11:12
+adoraient	!isImmediatelyFollowedByNegation	11:12
+adorais	!isImmediatelyFollowedByNegation	11:12
+adorait	!isImmediatelyFollowedByNegation	11:12
+adorâmes	!isImmediatelyFollowedByNegation	11:12
+adoras	!isImmediatelyFollowedByNegation	11:12
+adorâtes	!isImmediatelyFollowedByNegation	11:12
+adore	!isImmediatelyFollowedByNegation	11:12
+adorent	!isImmediatelyFollowedByNegation	11:12
+adorer	!isImmediatelyFollowedByNegation	11:12
+adorera	!isImmediatelyFollowedByNegation	11:12
+adorerai	!isImmediatelyFollowedByNegation	11:12
+adoreras	!isImmediatelyFollowedByNegation	11:12
+adorèrent	!isImmediatelyFollowedByNegation	11:12
+adorerez	!isImmediatelyFollowedByNegation	11:12
+adorerons	!isImmediatelyFollowedByNegation	11:12
+adoreront	!isImmediatelyFollowedByNegation	11:12
+adores	!isImmediatelyFollowedByNegation	11:12
+adorez	!isImmediatelyFollowedByNegation	11:12
+adoriez	!isImmediatelyFollowedByNegation	11:12
+adorions	!isImmediatelyFollowedByNegation	11:12
+adorons	!isImmediatelyFollowedByNegation	11:12
+agréable	!isImmediatelyFollowedByANegation	11:12
+agréables	!isImmediatelyFollowedByANegation	11:12
+aima	!isImmediatelyFollowedByANegation	11:12
+aimai	!isImmediatelyFollowedByANegation	11:12
+aimaient	!isImmediatelyFollowedByANegation	11:12
+aimais	!isImmediatelyFollowedByANegation	11:12
+aimâmes	!isImmediatelyFollowedByANegation	11:12
+aimant	!isImmediatelyFollowedByANegation	11:12
+aimas	!isImmediatelyFollowedByANegation	11:12
+aimasse	!isImmediatelyFollowedByANegation	11:12
+aimassent	!isImmediatelyFollowedByANegation	11:12
+aimasses	!isImmediatelyFollowedByANegation	11:12
+aimassiez	!isImmediatelyFollowedByANegation	11:12
+aimassions	!isImmediatelyFollowedByANegation	11:12
+aimat	!isImmediatelyFollowedByANegation	11:12
+aimâtes	!isImmediatelyFollowedByANegation	11:12
+aimâtes	!isImmediatelyFollowedByANegation	11:12
+aime	!isImmediatelyFollowedByANegation	11:12
+aiment	!isImmediatelyFollowedByANegation	11:12
+aimerai	!isImmediatelyFollowedByANegation	11:12
+aimeraient	!isImmediatelyFollowedByANegation	11:12
+aimerais	!isImmediatelyFollowedByANegation	11:12
+aimerait	!isImmediatelyFollowedByANegation	11:12
+aimeras	!isImmediatelyFollowedByANegation	11:12
+aimèrent	!isImmediatelyFollowedByANegation	11:12
+aimerez	!isImmediatelyFollowedByANegation	11:12
+aimeriez	!isImmediatelyFollowedByANegation	11:12
+aimerions	!isImmediatelyFollowedByANegation	11:12
+aimerons	!isImmediatelyFollowedByANegation	11:12
+aimeront	!isImmediatelyFollowedByANegation	11:12
+aimes	!isImmediatelyFollowedByANegation	11:12
+aimez	!isImmediatelyFollowedByANegation	11:12
+aimiez	!isImmediatelyFollowedByANegation	11:12
+aimions	!isImmediatelyFollowedByANegation	11:12
+aimons	!isImmediatelyFollowedByANegation	11:12
+allègre	!isImmediatelyFollowedByANegation	11:12
+allègres	!isImmediatelyFollowedByANegation	11:12
+allégresse	!isImmediatelyFollowedByANegativeOpinion	11:12
+améliora	!isImmediatelyFollowedByANegation	11:12
+améliorai	!isImmediatelyFollowedByANegation	11:12
+amélioraient	!isImmediatelyFollowedByANegation	11:12
+améliorais	!isImmediatelyFollowedByANegation	11:12
+améliorait	!isImmediatelyFollowedByANegation	11:12
+améliorâmes	!isImmediatelyFollowedByANegation	11:12
+amélioras	!isImmediatelyFollowedByANegation	11:12
+améliorâtes	!isImmediatelyFollowedByANegation	11:12
+améliore	!isImmediatelyFollowedByANegation	11:12
+améliorent	!isImmediatelyFollowedByANegation	11:12
+améliorer	!isImmediatelyFollowedByANegation	11:12
+améliorera	!isImmediatelyFollowedByANegation	11:12
+améliorerai	!isImmediatelyFollowedByANegation	11:12
+amélioreras	!isImmediatelyFollowedByANegation	11:12
+améliorèrent	!isImmediatelyFollowedByANegation	11:12
+améliorerez	!isImmediatelyFollowedByANegation	11:12
+améliorerons	!isImmediatelyFollowedByANegation	11:12
+amélioreront	!isImmediatelyFollowedByANegation	11:12
+améliores	!isImmediatelyFollowedByANegation	11:12
+améliorez	!isImmediatelyFollowedByANegation	11:12
+amélioriez	!isImmediatelyFollowedByANegation	11:12
+améliorions	!isImmediatelyFollowedByANegation	11:12
+améliorons	!isImmediatelyFollowedByANegation	11:12
+amitié	!IsImmediatelyFollowedByNegation	11:12
+amour	!isImmediatelyFollowedByANegation	11:12
+amoureuse	!isImmediatelyFollowedByANegation	11:12
+amoureuses	!isImmediatelyFollowedByANegation	11:12
+amoureux	!isImmediatelyFollowedByANegation	11:12
+amusé	!isImmediatelyFollowedByANegation	11:12
+amusée	!isImmediatelyFollowedByANegation	11:12
+amusées	!isImmediatelyFollowedByANegation	11:12
+amusés	!isImmediatelyFollowedByANegation	11:12
+anniversaire	!isImmediatelyFollowedByANegativeOpinion	11:12
+apaisé	!isImmediatelyFollowedByANegation	11:12
+apaisée	!isImmediatelyFollowedByANegation	11:12
+apaisées	!isImmediatelyFollowedByANegation	11:12
+apaisés	!isImmediatelyFollowedByANegation	11:12
+apothéose	!isImmediatelyFollowedByANegation	11:12
+apprécia	!isImmediatelyFollowedByANegation	11:12
+appréciable	!isImmediatelyFollowedByANegation	11:12
+appréciai	!isImmediatelyFollowedByANegation	11:12
+appréciais	!isImmediatelyFollowedByANegation	11:12
+appréciait	!isImmediatelyFollowedByANegation	11:12
+appréciâmes	!isImmediatelyFollowedByANegation	11:12
+apprécias	!isImmediatelyFollowedByANegation	11:12
+appréciâtes	!isImmediatelyFollowedByANegation	11:12
+apprécie	!isImmediatelyFollowedByANegation	11:12
+apprécie	!isImmediatelyFollowedByANegation	11:12
+apprécient	!isImmediatelyFollowedByANegation	11:12
+apprécient	!isImmediatelyFollowedByANegation	11:12
+apprécier	!isImmediatelyFollowedByANegation	11:12
+appréciera	!isImmediatelyFollowedByANegation	11:12
+apprécierai	!isImmediatelyFollowedByANegation	11:12
+apprécieras	!isImmediatelyFollowedByANegation	11:12
+apprécièrent	!isImmediatelyFollowedByANegation	11:12
+apprécierez	!isImmediatelyFollowedByANegation	11:12
+apprécierons	!isImmediatelyFollowedByANegation	11:12
+apprécieront	!isImmediatelyFollowedByANegation	11:12
+apprécies	!isImmediatelyFollowedByANegation	11:12
+appréciez	!isImmediatelyFollowedByANegation	11:12
+appréciez	!isImmediatelyFollowedByANegation	11:12
+apprécions	!isImmediatelyFollowedByANegation	11:12
+apprécions	!isImmediatelyFollowedByANegation	11:12
+as de la chance	!isImmediatelyPrecededByANegation	11:12
+attiré	!isImmediatelyPrecededByANegation	11:12
+attirée	!isImmediatelyPrecededByANegation	11:12
+attirées	!isImmediatelyPrecededByANegation	11:12
+attirés	!isImmediatelyPrecededByANegation	11:12
+au septième ciel	!isImmediatelyFollowedByANegativeOpinion	11:12
+au top	!isImmediatelyFollowedByANegativeOpinion	11:12
+aux anges	!isImmediatelyPrecededByANegation	11:12
+avons de la chance	!isImmediatelyPrecededByANegation	11:12
+béat	!isImmediatelyPrecededByANegation	11:12
+béatitude	"!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion
+"	A:11:99:B:11:99
+beau	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///frère|frere|père|père|fils	if(A && B){11}
+beaux	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///frères|freres|pères|pères|fils	if(A && B){11}
+beauté	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if(A && B){11}
+belle	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///soeur|mère|mere	if(A && B){11}
+belles	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///soeurs|mères|meres	if(A && B){11}
+bénéficie	!isImmediatelyPrecededByANegation	11:12
+bénéficies	!isImmediatelyPrecededByANegation	11:12
+bénéficions	!isImmediatelyPrecededByANegation	11:12
+bénéficiez	!isImmediatelyPrecededByANegation	11:12
+bénéficient	!isImmediatelyPrecededByANegation	11:12
+bénéfierai	!isImmediatelyPrecededByANegation	11:12
+bénéfieras	!isImmediatelyPrecededByANegation	11:12
+bénéfiera	!isImmediatelyPrecededByANegation	11:12
+bénéfierons	!isImmediatelyPrecededByANegation	11:12
+bénéficierez	!isImmediatelyPrecededByANegation	11:12
+bénéficieront	!isImmediatelyPrecededByANegation	11:12
+bénéficiais	!isImmediatelyPrecededByANegation	11:12
+bénéciait	!isImmediatelyPrecededByANegation	11:12
+bénéficiions	!isImmediatelyPrecededByANegation	11:12
+bénéficiiez	!isImmediatelyPrecededByANegation	11:12
+bénéficiaient	!isImmediatelyPrecededByANegation	11:12
+bénéficiai	!isImmediatelyPrecededByANegation	11:12
+bénéficias	!isImmediatelyPrecededByANegation	11:12
+bénéficia	!isImmediatelyPrecededByANegation	11:12
+bénéficiâmes	!isImmediatelyPrecededByANegation	11:12
+bénéficiâtes	!isImmediatelyPrecededByANegation	11:12
+bénéficièrent	!isImmediatelyPrecededByANegation	11:12
+bénéficié	!isImmediatelyPrecededByANegation	11:12
+bénéficier	!isImmediatelyPrecededByANegation	11:12
+bénéfique	!isImmediatelyPrecededByANegation	11:12
+béni	!isImmediatelyPrecededByANegation	11:12
+bien	isImmediatelyPrecededBySpecificTerm///commence+++isImmediatelyFollowedBySpecificTerm///joli|jolis|jolie|jolies|beau|beaux	if(A || B){12}
+bienheureux	!isImmediatelyFollowedByANegation	11:12
+bienvenue	!isImmediatelyFollowedByANegation	11:12
+blindé	!isImmediatelyFollowedByANegation	11:12
+bluffant	!isImmediatelyFollowedByANegation	11:12
+bluffé	!isImmediatelyFollowedByANegation	11:12
+bluffée	!isImmediatelyFollowedByANegation	11:12
+bon	!isImmediatelyFollowedByANegation	11:12
+bonheur	!isImmediatelyFollowedByANegation	11:12
+bonifier	!isImmediatelyPrecededByANegation	11:12
+bonifie	!isImmediatelyPrecededByANegation	11:12
+bonifies	!isImmediatelyPrecededByANegation	11:12
+bonifions	!isImmediatelyPrecededByANegation	11:12
+bonifiez	!isImmediatelyPrecededByANegation	11:12
+bonifient	!isImmediatelyPrecededByANegation	11:12
+bonifierai	!isImmediatelyPrecededByANegation	11:12
+bonifieras	!isImmediatelyPrecededByANegation	11:12
+bonifiera	!isImmediatelyPrecededByANegation	11:12
+bonifierons	!isImmediatelyPrecededByANegation	11:12
+bonifierez	!isImmediatelyPrecededByANegation	11:12
+bonifieront	!isImmediatelyPrecededByANegation	11:12
+bonifiais	!isImmediatelyPrecededByANegation	11:12
+bonifiait	!isImmediatelyPrecededByANegation	11:12
+bonifiions	!isImmediatelyPrecededByANegation	11:12
+bonifiiez	!isImmediatelyPrecededByANegation	11:12
+bonifiaient	!isImmediatelyPrecededByANegation	11:12
+bonifiai	!isImmediatelyPrecededByANegation	11:12
+bonifias	!isImmediatelyPrecededByANegation	11:12
+bonifia	!isImmediatelyPrecededByANegation	11:12
+bonifiâmes	!isImmediatelyPrecededByANegation	11:12
+bonifiâtes	!isImmediatelyPrecededByANegation	11:12
+bonifièrent	!isImmediatelyPrecededByANegation	11:12
+bonifié	!isImmediatelyPrecededByANegation	11:12
+bouffée d oxygène	!isImmediatelyPrecededByANegation	11:12
+bouffées d oxygène	!isImmediatelyPrecededByANegation	11:12
+buen	!isImmediatelyPrecededByANegation	11:12
+bonifiée	!isImmediatelyPrecededByANegation	11:12
+ça défonce	!isImmediatelyPrecededByANegation	11:12
+capable	!isImmediatelyPrecededByANegation	11:12
+captivé	!isImmediatelyPrecededByANegation	11:12
+chance	!isImmediatelyPrecededByANegation	11:12
+chanceux	!isImmediatelyPrecededByANegation	11:12
+charmé	!isImmediatelyPrecededByANegation	11:12
+comblé	!isImmediatelyPrecededByANegation	11:12
+compréhension	!isImmediatelyPrecededByANegation	11:12
+confiance	!isImmediatelyPrecededByANegation	11:12
+confiant	!isImmediatelyPrecededByANegation	11:12
+confortable	!isImmediatelyPrecededByANegation	11:12
+consécration	!isImmediatelyPrecededByANegation	11:12
+contempla	!isImmediatelyPrecededByANegation	11:12
+contemplai	!isImmediatelyPrecededByANegation	11:12
+contemplaient	!isImmediatelyPrecededByANegation	11:12
+contemplais	!isImmediatelyPrecededByANegation	11:12
+contemplait	!isImmediatelyPrecededByANegation	11:12
+contemplâmes	!isImmediatelyPrecededByANegation	11:12
+contemplant	!isImmediatelyPrecededByANegation	11:12
+contemplas	!isImmediatelyPrecededByANegation	11:12
+contemplâtes	!isImmediatelyPrecededByANegation	11:12
+contemplation	!isImmediatelyPrecededByANegation	11:12
+contemple	!isImmediatelyPrecededByANegation	11:12
+contemplent	!isImmediatelyPrecededByANegation	11:12
+contempler	!isImmediatelyPrecededByANegation	11:12
+contemplera	!isImmediatelyPrecededByANegation	11:12
+contemplerai	!isImmediatelyPrecededByANegation	11:12
+contempleraient	!isImmediatelyPrecededByANegation	11:12
+contemplerais	!isImmediatelyPrecededByANegation	11:12
+contemplerait	!isImmediatelyPrecededByANegation	11:12
+contempleras	!isImmediatelyPrecededByANegation	11:12
+contemplèrent	!isImmediatelyPrecededByANegation	11:12
+contemplerez	!isImmediatelyPrecededByANegation	11:12
+contempleriez	!isImmediatelyPrecededByANegation	11:12
+contemplerions	!isImmediatelyPrecededByANegation	11:12
+contemplerons	!isImmediatelyPrecededByANegation	11:12
+contempleront	!isImmediatelyPrecededByANegation	11:12
+contemples	!isImmediatelyPrecededByANegation	11:12
+contemplez	!isImmediatelyPrecededByANegation	11:12
+contempliez	!isImmediatelyPrecededByANegation	11:12
+contemplions	!isImmediatelyPrecededByANegation	11:12
+contemplons	!isImmediatelyPrecededByANegation	11:12
+content	!isImmediatelyPrecededByANegation	11:12
+cool	!isImmediatelyPrecededByANegation	11:12
+coul	!isImmediatelyPrecededByANegation	11:12
+couronnement	!isImmediatelyPrecededByANegation	11:12
+d humeur allègre	!isImmediatelyPrecededByANegation	11:12
+d humeur badine	!isImmediatelyPrecededByANegation	11:12
+d humeur câline	!isImmediatelyPrecededByANegation	11:12
+d humeur enjouée	!isImmediatelyPrecededByANegation	11:12
+d humeur espiègle	!isImmediatelyPrecededByANegation	11:12
+d humeur expansive	!isImmediatelyPrecededByANegation	11:12
+d humeur exubérante	!isImmediatelyPrecededByANegation	11:12
+d humeur folâtre	!isImmediatelyPrecededByANegation	11:12
+d humeur guillerette	!isImmediatelyPrecededByANegation	11:12
+d humeur insouciante	!isImmediatelyPrecededByANegation	11:12
+d humeur jubilatoire	!isImmediatelyPrecededByANegation	11:12
+d humeur pétillante	!isImmediatelyPrecededByANegation	11:12
+d humeur rieuse	!isImmediatelyPrecededByANegation	11:12
+d humeur voluptueuse	!isImmediatelyPrecededByANegation	11:12
+dans la béatitude	!isImmediatelyPrecededByANegation	11:12
+de bonne humeur	!isImmediatelyPrecededByANegation	11:12
+de la balle	!isImmediatelyPrecededByANegation	11:12
+de la bombe	!isImmediatelyPrecededByANegation	11:12
+décontracté	!isImmediatelyPrecededByANegation	11:12
+défonçaient	!isImmediatelyPrecededByANegation	11:12
+défonçais	!isImmediatelyPrecededByANegation	11:12
+défonçait	!isImmediatelyPrecededByANegation	11:12
+défoncent	!isImmediatelyPrecededByANegation	11:12
+défoncez	!isImmediatelyPrecededByANegation	11:12
+défonciez	!isImmediatelyPrecededByANegation	11:12
+défoncions	!isImmediatelyPrecededByANegation	11:12
+défonçons	!isImmediatelyPrecededByANegation	11:12
+défonse	!isImmediatelyPrecededByANegation	11:12
+défonser	!isImmediatelyPrecededByANegation	11:12
+défonses	!isImmediatelyPrecededByANegation	11:12
+délice	!isImmediatelyPrecededByANegation	11:12
+délicieuse	!isImmediatelyPrecededByANegation	11:12
+délicieux	!isImmediatelyPrecededByANegation	11:12
+déridé	!isImmediatelyPrecededByANegation	11:12
+désopilant	!isImmediatelyPrecededByANegation	11:12
+désopilé	!isImmediatelyPrecededByANegation	11:12
+détendu	!isImmediatelyPrecededByANegation	11:12
+diverti	!isImmediatelyPrecededByANegation	11:12
+douceur	!isImmediatelyPrecededByANegation	11:12
+ébahi	!isImmediatelyPrecededByANegation	11:12
+éberlué	!isImmediatelyPrecededByANegation	11:12
+ébloui	!isImmediatelyPrecededByANegation	11:12
+égaiement	!isImmediatelyPrecededByANegation	11:12
+égayé	!isImmediatelyPrecededByANegation	11:12
+égayer	!isImmediatelyPrecededByANegation	11:12
+élégant	!isImmediatelyPrecededByANegation	11:12
+élégante	!isImmediatelyPrecededByANegation	11:12
+emballé	!isImmediatelyPrecededByANegation	11:12
+embellir	!isImmediatelyPrecededByANegation	11:12
+émerveillé	!isImmediatelyPrecededByANegation	11:12
+émerveiller	!isImmediatelyPrecededByANegation	11:12
+émoustillé	!isImmediatelyPrecededByANegation	11:12
+empi de bonheurl	!isImmediatelyPrecededByANegation	11:12
+empli de bienveillance	!isImmediatelyPrecededByANegation	11:12
+empli de joie	!isImmediatelyPrecededByANegation	11:12
+empressé	!isImmediatelyPrecededByANegation	11:12
+ému	!isImmediatelyPrecededByANegation	11:12
+en confiance	!isImmediatelyPrecededByANegation	11:12
+en effervescence	!isImmediatelyPrecededByANegation	11:12
+en expansion	!isImmediatelyPrecededByANegation	11:12
+en extase	!isImmediatelyPrecededByANegation	11:12
+en harmonie avec	!isImmediatelyPrecededByANegation	11:12
+en liesse	!isImmediatelyPrecededByANegation	11:12
+en paix	!isImmediatelyPrecededByANegation	11:12
+en pleine forme	!isImmediatelyPrecededByANegation	11:12
+enchanté	!isImmediatelyPrecededByANegation	11:12
+énergisant	!isImmediatelyPrecededByANegation	11:12
+énergisante	!isImmediatelyPrecededByANegation	11:12
+énergisantes	!isImmediatelyPrecededByANegation	11:12
+énergisants	!isImmediatelyPrecededByANegation	11:12
+énergisé	!isImmediatelyPrecededByANegation	11:12
+enflammé	!isImmediatelyPrecededByANegation	11:12
+enivré	!isImmediatelyPrecededByANegation	11:12
+enjoué	!isImmediatelyPrecededByANegation	11:12
+énorme	!isImmediatelyPrecededByANegation	11:12
+ensoleillé	!isImmediatelyPrecededByANegation	11:12
+enthousiaste	!isImmediatelyPrecededByANegation	11:12
+épanoui	!isImmediatelyPrecededByANegation	11:12
+épaté	!isImmediatelyPrecededByANegation	11:12
+époustouflant	!isImmediatelyPrecededByANegation	11:12
+époustouflé	!isImmediatelyPrecededByANegation	11:12
+époustouflée	!isImmediatelyPrecededByANegation	11:12
+épris	!isImmediatelyPrecededByANegation	11:12
+équlibre	!isImmediatelyPrecededByANegation	11:12
+erions	!isImmediatelyPrecededByANegation	11:12
+espoir	!isImmediatelyPrecededByANegation	11:12
+estime	!isImmediatelyPrecededByANegation	11:12
+être bien 	!isImmediatelyPrecededByANegation	11:12
+être chanceux	!isImmediatelyPrecededByANegation	11:12
+être en bonne santé	!isImmediatelyPrecededByANegation	11:12
+être heureux	!isImmediatelyPrecededByANegation	11:12
+etre satisfait	!isImmediatelyPrecededByANegation	11:12
+être serein	!isImmediatelyPrecededByANegation	11:12
+être veinard	!isImmediatelyPrecededByANegation	11:12
+euphorie	!isImmediatelyPrecededByANegation	11:12
+euphorique	!isImmediatelyPrecededByANegation	11:12
+exaltation	!isImmediatelyPrecededByANegation	11:12
+exalté	!isImmediatelyPrecededByANegation	11:12
+exaucé	!isImmediatelyPrecededByANegation	11:12
+excellent	!isImmediatelyPrecededByANegation	11:12
+exceptionnel	!isImmediatelyPrecededByANegation	11:12
+excité	!isImmediatelyPrecededByANegation	11:12
+exitant	!isImmediatelyPrecededByANegation	11:12
+exitante	!isImmediatelyPrecededByANegation	11:12
+exitantes	!isImmediatelyPrecededByANegation	11:12
+exitants	!isImmediatelyPrecededByANegation	11:12
+extase	!isImmediatelyPrecededByANegation	11:12
+extatique	!isImmediatelyPrecededByANegation	11:12
+extra	!isImmediatelyPrecededByANegation	11:
+fabuleux	!isImmediatelyPrecededByANegation	11:12
+fabuleuse	!isImmediatelyPrecededByANegation	11:12
+fantastique	!isImmediatelyPrecededByANegation	11:12
+fascina	!isImmediatelyPrecededByANegation	11:12
+fascinai	!isImmediatelyPrecededByANegation	11:12
+fascinaient	!isImmediatelyPrecededByANegation	11:12
+fascinais	!isImmediatelyPrecededByANegation	11:12
+fascinais	!isImmediatelyPrecededByANegation	11:12
+fascinait	!isImmediatelyPrecededByANegation	11:12
+fascinâmes	!isImmediatelyPrecededByANegation	11:12
+fascinant	!isImmediatelyPrecededByANegation	11:12
+fascinas	!isImmediatelyPrecededByANegation	11:12
+fascinasse	!isImmediatelyPrecededByANegation	11:12
+fascinassent	!isImmediatelyPrecededByANegation	11:12
+fascinasses	!isImmediatelyPrecededByANegation	11:12
+fascinassiez	!isImmediatelyPrecededByANegation	11:12
+fascinassions	!isImmediatelyPrecededByANegation	11:12
+fascinât	!isImmediatelyPrecededByANegation	11:12
+fascinâtes	!isImmediatelyPrecededByANegation	11:12
+fasciné	!isImmediatelyPrecededByANegation	11:12
+fascinent	!isImmediatelyPrecededByANegation	11:12
+fasciner	!isImmediatelyPrecededByANegation	11:12
+fasciner	!isImmediatelyPrecededByANegation	11:12
+fascinera	!isImmediatelyPrecededByANegation	11:12
+fascinerai	!isImmediatelyPrecededByANegation	11:12
+fascineraient	!isImmediatelyPrecededByANegation	11:12
+fascinerais	!isImmediatelyPrecededByANegation	11:12
+fascinerait	!isImmediatelyPrecededByANegation	11:12
+fascineras	!isImmediatelyPrecededByANegation	11:12
+fascinèrent	!isImmediatelyPrecededByANegation	11:12
+fascinerez	!isImmediatelyPrecededByANegation	11:12
+fascineriez	!isImmediatelyPrecededByANegation	11:12
+fascinerions	!isImmediatelyPrecededByANegation	11:12
+fascinerons	!isImmediatelyPrecededByANegation	11:12
+fascineront	!isImmediatelyPrecededByANegation	11:12
+fascines	!isImmediatelyPrecededByANegation	11:12
+fascinez	!isImmediatelyPrecededByANegation	11:12
+fasciniez	!isImmediatelyPrecededByANegation	11:12
+fascinions	!isImmediatelyPrecededByANegation	11:12
+fascinons	!isImmediatelyPrecededByANegation	11:12
+favorable	!isImmediatelyPrecededByANegation	11:12
+favoriser	!isImmediatelyPrecededByANegation	11:12
+féérie	!isImmediatelyPrecededByANegation	11:12
+félicita	!isImmediatelyPrecededByANegation	11:12
+félicitai	!isImmediatelyPrecededByANegation	11:12
+félicitaient	!isImmediatelyPrecededByANegation	11:12
+félicitais	!isImmediatelyPrecededByANegation	11:12
+félicitais	!isImmediatelyPrecededByANegation	11:12
+félicitait	!isImmediatelyPrecededByANegation	11:12
+félicitâmes	!isImmediatelyPrecededByANegation	11:12
+félicitant	!isImmediatelyPrecededByANegation	11:12
+félicitas	!isImmediatelyPrecededByANegation	11:12
+félicitasse	!isImmediatelyPrecededByANegation	11:12
+félicitassent	!isImmediatelyPrecededByANegation	11:12
+félicitasses	!isImmediatelyPrecededByANegation	11:12
+félicitassiez	!isImmediatelyPrecededByANegation	11:12
+félicitassions	!isImmediatelyPrecededByANegation	11:12
+félicitât	!isImmediatelyPrecededByANegation	11:12
+félicitâtes	!isImmediatelyPrecededByANegation	11:12
+felicitation	!isImmediatelyPrecededByANegation	11:12
+félicitations	!isImmediatelyPrecededByANegation	11:12
+félicité	!isImmediatelyPrecededByANegation	11:12
+félicitent	!isImmediatelyPrecededByANegation	11:12
+féliciter	!isImmediatelyPrecededByANegation	11:12
+féliciter	!isImmediatelyPrecededByANegation	11:12
+félicitera	!isImmediatelyPrecededByANegation	11:12
+féliciterai	!isImmediatelyPrecededByANegation	11:12
+féliciteraient	!isImmediatelyPrecededByANegation	11:12
+féliciterais	!isImmediatelyPrecededByANegation	11:12
+féliciteras	!isImmediatelyPrecededByANegation	11:12
+félicitèrent	!isImmediatelyPrecededByANegation	11:12
+féliciterez	!isImmediatelyPrecededByANegation	11:12
+féliciteriez	!isImmediatelyPrecededByANegation	11:12
+féliciterons	!isImmediatelyPrecededByANegation	11:12
+féliciteront	!isImmediatelyPrecededByANegation	11:12
+félicites	!isImmediatelyPrecededByANegation	11:12
+félicitez	!isImmediatelyPrecededByANegation	11:12
+félicitiez	!isImmediatelyPrecededByANegation	11:12
+félicitions	!isImmediatelyPrecededByANegation	11:12
+félicitons	!isImmediatelyPrecededByANegation	11:12
+fier	!isImmediatelyPrecededByANegation	11:12
+fleurir	!isImmediatelyPrecededByANegation	11:12
+florissant	!isImmediatelyPrecededByANegation	11:12
+force	!isImmediatelyPrecededByANegation	11:12
+fortifié	!isImmediatelyPrecededByANegation	11:12
+fou de joie	!isImmediatelyPrecededByANegation	11:12
+frémissant	!isImmediatelyPrecededByANegation	11:12
+frétillant	!isImmediatelyPrecededByANegation	11:12
+gai	!isImmediatelyPrecededByANegation	11:12
+gaieté	!isImmediatelyPrecededByANegation	11:12
+galvanisé	!isImmediatelyPrecededByANegation	11:12
+géant	!isImmediatelyPrecededByANegation	11:12
+géante	!isImmediatelyPrecededByANegation	11:12
+géantes	!isImmediatelyPrecededByANegation	11:12
+géants	!isImmediatelyPrecededByANegation	11:12
+génial	!isImmediatelyPrecededByANegation	11:12
+gentil	!isImmediatelyPrecededByANegation	11:12
+gloire	!isImmediatelyPrecededByANegation	11:12
+glorifier	!isImmediatelyPrecededByANegation	11:12
+gracieuse	!isImmediatelyPrecededByANegation	11:12
+gracieux	!isImmediatelyPrecededByANegation	11:12
+grandir	!isImmediatelyPrecededByANegation	11:12
+grisé	!isImmediatelyPrecededByANegation	11:12
+guilleret	!isImmediatelyPrecededByANegation	11:12
+harmonie	!isImmediatelyPrecededByANegation	11:12
+harmonieuse	!isImmediatelyPrecededByANegation	11:12
+harmonieux	!isImmediatelyPrecededByANegation	11:12
+heureuse	!isImmediatelyPrecededByANegation	11:12
+heureux	!isImmediatelyPrecededByANegation	11:12
+hilare	!isImmediatelyPrecededByANegation	11:12
+hilarité	!isImmediatelyPrecededByANegation	11:12
+honneur	!isImmediatelyPrecededByANegation	11:12
+idéal	!isImmediatelyPrecededByANegation	11:12
+idylle	!isImmediatelyPrecededByANegation	11:12
+impliqué	!isImmediatelyPrecededByANegation	11:12
+impressionné	!isImmediatelyPrecededByANegation	11:12
+incroyable	!isImmediatelyPrecededByANegation	11:12
+indétronable	!isImmediatelyPrecededByANegation	11:12
+indétronables	!isImmediatelyPrecededByANegation	11:12
+insouciant	!isImmediatelyPrecededByANegation	11:12
+inspiré	!isImmediatelyPrecededByANegation	11:12
+intéressé	!isImmediatelyPrecededByANegation	11:12
+intrigué	!isImmediatelyPrecededByANegation	11:12
+j achète	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegation	11:12
+joie	!isImmediatelyPrecededByANegation	11:12
+jovial	!isImmediatelyPrecededByANegation	11:12
+joyeux	!isImmediatelyPrecededByANegation	11:12
+jubilant	!isImmediatelyPrecededByANegation	11:12
+jubilation	!isImmediatelyPrecededByANegation	11:12
+jubiler	!isImmediatelyPrecededByANegation	11:12
+jubile	!isImmediatelyPrecededByANegation	11:12
+judicieux	!isImmediatelyPrecededByANegation	11:12
+judicieuse	!isImmediatelyPrecededByANegation	11:12
+juste	!isImmediatelyPrecededByANegation+++!isImmediatelyPrecededBySpecificTerm///cest|c est|est	if(A && B){11}
+kiff 	!isImmediatelyPrecededByANegation	11:12
+kiffe	!isImmediatelyPrecededByANegation	11:12
+kiffer	!isImmediatelyPrecededByANegation	11:12
+lauriers	!isImmediatelyPrecededByANegation	11:12
+léger	!isImmediatelyPrecededByANegation	11:12
+lumière	!isImmediatelyPrecededByANegation	11:12
+magie	!isImmediatelyPrecededByANegation	11:12
+magique	!isImmediatelyPrecededByANegation	11:12
+magiques	!isImmediatelyPrecededByANegation	11:12
+magnifique	!isImmediatelyPrecededByANegation	11:12
+magnifiques	!isImmediatelyPrecededByANegation	11:12
+mashallah	!isImmediatelyPrecededByANegation	11:12
+meilleur	!isImmediatelyPrecededByANegation	11:12
+meilleure	!isImmediatelyPrecededByANegation	11:12
+meilleures	!isImmediatelyPrecededByANegation	11:12
+meilleurs	!isImmediatelyPrecededByANegation	11:12
+m enchante	!isImmediatelyFollowedByANegation	11:12
+merci	!isImmediatelyPrecededByANegation	11:12
+merveilleuse	!isImmediatelyPrecededByANegation	11:12
+merveilleux	!isImmediatelyPrecededByANegation	11:12
+mot	!isImmediatelyPrecededByANegation	11:12
+OKLM	!isImmediatelyPrecededByANegation	11:12
+optimiste	!isImmediatelyPrecededByANegation	11:12
+ouf	!isImmediatelyPrecededByANegation	11:12
+pacifier	!isImmediatelyPrecededByANegation	11:12
+paisible	!isImmediatelyPrecededByANegation	11:12
+paradisiaque	!isImmediatelyPrecededByANegation	11:12
+parfait	!isImmediatelyPrecededByANegation	11:12
+parfaite	!isImmediatelyPrecededByANegation	11:12
+partage	!isImmediatelyPrecededByANegation	11:12
+passionant	!isImmediatelyPrecededByANegation	11:12
+passionné	!isImmediatelyPrecededByANegation	11:12
+passionnée	!isImmediatelyPrecededByANegation	11:12
+passionnées	!isImmediatelyPrecededByANegation	11:12
+passionnés	!isImmediatelyPrecededByANegation	11:12
+pssion	!isImmediatelyPrecededByANegation	11:12
+peinard	!isImmediatelyPrecededByANegation	11:12
+pétillant	!isImmediatelyPrecededByANegation	11:12
+pétulant	!isImmediatelyPrecededByANegation	11:12
+phénoménal 	!isImmediatelyPrecededByANegation	11:12
+phénoménale	!isImmediatelyPrecededByANegation	11:12
+phénoménaux	!isImmediatelyPrecededByANegation	11:12
+plaisant	!isImmediatelyPrecededByANegation	11:12
+plaisir	!isImmediatelyPrecededByANegation	11:12
+plénitude	!isImmediatelyPrecededByANegation	11:12
+posé	!isImmediatelyPrecededByANegation	11:12
+posée	!isImmediatelyPrecededByANegation	11:12
+posées	!isImmediatelyPrecededByANegation	11:12
+posés	!isImmediatelyPrecededByANegation	11:12
+prodige	!isImmediatelyPrecededByANegation	11:12
+prodigieux	!isImmediatelyPrecededByANegation	11:12
+propice	!isImmediatelyPrecededByANegation	11:12
+prospère	!isImmediatelyPrecededByANegation	11:12
+prospérer	!isImmediatelyPrecededByANegation	11:12
+prospérité	!isImmediatelyPrecededByANegation	11:12
+prospérité	!isImmediatelyPrecededByANegation	11:12
+providentiel	!isImmediatelyPrecededByANegation	11:12
+radieux	!isImmediatelyPrecededByANegation	11:12
+radieux	!isImmediatelyPrecededByANegation	11:12
+ragaillardi	!isImmediatelyPrecededByANegation	11:12
+rassurant	!isImmediatelyPrecededByANegation	11:12
+rassurante	!isImmediatelyPrecededByANegation	11:12
+rassurantes	!isImmediatelyPrecededByANegation	11:12
+rassurants	!isImmediatelyPrecededByANegation	11:12
+rassuré	!isImmediatelyPrecededByANegation	11:12
+ravi	!isImmediatelyPrecededByANegation	11:12
+ravissement	!isImmediatelyPrecededByANegation	11:12
+rayonnant	!isImmediatelyPrecededByANegation	11:12
+rayonner	!isImmediatelyPrecededByANegation	11:12
+rayonne	!isImmediatelyPrecededByANegation	11:12
+rayonnes	!isImmediatelyPrecededByANegation	11:12
+rayonnons	!isImmediatelyPrecededByANegation	11:12
+rayonnez	!isImmediatelyPrecededByANegation	11:12
+rayonnent	!isImmediatelyPrecededByANegation	11:12
+rayonnerai	!isImmediatelyPrecededByANegation	11:12
+rayonneras	!isImmediatelyPrecededByANegation	11:12
+rayonnera	!isImmediatelyPrecededByANegation	11:12
+rayonnerons	!isImmediatelyPrecededByANegation	11:12
+rayonnerez	!isImmediatelyPrecededByANegation	11:12
+rayonneront	!isImmediatelyPrecededByANegation	11:12
+rayonnais	!isImmediatelyPrecededByANegation	11:12
+rayonnait	!isImmediatelyPrecededByANegation	11:12
+rayonnions	!isImmediatelyPrecededByANegation	11:12
+rayonniez	!isImmediatelyPrecededByANegation	11:12
+rayonnaient	!isImmediatelyPrecededByANegation	11:12
+rayonnai	!isImmediatelyPrecededByANegation	11:12
+rayonnas	!isImmediatelyPrecededByANegation	11:12
+rayonna	!isImmediatelyPrecededByANegation	11:12
+rayonnâmes	!isImmediatelyPrecededByANegation	11:12
+rayonnâtes	!isImmediatelyPrecededByANegation	11:12
+rayonnèrent	!isImmediatelyPrecededByANegation	11:12
+recommande	!isImmediatelyPrecededByANegation	11:12
+réconforté	!isImmediatelyPrecededByANegation	11:12
+reconnaissant	!isImmediatelyPrecededByANegation	11:12
+régal	!isImmediatelyPrecededByANegation	11:12
+régalé	!isImmediatelyPrecededByANegation	11:12
+regonflé	!isImmediatelyPrecededByANegation	11:12
+réjoui	!isImmediatelyPrecededByANegation	11:12
+réjouie	!isImmediatelyPrecededByANegation	11:12
+réjouis	!isImmediatelyPrecededByANegation	11:12
+réjouies	!isImmediatelyPrecededByANegation	11:12
+réjouir	!isImmediatelyFollowedByANegation	11:12
+réjouissance	!isImmediatelyPrecededByANegation	11:12
+relaxé	!isImmediatelyPrecededByANegation	11:12
+relaxée	!isImmediatelyPrecededByANegation	11:12
+se relaxer	!isImmediatelyPrecededByANegation	11:12
+me relaxe	!isImmediatelyPrecededByANegation	11:12
+te relaxes	!isImmediatelyPrecededByANegation	11:12
+se relaxe	!isImmediatelyPrecededByANegation	11:12
+nous relaxons	!isImmediatelyPrecededByANegation	11:12
+vous relaxez	!isImmediatelyPrecededByANegation	11:12
+se relaxent	!isImmediatelyPrecededByANegation	11:12
+remarquable	!isImmediatelyPrecededByANegation	11:12
+rempli de bonheur	!isImmediatelyPrecededByANegation	11:12
+réussie	!isImmediatelyPrecededByANegation	11:12
+réussite	!isImmediatelyPrecededByANegation	11:12
+revigoré	!isImmediatelyPrecededByANegation	11:12
+riant	!isImmediatelyPrecededByANegation	11:12
+rieur	!isImmediatelyPrecededByANegation	11:12
+rigole	!isImmediatelyPrecededByANegation	11:12
+rire	!isImmediatelyPrecededByANegation	11:12
+s émerveiller	!isImmediatelyPrecededByANegation	11:12
+s épanouir	!isImmediatelyPrecededByANegation	11:12
+s illuminer	!isImmediatelyPrecededByANegation	11:12
+satisfaction	!isImmediatelyPrecededByANegation	11:12
+satisfaire	!isImmediatelyPrecededByANegation	11:12
+satisfait	!isImmediatelyPrecededByANegation	11:12
+satisfaite	!isImmediatelyPrecededByANegation	11:12
+satisfaits	!isImmediatelyPrecededByANegation	11:12
+satisfaites	!isImmediatelyPrecededByANegation	11:12
+savoure	!isImmediatelyPrecededByANegation	11:12
+savourer	!isImmediatelyPrecededByANegation	11:12
+se réjouir	!isImmediatelyPrecededByANegation	11:12
+séduit	!isImmediatelyPrecededByANegation	11:12
+sensas	!isImmediatelyPrecededByANegation	11:12
+sensationnel	!isImmediatelyPrecededByANegation	11:12
+serein	!isImmediatelyPrecededByANegation	11:12
+sérénité	!isImmediatelyPrecededByANegation	11:12
+souffle coupé	!isImmediatelyPrecededByANegation	11:12
+soulagé	!isImmediatelyPrecededByANegation	11:12
+sourire	!isImmediatelyPrecededByANegation	11:12
+souris	!isImmediatelyPrecededByANegation	11:12
+sourit	!isImmediatelyPrecededByANegation	11:12
+sourions	!isImmediatelyPrecededByANegation	11:12
+souriez	!isImmediatelyPrecededByANegation	11:12
+sourient	!isImmediatelyPrecededByANegation	11:12
+sourirai	!isImmediatelyPrecededByANegation	11:12
+souriras	!isImmediatelyPrecededByANegation	11:12
+sourira	!isImmediatelyPrecededByANegation	11:12
+sourirons	!isImmediatelyPrecededByANegation	11:12
+sourirez	!isImmediatelyPrecededByANegation	11:12
+souriront	!isImmediatelyPrecededByANegation	11:12
+souriais	!isImmediatelyPrecededByANegation	11:12
+souriait	!isImmediatelyPrecededByANegation	11:12
+souriions	!isImmediatelyPrecededByANegation	11:12
+souriiez	!isImmediatelyPrecededByANegation	11:12
+souriaient	!isImmediatelyPrecededByANegation	11:12
+souriai	!isImmediatelyPrecededByANegation	11:12
+sourîmes	!isImmediatelyPrecededByANegation	11:12
+sourîtes	!isImmediatelyPrecededByANegation	11:12
+sourirent	!isImmediatelyPrecededByANegation	11:12
+splendide	!isImmediatelyPrecededByANegation	11:12
+stimulé	!isImmediatelyPrecededByANegation	11:12
+sublime	!isImmediatelyPrecededByANegation	11:12
+sublimes	!isImmediatelyPrecededByANegation	11:12
+sublimé	!isImmediatelyPrecededByANegation	11:12
+sublimée	!isImmediatelyPrecededByANegation	11:12
+sublimés	!isImmediatelyPrecededByANegation	11:12
+sublimées	!isImmediatelyPrecededByANegation	11:12
+submergée de joie	!isImmediatelyPrecededByANegation	11:12
+submergées de joie	!isImmediatelyPrecededByANegation	11:12
+submergés de joie	!isImmediatelyPrecededByANegation	11:12
+submergé de joie	!isImmediatelyPrecededByANegation	11:12
+succès	!isImmediatelyPrecededByANegation	11:12
+super	!isImmediatelyPrecededByANegation	11:12
+supers	!isImmediatelyPrecededByANegation	11:12
+superbe	!isImmediatelyPrecededByANegation	11:12
+superbes	!isImmediatelyPrecededByANegation	11:12
+sûr de soi	!isImmediatelyPrecededByANegation	11:12
+sûre de soi	!isImmediatelyPrecededByANegation	11:12
+sûrs de soi	!isImmediatelyPrecededByANegation	11:12
+sûres de soi	!isImmediatelyPrecededByANegation	11:12
+surexcité	!isImmediatelyPrecededByANegation	11:12
+surlike	!isImmediatelyPrecededByANegation	11:12
+survolté	!isImmediatelyPrecededByANegation	11:12
+survoltée	!isImmediatelyPrecededByANegation	11:12
+survoltés	!isImmediatelyPrecededByANegation	11:12
+survoltées	!isImmediatelyPrecededByANegation	11:12
+swag	!isImmediatelyPrecededByANegation	11:12
+sympa	!isImmediatelyPrecededByANegation	11:12
+sympathique	!isImmediatelyPrecededByANegation	11:12
+tendance	!isImmediatelyPrecededByANegation	11:12
+tenté	!isImmediatelyPrecededByANegation	11:12
+titillé	!isImmediatelyPrecededByANegation	11:12
+tonifié	!isImmediatelyPrecededByANegation	11:12
+top	!isImmediatelyPrecededByANegation	11:12
+topissime	!isImmediatelyPrecededByANegation	11:12
+touché	!isImmediatelyPrecededByANegation	11:12
+touchée	!isImmediatelyPrecededByANegation	11:12
+touchées	!isImmediatelyPrecededByANegation	11:12
+touchés	!isImmediatelyPrecededByANegation	11:12
+tranquille	!isImmediatelyPrecededByANegation	11:12
+tranquilles	!isImmediatelyPrecededByANegation	11:12
+transi	!isImmediatelyPrecededByANegation	11:12
+transie	!isImmediatelyPrecededByANegation	11:12
+transis	!isImmediatelyPrecededByANegation	11:12
+transies	!isImmediatelyPrecededByANegation	11:12
+transporté	!isImmediatelyPrecededByANegation	11:12
+transportée	!isImmediatelyPrecededByANegation	11:12
+transportés	!isImmediatelyPrecededByANegation	11:12
+transportées	!isImmediatelyPrecededByANegation	11:12
+triomphe	!isImmediatelyPrecededByANegation	11:12
+triomphes	!isImmediatelyPrecededByANegation	11:12
+triompher	!isImmediatelyPrecededByANegation	11:12
+veinard	!isImmediatelyPrecededByANegation	11:12
+veinarde	!isImmediatelyPrecededByANegation	11:12
+veinards	!isImmediatelyPrecededByANegation	11:12
+veinardes	!isImmediatelyPrecededByANegation	11:12
+vibrant	!isImmediatelyPrecededByANegation	11:12
+vibrantes	!isImmediatelyPrecededByANegation	11:12
+vibrants	!isImmediatelyPrecededByANegation	11:12
+vibrante	!isImmediatelyPrecededByANegation	11:12
+vitalité	!isImmediatelyPrecededByANegation	11:12
+wow	!isImmediatelyPrecededByANegation	11:12
+zen	!isImmediatelyPrecededByANegation	11:12

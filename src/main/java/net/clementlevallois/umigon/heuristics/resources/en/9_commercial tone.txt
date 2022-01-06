@@ -1,0 +1,67 @@
+2win		611
+allows		611
+announcements		611
+available at		611
+book now	isFirstLetterCapitalized	611
+buy	isFirstTermOfStatus+++isFollowedBySpecificTerm///now	if(A && B){611}
+complimentary		611
+could be the	isPrecededBySpecificTerm///why	611
+deal	isFirstLetterCapitalized	611
+discounts		611
+donate		611
+donates		611
+enable		61
+enter to win		611
+for free		611
+free	isAllCaps	611
+get a free		611
+get smart		61
+gift ideas		611
+gifts ideas		611
+giveaway		611
+giveaways		611
+giving away		611
+goodies		611
+helped		611
+hot deal		611
+hottest deal		611
+hottest deals		611
+inside	isFirstLetterCapitalized	61
+introduce		611
+introducing the		611
+it s free		611
+its free		611
+just released		611
+kickoff		611
+last chance to		611
+launch		611
+make sure	isFirstLetterCapitalized	611
+make it happen with		611
+meet the		611
+offer ends		611
+offering		611
+offerings		611
+official release	isFirstLetterCapitalized	61
+on sale	!isImmediatelyPrecededByANegation	611
+outcome	isImmediatelyPrecededByPositive	611
+outcomes	isImmediatelyPrecededByPositive	611
+powered by	isFirstLetterCapitalized	611
+rebate		611
+reinvents		611
+sales	isAllCaps	611
+save up to		611
+solutions		611
+specials		611
+stoked to		611
+sweepstakes		611
+unveiled		611
+unveils		611
+vote	isFirstLetterCapitalized	611
+watch	isFirstLetterCapitalized	611
+welcome to	isFirstLetterCapitalized	611
+win	!isImmediatelyPrecededByANegation	611
+nab		611
+tipples		611
+contest	isPrecededBySpecificTerm///entered|enter|join|jump	61
+behindthescenes		61
+behind the scenes		61

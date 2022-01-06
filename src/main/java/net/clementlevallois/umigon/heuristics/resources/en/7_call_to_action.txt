@@ -1,0 +1,50 @@
+adapt	isFirstLetterCapitalized	521	
+apply	isFirstLetterCapitalized	521	
+apply now	null	521	
+break free	isFirstLetterCapitalized	521	
+catch	isFirstLetterCapitalized	521	
+check it out	null	521	
+check out	isFirstLetterCapitalized	521	
+create	isFirstLetterCapitalized	521	
+do	isFirstLetterCapitalized	521	
+don t miss	isFirstLetterCapitalized	521	
+dont miss	isFirstLetterCapitalized	521	
+find out	isFirstLetterCapitalized	521	
+get	isFirstLetterCapitalized	521	
+give	isFirstLetterCapitalized	521	
+got	isFirstTermOfStatus+++isFollowedBySpecificTerm///?	if (A && B) {52}	
+grab	isFirstLetterCapitalized	521	
+hey	null	52	
+hi	isFirstTermOfStatus	52	
+join us	isFirstLetterCapitalized	521	
+learn	isFirstTermOfStatus+++isFirstLetterCapitalized	if (A && B) {521}	
+learn how	isFirstLetterCapitalized	521	
+make	isFirstLetterCapitalized	521	
+master	isFirstLetterCapitalized	521	
+meet	isFirstLetterCapitalized	521	
+navigate	isFirstLetterCapitalized	521	
+play	isFirstLetterCapitalized	521	
+please	null	52	
+read	isFirstLetterCapitalized	521	
+ready for	plus question mark in the next 10 words	52	
+reduce	isFirstLetterCapitalized	521	
+register	isFirstLetterCapitalized	521	
+retweet	null	521	
+see	isFirstLetterCapitalized	521	
+spread the word	null	521	
+swipe	isFirstLetterCapitalized	521	
+tell us	isFirstLetterCapitalized	521	
+touch	isFirstLetterCapitalized	521	
+try	isFirstLetterCapitalized	521	
+tweet your	null	521	
+u	null	52	
+ur	null	52	
+vote now	null	521	
+watch	isFirstLetterCapitalized	521	
+yah know	null	52	
+you	null	52	
+your	null	52	
+you re	null	52	
+yourself	null	52	
+you ve	null	52	
+ya ll	null	52	

@@ -1,0 +1,818 @@
+*sigh*		12		2
+@$$		12		3
+a butt	isPrecededBySpecificTerm///is|are|be	12		3
+a joke		12		3
+a pity	!isImmediatelyPrecededByANegation	12		3
+abandoned	!isImmediatelyPrecededByANegation	12		2
+abhor		12		3
+abhore		12		3
+abject		12		3
+abominable		12		3
+abominate		12		3
+accidentally		12		2
+accused of	!isImmediatelyPrecededByANegation	12		2
+ache	!isImmediatelyPrecededByANegation	12	x	2
+aching	!isImmediatelyPrecededByANegation	12		2
+afraid	!isImmediatelyPrecededByANegation	12		2
+again	isPrecededBySpecificTerm///never	12	x	3
+again ...		12	x	2
+again...		12	x	2
+agh		12		2
+aholes		12		3
+alarming	!isImmediatelyPrecededByANegation	12		3
+angry	!isImmediatelyPrecededByANegation	12		3
+angst	!isImmediatelyPrecededByANegation	12		2
+annoyed	!isImmediatelyPrecededByANegation	12		2
+annoying	!isImmediatelyPrecededByANegation	12		2
+annoyingly		12		2
+annoys	!isImmediatelyPrecededByANegation	12		2
+anymore		12		2
+apathetic		12		2
+appalled		12		3
+arbitrary	!isFollowedBySpecificTerm///number	12	x	2
+are down		12		2
+arg		12	x	2
+argh		12		2
+arrogance	!isImmediatelyPrecededByANegation	12		2
+arrogant	!isImmediatelyPrecededByANegation	12		2
+ashamed	!isImmediatelyPrecededByANegation	12		3
+ass	!isPrecededBySpecificTerm///bad|cool+++!isImmediatelyPrecededByANegation	if{A && B) {12} else {11}	x	3
+asses		12	x	3
+asshole	!isImmediatelyPrecededByANegation	12		3
+assholes	!isImmediatelyPrecededByANegation	12		3
+at odd	!isImmediatelyPrecededByANegation	12		1
+at odds	!isImmediatelyPrecededByANegation	12		1
+at risk	!isImmediatelyPrecededByANegation	12		1
+avoid	isAllCaps	12		3
+atrocious		12		3
+awful	!isImmediatelyFollowedBySpecificTerm///lot	12		3
+back to work		12		1
+bad	!isImmediatelyPrecededByANegation+++!isPrecededBySpecificTerm///want|wanna|would+++!isFollowedBySpecificTerm///ass|asses|asss	if (A && B && C) {12} else {11}	x	2
+badly	!isImmediatelyPrecededByANegation	12		2
+baffles		12		3
+baffled		12		3
+baity		12		1
+barbaric		12		3
+bastard	!isImmediatelyPrecededByANegation	12		3
+bastards	!isImmediatelyPrecededByANegation	12		3
+battling	!isFollowedBySpecificTerm///performance|bros|brothers|for|draw	12		2
+be serious	!isImmediatelyPrecededByANegation	12		2
+beat it		12		3
+begging	!isImmediatelyPrecededByANegation	12	x	2
+bemused		12		3
+beware		12		2
+bigotry	!isImmediatelyPrecededByANegation	12		2
+birdbrain	!isImmediatelyPrecededByANegation	12		3
+bitch	isAllCaps	12		3
+bitchass	!isImmediatelyPrecededByANegation	12		3
+bitter	!isImmediatelyPrecededByANegation	12		2
+bitterly	!isImmediatelyPrecededByANegation	12		2
+blah		12		1
+blame	!isImmediatelyPrecededByANegation	12		2
+blaming	!isImmediatelyPrecededByANegation	12		2
+blistered	!isImmediatelyPrecededByANegation	12		2
+bloatware		12		2
+blow	!isFollowedBySpecificTerm///our minds|their minds	12:11	x	2
+blows	!isFollowedBySpecificTerm///my mind	12:11	x	2
+bogged	!isImmediatelyPrecededByANegation	12		2
+bogus	!isImmediatelyPrecededByANegation	12		2
+boo		12	x	2
+bored	!isImmediatelyPrecededByANegation	12		2
+borez		12		2
+bonehead	!isImmediatelyPrecededByANegation	12		3
+boring	!isImmediatelyPrecededByANegation	12		1
+boyed	!isImmediatelyPrecededByANegation	12	x	2
+bozo		12		3
+broke	!isImmediatelyPrecededByANegation	12	x	2
+broken	!isImmediatelyPrecededByANegation	12		2
+bruised	!isImmediatelyPrecededByANegation	12		2
+bs	!isImmediatelyPrecededByANegation	12	x	2
+bugger		12		2
+bullshit	!isImmediatelyPrecededByANegation	12		3
+bummed	!isImmediatelyPrecededByANegation	12		2
+bummer		12		2
+bunch of	!isFollowedBySpecificTerm///flowers	12		2
+burned myself	!isImmediatelyPrecededByANegation	12		2
+butchered	!isImmediatelyPrecededByANegation	12		3
+butthurt		12		3
+cancelled	!isImmediatelyPrecededByANegation	12		2
+cancer	!isImmediatelyPrecededByANegation	12	x	3
+cant bear		12		3
+can t bear		12		3
+cease	!isImmediatelyPrecededByANegation	12	x	2
+cheat	!isImmediatelyPrecededByANegation	12	x	2
+cheated	!isImmediatelyPrecededByANegation	12		2
+cheating	!isImmediatelyPrecededByANegation	12		2
+cheerless		12		2
+classless	!isImmediatelyPrecededByANegation	12		3
+clown	!isImmediatelyPrecededByANegation	12		3
+clunky	!isImmediatelyPrecededByANegation	12		2
+clusterfuck		12		3
+clusterfucks		12		3
+complaining	!isImmediatelyPrecededByANegation	12		2
+complaint	!isImmediatelyPrecededByANegation	12		1
+complaints	!isImmediatelyPrecededByANegation	12		2
+complicit	!isImmediatelyPrecededByANegation	12		2
+concussion	!isImmediatelyPrecededByANegation	12		2
+conflicting	!isImmediatelyPrecededByANegation	12		2
+confused	!isImmediatelyPrecededByANegation	12		2
+coughing	!isImmediatelyPrecededByANegation	12		2
+coward	!isImmediatelyPrecededByANegation	12		3
+cowardly	!isImmediatelyPrecededByANegation	12		3
+crap	!isImmediatelyPrecededByANegation	12	x	3
+crappy	!isImmediatelyPrecededByANegation	12		3
+crapware	!isImmediatelyPrecededByANegation	12		3
+crash	!isImmediatelyPrecededByANegation	12		2
+crashed	!isImmediatelyPrecededByANegation	12		2
+crashes	!isImmediatelyPrecededByANegation	12		2
+crashing	!isImmediatelyPrecededByANegation	12		2
+creep	!isPrecededBySpecificTerm///im a|i am a	12		3
+creepy	!isImmediatelyPrecededByANegation	12		3
+cretin	!isImmediatelyPrecededByANegation	12		3
+cross	isPrecededBySpecificTerm///im|i am+++isFollowedBySpecificTerm///about|that	12		3
+cruel	!isImmediatelyPrecededByANegation	12		3
+crushed	!isImmediatelyPrecededByANegation	12		3
+cry	!isImmediatelyPrecededByANegation	12	x	3
+crying	!isImmediatelyPrecededByANegation	12		3
+damaged	!isImmediatelyPrecededByANegation	12		2
+damm		12		3
+dammit		12		3
+damn	!isImmediatelyFollowedByAPositiveOpinion	12		3
+damn it		12		3
+damnit		12		3
+dang		12	x	2
+dangerous	!isImmediatelyPrecededByANegation	12		2
+darn		12	x	2
+dbag 		12		3
+d-bag 		12		3
+dbags		12		3
+dead	!isImmediatelyPrecededByANegation	12	x	2
+deadly	!isImmediatelyPrecededByANegation	12		2
+deceptive	!isImmediatelyPrecededByANegation	12		2
+defective	!isImmediatelyPrecededByANegation	12		2
+defects		12		2
+delirious		12		3
+delusion		12		2
+delusory		12		2
+deny		12	x	2
+deplorable		12		2
+depraved		12		3
+depressed	!isImmediatelyPrecededByANegation	12		2
+depresses	!isImmediatelyPrecededByANegation	12		2
+depressing	!isImmediatelyPrecededByANegation	12		2
+depressingly		12		2
+desolate	!isImmediatelyPrecededByANegation	12		2
+desperate	!isImmediatelyPrecededByANegation	12		2
+desperation		12		2
+despicable	!isFollowedBySpecificTerm///me	12		3
+destroyed 	!isImmediatelyPrecededByANegation	12		2
+detest	!isImmediatelyPrecededByANegation	12		2
+devastated	!isImmediatelyPrecededByANegation	12		3
+dick		12	x	2
+dicks		12		2
+died	!isImmediatelyPrecededByANegation	12	x	2
+dies	!isImmediatelyPrecededByANegation	12	x	2
+dimwit		12		3
+dire		12		3
+disappointed	!isImmediatelyPrecededByANegation	12		2
+disappointing	!isImmediatelyPrecededByANegation	12		2
+disaster	!isImmediatelyPrecededByANegation	12		2
+disaster	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///recovery	if (A && B) {12} else {0}		2
+discouraged	!isImmediatelyPrecededByANegation	12		2
+disenchanted	!isImmediatelyPrecededByANegation	12		2
+disgraceful		12		2
+disgusted	!isImmediatelyPrecededByANegation	12		3
+disgusting	!isImmediatelyPrecededByANegation	12		3
+disillusioned	!isImmediatelyPrecededByANegation	12		2
+dislike	!isImmediatelyPrecededByANegation	12		1
+dismayed		12		2
+displeased	!isImmediatelyPrecededByANegation	12		1
+disrespect	!isImmediatelyPrecededByANegation	12		2
+dissapointed	!isImmediatelyPrecededByANegation	12		2
+dissatisfied	!isImmediatelyPrecededByANegation	12		1
+distasteful		12		1
+distressful		12		2
+distressing		12		3
+divisive	!isImmediatelyPrecededByANegation	12		1
+divorcing	!isImmediatelyPrecededByANegation	12		2
+dizzy	!isImmediatelyPrecededByANegation	12		1
+do not	isAllCaps	12		3
+do they need	!isImmediatelyPrecededByANegation	12		1
+dodgy	!isImmediatelyPrecededByANegation	12		2
+does not get it		12		1
+does not mean		12		1
+doesnt get it		12		1
+doesn t get it		12		1
+doesn t mean		12		1
+doesnt mean		12		1
+doesnt reply		12		1
+doesn t reply		12		1
+dont	isAllCaps	12	x	3
+DON T	isAllCaps	12	x	3
+don t get it		12		1
+dont get it		12		1
+dont know what		12		1
+don t know what		12		1
+dont like		12		1
+don t like		12		1
+dont reply		12		1
+don t reply		12		1
+doomed		12		3
+doubt it	!isImmediatelyPrecededByANegation	12		1
+douche	!isImmediatelyPrecededByANegation	12		3
+douchebag	!isImmediatelyPrecededByANegation	12		3
+douchebaggery		12		3
+douchebags	!isImmediatelyPrecededByANegation	12		3
+doucheclown		12		3
+doucheclowns		12		3
+downbeat		12		1
+downhearted		12		1
+drained	!isInAStatusWithOneOfTheseSpecificTerms///water|pipe|flood	12		2
+dread		12	x	2
+dreaded		12		2
+dreading	!isImmediatelyPrecededByANegation	12		2
+dreadful		12		3
+dull	!isImmediatelyPrecededByANegation	12	x	1
+dumb	!isImmediatelyPrecededByANegation	12	x	2
+dumbass		12		3
+dysfunctional		12		1
+earache	!isImmediatelyPrecededByANegation	12		2
+eek		12		3
+embargoed		12		2
+embarrassing	!isImmediatelyPrecededByANegation	12		2
+enraged	!isImmediatelyPrecededByANegation	12		3
+error	!isImmediatelyPrecededByANegation	12		2
+errors	!isImmediatelyPrecededByANegation	12		2
+ever	isPrecededBySpecificTerm///never	12	x	1
+exasperating		12		3
+excrement		12		2
+execrate		12		3
+expensive	!isImmediatelyPrecededByANegation	12		1
+experienced issues	!isImmediatelyPrecededByANegation	12		2
+experiencing issues	!isImmediatelyPrecededByANegation	12		2
+experiencing some issues	!isImmediatelyPrecededByANegation	12		2
+f**king	isImmediatelyFollowedByAPositiveOpinion	12		3
+f*ck		12		3
+fu*k you		12		3
+f*king	isImmediatelyFollowedByAPositiveOpinion	11:12		3
+fail		12		2
+failed	!isImmediatelyPrecededByANegation	12		2
+fails	!isImmediatelyPrecededByANegation	12		2
+failure		12		2
+fake		12	x	2
+fainthearted	!isImmediatelyPrecededByANegation	12		2
+famished		12		3
+faulty	!isImmediatelyPrecededByANegation	12		2
+fed up		12		3
+feeble		12		2
+feeling down	!isImmediatelyPrecededByANegation	12		2
+fell	!isFollowedBySpecificTerm///in love	12	x	2
+fidgety		12		1
+fired	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///up	if (A && B) {12} else {0}		2
+flawed		12		2
+fml		12	x	2
+fool	!isImmediatelyPrecededByANegation+++!isImmediatelyPrecededBySpecificTerm///to	if (A && B) {12} else {0}	x	3
+fooled	!isImmediatelyPrecededByANegation	12		3
+fools	!isImmediatelyPrecededByANegation	12	x	3
+forced	!isImmediatelyPrecededByANegation	12		2
+forgot me	!isImmediatelyPrecededByANegation	12		1
+forgot us	!isImmediatelyPrecededByANegation	12		1
+fraud	!isImmediatelyPrecededByANegation	12	x	2
+frauds	!isImmediatelyPrecededByANegation	12	x	2
+freak	!isImmediatelyPrecededByANegation	12		3
+frightful		12		3
+frowny		12		1
+frustrated	!isImmediatelyPrecededByANegation	12		2
+frustrated	!isImmediatelyPrecededByANegation	12		2
+frustrating	!isImmediatelyPrecededByANegation	12		2
+fuck	!isFollowedByAPositiveOpinion	12	x	3
+fucking	!isFollowedByAPositiveOpinion	12	x	3
+fucked	!isImmediatelyPrecededByANegation	12		3
+fucker		12		3
+fuckers		12		3
+fucks		12	x	3
+f*ck	!isFollowedByAPositiveOpinion	12	x	3
+f*cking	!isFollowedByAPositiveOpinion	12	x	3
+f*cked	!isImmediatelyPrecededByANegation	12		3
+f*cker		12		3
+f*ckers		12		3
+f*cks		12	x	3
+fuming		12		3
+funeral	!isImmediatelyPrecededByANegation	12	x	2
+furious		12		3
+gah		12	x	2
+galling		12		3
+garbage		12		2
+garbages		12		2
+gerrymandering	!isImmediatelyPrecededByANegation	12		2
+glitch	!isImmediatelyPrecededByANegation	12		1
+gloomy		12		3
+glum		12		2
+go back to your		12		3
+go to work		12		2
+god sake		12		3
+goddam	+++!isFollowedByAPositiveOpinion	12		3
+goddamn	+++!isFollowedByAPositiveOpinion	12		3
+goddamned		12		3
+going crazy		12		2
+greed	!isImmediatelyPrecededByANegation	12	x	2
+greedy	!isImmediatelyPrecededByANegation	12		2
+grossly		12		3
+grotesque		12		3
+grr		12	x	2
+grim		12		2
+gruesome		12		3
+grumpy	!isImmediatelyPrecededByANegation	12		2
+h8		12	x	3
+hacked	!isImmediatelyPrecededByANegation	12		2
+had to		12		1
+half-assed		12		3
+halfwit		12		3
+half wit		12		3
+hapless		12		3
+harassed		12		3
+hard	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///work|disk|disks|drive|drives|worked|working|skill|skills|part+++!isImmediatelyPrecededBySpecificTerm///push|work|works|working|worked|work so|working so|worked so|works so|play|party	if (A && B && C) {12} else if (A && B && C == 'false'){11} else {0}	x	1
+harried		12		2
+harsh		12	x	2
+hate	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///to	if(A && B){12} else if (A == 'false' && B){99} else {11}	x	3
+hated	!isImmediatelyPrecededByANegation	12		3
+hateful	!isImmediatelyPrecededByANegation	12		3
+hater		12		2
+haters		12		2
+hating	!isImmediatelyPrecededByANegation	12		2
+have to wait		12		1
+have to work		12		1
+headache	!isImmediatelyPrecededByANegation	12		2
+headaches	!isImmediatelyPrecededByANegation	12		2
+headachy		12		2
+heart	isPrecededBySpecificTerm///break|breaking|broke+++isFollowedBySpecificTerm///break|breaking|wrenched|wrenching	if(A || B){12} else {0}	x	1
+heartbroken	!isImmediatelyPrecededByANegation	12		3
+heart broken	!isImmediatelyPrecededByANegation	12		3
+heinous		12		3
+hell	!isImmediatelyPrecededByANegation	12	x	3
+helpless	!isImmediatelyPrecededByANegation	12		2
+hideous	!isImmediatelyPrecededByANegation	12		3
+hitch	!isPrecededBySpecificTerm///without a	12		2
+hitler		12		3
+hmm		12		1
+hoax	!isImmediatelyPrecededByANegation	12		2
+hoaxes	!isImmediatelyPrecededByANegation	12		2
+homework	!isImmediatelyPrecededByANegation	12		1
+hoped		12		1
+hopeless	!isImmediatelyPrecededByANegation	12		2
+horrendous		12		3
+horrible	!isImmediatelyPrecededByANegation	12		3
+horrific		12		3
+horrid		12		3
+horrified	!isImmediatelyPrecededByANegation	12		3
+horrifying	!isImmediatelyPrecededByANegation	12		3
+how can	!isImmediatelyFollowedBySpecificTerm///i|we	12		1
+humiliated		12		2
+humiliating		12		2
+hurt	!isImmediatelyPrecededByANegation	12	x	2
+hurt	!isImmediatelyPrecededByANegation	12		2
+hurts	!isImmediatelyPrecededByANegation	12		2
+i cant		12		2
+i can t		12		2
+i didnt get		12		1
+i didn t get		12		1
+i dont wanna		12		1
+i don t wanna		12		1
+i have no		12		1
+i have to		12		1
+i miss my		12		2
+i need to		12		1
+i wish i		12		1
+idiot	!isImmediatelyPrecededByANegation	12		3
+idiots	!isImmediatelyPrecededByANegation	12		3
+if only		12		1
+ignored		12		2
+immature		12		2
+in hell		12		3
+in the hell		12		2
+inappropriate	!isImmediatelyPrecededByANegation	12		2
+incompatible	!isImmediatelyPrecededByANegation	12:11		2
+incompetent	!isImmediatelyPrecededByANegation	12		2
+incompetents		12		2
+inept	!isImmediatelyPrecededByANegation	12		3
+inexcusable		12		3
+infuriated		12		3
+infuriating		12		3
+injuries	!isImmediatelyPrecededByANegation	12		2
+injury	!isImmediatelyPrecededByANegation	12		2
+inhuman		12		3
+inhumane		12		3
+insensitive	!isImmediatelyPrecededByANegation	12		3
+interrupted	!isImmediatelyPrecededByANegation	12		1
+intolerable		12		3
+ironically		12		1
+irritated	!isImmediatelyPrecededByANegation	12		2
+irritating	!isImmediatelyPrecededByANegation	12		2
+is down		12		2
+is faulty		12		1
+itchy	!isImmediatelyPrecededByANegation	12		1
+jackass		12		3
+jacked up		12		2
+jammed	!isImmediatelyPrecededByANegation	12		2
+janky		12		2
+jejune		12		2
+jerk		12		3
+joke	isPrecededByStrongWord	12	x	3
+junk		12		3
+kicked my butt		12		2
+kidding, no?		12		2
+kidding, right?		12		2
+kill		12	x	2
+klutz		12		2
+lack of	!isImmediatelyPrecededByANegation	12		1
+lame		12	x	3
+laughable		12		3
+layoff	!isImmediatelyPrecededByANegation	12		1
+layoffs	!isImmediatelyPrecededByANegation	12		1
+left wing		12		1
+liar		12		2
+like	isImmediatelyPrecededByANegation	12	x	1
+loathe		12		3
+loathsome		12		3
+lobbies		12		1
+lobby		12		1
+lobbyist		12		1
+lonely	!isImmediatelyPrecededByANegation	12		1
+loose	!isImmediatelyPrecededByANegation+++!isPrecededBySpecificTerm///on the	if(A && B){12} else if (A == 'false' && B){99} else {11}	x	2
+looser		12		3
+loosers		12		3
+loser		12		3
+losers		12		3
+loses	!isImmediatelyPrecededByANegation	12		1
+loss		12	x	1
+lousy		12		2
+low	isPrecededByStrongWord	12	x	2
+mad	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///max	if(A && B){12} else{0}		2
+maddening	+++!isFollowedByAPositiveOpinion	12		3
+malignious tumor	!isImmediatelyPrecededByANegation	12		2
+mess	!isImmediatelyPrecededByANegation+++!isPrecededBySpecificTerm///go to the|went to the|watched the|watch the|attend the|attended the	12	x	2
+mess up	!isImmediatelyPrecededByANegation	12		2
+messed	!isImmediatelyPrecededByANegation	12		2
+messed up	!isImmediatelyPrecededByANegation	12		2
+messing up		12		2
+messing with	!isImmediatelyPrecededByANegation	12		2
+middle finger		12		3
+midterms		12		1
+migraine	!isImmediatelyPrecededByANegation	12		1
+miserable	!isImmediatelyPrecededByANegation	12		2
+misogynistic		12		2
+misogyny		12		2
+miss	!isImmediatelyPrecededByANegation	12	x	2
+missed	!isImmediatelyPrecededByANegation	12		2
+misses		12		2
+missin	!isImmediatelyPrecededByANegation	12		2
+missing	!isImmediatelyPrecededByANegation	12		2
+missn	!isImmediatelyPrecededByANegation	12		2
+mmh		12		1
+mmmh		12		1
+mockery		12		1
+monstruous	!isFollowedByAPositiveOpinion	12		3
+moron		12		3
+mortified		12		3
+mortifying		12		3
+motherfucker		12		3
+motherfuckers		12		3
+motherfucking		12		3
+moving tribute		12		1
+muthafucka		12		3
+muthafuckas		12		3
+my butt kicked		12		2
+nasty	!isImmediatelyPrecededByANegation	12		2
+nausea		12		3
+nauseated		12		3
+nauseating		12		3
+need hugs	!isImmediatelyPrecededByANegation	12		1
+need money	!isImmediatelyPrecededByANegation	12		2
+need sleep	!isImmediatelyPrecededByANegation	12		1
+need some money		12		1
+need to sleep	!isImmediatelyPrecededByANegation	12		1
+needs hug	!isImmediatelyPrecededByANegation	12		1
+needs hugs	!isImmediatelyPrecededByANegation	12		1
+neglect	!isImmediatelyPrecededByANegation	12		2
+neglected	!isImmediatelyPrecededByANegation	12		2
+never	!isFollowedBySpecificTerm///get tired+++isAllCaps	if(A && B){12} else {0}	x	1
+never again		12		2
+never buy		12		2
+nigga	!isFollowedByAPositiveOpinion+++!isPrecededByAPositiveOpinion	if (A && B) {12} else {0}		3
+niggas	!isFollowedByAPositiveOpinion+++!isPrecededByAPositiveOpinion	if (A && B) {12} else{0}		3
+nightmare		12		3
+nightmares		12		3
+no	isAllCaps	12	x	3
+no apparent reason		12		2
+no cash	!isImmediatelyPrecededByANegation	12		2
+no money	!isImmediatelyPrecededByANegation	12		2
+no no		12		2
+no result		12		1
+no results		12		1
+no, no		12		1
+none	isAllCaps	12	x	3
+nonsense		12		2
+nonsensical		12		2
+not	isAllCaps	12	x	2
+not a joke		12		2
+not be working		12		2
+not exactly		12		1
+not good		12		1
+not happen		12		1
+not working		12		1
+nothing to say		12		1
+now only if		12		1
+nuts	isPrecededBySpecificTerm///drive|droven|drove|driven|drived|is|are|driving me	12	x	3
+obsolete		12		1
+obtuse		12		2
+offended	!isImmediatelyPrecededByANegation	12		2
+offending	!isImmediatelyPrecededByANegation	12		2
+on what planet		12		3
+ooops		12		1
+oops		12	x	1
+ouch		12	x	1
+out	isPrecededBySpecificTerm///stressed|stresses	12	x	2
+outraged	!isImmediatelyPrecededByANegation	12		3
+overrated	!isImmediatelyPrecededByANegation	12		2
+owe	!isImmediatelyFollowedBySpecificTerm///you	12	x	1
+pain		12	x	2
+painful	!isImmediatelyPrecededByANegation	12		2
+paining	!isImmediatelyPrecededByANegation	12		2
+paltry		12		3
+panic		12		2
+passed the buck	!isImmediatelyPrecededByANegation	12		2
+passing the buck	!isImmediatelyPrecededByANegation	12		2
+pathetic		12		3
+peabrain		12		2
+pernicious		12		2
+perturbing		12		2
+pervert		12		2
+perverts		12		2
+pesky		12		2
+pestiferous		12		3
+pigshit		12		3
+pinhead		12		3
+pissed	!isImmediatelyPrecededByANegation	12		3
+pisses		12	x	3
+pitiful		12		3
+pointless	!isImmediatelyPrecededByANegation	12		2
+pooped		12		2
+poor service		12		1
+pornographic		12		1
+prat		12		2
+pray 4		12		2
+pray for		12		2
+problem	!isPrecededBySpecificTerm///solve|solving|solve my|solving my|tackling+++!isImmediatelyFollowedBySpecificTerm///solving|solver+++!isImmediatelyPrecededByANegation	if(A && B && C){12} else{0}		2
+problems	!isPrecededBySpecificTerm///solve|solving|solve my|solving my|tackling+++!isImmediatelyFollowedBySpecificTerm///solving|solver+++!isImmediatelyPrecededByANegation	if(A && B && C){12} else{0}		2
+probs		12		1
+profanity		12		3
+prohibitive		12		2
+puerile		12		1
+puke		12		3
+rabid		12		3
+rabidly		12		3
+racism		12		2
+racist		12		2
+racists		12		2
+ran out		12		1
+rant		12	x	2
+raped		12		3
+really don’t		12		2
+red faced		12		2
+refund		12		1
+refuse	!isImmediatelyPrecededByANegation	12		1
+regret	!isImmediatelyPrecededByANegation	12		1
+reimburse		12		1
+reppellent				2
+repulsive		12		2
+retarded		12		3
+revolting		12		3
+rid of		12		2
+ridiculous		12		2
+right wing		12		2
+rip		12	x	2
+risky		12		2
+rubbish		12		3
+rude		12		3
+rudeness		12		2
+rudest		12		3
+ruined		12		3
+ruining		12		3
+running late		12		1
+running out		12		1
+ruptured	!isImmediatelyPrecededByANegation	12		2
+sacrificed		12		2
+sad	!isImmediatelyPrecededByANegation	12	x	2
+sadden	!isImmediatelyPrecededByANegation	12		2
+saddest		12		3
+sadfaced		12		2
+sadistic		12		3
+sadly		12		2
+savagery		12		3
+savageries		12		2
+scam		12		3
+scandal		12		3
+scandale		12		3
+scare	!isImmediatelyPrecededByANegation	12		2
+scared	!isImmediatelyPrecededByANegation	12		2
+scary	!isImmediatelyPrecededByANegation	12		2
+scorching response to		12		3
+scratched	!isImmediatelyPrecededByANegation	12		1
+screw you		12		3
+screwed	!isImmediatelyPrecededByANegation	12		2
+scumbag		12		3
+scumbags 		12		3
+send them back		12		2
+sentenced	!isImmediatelyPrecededByANegation	12		1
+seriously?		12		2
+sexist	!isImmediatelyPrecededByANegation	12		2
+sexists	!isImmediatelyPrecededByANegation	12		2
+sh*t	!isImmediatelyPrecededByPositive+++!isImmediatelyPrecededByANegation	if(A && B){12} else{0}		3
+shame		12		2
+shameful		12		3
+schmuck	!isImmediatelyPrecededByANegation	12		2
+sheesh		12		2
+shit	!isImmediatelyPrecededByPositive+++!isImmediatelyPrecededByANegation+++!isImmediatelyPrecededBySpecificTerm///real	if(A && B && C){12} else if (C == 'false' || A == 'false') {11}  else {0}		2
+shite		12		3
+shitfaced		12		3
+shits	!isImmediatelyPrecededByANegation	12		2
+shits		12		2
+shitter		12		3
+shittest		12		3
+shittiest		12		3
+shitty		12		2
+should have		12		1
+should not		12		1
+shouldn t exist		12		1
+shrewd		12		1
+shut up		12		3
+shysty		12		2
+sick	!isImmediatelyPrecededByANegation+++!isPrecededByPositive+++!isFollowedByAPositiveOpinion	if(A && B && C) {11} else{0}		2
+sick of	!isImmediatelyPrecededByANegation	12		2
+sickening		12		3
+sickos		12		3
+sigh		12		1
+sighs		12		1
+silly		12		2
+sinful		12		3
+slave		12		2
+slavery		12		2
+slaves		12		2
+sluggish		12		1
+slut		12	x	3
+sluts		12		3
+smacks down		12		2
+smack down		12		2
+smfh		12		2
+smh		12		2
+snarl		12		1
+so behind	!isImmediatelyPrecededByANegation	12		1
+sob		12	x	1
+sod		12	x	2
+sore		12	x	2
+sores		12	x	2
+sorrow		12		1
+sorry	!isImmediatelyFollowedBySpecificTerm///to	12		1
+sorry to hear		12		1
+sowy	!isImmediatelyPrecededByANegation	12		2
+spew	!isImmediatelyPrecededByANegation	12		2
+spewing		12		3
+spews		12		3
+spineless		12		3
+starving		12		3
+stern		12		2
+stomachache	!isImmediatelyPrecededByANegation	12		2
+stop	isAllCaps	12	x	3
+strange		12		1
+stuck	!isImmediatelyPrecededByANegation	12		1
+stuffy	!isImmediatelyPrecededByANegation	12		1
+stupid	!isImmediatelyPrecededByANegation	12		2
+suck	!isImmediatelyPrecededByANegation	12		3
+sucked	!isImmediatelyPrecededByANegation	12		2
+sucker	!isImmediatelyPrecededByANegation	12		3
+suckers	!isImmediatelyPrecededByANegation	12		3
+sucking		12		3
+sucks	!isImmediatelyPrecededByANegation	12		2
+sucky		12		2
+suckz		12		2
+sue me	!isImmediatelyPrecededByANegation	12		2
+sue them		12		2
+sue us	!isImmediatelyPrecededByANegation	12		2
+sue you	!isImmediatelyPrecededByANegation	12		2
+suspended	!isImmediatelyPrecededByANegation	12		1
+suspension		12		1
+suspicious		12		1
+sweatshop		12		2
+sweatshops		12		2
+swollen	!isImmediatelyPrecededByANegation	12		2
+tacky	!isImmediatelyPrecededByANegation	12		2
+taken forever		12		1
+takes forever		12		1
+terrible	!isImmediatelyPrecededByANegation	12		2
+terrifying		12		3
+terrifyingly		12		3
+that s it		12		1
+thin	isImmediatelyFollowedBySpecificTerm///margin|air|layer|slice|ground|ice|floor|evidence+++!isImmediatelyPrecededBySpecificTerm///running|too|paper|stretched|stretch|little|patience|wafer	if (A || B) {12} else {0}	2	2
+this close		12		1
+thisclose		12		1
+threaten		12		2
+threatens		12		2
+throbbing	!isImmediatelyPrecededByANegation	12		3
+tiresome		12		2
+thug		12	x	3
+thugs		12		3
+tired	!isImmediatelyPrecededByANegation	12		2
+to be desired	isPrecededBySpecificTerm///leaves|left	12		1
+to work	isPrecededBySpecificTerm///can t get	12		1
+too late	!isImmediatelyPrecededByANegation	12		1
+too much	!isFollowedByAPositiveOpinion	12		1
+toothache	!isImmediatelyPrecededByANegation	12		1
+toxic	!isImmediatelyPrecededByANegation	12		3
+toxicity		12		1
+tragedy	!isImmediatelyPrecededByANegation	12		3
+tromped	!isImmediatelyPrecededByANegation	12		2
+trouble	!isImmediatelyPrecededByANegation	12		2
+tummyache	!isImmediatelyPrecededByANegation	12		2
+tumor	!isImmediatelyPrecededByANegation	12		2
+twat		12		2
+twats		12		2
+twerp		12		2
+ugh		12	x	1
+ugly		12		2
+uh oh		12		1
+unacceptable	!isImmediatelyPrecededByANegation	12		3
+uncaring	!isImmediatelyPrecededByANegation	12		2
+uncool	!isImmediatelyPrecededByANegation	12		2
+undermine	!isImmediatelyPrecededByANegation	12		1
+undermines	!isImmediatelyPrecededByANegation	12		1
+undermined	!isImmediatelyPrecededByANegation	12		1
+unfair	!isImmediatelyPrecededByANegation	12		2
+unforgivable	!isImmediatelyPrecededByANegation	12		3
+unfortunate	!isImmediatelyPrecededByANegation	12		1
+unfortunately		12		1
+unfortunetly		12		1
+ungodly	!isImmediatelyPrecededByANegation	12		3
+unhappy	!isImmediatelyPrecededByANegation	12		2
+unhealthy 	!isImmediatelyPrecededByANegation	12		2
+unloved	!isImmediatelyPrecededByANegation	12		2
+unsatisfying	!isImmediatelyPrecededByANegation	12		1
+unsolved		12		1
+unspeakable		12		3
+unsuccessful		12		1
+unsuccessfully		12		1
+unintelligent		12		2
+unwanted		12		2
+upset	!isImmediatelyPrecededByANegation	12		2
+upsetting	!isImmediatelyPrecededByANegation	12		2
+very concerning	!isImmediatelyPrecededByANegation	12		2
+vexed	!isImmediatelyPrecededByANegation	12		2
+vexing		12		2
+vomit		12		3
+want to go	!isPrecededBySpecificTerm///do you	12		1
+waste my time	!isImmediatelyPrecededByANegation	12		2
+waste of my time	!isImmediatelyPrecededByANegation	12		2
+waste our time	!isImmediatelyPrecededByANegation	12		2
+wasted time	!isImmediatelyPrecededByANegation	12		2
+wasteland		12		3
+way too	!isFollowedByAPositiveOpinion	12		2
+we lost		12		2
+weird	!isImmediatelyPrecededByANegation	12	x	2
+whats wrong		12		2
+what s wrong		12		2
+whore		12		3
+whores		12		3
+wish he		12		1
+wish I		12		1
+wish i had		12		1
+wish she		12		1
+wish they		12		1
+wish we		12		1
+wont be buying		12		2
+won t be buying		12		2
+won t buy		12		2
+wont buy		12		2
+wont let me		12		2
+worn out	!isImmediatelyPrecededByANegation	12		1
+worried	!isImmediatelyPrecededByANegation	12		1
+worries	!isImmediatelyPrecededByANegation	12		1
+worry	!isImmediatelyPrecededByANegation	12		1
+worrying	!isImmediatelyPrecededByANegation	12		1
+worse	!isImmediatelyPrecededByANegation	12		2
+worst	!isImmediatelyPrecededByANegation	12		2
+wrenching		12		3
+wretched		12		3
+wrong	!isImmediatelyPrecededByANegation	12		2
+wtf		12		3
+yeah right		12		2
+years behind	!isImmediatelyPrecededByANegation	12		2
+yuck		12		2
+yucky	!isImmediatelyPrecededByANegation	12		2
+zero support		12		2
+help us!		12		2
+please hurry		12		2
+slap in the face		12		3
+insane	!isPrecededByPositive+++!isFollowedByAPositiveOpinion	if (A && B) {12} else {0}		3
+whatsoever		12		2
+sux		12	x	2
+i ve had to		12		1
+ive had to		12		1
