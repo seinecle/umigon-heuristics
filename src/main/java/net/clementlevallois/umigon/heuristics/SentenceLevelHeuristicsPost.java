@@ -21,7 +21,7 @@ public class SentenceLevelHeuristicsPost {
 
     private String status;
     private String statusStripped;
-    private Document tweet;
+    private Document document;
     private String lang;
     private final HeuristicsLoaderOnDemand heuristics;
 
@@ -31,7 +31,7 @@ public class SentenceLevelHeuristicsPost {
 
     public Document applyRules(Document tweet, String status, String statusStripped, String lang) {
         this.status = status;
-        this.tweet = tweet;
+        this.document = tweet;
         this.lang = lang;
         this.statusStripped = statusStripped;
 
@@ -45,17 +45,12 @@ public class SentenceLevelHeuristicsPost {
         return tweet;
     }
 
-//    public void containsMoreThan2Mentions() {
-//        int countArobase = StringUtils.countMatches(status, "@");
-//        if (countArobase > 2 & !tweet.getListCategories().contains("12")) {
-//            tweet.addToListCategories("061", -1);
-//        }
-//    }
+
     public void isIronicallyPositive() {
-        if (tweet.getListCategories().contains("11") & tweet.getListCategories().contains("12")) {
+        if (document.getListCategories().contains("11") & document.getListCategories().contains("12")) {
             for (String term : heuristics.getSetIronicallyPositive(lang)) {
                 if (status.contains(term)) {
-                    tweet.deleteFromListCategories("12");
+                    document.deleteFromListCategories("12");
                 }
             }
         }
@@ -68,31 +63,31 @@ public class SentenceLevelHeuristicsPost {
 
         Set<String> termsInStatus = new HashSet();
         termsInStatus.addAll(Arrays.asList(status.split(" ")));
-        if (!tweet.getListCategories().isEmpty()) {
+        if (!document.getListCategories().isEmpty()) {
             return;
         }
         for (String term : heuristics.getSetNegations(lang)) {
             if (termsInStatus.contains(term)) {
-                tweet.addToListCategories("12", -1);
+                document.addToListCategories("12", -1);
             }
         }
     }
 
     public void containsModerator() {
-        if (tweet.getListCategories().isEmpty()) {
+        if (document.getListCategories().isEmpty()) {
             return;
         }
         String statusStrippedLowerCase = statusStripped.toLowerCase();
         for (String term : heuristics.getSetModerators(lang)) {
             if (statusStrippedLowerCase.contains(term)) {
                 int indexMod = statusStrippedLowerCase.indexOf(term);
-                Queue<CategoryAndIndex> mapCategoriesToIndex = tweet.getMapCategoriesToIndex();
+                Queue<CategoryAndIndex> mapCategoriesToIndex = document.getMapCategoriesToIndex();
                 Iterator<CategoryAndIndex> iterator = mapCategoriesToIndex.iterator();
                 while (iterator.hasNext()) {
                     CategoryAndIndex next = iterator.next();
                     if (next.getIndex() > indexMod) {
                         iterator.remove();
-                        tweet.getListCategories().remove(next.getCategory());
+                        document.getListCategories().remove(next.getCategory());
                     }
                 }
             }
@@ -100,8 +95,8 @@ public class SentenceLevelHeuristicsPost {
     }
 
     public void containsANegationAndAPositiveAndNegativeSentiment() {
-        Set<Integer> indexesPos = tweet.getAllIndexesForCategory("11");
-        Set<Integer> indexesNeg = tweet.getAllIndexesForCategory("12");
+        Set<Integer> indexesPos = document.getAllIndexesForCategory("11");
+        Set<Integer> indexesNeg = document.getAllIndexesForCategory("12");
 
         if (indexesPos.isEmpty() || indexesNeg.isEmpty()) {
             return;
@@ -133,17 +128,17 @@ public class SentenceLevelHeuristicsPost {
             if (termsInStatus.contains(term)) {
                 indexModerator = status.indexOf(term);
                 if ((indexPos < indexModerator & indexNeg > indexModerator)) {
-                    tweet.deleteFromListCategories("11");
+                    document.deleteFromListCategories("11");
                     break;
                 } else if ((indexPos > indexModerator & indexNeg < indexModerator)) {
-                    tweet.deleteFromListCategories("12");
+                    document.deleteFromListCategories("12");
                     break;
                 }
                 if ((indexModerator < indexPos & indexModerator < indexNeg & indexPos < indexNeg)) {
-                    tweet.deleteFromListCategories("11");
+                    document.deleteFromListCategories("11");
                     break;
                 } else if ((indexModerator < indexPos & indexModerator < indexNeg & indexNeg < indexPos)) {
-                    tweet.deleteFromListCategories("12");
+                    document.deleteFromListCategories("12");
                     break;
                 }
             }
@@ -155,25 +150,25 @@ public class SentenceLevelHeuristicsPost {
 //        if (status.contains("Social innovation")) {
 //            System.out.println("brass monkey");
 //        }
-        if (!tweet.getListCategories().isEmpty()) {
+        if (!document.getListCategories().isEmpty()) {
             return;
         }
         if (statusStripped.length() < 5) {
-            tweet.addToListCategories("92", -1);
+            document.addToListCategories("92", -1);
         }
         if (statusStripped.split(" ").length < 4) {
-            tweet.addToListCategories("92", -1);
+            document.addToListCategories("92", -1);
         }
     }
 
     private void whenAllElseFailed() {
         //what to do when a tweet contains both positive and negative markers?
         //classify it as negative, except if it ends by a positive final note
-        if (tweet.getListCategories().contains("11") & tweet.getListCategories().contains("12")) {
-            if (tweet.getFinalNote() == null || tweet.getFinalNote() == -1) {
-                tweet.deleteFromListCategories("11");
-            } else if (tweet.getFinalNote() == 1) {
-                tweet.deleteFromListCategories("12");
+        if (document.getListCategories().contains("11") & document.getListCategories().contains("12")) {
+            if (document.getFinalNote() == null || document.getFinalNote() == -1) {
+                document.deleteFromListCategories("11");
+            } else if (document.getFinalNote() == 1) {
+                document.deleteFromListCategories("12");
             }
         }
 
