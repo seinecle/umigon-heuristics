@@ -68,6 +68,7 @@ public class TermLevelHeuristics {
     private int indexTerm;
     private String lang;
     private HeuristicsLoaderOnDemand heuristics;
+    private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     InterpreterOfConditionalExpressions interpreter;
 
@@ -99,7 +100,6 @@ public class TermLevelHeuristics {
 //            System.out.println("stop");
 //        }
         int count = 0;
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         String condition;
         Set<String> keywords;
@@ -210,7 +210,7 @@ public class TermLevelHeuristics {
 
             }
             outcome = opposite ? !outcome : outcome;
-            conditions.put(alphabet.substring(count, (count + 1)), outcome);
+            conditions.put(ALPHABET.substring(count, (count + 1)), outcome);
             count++;
         }
 

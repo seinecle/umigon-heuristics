@@ -174,7 +174,7 @@ bénéficié	!isImmediatelyPrecededByANegation	11:12
 bénéficier	!isImmediatelyPrecededByANegation	11:12
 bénéfique	!isImmediatelyPrecededByANegation	11:12
 béni	!isImmediatelyPrecededByANegation	11:12
-bien	isImmediatelyPrecededBySpecificTerm///commence+++isImmediatelyFollowedBySpecificTerm///joli|jolis|jolie|jolies|beau|beaux	if(A || B){12}
+bien	isImmediatelyPrecededBySpecificTerm///commence+++isImmediatelyFollowedBySpecificTerm///joli|jolis|jolie|jolies|beau|beaux+++isImmediatelyFollowedBySpecificTerm///joué|vu	if(A || B){12} else if (C == 'true') {11}
 bienheureux	!isImmediatelyFollowedByANegation	11:12
 bienvenue	!isImmediatelyFollowedByANegation	11:12
 blindé	!isImmediatelyFollowedByANegation	11:12

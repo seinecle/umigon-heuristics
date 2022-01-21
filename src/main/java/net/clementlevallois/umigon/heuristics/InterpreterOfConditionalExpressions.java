@@ -7,7 +7,6 @@ package net.clementlevallois.umigon.heuristics;
 import java.util.HashMap;
 import java.util.Map;
 import org.mvel2.MVEL;
-import org.mvel2.templates.TemplateRuntime;
 
 /**
  *
@@ -42,12 +41,11 @@ import org.mvel2.templates.TemplateRuntime;
 public class InterpreterOfConditionalExpressions {
 
     public static void main(String args[]) {
-        String rule = "if (A && B && C) {12} else if (A && B && C == 'false'){11} else {0}";
+        String rule = "if(A||B){12}";
 
         Map<String, Boolean> c = new HashMap();
-        c.put("A", true);
-        c.put("B", true);
-        c.put("C", false);
+        c.put("A", false);
+        c.put("B", false);
         String output = "";
         try {
             output = ((Integer) MVEL.eval(rule, c)).toString();
@@ -55,7 +53,7 @@ public class InterpreterOfConditionalExpressions {
             System.out.println("error with rule: " + rule);
         }
         System.out.println("rule: " + rule);
-        System.out.println("expected result: " + "11");
+        System.out.println("expected result: " + "");
         System.out.println("produced result: " + output);
 
     }
@@ -71,10 +69,15 @@ public class InterpreterOfConditionalExpressions {
         }
         String result;
         try {
-            result = ((Integer) MVEL.eval(rule, heuristics)).toString();
+            Object eval = MVEL.eval(rule, heuristics);
+            if (eval != null) {
+                result = ((Integer) eval).toString();
+            } else {
+                result = "";
+            }
         } catch (Exception e) {
             System.out.println("error with rule: " + rule);
-            System.out.println("map of booleans was: "+ heuristics.toString());
+            System.out.println("map of booleans was: " + heuristics.toString());
             return "-1";
         }
         return result;

@@ -174,6 +174,7 @@ colérique		12
 colérques		12
 comprend	isImmediatelyFollowedByANegation	12
 comprends	isImmediatelyFollowedByANegation	12
+commence à bien faire		12
 con		12
 connard		12
 connards		12
@@ -201,7 +202,7 @@ contrite		12
 contrites		12
 contrits		12
 covidiot		12
-couilles	!isPrecededBySpecificTerm///des	12|11
+couilles	!isPrecededBySpecificTerm///des	12:11
 coup de gueule		12
 coupable		12
 coupables		12
@@ -319,7 +320,6 @@ dégoûté		12
 dégoutée		12
 dégoutées		12
 dégoutés		12
-dépit		12
 dépité		12
 dépitée		12
 dépitées		12
@@ -375,6 +375,8 @@ emmerde		12
 emmerdement		12
 emmerdements		12
 emmerdes		12
+en dépit du		12
+en peux plus		12
 énerve		12
 énervé		12
 enlaidi		12
@@ -639,6 +641,10 @@ malheureuses		12
 malheureux		12
 malhonnête		12
 marde		12
+faites marrer		12
+faite marrer		12
+marre	isPrecededBySpecificTerm///ai|a|ont+++isFollowedBySpecificTerm///toi	if(A||B){12}
+marrez		12
 maussade		12
 maussaderie		12
 maussaderies		12
@@ -805,7 +811,7 @@ scandaleuse		12
 se gavent		12
 se gaver		12
 séparés		12
-sérieux	isImmediatelyPrecededBySpecificTerm///êtes|etes|mais+++isImmediatelyFollowedBySpecificTerm///les|là|la|le|?|!	12
+sérieux	isImmediatelyPrecededBySpecificTerm///êtes|etes|mais+++isImmediatelyFollowedBySpecificTerm///les|là|la|le|?|!	if (A || B {12}
 sert à rien		12
 seum		12
 socialos		12

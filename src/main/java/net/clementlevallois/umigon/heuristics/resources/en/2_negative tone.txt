@@ -199,6 +199,8 @@ dizzy	!isImmediatelyPrecededByANegation	12		1
 do not	isAllCaps	12		3
 do they need	!isImmediatelyPrecededByANegation	12		1
 dodgy	!isImmediatelyPrecededByANegation	12		2
+doesn t care		12		2
+doesnt care		12		2
 does not get it		12		1
 does not mean		12		1
 doesnt get it		12		1
@@ -209,6 +211,8 @@ doesnt reply		12		1
 doesn t reply		12		1
 dont	isAllCaps	12	x	3
 DON T	isAllCaps	12	x	3
+dont care		12		2
+don t care		12		2
 don t get it		12		1
 dont get it		12		1
 dont know what		12		1
