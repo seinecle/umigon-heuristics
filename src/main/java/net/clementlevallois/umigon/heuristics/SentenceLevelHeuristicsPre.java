@@ -383,16 +383,13 @@ public class SentenceLevelHeuristicsPre {
 //            }
 //        }
 //    }
-    public CategoryAndIndex containsEmojis(EmojisLoader emojis, String text) {
-        
-        emojis.load();
+    public CategoryAndIndex containsSentimentEmojis(CollectionsOfAffectiveEmojis emojis, String text) {
         int index;
 
-        String statusEmojis = EmojiParser.parseToAliases(text);
-        String[] terms = statusEmojis.split(":");
+        String textWithEmojisAsAliases = EmojiParser.parseToAliases(text);
+        String[] terms = textWithEmojisAsAliases.split(":");
         for (String term : terms) {
             index = text.indexOf(term);
-
             if (emojis.getSetNegativeEmojis().contains(":" + term + ":")) {
                 return new CategoryAndIndex("012", index);
             } else if (emojis.getSetPositiveEmojis().contains(":" + term + ":")) {

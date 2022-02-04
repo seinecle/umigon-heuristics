@@ -13,7 +13,7 @@ import java.util.Set;
  *
  * @author LEVALLOIS
  */
-public class EmojisLoader {
+public class CollectionsOfAffectiveEmojis {
 
     private Set<String> setNegativeEmojis;
     private Set<String> setPositiveEmojis;

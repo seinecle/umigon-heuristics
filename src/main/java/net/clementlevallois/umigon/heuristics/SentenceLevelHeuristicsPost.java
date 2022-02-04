@@ -19,68 +19,54 @@ import net.clementlevallois.utils.StatusCleaner;
  */
 public class SentenceLevelHeuristicsPost {
 
-    private String status;
-    private String statusStripped;
+    private String text;
+    private String textStripped;
     private Document document;
-    private String lang;
-    private final HeuristicsLoaderOnDemand heuristics;
 
-    public SentenceLevelHeuristicsPost(HeuristicsLoaderOnDemand heuristics) {
-        this.heuristics = heuristics;
+    public void initialize(Document document, String text, String textStripped) {
+        this.text = text;
+        this.document = document;
+        this.textStripped = textStripped;
     }
 
-    public Document applyRules(Document tweet, String status, String statusStripped, String lang) {
-        this.status = status;
-        this.document = tweet;
-        this.lang = lang;
-        this.statusStripped = statusStripped;
-
-//        containsMoreThan2Mentions();
-        containsANegationAndAPositiveAndNegativeSentiment();
-        containsModerator();
-        isIronicallyPositive();
-//        containsNegation();
-        isStatusGarbled();
-        whenAllElseFailed();
-        return tweet;
-    }
-
-
-    public void isIronicallyPositive() {
+    public Document isIronicallyPositive(Set<String> ironicallyPositive) {
         if (document.getListCategories().contains("11") & document.getListCategories().contains("12")) {
-            for (String term : heuristics.getSetIronicallyPositive(lang)) {
-                if (status.contains(term)) {
+            for (String irony : ironicallyPositive) {
+                if (text.contains(irony)) {
                     document.deleteFromListCategories("12");
                 }
             }
         }
+        return document;
+
     }
 
-    public void containsNegation() {
+    public Document containsNegation(Set<String> setNegations) {
         StatusCleaner cleaner = new StatusCleaner();
-        status = cleaner.removeStartAndFinalApostrophs(status);
-        status = cleaner.removePunctuationSigns(status).toLowerCase().trim();
+        text = cleaner.removeStartAndFinalApostrophs(text);
+        text = cleaner.removePunctuationSigns(text).toLowerCase().trim();
 
         Set<String> termsInStatus = new HashSet();
-        termsInStatus.addAll(Arrays.asList(status.split(" ")));
+        termsInStatus.addAll(Arrays.asList(text.split(" ")));
         if (!document.getListCategories().isEmpty()) {
-            return;
+            return document;
         }
-        for (String term : heuristics.getSetNegations(lang)) {
+        for (String term : setNegations) {
             if (termsInStatus.contains(term)) {
                 document.addToListCategories("12", -1);
             }
         }
+        return document;
     }
 
-    public void containsModerator() {
+    public Document containsModerator(Set<String> moderators) {
         if (document.getListCategories().isEmpty()) {
-            return;
+            return document;
         }
-        String statusStrippedLowerCase = statusStripped.toLowerCase();
-        for (String term : heuristics.getSetModerators(lang)) {
-            if (statusStrippedLowerCase.contains(term)) {
-                int indexMod = statusStrippedLowerCase.indexOf(term);
+        String textStrippedLowerCase = textStripped.toLowerCase();
+        for (String moderator : moderators) {
+            if (textStrippedLowerCase.contains(moderator)) {
+                int indexMod = textStrippedLowerCase.indexOf(moderator);
                 Queue<CategoryAndIndex> mapCategoriesToIndex = document.getMapCategoriesToIndex();
                 Iterator<CategoryAndIndex> iterator = mapCategoriesToIndex.iterator();
                 while (iterator.hasNext()) {
@@ -92,21 +78,22 @@ public class SentenceLevelHeuristicsPost {
                 }
             }
         }
+        return document;
     }
 
-    public void containsANegationAndAPositiveAndNegativeSentiment() {
+    public Document containsANegationAndAPositiveAndNegativeSentiment(Set<String> negations) {
         Set<Integer> indexesPos = document.getAllIndexesForCategory("11");
         Set<Integer> indexesNeg = document.getAllIndexesForCategory("12");
 
         if (indexesPos.isEmpty() || indexesNeg.isEmpty()) {
-            return;
+            return document;
         }
-        int indexModerator;
+        int indexNegation;
         int indexPos = 0;
         int indexNeg = 0;
 
-        Set<String> termsInStatus = new HashSet();
-        termsInStatus.addAll(Arrays.asList(statusStripped.split(" ")));
+        Set<String> termsInText = new HashSet();
+        termsInText.addAll(Arrays.asList(textStripped.split(" ")));
         Iterator<Integer> iterator;
 
         iterator = indexesPos.iterator();
@@ -124,44 +111,42 @@ public class SentenceLevelHeuristicsPost {
             }
         }
 
-        for (String term : heuristics.getSetNegations(lang)) {
-            if (termsInStatus.contains(term)) {
-                indexModerator = status.indexOf(term);
-                if ((indexPos < indexModerator & indexNeg > indexModerator)) {
+        for (String negation : negations) {
+            if (termsInText.contains(negation)) {
+                indexNegation = text.indexOf(negation);
+                if ((indexPos < indexNegation & indexNeg > indexNegation)) {
                     document.deleteFromListCategories("11");
                     break;
-                } else if ((indexPos > indexModerator & indexNeg < indexModerator)) {
+                } else if ((indexPos > indexNegation & indexNeg < indexNegation)) {
                     document.deleteFromListCategories("12");
                     break;
                 }
-                if ((indexModerator < indexPos & indexModerator < indexNeg & indexPos < indexNeg)) {
+                if ((indexNegation < indexPos & indexNegation < indexNeg & indexPos < indexNeg)) {
                     document.deleteFromListCategories("11");
                     break;
-                } else if ((indexModerator < indexPos & indexModerator < indexNeg & indexNeg < indexPos)) {
+                } else if ((indexNegation < indexPos & indexNegation < indexNeg & indexNeg < indexPos)) {
                     document.deleteFromListCategories("12");
                     break;
                 }
             }
-
         }
+        return document;
     }
 
-    private void isStatusGarbled() {
-//        if (status.contains("Social innovation")) {
-//            System.out.println("brass monkey");
-//        }
+    private Document isStatusGarbled() {
         if (!document.getListCategories().isEmpty()) {
-            return;
+            return document;
         }
-        if (statusStripped.length() < 5) {
+        if (textStripped.length() < 5) {
             document.addToListCategories("92", -1);
         }
-        if (statusStripped.split(" ").length < 4) {
+        if (textStripped.split(" ").length < 4) {
             document.addToListCategories("92", -1);
         }
+        return document;
     }
 
-    private void whenAllElseFailed() {
+    public Document whenAllElseFailed() {
         //what to do when a tweet contains both positive and negative markers?
         //classify it as negative, except if it ends by a positive final note
         if (document.getListCategories().contains("11") & document.getListCategories().contains("12")) {
@@ -171,6 +156,7 @@ public class SentenceLevelHeuristicsPost {
                 document.deleteFromListCategories("12");
             }
         }
+        return document;
 
         //indicates when a tweet is positive without being promotted
 //        if (tweet.getListCategories().contains("11") & !tweet.getListCategories().contains("061")) {
