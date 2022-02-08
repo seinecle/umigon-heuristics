@@ -16,7 +16,7 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import net.clementlevallois.ngramops.NGramFinder;
-import net.clementlevallois.utils.Multiset;
+import net.clementlevallois.umigon.model.CategoryAndIndex;
 
 /*
  Copyright 2008-2013 Clement Levallois
@@ -62,7 +62,7 @@ public class TermLevelHeuristics {
     private String termHeuristic;
     private List<ConditionalExpression> features;
     private String rule;
-    private String status;
+    private String text;
     private String termOrigCasePreserved;
     private String termOrig;
     private int indexTerm;
@@ -76,29 +76,27 @@ public class TermLevelHeuristics {
         this.heuristics = heuristics;
     }
 
-    public String checkFeatures(LexiconsAndConditionalExpressions heuristic, String statusParam, String statusStripped, String termOrig, int indexTerm, boolean stripped, String lang) {
+    public List<CategoryAndIndex> checkFeatures(LexiconsAndConditionalExpressions heuristic, String textParam, String textStripped, String termOrig, int indexTerm, boolean stripped) {
         this.termHeuristic = heuristic.getTerm();
         this.features = heuristic.getMapFeatures();
         this.rule = heuristic.getRule();
-        this.status = stripped ? statusStripped.toLowerCase() : statusParam.toLowerCase();
+        this.text = stripped ? textStripped.toLowerCase() : textParam.toLowerCase();
         this.termOrig = termOrig.toLowerCase();
         this.termOrigCasePreserved = termOrig;
         this.indexTerm = indexTerm;
-        this.lang = lang;
+
+        List<CategoryAndIndex> cats = new ArrayList();
 
         interpreter = new InterpreterOfConditionalExpressions();
 
         Map<String, Boolean> conditions = new HashMap();
         boolean outcome = false;
-        status = status.toLowerCase();
-        if (features == null || features.isEmpty()) {
-//            System.out.println("no feature, returning a simple digit");
-            return rule;
+        text = text.toLowerCase();
+        if ((features == null || features.isEmpty()) & rule != null && !rule.isBlank()) {
+            cats.add(new CategoryAndIndex(rule, indexTerm));
+            return cats;
         }
 
-//        if (termOrig.equals("hard")){
-//            System.out.println("stop");
-//        }
         int count = 0;
 
         String condition;
@@ -215,29 +213,37 @@ public class TermLevelHeuristics {
         }
 
         String result = interpreter.interprete(rule, conditions);
-
-        return result;
+        if (result != null && !result.isBlank()) {
+            if (result.equals("-1")){
+                System.out.println("problem with this rule:");
+                System.out.println("rule: "+ rule);
+                System.out.println("term: "+ termOrigCasePreserved);
+                System.out.println("text: "+ text);
+            }
+            cats.add(new CategoryAndIndex(result, indexTerm));
+        }
+        return cats;
     }
 
     public boolean isImmediatelyFollowedByAnOpinion() {
         try {
-            String temp = status.substring(status.indexOf(termOrig) + termOrig.length()).trim();
+            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
             String[] nextTerms = temp.split(" ");
             if (nextTerms.length > 0) {
                 temp = nextTerms[0].trim();
-                return (heuristics.getMapH1(lang).keySet().contains(temp) || heuristics.getMapH2(lang).keySet().contains(temp));
+                return (heuristics.getMapH1().keySet().contains(temp) || heuristics.getMapH2().keySet().contains(temp));
             } else if (nextTerms.length > 1) {
                 temp = nextTerms[0].trim() + " " + nextTerms[1].trim();
-                return (heuristics.getMapH1(lang).keySet().contains(temp) || heuristics.getMapH2(lang).keySet().contains(temp));
+                return (heuristics.getMapH1().keySet().contains(temp) || heuristics.getMapH2().keySet().contains(temp));
             } else if (nextTerms.length > 2) {
                 temp = nextTerms[0].trim() + " " + nextTerms[1].trim() + " " + nextTerms[2].trim();
-                return (heuristics.getMapH1(lang).keySet().contains(temp) || heuristics.getMapH2(lang).keySet().contains(temp));
+                return (heuristics.getMapH1().keySet().contains(temp) || heuristics.getMapH2().keySet().contains(temp));
             } else {
                 return false;
             }
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             return false;
         }
@@ -245,11 +251,11 @@ public class TermLevelHeuristics {
 
     public boolean isFollowedByAPositiveOpinion() {
         try {
-            String temp = status.substring(status.indexOf(termOrig) + termOrig.length()).trim();
-            return heuristics.getMapH1(lang).keySet().stream().anyMatch((positiveTerm) -> (temp.contains(positiveTerm)));
+            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
+            return heuristics.getMapH1().keySet().stream().anyMatch((positiveTerm) -> (temp.contains(positiveTerm)));
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             return false;
         }
@@ -257,23 +263,23 @@ public class TermLevelHeuristics {
 
     public boolean isImmediatelyFollowedByAPositiveOpinion() {
         try {
-            String temp = status.substring(status.indexOf(termOrig) + termOrig.length()).trim();
+            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
             String[] nextTerms = temp.split(" ");
             if (nextTerms.length > 0) {
                 temp = nextTerms[0].trim();
-                return (heuristics.getMapH1(lang).keySet().contains(temp));
+                return (heuristics.getMapH1().keySet().contains(temp));
             } else if (nextTerms.length > 1) {
                 temp = nextTerms[0].trim() + " " + nextTerms[1].trim();
-                return (heuristics.getMapH1(lang).keySet().contains(temp));
+                return (heuristics.getMapH1().keySet().contains(temp));
             } else if (nextTerms.length > 2) {
                 temp = nextTerms[0].trim() + " " + nextTerms[1].trim() + " " + nextTerms[2].trim();
-                return (heuristics.getMapH1(lang).keySet().contains(temp));
+                return (heuristics.getMapH1().keySet().contains(temp));
             } else {
                 return false;
             }
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             return false;
         }
@@ -281,23 +287,23 @@ public class TermLevelHeuristics {
 
     public boolean isImmediatelyFollowedByANegativeOpinion() {
         try {
-            String temp = status.substring(status.indexOf(termOrig) + termOrig.length()).trim();
+            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
             String[] nextTerms = temp.split(" ");
             if (nextTerms.length > 0) {
                 temp = nextTerms[0].trim();
-                return (heuristics.getMapH2(lang).keySet().contains(temp));
+                return (heuristics.getMapH2().keySet().contains(temp));
             } else if (nextTerms.length > 1) {
                 temp = nextTerms[0].trim() + " " + nextTerms[1].trim();
-                return (heuristics.getMapH2(lang).keySet().contains(temp));
+                return (heuristics.getMapH2().keySet().contains(temp));
             } else if (nextTerms.length > 2) {
                 temp = nextTerms[0].trim() + " " + nextTerms[1].trim() + " " + nextTerms[2].trim();
-                return (heuristics.getMapH2(lang).keySet().contains(temp));
+                return (heuristics.getMapH2().keySet().contains(temp));
             } else {
                 return false;
             }
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             return false;
         }
@@ -305,7 +311,7 @@ public class TermLevelHeuristics {
 
     public boolean isImmediatelyFollowedByVerbPastTense() {
         try {
-            String temp = status.substring(status.indexOf(termOrig) + termOrig.length()).trim();
+            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
             boolean pastTense;
             String[] nextTerms = temp.split(" ");
             if (nextTerms.length > 0) {
@@ -321,7 +327,7 @@ public class TermLevelHeuristics {
             }
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             return false;
         }
@@ -330,7 +336,7 @@ public class TermLevelHeuristics {
 
     public boolean isImmediatelyFollowedBySpecificTerm(Set<String> parameters) {
         try {
-            String temp = status.substring(status.indexOf(termOrig) + termOrig.length()).trim();
+            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
             String[] nextTerms = temp.split(" ");
             if (nextTerms.length > 0) {
                 temp = nextTerms[0].trim();
@@ -350,7 +356,7 @@ public class TermLevelHeuristics {
             return false;
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             return false;
         }
@@ -358,9 +364,9 @@ public class TermLevelHeuristics {
     }
 
     public boolean isInAStatusWithOneOfTheseSpecificTerms(Set<String> parameters) {
-        NGramFinder nGramFinder = new NGramFinder(status);
+        NGramFinder nGramFinder = new NGramFinder(text);
 
-        Map<String,Integer> ngramsInMap = nGramFinder.runIt(2, true);
+        Map<String, Integer> ngramsInMap = nGramFinder.runIt(2, true);
         if (ngramsInMap.isEmpty()) {
             return false;
         }
@@ -379,11 +385,11 @@ public class TermLevelHeuristics {
 
     public boolean isFollowedBySpecificTerm(Set<String> parameters) {
         try {
-            String temp = status.substring(status.indexOf(termOrig) + termOrig.length()).trim();
+            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
             return parameters.stream().anyMatch((candidate) -> (temp.contains(candidate)));
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             return false;
         }
@@ -410,7 +416,7 @@ public class TermLevelHeuristics {
     }
 
     public boolean isImmmediatelyPrecededBySpecificTerm(Set<String> parameters) {
-        String[] temp = status.substring(0, status.indexOf(termOrig)).trim().split(" ");
+        String[] temp = text.substring(0, text.indexOf(termOrig)).trim().split(" ");
         if (temp.length == 0) {
             return false;
         }
@@ -427,12 +433,12 @@ public class TermLevelHeuristics {
 
     public boolean isPrecededBySpecificTerm(Set<String> parameters) {
         try {
-            String temp = status.substring(0, status.indexOf(termOrig)).trim().toLowerCase();
+            String temp = text.substring(0, text.indexOf(termOrig)).trim().toLowerCase();
             return parameters.stream().anyMatch((candidate) -> (temp.contains(candidate)));
 
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             return false;
         }
@@ -440,11 +446,11 @@ public class TermLevelHeuristics {
     }
 
     public boolean isPrecededByStrongWord() {
-        String left = status.substring(0, status.indexOf(termOrig)).toLowerCase().trim();
+        String left = text.substring(0, text.indexOf(termOrig)).toLowerCase().trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
 
         for (String term : ngrams) {
-            if (heuristics.getMapH3(lang).containsKey(term)) {
+            if (heuristics.getMapH3().containsKey(term)) {
                 return true;
             }
         }
@@ -452,16 +458,16 @@ public class TermLevelHeuristics {
     }
 
     public boolean isImmediatelyPrecededByPositive() {
-        String[] temp = status.substring(0, status.indexOf(termOrig)).trim().split(" ");
+        String[] temp = text.substring(0, text.indexOf(termOrig)).trim().split(" ");
         if (temp.length == 0) {
             return false;
         }
 
-        if (temp.length> 0 && heuristics.getMapH1(lang).containsKey(temp[temp.length - 1].trim().toLowerCase())) {
+        if (temp.length > 0 && heuristics.getMapH1().containsKey(temp[temp.length - 1].trim().toLowerCase())) {
             return true;
-        } else if (temp.length> 1 && heuristics.getMapH1(lang).containsKey(temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
+        } else if (temp.length > 1 && heuristics.getMapH1().containsKey(temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
             return true;
-        } else if (temp.length> 2 && heuristics.getMapH1(lang).containsKey(temp[temp.length - 3].trim().toLowerCase() + " " + temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
+        } else if (temp.length > 2 && heuristics.getMapH1().containsKey(temp[temp.length - 3].trim().toLowerCase() + " " + temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
             return true;
         } else {
             return false;
@@ -469,11 +475,11 @@ public class TermLevelHeuristics {
     }
 
     public boolean isPrecededByPositive() {
-        String left = status.substring(0, status.indexOf(termOrig)).toLowerCase().trim();
+        String left = text.substring(0, text.indexOf(termOrig)).toLowerCase().trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
 
         for (String term : ngrams) {
-            if (heuristics.getMapH1(lang).containsKey(term)) {
+            if (heuristics.getMapH1().containsKey(term)) {
                 return true;
             }
         }
@@ -482,7 +488,7 @@ public class TermLevelHeuristics {
 
     public boolean isQuestionMarkAtEndOfStatus() {
         List<String> terms = new ArrayList();
-        Collections.addAll(terms, status.trim().split(" "));
+        Collections.addAll(terms, text.trim().split(" "));
         StringBuilder sb = new StringBuilder();
         boolean cleanEnd = false;
         ListIterator<String> termsIterator = terms.listIterator(terms.size());
@@ -495,11 +501,11 @@ public class TermLevelHeuristics {
             }
             sb.insert(0, string);
         }
-        status = sb.toString().trim();
-        if (status.isEmpty()) {
+        text = sb.toString().trim();
+        if (text.isEmpty()) {
             return false;
         } else {
-            return ("?".equals(String.valueOf(status.charAt(status.length() - 1))));
+            return ("?".equals(String.valueOf(text.charAt(text.length() - 1))));
         }
     }
 
@@ -517,7 +523,7 @@ public class TermLevelHeuristics {
     public boolean isImmediatelyPrecededByANegation() {
         termHeuristic = termHeuristic.toLowerCase();
         try {
-            String leftPart = status.substring(0, indexTerm).toLowerCase().trim();
+            String leftPart = text.substring(0, indexTerm).toLowerCase().trim();
             String[] temp = leftPart.split(" ");
 
             //if the array is empty it means that the term is the first of the status;
@@ -526,23 +532,23 @@ public class TermLevelHeuristics {
                     return false;
                 }
                 case 1: {
-                    return heuristics.getSetNegations(lang).contains(temp[0]);
+                    return heuristics.getSetNegations().contains(temp[0]);
                 }
                 default: {
-                    if (heuristics.getSetNegations(lang).contains(temp[temp.length - 1])) {
+                    if (heuristics.getSetNegations().contains(temp[temp.length - 1])) {
                         return true;
-                    } else if (temp.length > 1 && heuristics.getMapH3(lang).containsKey(temp[temp.length - 1]) & heuristics.getSetNegations(lang).contains(temp[temp.length - 2])) {
+                    } else if (temp.length > 1 && heuristics.getMapH3().containsKey(temp[temp.length - 1]) & heuristics.getSetNegations().contains(temp[temp.length - 2])) {
                         return true;
                     }
                     //in the case of "not really hot", return true
                     String negativeTerm = temp[temp.length - 2];
                     String booster = temp[temp.length - 1];
-                    if (heuristics.getSetNegations(lang).contains(negativeTerm.trim()) && heuristics.getMapH3(lang).containsKey(booster)) {
+                    if (heuristics.getSetNegations().contains(negativeTerm.trim()) && heuristics.getMapH3().containsKey(booster)) {
                         return true;
                     }
                     //in the case of "not the hottest", return true
                     negativeTerm = temp[temp.length - 2] + " " + temp[temp.length - 1];
-                    if (heuristics.getSetNegations(lang).contains(negativeTerm.trim())) {
+                    if (heuristics.getSetNegations().contains(negativeTerm.trim())) {
                         return true;
                     }
                 }
@@ -550,7 +556,7 @@ public class TermLevelHeuristics {
                     //in the case of "don't really like", return true [don't counts as two words: don t]
                     String negativeTerm = temp[temp.length - 3] + " " + temp[temp.length - 2];
                     String booster = temp[temp.length - 1];
-                    if (heuristics.getSetNegations(lang).contains(negativeTerm.trim()) && heuristics.getMapH3(lang).containsKey(booster)) {
+                    if (heuristics.getSetNegations().contains(negativeTerm.trim()) && heuristics.getMapH3().containsKey(booster)) {
                         return true;
                     }
                 }
@@ -558,7 +564,7 @@ public class TermLevelHeuristics {
             }
         } catch (StringIndexOutOfBoundsException e) {
             e.printStackTrace();
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             System.out.println("index term was: " + indexTerm);
             return false;
@@ -568,7 +574,7 @@ public class TermLevelHeuristics {
     public boolean isImmediatelyPrecededBySpecificTerm(Set<String> parameters) {
         termHeuristic = termHeuristic.toLowerCase();
         try {
-            String leftPart = status.substring(0, indexTerm).toLowerCase().trim();
+            String leftPart = text.substring(0, indexTerm).toLowerCase().trim();
             String[] temp = leftPart.split(" ");
 
             //if the array is empty it means that the term is the first of the status;
@@ -582,13 +588,13 @@ public class TermLevelHeuristics {
                 default: {
                     if (parameters.contains(temp[temp.length - 1])) {
                         return true;
-                    } else if (temp.length > 1 && heuristics.getMapH3(lang).containsKey(temp[temp.length - 1]) & parameters.contains(temp[temp.length - 2])) {
+                    } else if (temp.length > 1 && heuristics.getMapH3().containsKey(temp[temp.length - 1]) & parameters.contains(temp[temp.length - 2])) {
                         return true;
                     }
                     //in the case of "not really hot", return true
                     String specificTerm = temp[temp.length - 2];
                     String booster = temp[temp.length - 1];
-                    if (parameters.contains(specificTerm.trim()) && heuristics.getMapH3(lang).containsKey(booster)) {
+                    if (parameters.contains(specificTerm.trim()) && heuristics.getMapH3().containsKey(booster)) {
                         return true;
                     }
                     //in the case of "not the hottest", return true
@@ -601,7 +607,7 @@ public class TermLevelHeuristics {
                     //in the case of "don't really like", return true [don't counts as two words: don t]
                     String specificTerm = temp[temp.length - 3] + " " + temp[temp.length - 2];
                     String booster = temp[temp.length - 1];
-                    if (parameters.contains(specificTerm.trim()) && heuristics.getMapH3(lang).containsKey(booster)) {
+                    if (parameters.contains(specificTerm.trim()) && heuristics.getMapH3().containsKey(booster)) {
                         return true;
                     }
                 }
@@ -609,7 +615,7 @@ public class TermLevelHeuristics {
             }
         } catch (StringIndexOutOfBoundsException e) {
             e.printStackTrace();
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             System.out.println("index term was: " + indexTerm);
             return false;
@@ -618,7 +624,7 @@ public class TermLevelHeuristics {
 
     public boolean isImmediatelyFollowedByANegation() {
         try {
-            String temp = status.substring(status.indexOf(termOrig) + termOrig.length()).toLowerCase().trim();
+            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).toLowerCase().trim();
             String[] firstTermAfterTermOfInterest = temp.split(" ");
 
             //if the array is empty it means that the term is the last of the status;
@@ -631,7 +637,7 @@ public class TermLevelHeuristics {
                 }
                 default: {
                     String nextTerm = firstTermAfterTermOfInterest[1].trim();
-                    Set<String> setNegations = heuristics.getSetNegations(lang);
+                    Set<String> setNegations = heuristics.getSetNegations();
                     boolean containsTerm = setNegations.contains(nextTerm);
                     return containsTerm;
                 }
@@ -640,14 +646,14 @@ public class TermLevelHeuristics {
             //in this case the term is followed by at least one term. If the first term is negative, then we return "true"
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
-            System.out.println("status was: " + status);
+            System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
             return false;
         }
     }
 
     public boolean isFirstTermOfStatus() {
-        String[] terms = status.trim().split(" ");
+        String[] terms = text.trim().split(" ");
         StringBuilder sb = new StringBuilder();
         boolean cleanStart = false;
         for (String currTerm : terms) {
@@ -661,17 +667,17 @@ public class TermLevelHeuristics {
                 break;
             }
         }
-        status = sb.toString().trim();
-        boolean res = status.startsWith(termOrig);
+        text = sb.toString().trim();
+        boolean res = text.startsWith(termOrig);
         return res;
     }
 
     public boolean isPrecededBySubjectiveTerm() {
-        String left = status.substring(0, status.indexOf(termOrig)).toLowerCase().trim();
+        String left = text.substring(0, text.indexOf(termOrig)).toLowerCase().trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
 
         for (String term : ngrams) {
-            if (heuristics.getMapH1(lang).containsKey(term)) {
+            if (heuristics.getMapH1().containsKey(term)) {
                 return true;
             }
         }
@@ -679,15 +685,15 @@ public class TermLevelHeuristics {
     }
 
     public boolean isPrecededByOpinion() {
-        String left = status.substring(0, status.indexOf(termOrig)).toLowerCase().trim();
+        String left = text.substring(0, text.indexOf(termOrig)).toLowerCase().trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
         for (String term : ngrams) {
-            if (heuristics.getMapH1(lang).containsKey(term)) {
+            if (heuristics.getMapH1().containsKey(term)) {
                 return true;
             }
         }
         for (String term : ngrams) {
-            if (heuristics.getMapH2(lang).containsKey(term)) {
+            if (heuristics.getMapH2().containsKey(term)) {
                 return true;
             }
         }

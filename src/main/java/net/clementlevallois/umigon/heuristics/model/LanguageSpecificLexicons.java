@@ -30,6 +30,7 @@ public class LanguageSpecificLexicons {
     Map<String, LexiconsAndConditionalExpressions> mapH11;
     Map<String, LexiconsAndConditionalExpressions> mapH12;
     Map<String, LexiconsAndConditionalExpressions> mapH13;
+    Map<String, LexiconsAndConditionalExpressions> mapH17;
     Set<String> setNegations;
     Set<String> setTimeTokens;
     Set<String> setHashTags;
@@ -149,6 +150,16 @@ public class LanguageSpecificLexicons {
     public void setMapH13(Map<String, LexiconsAndConditionalExpressions> mapH13) {
         this.mapH13 = mapH13;
     }
+
+    public Map<String, LexiconsAndConditionalExpressions> getMapH17() {
+        return mapH17;
+    }
+
+    public void setMapH17(Map<String, LexiconsAndConditionalExpressions> mapH17) {
+        this.mapH17 = mapH17;
+    }
+    
+    
 
     public Set<String> getSetNegations() {
         return setNegations;

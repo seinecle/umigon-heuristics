@@ -50,13 +50,13 @@ import java.util.Set;
 
 public class RepeatedCharactersRemover {
 
-    private HeuristicsLoaderOnDemand heuristics;
+    private final HeuristicsLoaderOnDemand heuristics;
 
     public RepeatedCharactersRemover(HeuristicsLoaderOnDemand heuristics) {
         this.heuristics = heuristics;
     }
 
-    public String repeatedCharacters(String currTerm, String lang) {
+    public String repeatedCharacters(String currTerm) {
 //        if (currTerm.equals("suuuuuuuuucks")) {
 //            System.out.println("stooop");
 //        }
@@ -107,12 +107,12 @@ public class RepeatedCharactersRemover {
                 if (rl.getCount() > 2) {
                     toReplace = letter + letter;
                     subs = toReturn.replace(toBeReplaced, toReplace);
-                    if (heuristics.getMapHeuristics(lang).containsKey(subs.toLowerCase())) {
+                    if (heuristics.getMapHeuristics().containsKey(subs.toLowerCase())) {
                         toReturn = subs;
                     } else {
                         toReplace = letter;
                         subs = toReturn.replace(toBeReplaced, toReplace);
-                        if (heuristics.getMapHeuristics(lang).containsKey(subs.toLowerCase())) {
+                        if (heuristics.getMapHeuristics().containsKey(subs.toLowerCase())) {
                             toReturn = subs;
                         }
                     }

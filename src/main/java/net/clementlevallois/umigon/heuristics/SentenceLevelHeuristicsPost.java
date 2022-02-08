@@ -22,14 +22,23 @@ public class SentenceLevelHeuristicsPost {
     private String text;
     private String textStripped;
     private Document document;
+    private final Set<String> ironicallyPositive;
+    private final Set<String> setNegations;
+    private final Set<String> setModerators;
 
-    public void initialize(Document document, String text, String textStripped) {
+    public SentenceLevelHeuristicsPost(Set<String> ironicallyPositive, Set<String> setNegations, Set<String> setModerators) {
+        this.ironicallyPositive = ironicallyPositive;
+        this.setNegations = setNegations;
+        this.setModerators = setModerators;
+    }
+    
+    public void initialize(Document document, String text, String textStripped){
         this.text = text;
-        this.document = document;
         this.textStripped = textStripped;
+        this.document = document;
     }
 
-    public Document isIronicallyPositive(Set<String> ironicallyPositive) {
+    public Document isIronicallyPositive() {
         if (document.getListCategories().contains("11") & document.getListCategories().contains("12")) {
             for (String irony : ironicallyPositive) {
                 if (text.contains(irony)) {
@@ -41,7 +50,7 @@ public class SentenceLevelHeuristicsPost {
 
     }
 
-    public Document containsNegation(Set<String> setNegations) {
+    public Document containsNegation() {
         StatusCleaner cleaner = new StatusCleaner();
         text = cleaner.removeStartAndFinalApostrophs(text);
         text = cleaner.removePunctuationSigns(text).toLowerCase().trim();
@@ -59,12 +68,12 @@ public class SentenceLevelHeuristicsPost {
         return document;
     }
 
-    public Document containsModerator(Set<String> moderators) {
+    public Document containsModerator() {
         if (document.getListCategories().isEmpty()) {
             return document;
         }
         String textStrippedLowerCase = textStripped.toLowerCase();
-        for (String moderator : moderators) {
+        for (String moderator : setModerators) {
             if (textStrippedLowerCase.contains(moderator)) {
                 int indexMod = textStrippedLowerCase.indexOf(moderator);
                 Queue<CategoryAndIndex> mapCategoriesToIndex = document.getMapCategoriesToIndex();
@@ -81,7 +90,7 @@ public class SentenceLevelHeuristicsPost {
         return document;
     }
 
-    public Document containsANegationAndAPositiveAndNegativeSentiment(Set<String> negations) {
+    public Document containsANegationAndAPositiveAndNegativeSentiment() {
         Set<Integer> indexesPos = document.getAllIndexesForCategory("11");
         Set<Integer> indexesNeg = document.getAllIndexesForCategory("12");
 
@@ -111,7 +120,7 @@ public class SentenceLevelHeuristicsPost {
             }
         }
 
-        for (String negation : negations) {
+        for (String negation : setNegations) {
             if (termsInText.contains(negation)) {
                 indexNegation = text.indexOf(negation);
                 if ((indexPos < indexNegation & indexNeg > indexNegation)) {
@@ -164,4 +173,13 @@ public class SentenceLevelHeuristicsPost {
 //            tweet.addToListCategories("111", -1);
 //        }
     }
+
+    public Document getDocument() {
+        return document;
+    }
+
+    public void setDocument(Document document) {
+        this.document = document;
+    }
+
 }

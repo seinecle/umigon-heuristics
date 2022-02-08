@@ -32,6 +32,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class HeuristicsLoaderOnDemand {
 
+    private String lang;
     BufferedReader br;
     FileReader fr;
     String string;
@@ -50,6 +51,7 @@ public class HeuristicsLoaderOnDemand {
     Map<String, LexiconsAndConditionalExpressions> mapH11;
     Map<String, LexiconsAndConditionalExpressions> mapH12;
     Map<String, LexiconsAndConditionalExpressions> mapH13;
+    Map<String, LexiconsAndConditionalExpressions> mapH17;
     Set<String> setNegations;
     Set<String> setTimeTokens;
     Set<String> setSubjective;
@@ -60,8 +62,12 @@ public class HeuristicsLoaderOnDemand {
 
     Map<String, LanguageSpecificLexicons> multilingualLexicons = new HashMap();
 
-    public void load(String langToLoad) {
-        if (langToLoad == null || langToLoad.isBlank()) {
+    public HeuristicsLoaderOnDemand(String lang) {
+        this.lang = lang;
+    }
+
+    public void load() {
+        if (lang == null || lang.isBlank()) {
             System.out.println("lang is null or empty in the heuristics loading class. Exiting");
             System.exit(1);
         }
@@ -71,6 +77,7 @@ public class HeuristicsLoaderOnDemand {
         fileNames.add("16_moderators.txt");
         fileNames.add("1_positive tone.txt");
         fileNames.add("2_negative tone.txt");
+        fileNames.add("17_hypersatisfaction.txt");
         fileNames.add("3_strength of opinion.txt");
         fileNames.add("15_isIronicallyPositive.txt");
         fileNames.add("9_commercial tone.txt");
@@ -101,13 +108,14 @@ public class HeuristicsLoaderOnDemand {
         mapH11 = new HashMap();
         mapH12 = new HashMap();
         mapH13 = new HashMap();
+        mapH17 = new HashMap();
         for (String fileName : fileNames) {
             try {
                 InputStream inputStream = null;
-                if (langToLoad.equalsIgnoreCase("en")) {
+                if (lang.equalsIgnoreCase("en")) {
                     inputStream = PlaceHolderEN.class.getResourceAsStream(fileName);
                 }
-                if (langToLoad.equalsIgnoreCase("fr")) {
+                if (lang.equalsIgnoreCase("fr")) {
                     inputStream = PlaceHolderFR.class.getResourceAsStream(fileName);
                 }
                 if (inputStream == null) {
@@ -138,10 +146,10 @@ public class HeuristicsLoaderOnDemand {
                 while ((string = br.readLine()) != null) {
                     fields = string.split("\t");
                     if (fields.length == 0) {
-                        System.out.println("empty line or something in file " + fileName + "for lang" + langToLoad);
+                        System.out.println("empty line or something in file " + fileName + "for lang" + lang);
                         continue;
                     }
-                    if (!langToLoad.equals("zh")) {
+                    if (!lang.equals("zh")) {
                         field0 = StringUtils.stripAccents(fields[0].trim());
                     }
                     if (field0.isEmpty()) {
@@ -253,6 +261,11 @@ public class HeuristicsLoaderOnDemand {
                         mapH2.put(term, heuristic);
                         continue;
                     }
+                    //hypersatisfaction
+                    if (map == 17) {
+                        mapH17.put(term, heuristic);
+                        continue;
+                    }
                     //time
                     if (map == 4) {
                         mapH4.put(term, heuristic);
@@ -290,7 +303,7 @@ public class HeuristicsLoaderOnDemand {
             }
         }
         LanguageSpecificLexicons lex = new LanguageSpecificLexicons();
-        lex.setLanguage(langToLoad);
+        lex.setLanguage(lang);
         lex.setMapHeuristics(mapHeuristics);
         lex.setMapH1(mapH1);
         lex.setMapH2(mapH2);
@@ -305,6 +318,7 @@ public class HeuristicsLoaderOnDemand {
         lex.setMapH11(mapH11);
         lex.setMapH12(mapH12);
         lex.setMapH13(mapH13);
+        lex.setMapH17(mapH17);
         lex.setSetHashTags(setHashTags);
         lex.setSetFalsePositiveOpinions(setFalsePositiveOpinions);
         lex.setSetIronicallyPositive(setIronicallyPositive);
@@ -312,46 +326,50 @@ public class HeuristicsLoaderOnDemand {
         lex.setSetNegations(setNegations);
         lex.setSetTimeTokens(setTimeTokens);
         lex.setSetSubjective(setSubjective);
-        multilingualLexicons.put(langToLoad, lex);
+        multilingualLexicons.put(lang, lex);
     }
 
-    public Set<String> getSetNegations(String lang) {
+    public Set<String> getSetNegations() {
         return multilingualLexicons.get(lang).getSetNegations();
     }
 
-    public Map<String, LexiconsAndConditionalExpressions> getMapH3(String lang) {
+    public Map<String, LexiconsAndConditionalExpressions> getMapH3() {
         return multilingualLexicons.get(lang).getMapH3();
     }
 
-    public Map<String, LexiconsAndConditionalExpressions> getMapH13(String lang) {
+    public Map<String, LexiconsAndConditionalExpressions> getMapH13() {
         return multilingualLexicons.get(lang).getMapH13();
     }
 
-    public Map<String, LexiconsAndConditionalExpressions> getMapH1(String lang) {
+    public Map<String, LexiconsAndConditionalExpressions> getMapH1() {
         return multilingualLexicons.get(lang).getMapH1();
     }
 
-    public Map<String, LexiconsAndConditionalExpressions> getMapH9(String lang) {
+    public Map<String, LexiconsAndConditionalExpressions> getMapH17() {
+        return multilingualLexicons.get(lang).getMapH17();
+    }
+
+    public Map<String, LexiconsAndConditionalExpressions> getMapH9() {
         return multilingualLexicons.get(lang).getMapH9();
     }
 
-    public Set<String> getSetModerators(String lang) {
+    public Set<String> getSetModerators() {
         return multilingualLexicons.get(lang).getSetModerators();
     }
 
-    public Set<String> getSetIronicallyPositive(String lang) {
+    public Set<String> getSetIronicallyPositive() {
         return multilingualLexicons.get(lang).getSetIronicallyPositive();
     }
 
-    public Map<String, LexiconsAndConditionalExpressions> getMapH2(String lang) {
+    public Map<String, LexiconsAndConditionalExpressions> getMapH2() {
         return multilingualLexicons.get(lang).getMapH2();
     }
 
-    public Map<String, LexiconsAndConditionalExpressions> getMapHeuristics(String lang) {
+    public Map<String, LexiconsAndConditionalExpressions> getMapHeuristics() {
         return multilingualLexicons.get(lang).getMapHeuristics();
     }
 
-    public Set<String> getSetSubjective(String lang) {
+    public Set<String> getSetSubjective() {
         return multilingualLexicons.get(lang).getSetSubjective();
     }
 }
