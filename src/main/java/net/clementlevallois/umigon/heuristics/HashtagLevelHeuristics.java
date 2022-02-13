@@ -7,6 +7,8 @@ package net.clementlevallois.umigon.heuristics;
 import java.util.ArrayList;
 import java.util.List;
 import net.clementlevallois.umigon.heuristics.model.LexiconsAndConditionalExpressions;
+import net.clementlevallois.umigon.model.Categories;
+import net.clementlevallois.umigon.model.Categories.Category;
 import net.clementlevallois.umigon.model.CategoryAndIndex;
 
 /**
@@ -86,9 +88,9 @@ public class HashtagLevelHeuristics {
             if (hashtag.startsWith(term) && heuristics.getMapH1().get(term) != null) {
                 if (heuristics.getMapH1().get(term).isHashtagRelevant()) {
                     if (!startsWithNegativeTerm) {
-                        cats.add(new CategoryAndIndex("11", -1));
+                        cats.add(new CategoryAndIndex(Category._11, -1));
                     } else {
-                        cats.add(new CategoryAndIndex("12", -1));
+                        cats.add(new CategoryAndIndex(Category._12, -1));
                     }
                 }
             }
@@ -101,9 +103,9 @@ public class HashtagLevelHeuristics {
             if (hashtag.startsWith(term) && heuristics.getMapH2().get(term) != null) {
                 if (heuristics.getMapH2().get(term).isHashtagRelevant()) {
                     if (!startsWithNegativeTerm) {
-                        cats.add(new CategoryAndIndex("12", -1));
+                        cats.add(new CategoryAndIndex(Category._12, -1));
                     } else {
-                        cats.add(new CategoryAndIndex("11", -1));
+                        cats.add(new CategoryAndIndex(Category._11, -1));
                     }
                 }
             }
@@ -115,11 +117,11 @@ public class HashtagLevelHeuristics {
             }
             term = term.replace(" ", "");
             if (hashtag.startsWith(term) && heuristics.getMapH17().get(term) != null) {
-                if (heuristics.getMapH2().get(term).isHashtagRelevant()) {
+                if (heuristics.getMapH17().get(term).isHashtagRelevant()) {
                     if (!startsWithNegativeTerm) {
-                        cats.add(new CategoryAndIndex("17", -1));
+                        cats.add(new CategoryAndIndex(Category._17, -1));
                     } else {
-                        cats.add(new CategoryAndIndex("12", -1));
+                        cats.add(new CategoryAndIndex(Category._12, -1));
                     }
                 }
             }
@@ -140,17 +142,17 @@ public class HashtagLevelHeuristics {
                 hashtag = hashtag.replace(term, "");
                 if (hashtag.length() > 1) {
                     if (heuristics.getSetNegations().contains(hashtag)) {
-                        cats.add(new CategoryAndIndex("12", -1));
+                        cats.add(new CategoryAndIndex(Category._12, -1));
                     }
                     if (heuristics.getMapH3().keySet().contains(hashtag)) {
-                        cats.add(new CategoryAndIndex("11", -1));
+                        cats.add(new CategoryAndIndex(Category._11, -1));
                     } else {
                         if (hashtag.equals(term)) {
-                            cats.add(new CategoryAndIndex("11", -1));
+                            cats.add(new CategoryAndIndex(Category._11, -1));
                         }
                     }
                 } else {
-                    cats.add(new CategoryAndIndex("11", -1));
+                    cats.add(new CategoryAndIndex(Category._11, -1));
                 }
             }
         }
@@ -164,17 +166,17 @@ public class HashtagLevelHeuristics {
                 hashtag = hashtag.replace(term, "");
                 if (hashtag.length() > 1) {
                     if (heuristics.getSetNegations().contains(hashtag)) {
-                        cats.add(new CategoryAndIndex("11", -1));
+                        cats.add(new CategoryAndIndex(Category._11, -1));
                     }
                     if (heuristics.getMapH3().keySet().contains(hashtag)) {
-                        cats.add(new CategoryAndIndex("12", -1));
+                        cats.add(new CategoryAndIndex(Category._12, -1));
                     } else {
                         if (hashtag.equals(term)) {
-                            cats.add(new CategoryAndIndex("12", -1));
+                            cats.add(new CategoryAndIndex(Category._12, -1));
                         }
                     }
                 } else {
-                    cats.add(new CategoryAndIndex("12", -1));
+                    cats.add(new CategoryAndIndex(Category._12, -1));
                 }
             }
         }
@@ -188,17 +190,17 @@ public class HashtagLevelHeuristics {
                 hashtag = hashtag.replace(term, "");
                 if (hashtag.length() > 1) {
                     if (heuristics.getSetNegations().contains(hashtag)) {
-                        cats.add(new CategoryAndIndex("12", -1));
+                        cats.add(new CategoryAndIndex(Category._12, -1));
                     }
                     if (heuristics.getMapH3().keySet().contains(hashtag)) {
-                        cats.add(new CategoryAndIndex("17", -1));
+                        cats.add(new CategoryAndIndex(Category._17, -1));
                     } else {
                         if (hashtag.equals(term)) {
-                            cats.add(new CategoryAndIndex("17", -1));
+                            cats.add(new CategoryAndIndex(Category._17, -1));
                         }
                     }
                 } else {
-                    cats.add(new CategoryAndIndex("17", -1));
+                    cats.add(new CategoryAndIndex(Category._17, -1));
                 }
             }
         }

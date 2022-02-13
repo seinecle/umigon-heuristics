@@ -4,6 +4,7 @@
  */
 package net.clementlevallois.umigon.heuristics;
 
+import net.clementlevallois.umigon.model.Categories.Category;
 import net.clementlevallois.umigon.model.Document;
 
 /**
@@ -28,7 +29,7 @@ public class StatusEligibleHeuristics {
 
     private void isStatusEmpty() {
         if (status.isEmpty()) {
-            tweet.addToListCategories("92", -1);
+            tweet.addToListCategories(Category._92, -1);
         }
     }
 

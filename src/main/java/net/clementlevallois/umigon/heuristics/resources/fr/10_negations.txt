@@ -8,24 +8,9 @@ fausses
 faux	
 jamais	
 loin d'être	
-n	
-nan	
-ne	
-negatif	
-neni	
-nn	
-non	
-nul	
-nulle	
-nulles	
-nuls	
 pas	
 pas de	
 pas du tout
 pas si	
 plus	
-point	
-rien	
-sans	
-tg	
-zéro	
+sans    

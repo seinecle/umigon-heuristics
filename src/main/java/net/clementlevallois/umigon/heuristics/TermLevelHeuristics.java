@@ -16,6 +16,7 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import net.clementlevallois.ngramops.NGramFinder;
+import net.clementlevallois.umigon.model.Categories.Category;
 import net.clementlevallois.umigon.model.CategoryAndIndex;
 
 /*
@@ -88,13 +89,21 @@ public class TermLevelHeuristics {
         List<CategoryAndIndex> cats = new ArrayList();
 
         interpreter = new InterpreterOfConditionalExpressions();
+        Category cat;
 
         Map<String, Boolean> conditions = new HashMap();
         boolean outcome = false;
         text = text.toLowerCase();
         if ((features == null || features.isEmpty()) & rule != null && !rule.isBlank()) {
-            cats.add(new CategoryAndIndex(rule, indexTerm));
-            return cats;
+            try {
+                cat = Category.valueOf("_" + rule);
+                cats.add(new CategoryAndIndex(cat, indexTerm));
+                return cats;
+            } catch (IllegalArgumentException wrongCode) {
+                System.out.println("rule was misspelled or just wrong:");
+                System.out.println(rule);
+                return cats;
+            }
         }
 
         int count = 0;
@@ -214,13 +223,21 @@ public class TermLevelHeuristics {
 
         String result = interpreter.interprete(rule, conditions);
         if (result != null && !result.isBlank()) {
-            if (result.equals("-1")){
+            if (result.equals("-1")) {
                 System.out.println("problem with this rule:");
-                System.out.println("rule: "+ rule);
-                System.out.println("term: "+ termOrigCasePreserved);
-                System.out.println("text: "+ text);
+                System.out.println("rule: " + rule);
+                System.out.println("term: " + termOrigCasePreserved);
+                System.out.println("text: " + text);
             }
-            cats.add(new CategoryAndIndex(result, indexTerm));
+            try {
+                cat = Category.valueOf("_" + result);
+                cats.add(new CategoryAndIndex(cat, indexTerm));
+                return cats;
+            } catch (IllegalArgumentException wrongCode) {
+                System.out.println("rule was misspelled or just wrong, after evaluating the heuristics:");
+                System.out.println(rule);
+                return cats;
+            }
         }
         return cats;
     }
