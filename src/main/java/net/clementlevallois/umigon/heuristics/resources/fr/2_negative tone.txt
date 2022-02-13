@@ -117,8 +117,8 @@ attristées		12
 attristera		12
 attristerait		12
 attristés		12
-bagatelle	isPrecededBySpecificTerm///une	12
-bagatelles	isPrecededBySpecificTerm///des	12
+bagatelle	isPrecededBySpecificTerm///une	12:10
+bagatelles	isPrecededBySpecificTerm///des	12:10
 ballec		12
 balec		12
 baltringue		12
@@ -143,7 +143,7 @@ ca craint		12
 ça craint		12
 calomnie		12
 calomnieux 		12
-capable	isPrecededBySpecificTerm///pas	12
+capable	isPrecededBySpecificTerm///pas	12:10
 c est n importe quoi		12
 chagrin		12
 chagrinait		12
@@ -154,7 +154,7 @@ chagrinées		12
 chagrinerait		12
 chagrinés		12
 chiant		12
-chier	isPrecededBySpecificTerm///fais|fait|faire	12
+chier	isPrecededBySpecificTerm///fais|fait|faire	12:10
 chiâleux		12
 chiante		12
 choqué		12
@@ -172,8 +172,8 @@ coléreuses		12
 coléreux		12
 colérique		12
 colérques		12
-comprend	isImmediatelyFollowedByANegation	12
-comprends	isImmediatelyFollowedByANegation	12
+comprend	isImmediatelyFollowedByANegation	12:10
+comprends	isImmediatelyFollowedByANegation	12:10
 commence à bien faire		12
 con		12
 connard		12
@@ -557,10 +557,10 @@ ignoble		12
 ignoblement		12
 ignobles		12
 ignominie		12
-incapable	isPrecededBySpecificTerm///sont|est|es|un	12
-incapables	isPrecededBySpecificTerm///sont|est|es|des	12
-inconscient	isPrecededBySpecificTerm///sont|est|es|des	12
-inconscients	isPrecededBySpecificTerm///sont|est|es|des	12
+incapable	isPrecededBySpecificTerm///sont|est|es|un	12:10
+incapables	isPrecededBySpecificTerm///sont|est|es|des	12:10
+inconscient	isPrecededBySpecificTerm///sont|est|es|des	12:10
+inconscients	isPrecededBySpecificTerm///sont|est|es|des|êtes|etes	12:10
 inconsidéré		12
 inconsidérés		12
 inconsidérée		12
@@ -587,8 +587,8 @@ inquiètes		12
 inquiets		12
 inquiétude		12
 inquiétudes		12
-inutile	isPrecededByStrongWord	12
-inutiles	isPrecededByStrongWord	12
+inutile	isPrecededByStrongWord	12:10
+inutiles	isPrecededByStrongWord	12:10
 irascibilité		12
 irascibilités		12
 irascible		12
@@ -597,8 +597,8 @@ ire		12
 ires		12
 irresponsable		12
 irresponsables		12
-lâche	!isPrecededBySpecificTerm///je|il	12
-lâches	!isPrecededBySpecificTerm///tu	12
+lâche	!isPrecededBySpecificTerm///je|il	12:10
+lâches	!isPrecededBySpecificTerm///tu	12:10
 lâcheté		12
 laid		12
 laide		12
@@ -741,8 +741,8 @@ perdrons		12
 perdront		12
 perds		12
 perte		12
-péter	isImmediatelyFollowedBySpecificTerm///des cables|un cable|les cables|quelques cables|les plombs|un plomb|des plombs|quelques plombs|une durite|quelques durites|les durites|des durites	12
-pété	isImmediatelyFollowedBySpecificTerm///des cables|un cable|les cables|quelques cables|les plombs|un plomb|des plombs|quelques plombs|une durite|quelques durites|les durites|des durites	12
+péter	isImmediatelyFollowedBySpecificTerm///des cables|un cable|les cables|quelques cables|les plombs|un plomb|des plombs|quelques plombs|une durite|quelques durites|les durites|des durites	12:10
+pété	isImmediatelyFollowedBySpecificTerm///des cables|un cable|les cables|quelques cables|les plombs|un plomb|des plombs|quelques plombs|une durite|quelques durites|les durites|des durites	12:10
 péteux		12
 peur		12
 peureux		12

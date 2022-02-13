@@ -20,7 +20,7 @@ badass		11	3
 bang up		11	3
 beautiful	!isImmediatelyPrecededByANegation	11:12	2
 best	!isImmediatelyPrecededByANegation	11:12	3
-better	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///not|start+++!isImmediatelyPrecededBySpecificTerm///would|d|wd	if(A && B && C){11} else {0} 	2
+better	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///not|start+++!isImmediatelyPrecededBySpecificTerm///would|d|wd	if(A && B && C){11} else {10} 	2
 bff		11	3
 big fan	!isImmediatelyPrecededByANegation	11:12	3
 big up	!isImmediatelyPrecededByANegation	11:12	3
@@ -28,8 +28,8 @@ big ups	!isImmediatelyPrecededByANegation	11:12	3
 bitch	!isImmediatelyPrecededByANegation	11:12	3
 blessed	!isImmediatelyPrecededByANegation	11:12	3
 blessing	!isImmediatelyPrecededByANegation	11:12	3
-blown	isPrecededBySpecificTerm ///mind+++isPrecededBySubjectiveTerm+++isFirstTermOfStatus	if(A || B || C){11} else {0}	3
-bright	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///light	if(A && B){11} else {0}	3
+blown	isPrecededBySpecificTerm ///mind+++isPrecededBySubjectiveTerm+++isFirstTermOfStatus	if(A || B || C){11} else {10}	3
+bright	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///light	if(A && B){11} else {10}	3
 brightening	!isImmediatelyPrecededByANegation	11:12	3
 brightens		11	3
 brightens	!isImmediatelyPrecededByANegation	11:12	3
@@ -61,7 +61,7 @@ cool	!isImmediatelyPrecededByANegation	11:12	2
 coolest	!isImmediatelyPrecededByANegation	11:12	3
 coolshite		11	3
 cost effective	!isImmediatelyPrecededByANegation	11:12	2
-cracking	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///knuckle|knuckles|joint|joints	if (A && B) {11} else {0}	3
+cracking	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///knuckle|knuckles|joint|joints	if (A && B) {11} else {10}	3
 crank	!isImmediatelyPrecededByANegation	11:12	3
 craving	!isImmediatelyPrecededByANegation	11:12	3
 cunning	!isImmediatelyPrecededByANegation	11:12	3
@@ -71,8 +71,8 @@ decent	!isImmediatelyPrecededByANegation	11:12	1
 delicious	!isImmediatelyPrecededByANegation	11:12	3
 delighted	!isImmediatelyPrecededByANegation	11:12	3
 devoted	!isImmediatelyPrecededByANegation	11:12	3
-dig	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	if (A && B) {11} else {0}	3
-digging	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	if (A && B) {11} else {0}	3
+dig	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	if (A && B) {11} else {10}	3
+digging	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	if (A && B) {11} else {10}	3
 donates		11	1
 dream	!isImmediatelyPrecededByANegation	11:12	3
 dreamin	!isImmediatelyPrecededByANegation	11:12	3
@@ -114,11 +114,11 @@ favourite	!isImmediatelyPrecededByANegation	11:12	3
 festive	!isImmediatelyPrecededByANegation	11:12	2
 finest	!isImmediatelyPrecededByANegation	11:12	3
 finger licking	!isImmediatelyPrecededByANegation	11:12	3
-fond	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	if (A && B) {11} else {0}	3
+fond	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	if (A && B) {11} else {10}	3
 fondly	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	11:12	3
 free	!isImmediatelyPrecededByANegation	11:12	2
 freebies	!isImmediatelyPrecededByANegation	11:12	2
-friendly	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///fire	if (A && B) {11} else {0}	2
+friendly	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///fire	if (A && B) {11} else {10}	2
 ftw	!isImmediatelyPrecededByANegation	11:12	3
 fun	!isImmediatelyPrecededByANegation	11:12	2
 funniest	!isImmediatelyPrecededByANegation	11:12	3
@@ -135,10 +135,10 @@ good	!isImmediatelyPrecededByANegation	11:12	2
 goodies		11	2
 gorgeous	!isImmediatelyPrecededByANegation	11:12	3
 gr8t	!isImmediatelyPrecededByANegation	11:12	2
-grand	!isImmediatelyFollowedByANegativeOpinion+++isImmediatelyPrecededBySpecificTerm///be	if(A && B){11} else {0}	3
+grand	!isImmediatelyFollowedByANegativeOpinion+++isImmediatelyPrecededBySpecificTerm///be	if(A && B){11} else {10}	3
 grateful	!isImmediatelyPrecededByANegation	11:12	3
 great	!isImmediatelyPrecededByANegation	11:12	3
-greatest	!isImmediatelyFollowedByANegativeOpinion+++!isImmediatelyFollowedByAPositiveOpinion	if(A && B){11} else {0}	3
+greatest	!isImmediatelyFollowedByANegativeOpinion+++!isImmediatelyFollowedByAPositiveOpinion	if(A && B){11} else {10}	3
 greatness	!isImmediatelyPrecededByANegation	11:12	3
 grin	!isImmediatelyPrecededByANegation	11:12	2
 groovy	!isImmediatelyPrecededByANegation	11:12	2
@@ -170,7 +170,7 @@ honorable	!isImmediatelyPrecededByANegation	11:12	2
 honored	!isImmediatelyPrecededByANegation	11:12	2
 hope	!isImmediatelyPrecededByANegation	11:12	2
 hopes	!isImmediatelyPrecededByANegation	11:12	2
-hot	!isPrecededBySpecificTerm///weather+++!isFollowedBySpecificTerm///weather+++!isImmediatelyPrecededByANegation	if (A && B && C) {11} else {0}	3
+hot	!isPrecededBySpecificTerm///weather+++!isFollowedBySpecificTerm///weather+++!isImmediatelyPrecededByANegation	if (A && B && C) {11} else {10}	3
 hottest	!isImmediatelyPrecededByANegation	11:12	3
 humble	!isImmediatelyPrecededByANegation	11:12	2
 humbled	!isImmediatelyPrecededByANegation	11:12	2
@@ -181,7 +181,7 @@ impressed	!isImmediatelyPrecededByANegation	11:12	2
 impressive	!isImmediatelyPrecededByANegation	11:12	2
 improve	!isImmediatelyPrecededByANegation	11:12	2
 improves	!isImmediatelyPrecededByANegation	11:12	2
-incredible	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if (A && B) {11} else {0}	3
+incredible	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if (A && B) {11} else {10}	3
 innovative	!isImmediatelyPrecededByANegation	11:12	2
 inspiration	!isImmediatelyPrecededByANegation	11:12	2
 inspirations	!isImmediatelyPrecededByANegation	11:12	2
@@ -259,7 +259,7 @@ outstanding	!isImmediatelyPrecededByANegation	11:12	3
 paradise	!isImmediatelyPrecededByANegation	11:12	3
 passion	!isImmediatelyPrecededByANegation	11:12	3
 passions	!isImmediatelyPrecededByANegation	11:12	3
-perfect	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if (A && B) {11} else {0}	3
+perfect	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if (A && B) {11} else {10}	3
 perfect Christmas present	!isImmediatelyPrecededByANegation	11:12	3
 perfect present	!isImmediatelyPrecededByANegation	11:12	3
 pinnacle	!isImmediatelyPrecededByANegation	11:12	3
@@ -328,7 +328,7 @@ sunshine	!isImmediatelyPrecededByANegation	11:12	3
 suped up	!isImmediatelyPrecededByANegation	11:12	3
 superb	!isImmediatelyPrecededByANegation	11:12	3
 sweet	!isImmediatelyPrecededByANegation	11:12	2
-swell	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///up+++!isPrecededBySpecificTerm///head|lips|lip|chest|arm|foot|feet|hand|hands|finger|fingers|thumb|thumbs|toe|toes|neck|knee|belly|thigh|leg|legs|chick|chicks|ear|ears|tongue|elbow	if (A && B && C) {11} else {0}	3
+swell	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///up+++!isPrecededBySpecificTerm///head|lips|lip|chest|arm|foot|feet|hand|hands|finger|fingers|thumb|thumbs|toe|toes|neck|knee|belly|thigh|leg|legs|chick|chicks|ear|ears|tongue|elbow	if (A && B && C) {11} else {10}	3
 talented	!isImmediatelyPrecededByANegation	11:12	3
 tasty	!isImmediatelyPrecededByANegation	11:12	2
 terrific	!isImmediatelyPrecededByANegation	11:12	3

@@ -141,8 +141,7 @@ au top	!isImmediatelyFollowedByANegativeOpinion	11:12
 aux anges	!isImmediatelyPrecededByANegation	11:12
 avons de la chance	!isImmediatelyPrecededByANegation	11:12
 béat	!isImmediatelyPrecededByANegation	11:12
-béatitude	"!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion
-"	A:11:99:B:11:99
+béatitude	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if(A && B){11}
 beau	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///frère|frere|père|père|fils	if(A && B){11}
 beaux	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///frères|freres|pères|pères|fils	if(A && B){11}
 beauté	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if(A && B){11}

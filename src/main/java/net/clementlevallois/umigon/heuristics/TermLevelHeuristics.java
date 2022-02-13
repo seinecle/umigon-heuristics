@@ -234,8 +234,8 @@ public class TermLevelHeuristics {
                 cats.add(new CategoryAndIndex(cat, indexTerm));
                 return cats;
             } catch (IllegalArgumentException wrongCode) {
-                System.out.println("rule was misspelled or just wrong, after evaluating the heuristics:");
-                System.out.println(rule);
+                System.out.println("outcome was misspelled or just wrong, after evaluating the heuristics:");
+                System.out.println(result);
                 return cats;
             }
         }

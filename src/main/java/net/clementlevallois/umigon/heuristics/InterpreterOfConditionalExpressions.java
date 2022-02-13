@@ -91,7 +91,7 @@ public class InterpreterOfConditionalExpressions {
             } else if (outcomes.length > 1) {
                 return outcomes[1];
             } else {
-                return "099";
+                return "10"; // 10 is or neutral
             }
         } else {
             return rule;

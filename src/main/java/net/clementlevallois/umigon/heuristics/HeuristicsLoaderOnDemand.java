@@ -32,35 +32,35 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class HeuristicsLoaderOnDemand {
 
-    private String lang;
-    BufferedReader br;
-    FileReader fr;
-    String string;
-    LexiconsAndConditionalExpressions heuristic;
-    Map<String, LexiconsAndConditionalExpressions> mapHeuristics;
-    Map<String, LexiconsAndConditionalExpressions> mapH1;
-    Map<String, LexiconsAndConditionalExpressions> mapH2;
-    Map<String, LexiconsAndConditionalExpressions> mapH3;
-    Map<String, LexiconsAndConditionalExpressions> mapH4;
-    Map<String, LexiconsAndConditionalExpressions> mapH5;
-    Map<String, LexiconsAndConditionalExpressions> mapH6;
-    Map<String, LexiconsAndConditionalExpressions> mapH7;
-    Map<String, LexiconsAndConditionalExpressions> mapH8;
-    Map<String, LexiconsAndConditionalExpressions> mapH9;
-    Map<String, LexiconsAndConditionalExpressions> mapH10;
-    Map<String, LexiconsAndConditionalExpressions> mapH11;
-    Map<String, LexiconsAndConditionalExpressions> mapH12;
-    Map<String, LexiconsAndConditionalExpressions> mapH13;
-    Map<String, LexiconsAndConditionalExpressions> mapH17;
-    Set<String> setNegations;
-    Set<String> setTimeTokens;
-    Set<String> setSubjective;
-    Set<String> setHashTags;
-    Set<String> setModerators;
-    Set<String> setFalsePositiveOpinions;
-    Set<String> setIronicallyPositive;
+    private final String lang;
+    private BufferedReader br;
+    private FileReader fr;
+    private String string;
+    private LexiconsAndConditionalExpressions heuristic;
+    private Map<String, LexiconsAndConditionalExpressions> mapHeuristics;
+    private Map<String, LexiconsAndConditionalExpressions> mapH1;
+    private Map<String, LexiconsAndConditionalExpressions> mapH2;
+    private Map<String, LexiconsAndConditionalExpressions> mapH3;
+    private Map<String, LexiconsAndConditionalExpressions> mapH4;
+    private Map<String, LexiconsAndConditionalExpressions> mapH5;
+    private Map<String, LexiconsAndConditionalExpressions> mapH6;
+    private Map<String, LexiconsAndConditionalExpressions> mapH7;
+    private Map<String, LexiconsAndConditionalExpressions> mapH8;
+    private Map<String, LexiconsAndConditionalExpressions> mapH9;
+    private Map<String, LexiconsAndConditionalExpressions> mapH10;
+    private Map<String, LexiconsAndConditionalExpressions> mapH11;
+    private Map<String, LexiconsAndConditionalExpressions> mapH12;
+    private Map<String, LexiconsAndConditionalExpressions> mapH13;
+    private Map<String, LexiconsAndConditionalExpressions> mapH17;
+    private Set<String> setNegations;
+    private Set<String> setTimeTokens;
+    private Set<String> setSubjective;
+    private Set<String> setHashTags;
+    private Set<String> setModerators;
+    private Set<String> setFalsePositiveOpinions;
+    private Set<String> setIronicallyPositive;
 
-    Map<String, LanguageSpecificLexicons> multilingualLexicons = new HashMap();
+    private Map<String, LanguageSpecificLexicons> multilingualLexicons = new HashMap();
 
     public HeuristicsLoaderOnDemand(String lang) {
         this.lang = lang;
@@ -340,6 +340,12 @@ public class HeuristicsLoaderOnDemand {
     public Map<String, LexiconsAndConditionalExpressions> getMapH13() {
         return multilingualLexicons.get(lang).getMapH13();
     }
+
+    public Map<String, LexiconsAndConditionalExpressions> getMapH6() {
+        return mapH6;
+    }
+    
+    
 
     public Map<String, LexiconsAndConditionalExpressions> getMapH1() {
         return multilingualLexicons.get(lang).getMapH1();
