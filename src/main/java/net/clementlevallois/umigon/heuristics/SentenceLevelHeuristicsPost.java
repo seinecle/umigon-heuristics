@@ -8,10 +8,8 @@ import net.clementlevallois.umigon.model.Document;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Queue;
 import java.util.Set;
 import net.clementlevallois.umigon.model.Categories.Category;
-import net.clementlevallois.umigon.model.CategoryAndIndex;
 import net.clementlevallois.utils.StatusCleaner;
 
 /**
@@ -54,17 +52,16 @@ public class SentenceLevelHeuristicsPost {
         text = cleaner.removeStartAndFinalApostrophs(text);
         text = cleaner.removePunctuationSigns(text).toLowerCase().trim();
 
-        Set<String> termsInStatus = new HashSet();
-        termsInStatus.addAll(Arrays.asList(text.split(" ")));
+        Set<String> termsInText = new HashSet();
+        termsInText.addAll(Arrays.asList(text.split(" ")));
         if (!document.getListCategories().isEmpty()) {
             return;
         }
         for (String term : setNegations) {
-            if (termsInStatus.contains(term)) {
-                document.addToListCategories(Category._12, -1);
+            if (termsInText.contains(term)) {
+                document.addToListCategories(Category._12, -1, term);
             }
         }
-        return;
     }
 
     public void containsModerator() {
@@ -177,10 +174,10 @@ public class SentenceLevelHeuristicsPost {
             return;
         }
         if (textStripped.length() < 5) {
-            document.addToListCategories(Category._92, -1);
+            document.addToListCategories(Category._92, -1, textStripped);
         }
         if (textStripped.split(" ").length < 4) {
-            document.addToListCategories(Category._92, -1);
+            document.addToListCategories(Category._92, -1, textStripped);
         }
     }
 

@@ -1,0 +1,84 @@
+212	null	31	
+2013	null	3	
+2014	null	33	
+2015	null	33	
+2016	null	33	
+2017	null	33	
+2018	null	33	
+2019	null	33	
+2020	null	33	
+230	null	33	
+2040	null	33	
+2025	null	33	
+2050	null	33	
+2100	null	33	
+ago	null	31	
+announcement	null	321	
+announcements	null	321	
+announces	null	321	
+april	null	3	
+are launching	null	321	
+august	null	3	
+autumn	null	3	
+brand new	null	321	
+breakingNews	null	321	
+christmas	null	3	
+coming out	isImmediatelyFollowedByTimeIndication	321	
+december	null	3	
+easter	null	3	
+february	null	3	
+for	isImmediatelyFollowedByTimeIndication	3	
+future	null	33	
+i present you		321	
+in	isImmediatelyFollowedByTimeIndication	33	
+introduce	null	321	
+introducing	isFirstTermOfStatus	321	
+is available now		321	
+is now	null	321	
+is on!	null	321	
+is out!	null	321	
+it s here!	isFirstTermOfStatus	321	
+it s time:		321	
+january	null	3	
+july	null	3	
+june	null	3	
+just	isFollowedByVerbPastTense	321	
+kicking off	null	321	
+kicks off	null	321	
+last	isImmediatelyFollowedByTimeIndication	31	
+later	null	3	
+launches	null	321	
+march	null	3	
+meet the new	null	321	
+months	null	3	
+new	isFirstLetterCapitalized	321	
+new app	null	321	
+next	isImmediatelyFollowedByTimeIndication	33	
+next	isImmediatelyFollowedByTimeIndication	33	
+november	null	3	
+now	null	321	
+october	null	3	
+on	isImmediatelyFollowedByTimeIndication	33	
+september	null	3	
+since	isImmediatelyFollowedByTimeIndication	31	
+speaking live	null	321	
+spotlight:	null	321	
+summer	null	3	
+the latest		321	
+this	isImmediatelyFollowedByTimeIndication	33	
+til	isImmediatelyFollowedByTimeIndication	33	
+tmw	null	331	
+to begin on	isImmediatelyFollowedByTimeIndication	331	
+today	isHashTag	321	
+today s		321	
+tomorrow	null	331	
+tonight	null	321	
+touts	null	321	
+until	isImmediatelyFollowedByTimeIndication	33	
+unveiled	null	321	
+unveiled	null	311	
+unveils	null	321	
+weeks	null	3	
+will begin	isImmediatelyFollowedByTimeIndication	331	
+winter	null	3	
+unveiling	null	321	

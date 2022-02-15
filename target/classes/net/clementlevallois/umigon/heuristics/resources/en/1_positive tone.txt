@@ -1,0 +1,376 @@
+achievement	!isImmediatelyPrecededByANegation	11:12	2
+admire	!isImmediatelyPrecededByANegation	11:12	3
+affordable	!isImmediatelyPrecededByANegation	11:12	2
+all in one		11	2
+always a pleasure	!isImmediatelyPrecededByANegation	11:12	3
+amazing	!isImmediatelyPrecededByANegation	11:12	3
+among the top	!isImmediatelyPrecededByANegation	11:12	3
+amusing	!isImmediatelyPrecededByANegation	11:12	2
+and I m done		11	3
+angel	!isImmediatelyPrecededByANegation	11:12	3
+appreciate	!isImmediatelyPrecededByANegation	11:12	2
+appreciated	!isImmediatelyPrecededByANegation	11:12	2
+attractive	!isImmediatelyPrecededByANegation	11:12	2
+awesme	!isImmediatelyPrecededByANegation	11:12	3
+awesome	!isImmediatelyPrecededByANegation	11:12	3
+awesomeness	!isImmediatelyPrecededByANegation	11:12	3
+awsome	!isImmediatelyPrecededByANegation	11:12	3
+bad ass		11	3
+badass		11	3
+bang up		11	3
+beautiful	!isImmediatelyPrecededByANegation	11:12	2
+best	!isImmediatelyPrecededByANegation	11:12	3
+better	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///not|start+++!isImmediatelyPrecededBySpecificTerm///would|d|wd	if(A && B && C){11} else {10} 	2
+bff		11	3
+big fan	!isImmediatelyPrecededByANegation	11:12	3
+big up	!isImmediatelyPrecededByANegation	11:12	3
+big ups	!isImmediatelyPrecededByANegation	11:12	3
+bitch	!isImmediatelyPrecededByANegation	11:12	3
+blessed	!isImmediatelyPrecededByANegation	11:12	3
+blessing	!isImmediatelyPrecededByANegation	11:12	3
+blown	isPrecededBySpecificTerm ///mind+++isPrecededBySubjectiveTerm+++isFirstTermOfStatus	if(A || B || C){11} else {10}	3
+bright	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///light	if(A && B){11} else {10}	3
+brightening	!isImmediatelyPrecededByANegation	11:12	3
+brightens		11	3
+brightens	!isImmediatelyPrecededByANegation	11:12	3
+brilliance	!isImmediatelyPrecededByANegation	11:12	3
+brilliant	!isImmediatelyPrecededByANegation	11:12	3
+cant wait		11	3
+can t wait		11	3
+can t wait for	!isFollowedBySpecificTerm ///to be over	11:12	3
+cant wait for	!isFollowedBySpecificTerm ///to be over	11:12	3
+care about	!isImmediatelyPrecededByANegation	11:12	2
+catchya		11	2
+celebrate	!isImmediatelyPrecededByANegation	11:12	3
+celebration	!isImmediatelyPrecededByANegation	11:12	3
+champion	!isImmediatelyPrecededByANegation	11:12	3
+champions	!isImmediatelyPrecededByANegation	11:12	3
+cheer!		11	3
+cheers	!isImmediatelyPrecededByANegation	11:12	3
+chill out	!isImmediatelyPrecededByANegation	11:12	1
+chilled	!isImmediatelyPrecededByANegation	11:12	1
+classy	!isImmediatelyPrecededByANegation	11:12	3
+clever	!isImmediatelyPrecededByANegation	11:12	3
+cohesive	!isImmediatelyPrecededByANegation	11:12	2
+comfort	!isImmediatelyPrecededByANegation	11:12	2
+congrats		11	3
+congrats to	!isImmediatelyPrecededByANegation	11:12	3
+congratulation		11	3
+congratulations	!isImmediatelyPrecededByANegation	11:12	3
+cool	!isImmediatelyPrecededByANegation	11:12	2
+coolest	!isImmediatelyPrecededByANegation	11:12	3
+coolshite		11	3
+cost effective	!isImmediatelyPrecededByANegation	11:12	2
+cracking	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///knuckle|knuckles|joint|joints	if (A && B) {11} else {10}	3
+crank	!isImmediatelyPrecededByANegation	11:12	3
+craving	!isImmediatelyPrecededByANegation	11:12	3
+cunning	!isImmediatelyPrecededByANegation	11:12	3
+cute	!isImmediatelyPrecededByANegation	11:12	2
+cutey	!isImmediatelyPrecededByANegation	11:12	3
+decent	!isImmediatelyPrecededByANegation	11:12	1
+delicious	!isImmediatelyPrecededByANegation	11:12	3
+delighted	!isImmediatelyPrecededByANegation	11:12	3
+devoted	!isImmediatelyPrecededByANegation	11:12	3
+dig	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	if (A && B) {11} else {10}	3
+digging	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	if (A && B) {11} else {10}	3
+donates		11	1
+dream	!isImmediatelyPrecededByANegation	11:12	3
+dreamin	!isImmediatelyPrecededByANegation	11:12	3
+dreams	!isImmediatelyPrecededByANegation	11:12	3
+ease	!isImmediatelyPrecededByANegation	11:12	2
+easily	!isImmediatelyPrecededByANegation	11:12	2
+easy	!isImmediatelyPrecededByANegation	11:12	2
+eco friendly	!isImmediatelyPrecededByANegation	11:12	2
+ecofriendly	!isImmediatelyPrecededByANegation	11:12	2
+efficient	!isImmediatelyPrecededByANegation	11:12	2
+elated	!isImmediatelyPrecededByANegation	11:12	3
+enabled	!isImmediatelyPrecededByANegation	11:12	2
+enhance	!isImmediatelyPrecededByANegation	11:12	2
+enhancement	!isImmediatelyPrecededByANegation	11:12	2
+enhancements	!isImmediatelyPrecededByANegation	11:12	2
+enhances	!isImmediatelyPrecededByANegation	11:12	2
+enhancing	!isImmediatelyPrecededByANegation	11:12	2
+enjoy	!isImmediatelyPrecededByANegation	11:12	2
+enjoyed	!isImmediatelyPrecededByANegation	11:12	2
+enjoying	!isImmediatelyPrecededByANegation	11:12	2
+enjoyment	!isImmediatelyPrecededByANegation	11:12	2
+entertaining	!isImmediatelyPrecededByANegation	11:12	2
+epic	!isImmediatelyPrecededByANegation	11:12	3
+excellent	!isImmediatelyPrecededByANegation	11:12	3
+excite	!isImmediatelyPrecededByANegation	11:12	3
+excited	!isImmediatelyPrecededByANegation	11:12	3
+excited	!isImmediatelyPrecededByANegation	11:12	3
+exciting	!isImmediatelyPrecededByANegation	11:12	3
+exquisite	!isImmediatelyPrecededByANegation	11:12	3
+fab	!isImmediatelyPrecededByANegation	11:12	3
+fabulous	!isImmediatelyPrecededByANegation	11:12	3
+fancy	!isImmediatelyPrecededByANegation	11:12	2
+fantastic	!isImmediatelyPrecededByANegation	11:12	3
+fascinating	!isImmediatelyPrecededByANegation	11:12	3
+fav	!isImmediatelyPrecededByANegation	11:12	3
+fave	!isImmediatelyPrecededByANegation	11:12	3
+favorite	!isImmediatelyPrecededByANegation	11:12	3
+favourite	!isImmediatelyPrecededByANegation	11:12	3
+festive	!isImmediatelyPrecededByANegation	11:12	2
+finest	!isImmediatelyPrecededByANegation	11:12	3
+finger licking	!isImmediatelyPrecededByANegation	11:12	3
+fond	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	if (A && B) {11} else {10}	3
+fondly	!isImmediatelyPrecededByANegation+++isPrecededBySubjectiveTerm	11:12	3
+free	!isImmediatelyPrecededByANegation	11:12	2
+freebies	!isImmediatelyPrecededByANegation	11:12	2
+friendly	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///fire	if (A && B) {11} else {10}	2
+ftw	!isImmediatelyPrecededByANegation	11:12	3
+fun	!isImmediatelyPrecededByANegation	11:12	2
+funniest	!isImmediatelyPrecededByANegation	11:12	3
+funny	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///that|how	11:12	2
+futuristic	!isImmediatelyPrecededByANegation	11:12	2
+gains	!isImmediatelyPrecededByANegation	11:12	2
+game changing	!isImmediatelyPrecededByANegation	11:12	3
+genius	!isImmediatelyPrecededByANegation	11:12	3
+glad	!isImmediatelyPrecededByANegation	11:12	2
+glorious	!isImmediatelyPrecededByANegation	11:12	3
+god bless		11	3
+gold	isAllCaps	11	3
+good	!isImmediatelyPrecededByANegation	11:12	2
+goodies		11	2
+gorgeous	!isImmediatelyPrecededByANegation	11:12	3
+gr8t	!isImmediatelyPrecededByANegation	11:12	2
+grand	!isImmediatelyFollowedByANegativeOpinion+++isImmediatelyPrecededBySpecificTerm///be	if(A && B){11} else {10}	3
+grateful	!isImmediatelyPrecededByANegation	11:12	3
+great	!isImmediatelyPrecededByANegation	11:12	3
+greatest	!isImmediatelyFollowedByANegativeOpinion+++!isImmediatelyFollowedByAPositiveOpinion	if(A && B){11} else {10}	3
+greatness	!isImmediatelyPrecededByANegation	11:12	3
+grin	!isImmediatelyPrecededByANegation	11:12	2
+groovy	!isImmediatelyPrecededByANegation	11:12	2
+ground breaking	!isImmediatelyPrecededByANegation	11:12	3
+groundbreaking	!isImmediatelyPrecededByANegation	11:12	3
+gutsy	!isImmediatelyPrecededByANegation	11:12	3
+haha		11	2
+hahaha		11	2
+handy	!isImmediatelyPrecededByANegation	11:12	2
+happier	isImmediatelyPrecededBySpecificTerm///couldn t be|couldnt be|never been|any|me|so much|myself	11|99	2
+happiest	!isImmediatelyPrecededByANegation	11:12	3
+happy	!isImmediatelyPrecededByANegation	11:12	2
+has something for everyone	!isImmediatelyPrecededByANegation	11:12	2
+has you covered	!isImmediatelyPrecededByANegation	11:12	2
+have you covered	!isImmediatelyPrecededByANegation	11:12	2
+heavenly	!isImmediatelyPrecededByANegation	11:12	3
+heheh		11	2
+helped	!isImmediatelyPrecededByANegation	11:12	2
+helpful	!isImmediatelyPrecededByANegation	11:12	2
+helping	!isImmediatelyPrecededByANegation	11:12	2
+helps	!isImmediatelyPrecededByANegation	11:12	2
+hero	!isImmediatelyPrecededByANegation	11:12	3
+high quality	!isImmediatelyPrecededByANegation	11:12	3
+high quality	!isImmediatelyPrecededByANegation	11:12	3
+hilarious	!isImmediatelyPrecededByANegation	11:12	3
+hillarious	!isImmediatelyPrecededByANegation	11:12	3
+honest	!isImmediatelyPrecededByANegation	11:12	2
+honorable	!isImmediatelyPrecededByANegation	11:12	2
+honored	!isImmediatelyPrecededByANegation	11:12	2
+hope	!isImmediatelyPrecededByANegation	11:12	2
+hopes	!isImmediatelyPrecededByANegation	11:12	2
+hot	!isPrecededBySpecificTerm///weather+++!isFollowedBySpecificTerm///weather+++!isImmediatelyPrecededByANegation	if (A && B && C) {11} else {10}	3
+hottest	!isImmediatelyPrecededByANegation	11:12	3
+humble	!isImmediatelyPrecededByANegation	11:12	2
+humbled	!isImmediatelyPrecededByANegation	11:12	2
+hurray		11	3
+i like	!isImmediatelyPrecededByANegation	11:12	2
+ily	!isImmediatelyPrecededByANegation	11:12	2
+impressed	!isImmediatelyPrecededByANegation	11:12	2
+impressive	!isImmediatelyPrecededByANegation	11:12	2
+improve	!isImmediatelyPrecededByANegation	11:12	2
+improves	!isImmediatelyPrecededByANegation	11:12	2
+incredible	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if (A && B) {11} else {10}	3
+innovative	!isImmediatelyPrecededByANegation	11:12	2
+inspiration	!isImmediatelyPrecededByANegation	11:12	2
+inspirations	!isImmediatelyPrecededByANegation	11:12	2
+inspired	!isImmediatelyPrecededByANegation	11:12	2
+inspiring	!isImmediatelyPrecededByANegation	11:12	3
+instantly	!isImmediatelyPrecededByANegation	11:12	2
+intelligent	!isImmediatelyPrecededByANegation	11:12	2
+interested	!isImmediatelyPrecededByANegation	11:12	2
+interesting	!isImmediatelyPrecededByANegation	11:12	2
+irresistible	!isImmediatelyPrecededByANegation	11:12	3
+jadore		11	3
+jokin	!isImmediatelyPrecededByANegation	11:12	2
+joking	!isImmediatelyPrecededByANegation	11:12	2
+jolly	!isImmediatelyPrecededByANegation	11:12	3
+joy	!isImmediatelyPrecededByANegation	11:12	3
+kawaii	!isImmediatelyPrecededByANegation	11:12	3
+kicked their butt	!isImmediatelyPrecededByANegation	11:12	3
+kicked your butt	!isImmediatelyPrecededByANegation	11:12	3
+kind	isImmediatelyFollowedBySpecificTerm///of her|of him|of you	11	2
+knighted	!isImmediatelyPrecededByANegation	11:12	2
+kudos	!isImmediatelyPrecededByANegation	11:12	3
+laugh	!isImmediatelyPrecededByANegationis+++!isImmediatelyFollowedBySpecificTerm///at	if (A && B) {11} else {12}	2
+laughed	!isImmediatelyPrecededByANegation	11:12	2
+laughs	!isImmediatelyPrecededByANegation	11:12	2
+leg up	!isImmediatelyPrecededByANegation	11:12	3
+lets u 	!isImmediatelyPrecededByANegation	11:12	2
+let s you	!isImmediatelyPrecededByANegation	11:12	2
+leveraging	!isImmediatelyPrecededByANegation	11:12	2
+life saver	!isImmediatelyPrecededByANegation	11:12	3
+lightning fast	!isImmediatelyPrecededByANegation	11:12	3
+liked	!isImmediatelyPrecededByANegation	11:12	2
+liking	!isImmediatelyPrecededByANegation	11:12	2
+livesaver	!isImmediatelyPrecededByANegation	11:12	3
+lol	!isImmediatelyPrecededByANegation	11:12	3
+look forwad to	!isImmediatelyPrecededByANegation	11:12	2
+looking forward to	!isImmediatelyPrecededByANegation	11:12	2
+love	!isImmediatelyPrecededByANegation	11:12	3
+loved	!isImmediatelyPrecededByANegation	11:12	3
+lovely	!isImmediatelyPrecededByANegation	11:12	3
+loves	!isImmediatelyPrecededByANegation	11:12	3
+loving	!isImmediatelyPrecededByANegation	11:12	3
+loyal	!isImmediatelyPrecededByANegation	11:12	2
+luckily	!isImmediatelyPrecededByANegation	11:12	3
+lucky	!isImmediatelyPrecededByANegation	11:12	3
+lucky you	!isImmediatelyPrecededByANegation	11:12	3
+lush	!isImmediatelyPrecededByANegation	11:12	3
+luv	!isImmediatelyPrecededByANegation	11:12	3
+luv		11	3
+made my day	!isImmediatelyPrecededByANegation	11:12	3
+made my night	!isImmediatelyPrecededByANegation	11:12	3
+magic!	!isImmediatelyPrecededByANegation	11:12	3
+magnificent	!isImmediatelyPrecededByANegation	11:12	3
+magnifique	!isImmediatelyPrecededByANegation	11:12	3
+marvelous	!isImmediatelyPrecededByANegation	11:12	3
+marvellous	!isImmediatelyPrecededByANegation	11:12	3
+means a lot		11	3
+meant a lot		11	3
+merry	!isImmediatelyPrecededByANegation	11:12	3
+mighty	!isImmediatelyPrecededByANegation	11:12	3
+mind blowing	!isImmediatelyPrecededByANegation	11:12	3
+mind blown	!isImmediatelyPrecededByANegation	11:12	3
+mindblowing	!isImmediatelyPrecededByANegation	11:12	3
+mindblown	!isImmediatelyPrecededByANegation	11:12	3
+mouth watering	!isImmediatelyPrecededByANegation	11:12	3
+muahah		11	3
+muahahah		11	3
+neat	!isImmediatelyPrecededByANegation	11:12	3
+nice	!isImmediatelyPrecededByANegation	11:12	2
+nicest	!isImmediatelyPrecededByANegation	11:12	2
+noble	!isImmediatelyPrecededByANegation	11:12	3
+nothing beats		11	3
+nutritious	!isImmediatelyPrecededByANegation	11:12	2
+one of the	isImmediatelyFollowedBySpecificTerm///few|rare|only	11:12	3
+outstanding	!isImmediatelyPrecededByANegation	11:12	3
+paradise	!isImmediatelyPrecededByANegation	11:12	3
+passion	!isImmediatelyPrecededByANegation	11:12	3
+passions	!isImmediatelyPrecededByANegation	11:12	3
+perfect	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if (A && B) {11} else {10}	3
+perfect Christmas present	!isImmediatelyPrecededByANegation	11:12	3
+perfect present	!isImmediatelyPrecededByANegation	11:12	3
+pinnacle	!isImmediatelyPrecededByANegation	11:12	3
+pleasant	!isImmediatelyPrecededByANegation	11:12	3
+pleasantly	!isImmediatelyPrecededByANegation	11:12	3
+popular	!isImmediatelyPrecededByANegation	11:12	3
+possibilities		11	1
+prefect	!isImmediatelyPrecededByANegation	11:12	3
+prettiest	!isImmediatelyPrecededByANegation	11:12	3
+prevent	!isImmediatelyPrecededByANegation	11:12	1
+prevents	!isImmediatelyPrecededByANegation	11:12	1
+profitable	!isImmediatelyPrecededByANegation	11:12	2
+proud	!isImmediatelyPrecededByANegation	11:12	3
+pumped	!isImmediatelyPrecededByANegation	11:12	3
+quick witted	!isImmediatelyPrecededByANegation	11:12	3
+racing with ideas	!isImmediatelyPrecededByANegation	11:12	3
+rad	!isImmediatelyPrecededByANegation	11:12	3
+recommend	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///to	11:12	2
+reliable	!isImmediatelyPrecededByANegation	11:12	2
+relief	!isImmediatelyPrecededByANegation	11:12	2
+respect	!isImmediatelyPrecededByANegation	11:12	2
+revolutionary	!isImmediatelyPrecededByANegation	11:12	3
+richest	!isImmediatelyPrecededByANegation	11:12	3
+road tested	!isImmediatelyPrecededByANegation	11:12	2
+rock	isAllCaps	11	3
+rock out		11	3
+rock!	!isImmediatelyPrecededByANegation	11:12	3
+rockin	!isImmediatelyPrecededByANegation	11:12	3
+safer	!isImmediatelyPrecededByANegation	11:12	2
+salute		11	3
+satisfied	!isImmediatelyPrecededByANegation	11:12	2
+satisfying	!isImmediatelyPrecededByANegation	11:12	2
+savoury	!isImmediatelyPrecededByANegation	11:12	3
+say hello	!isImmediatelyPrecededByANegation	11:12	2
+score!	!isImmediatelyPrecededByANegation	11:12	3
+seamless	!isImmediatelyPrecededByANegation	11:12	3
+sensational	!isImmediatelyPrecededByANegation	11:12	3
+sexiest	!isImmediatelyPrecededByANegation	11:12	3
+shout out	!isImmediatelyPrecededByANegation	11:12	3
+shouts out	!isImmediatelyPrecededByANegation	11:12	3
+sleek	!isImmediatelyPrecededByANegation	11:12	2
+slick	!isImmediatelyPrecededByANegation	11:12	2
+smart	!isImmediatelyPrecededByANegation	11:12	3
+smile	!isImmediatelyPrecededByANegation	11:12	2
+smoothly	!isImmediatelyPrecededByANegation	11:12	2
+so true	!isImmediatelyPrecededByANegation	11:12	2
+solid	!isImmediatelyPrecededByANegation	11:12	3
+solutions	!isImmediatelyPrecededByANegation	11:12	2
+soulful	!isImmediatelyPrecededByANegation	11:12	3
+speedy	!isImmediatelyPrecededByANegation	11:12	2
+splendid	!isImmediatelyPrecededByANegation	11:12	3
+sporty	!isImmediatelyPrecededByANegation	11:12	2
+stars!	!isImmediatelyPrecededByANegation	11:12	3
+steadfast	!isImmediatelyPrecededByANegation	11:12	3
+still rocking	!isImmediatelyPrecededByANegation	11:12	2
+strengthening	!isImmediatelyPrecededByANegation	11:12	2
+stunning	!isImmediatelyPrecededByANegation	11:12	3
+stunningly	!isImmediatelyPrecededByANegation	11:12	3
+style	!isImmediatelyPrecededByANegation	11:12	2
+succesful	!isImmediatelyPrecededByANegation	11:12	3
+success	!isImmediatelyPrecededByANegation	11:12	3
+successful	!isImmediatelyPrecededByANegation	11:12	3
+successfully	!isImmediatelyPrecededByANegation	11:12	3
+succulent	!isImmediatelyPrecededByANegation	11:12	3
+sunshine	!isImmediatelyPrecededByANegation	11:12	3
+suped up	!isImmediatelyPrecededByANegation	11:12	3
+superb	!isImmediatelyPrecededByANegation	11:12	3
+sweet	!isImmediatelyPrecededByANegation	11:12	2
+swell	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///up+++!isPrecededBySpecificTerm///head|lips|lip|chest|arm|foot|feet|hand|hands|finger|fingers|thumb|thumbs|toe|toes|neck|knee|belly|thigh|leg|legs|chick|chicks|ear|ears|tongue|elbow	if (A && B && C) {11} else {10}	3
+talented	!isImmediatelyPrecededByANegation	11:12	3
+tasty	!isImmediatelyPrecededByANegation	11:12	2
+terrific	!isImmediatelyPrecededByANegation	11:12	3
+thank	!isImmediatelyPrecededByANegation	11:12	2
+thank you	!isImmediatelyPrecededByANegation	11:12	2
+thankfully		11	2
+thanks	!isImmediatelyPrecededByANegation	11:12	2
+thanx	!isImmediatelyPrecededByANegation	11:12	2
+that worked	!isImmediatelyPrecededByANegation	11:12	2
+the best	!isImmediatelyPrecededByANegation	11	3
+the easiest way to	!isImmediatelyPrecededByANegation	11:12	3
+the way 2 go	!isImmediatelyPrecededByANegation	11:12	3
+the way to go	!isImmediatelyPrecededByANegation	11:12	3
+thumbs up		11	3
+thx	!isImmediatelyPrecededByANegation	11:12	2
+to life	isPrecededBySpecificTerm///brings|bring|brought	11	2
+toothsome		11	2
+top of	!isImmediatelyPrecededByANegation	11:12	3
+tops	!isImmediatelyPrecededByANegation	11:12	3
+tremendous	isPrecededBySpecificTerm///would be+++ isImmediatelyFollowedBySpecificTerm///job|effort|growth|efforts|hit|hits|benefit|benefits|piece|potential|talent	if (A || B) {11} else {0}	3
+unswerving		11	3
+unwavering		11	3
+user-friendly	!isImmediatelyPrecededByANegation	11:12	2
+valuable	!isImmediatelyPrecededByANegation	11:12	2
+values	!isImmediatelyPrecededByANegation	11:12	2
+very well	!isImmediatelyPrecededByANegation	11:12	3
+warms my		11	3
+welcome	!isImmediatelyPrecededByANegation	11:12	2
+welcomes		11	2
+well done	!isImmediatelyPrecededByANegation	11:12	3
+wonderful	!isImmediatelyPrecededByANegation	11:12	3
+wondrous	!isImmediatelyPrecededByANegation	11:12	3
+woohoo		11	3
+woot		11	3
+worth a read	!isImmediatelyPrecededByANegation	11:12	2
+worth it	!isImmediatelyPrecededByANegation	11:12	2
+wow	!isImmediatelyPrecededByANegation	11:12	3
+wuhu		11	3
+xoxo		11	3
+yay		11	3
+yay	!isImmediatelyPrecededByANegation	11:12	3
+yeah!		11	3
+yes	isAllCaps	11	3
+yummy	!isImmediatelyPrecededByANegation	11:12	3
+yum	!isImmediatelyPrecededByANegation	11:12	3

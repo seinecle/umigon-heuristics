@@ -23,13 +23,13 @@ public class StatusEligibleHeuristics {
     public Document applyRules(Document tweet, String status) {
         this.status = status;
         this.tweet = tweet;
-        isStatusEmpty();
+        isTextBlank();
         return tweet;
     }
 
-    private void isStatusEmpty() {
-        if (status.isEmpty()) {
-            tweet.addToListCategories(Category._92, -1);
+    private void isTextBlank() {
+        if (status.isBlank()) {
+            tweet.addToListCategories(Category._92, -1, "");
         }
     }
 

@@ -97,7 +97,7 @@ public class TermLevelHeuristics {
         if ((features == null || features.isEmpty()) & rule != null && !rule.isBlank()) {
             try {
                 cat = Category.valueOf("_" + rule);
-                cats.add(new CategoryAndIndex(cat, indexTerm));
+                cats.add(new CategoryAndIndex(cat, indexTerm, termOrigCasePreserved));
                 return cats;
             } catch (IllegalArgumentException wrongCode) {
                 System.out.println("rule was misspelled or just wrong:");
@@ -231,7 +231,7 @@ public class TermLevelHeuristics {
             }
             try {
                 cat = Category.valueOf("_" + result);
-                cats.add(new CategoryAndIndex(cat, indexTerm));
+                cats.add(new CategoryAndIndex(cat, indexTerm, termOrigCasePreserved));
                 return cats;
             } catch (IllegalArgumentException wrongCode) {
                 System.out.println("outcome was misspelled or just wrong, after evaluating the heuristics:");
@@ -518,11 +518,11 @@ public class TermLevelHeuristics {
             }
             sb.insert(0, string);
         }
-        text = sb.toString().trim();
-        if (text.isEmpty()) {
+        String temp = sb.toString().trim();
+        if (temp.isEmpty()) {
             return false;
         } else {
-            return ("?".equals(String.valueOf(text.charAt(text.length() - 1))));
+            return ("?".equals(String.valueOf(temp.charAt(temp.length() - 1))));
         }
     }
 
@@ -538,7 +538,6 @@ public class TermLevelHeuristics {
     }
 
     public boolean isImmediatelyPrecededByANegation() {
-        termHeuristic = termHeuristic.toLowerCase();
         try {
             String leftPart = text.substring(0, indexTerm).toLowerCase().trim();
             String[] temp = leftPart.split(" ");
@@ -589,7 +588,6 @@ public class TermLevelHeuristics {
     }
 
     public boolean isImmediatelyPrecededBySpecificTerm(Set<String> parameters) {
-        termHeuristic = termHeuristic.toLowerCase();
         try {
             String leftPart = text.substring(0, indexTerm).toLowerCase().trim();
             String[] temp = leftPart.split(" ");
@@ -684,8 +682,8 @@ public class TermLevelHeuristics {
                 break;
             }
         }
-        text = sb.toString().trim();
-        boolean res = text.startsWith(termOrig);
+        String textWithCheckOnStart = sb.toString().trim();
+        boolean res = textWithCheckOnStart.startsWith(termOrig);
         return res;
     }
 

@@ -1,0 +1,101 @@
+awesome	!isImmediatelyPrecededByANegation	11:12
+brightens	!isImmediatelyPrecededByANegation	11:12
+seamless	!isImmediatelyPrecededByANegation	11:12
+big ups	!isImmediatelyPrecededByANegation	11:12
+celebrate	!isImmediatelyPrecededByANegation	11:12
+efficient	!isImmediatelyPrecededByANegation	11:12
+fancy	!isImmediatelyPrecededByANegation	11:12
+fave	!isImmediatelyPrecededByANegation	11:12
+finest	!isImmediatelyPrecededByANegation	11:12
+attractive	!isImmediatelyPrecededByANegation	11:12
+awesomeness	!isImmediatelyPrecededByANegation	11:12
+handy	!isImmediatelyPrecededByANegation	11:12
+all in one	!isImmediatelyPrecededByANegation	11:12
+bff	!isImmediatelyPrecededByANegation	11:12
+brightening	!isImmediatelyPrecededByANegation	11:12
+brightens	!isImmediatelyPrecededByANegation	11:12
+ily	!isImmediatelyPrecededByANegation	11:12
+impressed	!isImmediatelyPrecededByANegation	11:12
+unswerving	!isImmediatelyPrecededByANegation	11:12
+liking	!isImmediatelyPrecededByANegation	11:12
+worth it	!isImmediatelyPrecededByANegation	11:12
+epic	!isImmediatelyPrecededByANegation	11:12
+fun	!isImmediatelyPrecededByANegation	11:12
+exciting	!isImmediatelyPrecededByANegation	11:12
+fab	!isImmediatelyPrecededByANegation	11:12
+made my night	!isImmediatelyPrecededByANegation	11:12
+magnificent	!isImmediatelyPrecededByANegation	11:12
+goodies	!isImmediatelyPrecededByANegation	11:12
+gr8t	!isImmediatelyPrecededByANegation	11:12
+rock out	!isImmediatelyPrecededByANegation	11:12
+festive	!isImmediatelyPrecededByANegation	11:12
+awesme	!isImmediatelyPrecededByANegation	11:12
+bang up	!isImmediatelyPrecededByANegation	11:12
+angel	!isImmediatelyPrecededByANegation	11:12
+big fan	!isImmediatelyPrecededByANegation	11:12
+big up	!isImmediatelyPrecededByANegation	11:12
+hilarious	!isImmediatelyPrecededByANegation	11:12
+cant wait	!isImmediatelyPrecededByANegation	11:12
+improves	!isImmediatelyPrecededByANegation	11:12
+congrats to	!isImmediatelyPrecededByANegation	11:12
+congratulation	!isImmediatelyPrecededByANegation	11:12
+instantly	!isImmediatelyPrecededByANegation	11:12
+craving	!isImmediatelyPrecededByANegation	11:12
+delicious	!isImmediatelyPrecededByANegation	11:12
+kicked your butt	!isImmediatelyPrecededByANegation	11:12
+noble	!isImmediatelyPrecededByANegation	11:12
+nutritious	!isImmediatelyPrecededByANegation	11:12
+well done	!isImmediatelyPrecededByANegation	11:12
+wondrous	!isImmediatelyPrecededByANegation	11:12
+wow	!isImmediatelyPrecededByANegation	11:12
+passions	!isImmediatelyPrecededByANegation	11:12
+enjoyment	!isImmediatelyPrecededByANegation	11:12
+entertaining	!isImmediatelyPrecededByANegation	11:12
+loves	!isImmediatelyPrecededByANegation	11:12
+lush	!isImmediatelyPrecededByANegation	11:12
+prefect	!isImmediatelyPrecededByANegation	11:12
+luv	!isImmediatelyPrecededByANegation	11:12
+made my day	!isImmediatelyPrecededByANegation	11:12
+excited	!isImmediatelyPrecededByANegation	11:12
+exquisite	!isImmediatelyPrecededByANegation	11:12
+marvelous	!isImmediatelyPrecededByANegation	11:12
+reliable	!isImmediatelyPrecededByANegation	11:12
+mighty	!isImmediatelyPrecededByANegation	11:12
+mind blowing	!isImmediatelyPrecededByANegation	11:12
+grateful	!isImmediatelyPrecededByANegation	11:12
+great	!isImmediatelyPrecededByANegation	11:12
+greatest	!isImmediatelyPrecededByANegation	11:12
+greatness	!isImmediatelyPrecededByANegation	11:12
+fascinating	!isImmediatelyPrecededByANegation	11:12
+groovy	!isImmediatelyPrecededByANegation	11:12
+ground breaking	!isImmediatelyPrecededByANegation	11:12
+finger licking	!isImmediatelyPrecededByANegation	11:12
+shout out	!isImmediatelyPrecededByANegation	11:12
+solid	!isImmediatelyPrecededByANegation	11:12
+speedy	!isImmediatelyPrecededByANegation	11:12
+hero	!isImmediatelyPrecededByANegation	11:12
+strengthening	!isImmediatelyPrecededByANegation	11:12
+catchya	!isImmediatelyPrecededByANegation	11:12
+suped up	!isImmediatelyPrecededByANegation	11:12
+humble	!isImmediatelyPrecededByANegation	11:12
+tasty	!isImmediatelyPrecededByANegation	11:12
+terrific	!isImmediatelyPrecededByANegation	11:12
+thank	!isImmediatelyPrecededByANegation	11:12
+incredible	!isImmediatelyPrecededByANegation	11:12
+congratulations	!isImmediatelyPrecededByANegation	11:12
+thanks	!isImmediatelyPrecededByANegation	11:12
+inspirations	!isImmediatelyPrecededByANegation	11:12
+interesting	!isImmediatelyPrecededByANegation	11:12
+cutey	!isImmediatelyPrecededByANegation	11:12
+knighted	!isImmediatelyPrecededByANegation	11:12
+mind blown	!isImmediatelyPrecededByANegation	11:12
+mindblowing	!isImmediatelyPrecededByANegation	11:12
+muahah	!isImmediatelyPrecededByANegation	11:12
+woohoo	!isImmediatelyPrecededByANegation	11:12
+woot	!isImmediatelyPrecededByANegation	11:12
+livesaver	!isImmediatelyPrecededByANegation	11:12
+lol	!isImmediatelyPrecededByANegation	11:12
+look forwad to	!isImmediatelyPrecededByANegation	11:12
+possibilities	!isImmediatelyPrecededByANegation	11:12
+glorious	!isImmediatelyPrecededByANegation	11:12
+excited	!isImmediatelyPrecededByANegation	11:12

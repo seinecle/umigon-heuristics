@@ -1,0 +1,5 @@
+net\clementlevallois\umigon\heuristics\model\LanguageSpecificLexicons.class
+module-info.class
+net\clementlevallois\umigon\heuristics\HeuristicsLoaderOnDemand.class
+net\clementlevallois\umigon\heuristics\model\LexiconsAndConditionalExpressions.class
+net\clementlevallois\umigon\heuristics\model\ConditionalExpression.class
