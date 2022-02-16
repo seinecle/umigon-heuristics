@@ -1,5 +1,17 @@
+net\clementlevallois\umigon\heuristics\resources\en\PlaceHolderEN.class
 net\clementlevallois\umigon\heuristics\model\LanguageSpecificLexicons.class
+net\clementlevallois\umigon\heuristics\HashtagLevelHeuristics.class
+net\clementlevallois\umigon\heuristics\CollectionsOfAffectiveEmojis.class
 module-info.class
+net\clementlevallois\umigon\heuristics\InputReader.class
 net\clementlevallois\umigon\heuristics\HeuristicsLoaderOnDemand.class
+net\clementlevallois\umigon\heuristics\InterpreterOfConditionalExpressions.class
+net\clementlevallois\umigon\heuristics\resources\fr\PlaceHolderFR.class
+net\clementlevallois\umigon\heuristics\SentenceLevelHeuristicsPost.class
 net\clementlevallois\umigon\heuristics\model\LexiconsAndConditionalExpressions.class
+net\clementlevallois\umigon\heuristics\RepeatedCharactersRemover$RepeatedLetters.class
+net\clementlevallois\umigon\heuristics\SentenceLevelHeuristicsPre.class
 net\clementlevallois\umigon\heuristics\model\ConditionalExpression.class
+net\clementlevallois\umigon\heuristics\TermLevelHeuristics.class
+net\clementlevallois\umigon\heuristics\RepeatedCharactersRemover.class
+net\clementlevallois\umigon\heuristics\StatusEligibleHeuristics.class
