@@ -143,8 +143,8 @@ damnit		12		3
 dang		12	x	2
 dangerous	!isImmediatelyPrecededByANegation	12:10		2
 darn		12	x	2
-dbag 		12		3
-d-bag 		12		3
+dbagÂ 		12		3
+d-bagÂ 		12		3
 dbags		12		3
 dead	!isImmediatelyPrecededByANegation	12:10	x	2
 deadly	!isImmediatelyPrecededByANegation	12:10		2
@@ -165,7 +165,7 @@ desolate	!isImmediatelyPrecededByANegation	12:10		2
 desperate	!isImmediatelyPrecededByANegation	12:10		2
 desperation		12		2
 despicable	!isFollowedBySpecificTerm///me	12:10		3
-destroyed 	!isImmediatelyPrecededByANegation	12:10		2
+destroyedÂ 	!isImmediatelyPrecededByANegation	12:10		2
 detest	!isImmediatelyPrecededByANegation	12:10		2
 devastated	!isImmediatelyPrecededByANegation	12:10		3
 dick		12	x	2
@@ -581,7 +581,7 @@ racists		12		2
 ran out		12		1
 rant		12	x	2
 raped		12		3
-really don’t		12		2
+really donâ€™t		12		2
 red faced		12		2
 refund		12		1
 refuse	!isImmediatelyPrecededByANegation	12:10		1
@@ -726,6 +726,7 @@ tiresome		12		2
 thug		12	x	3
 thugs		12		3
 tired	!isImmediatelyPrecededByANegation	12:10		2
+, to be polite		12	
 to be desired	isPrecededBySpecificTerm///leaves|left	12:10		1
 to work	isPrecededBySpecificTerm///can t get	12:10		1
 too late	!isImmediatelyPrecededByANegation	12:10		1

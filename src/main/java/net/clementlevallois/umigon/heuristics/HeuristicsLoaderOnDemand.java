@@ -155,7 +155,7 @@ public class HeuristicsLoaderOnDemand {
                     if (field0.isEmpty()) {
                         continue;
                     }
-                    field1 = (fields.length < 2) ? null : fields[1].trim();
+                    field1 = (fields.length < 2) ? null : fields[1];
                     field2 = (fields.length < 3) ? "" : fields[2].trim();
                     field3 = (fields.length < 4) ? "" : fields[3].trim();
 
@@ -344,8 +344,6 @@ public class HeuristicsLoaderOnDemand {
     public Map<String, LexiconsAndConditionalExpressions> getMapH6() {
         return mapH6;
     }
-    
-    
 
     public Map<String, LexiconsAndConditionalExpressions> getMapH1() {
         return multilingualLexicons.get(lang).getMapH1();

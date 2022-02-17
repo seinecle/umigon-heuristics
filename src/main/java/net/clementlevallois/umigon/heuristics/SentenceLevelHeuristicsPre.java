@@ -360,8 +360,8 @@ public class SentenceLevelHeuristicsPre {
 
         //smiley :/
         
-        // this matches :/ but specifically not :// because :// could be something in http://www....
-        res = text.matches(".*:/[^/]\\s*.*");
+        // this matches :/ preceded by a space but specifically not :// because :// could be something in http://www....
+        res = text.matches(".* :/[^/]\\s*.*");
         if (res) {
             index = text.indexOf(":/");
             cats.add(new CategoryAndIndex(Category._12, index, ":/"));

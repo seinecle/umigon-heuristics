@@ -1,7 +1,7 @@
-à chier		12
+Ã  chier		12
 a de la peine		12
-à jeter		12
-à vomir		12
+Ã  jeter		12
+Ã  vomir		12
 abattu		12
 abattue		12
 abattues		12
@@ -16,18 +16,18 @@ abrutie		12
 abrutis		12
 absurde		12
 absurdes		12
-absurdité		12
-absurdités		12
-abusé		12
-abusée		12
-abusées		12
-abusés		12
+absurditÃ©		12
+absurditÃ©s		12
+abusÃ©		12
+abusÃ©e		12
+abusÃ©es		12
+abusÃ©s		12
 accablaient		12
 accablais		12
 accablait		12
 accable		12
-accablé		12
-accablée		12
+accablÃ©		12
+accablÃ©e		12
 accablement		12
 accablent		12
 accablera		12
@@ -42,8 +42,8 @@ accablerions		12
 accablerons		12
 accableront		12
 accables		12
-accablés		12
-accablés		12
+accablÃ©s		12
+accablÃ©s		12
 accablez		12
 accabliez		12
 accablions		12
@@ -52,20 +52,20 @@ affabulateur		12
 affabulation		12
 affliction		12
 afflige		12
-affligé		12
+affligÃ©		12
 affligeant		12
-affligée		12
-affligées		12
-affligés		12
+affligÃ©e		12
+affligÃ©es		12
+affligÃ©s		12
 affreux		12
-agaçaient		12
-agaçais		12
-agaçait		12
-agaçant		12
+agaÃ§aient		12
+agaÃ§ais		12
+agaÃ§ait		12
+agaÃ§ant		12
 agace		12
-agacé		12
-agacée		12
-agacées		12
+agacÃ©		12
+agacÃ©e		12
+agacÃ©es		12
 agacement		12
 agacent		12
 agacer		12
@@ -81,25 +81,25 @@ agacerions		12
 agacerons		12
 agaceront		12
 agaces		12
-agacés		12
+agacÃ©s		12
 agacez		12
 agaciez		12
 agacions		12
-agaçons		12
+agaÃ§ons		12
 agression		12
-agressivité		12
+agressivitÃ©		12
 ai de la peine		12
 aigreur		12
 alarmant		12
-alarmé		12
-alarmée		12
+alarmÃ©		12
+alarmÃ©e		12
 amer		12
 amertume		12
 angoisse		12
-angoissé		12
-angoissée		12
-animosité		12
-anxiété		12
+angoissÃ©		12
+angoissÃ©e		12
+animositÃ©		12
+anxiÃ©tÃ©		12
 anxieuse		12
 anxieuses		12
 anxieux		12
@@ -111,12 +111,12 @@ atrocement		12
 atroces		12
 attristait		12
 attriste		12
-attristé		12
-attristée		12
-attristées		12
+attristÃ©		12
+attristÃ©e		12
+attristÃ©es		12
 attristera		12
 attristerait		12
-attristés		12
+attristÃ©s		12
 bagatelle	isPrecededBySpecificTerm///une	12:10
 bagatelles	isPrecededBySpecificTerm///des	12:10
 ballec		12
@@ -127,7 +127,7 @@ bancal		12
 bancale		12
 bancales		12
 bancals		12
-bébelle		12
+bÃ©belle		12
 bobo		12
 bobos		12
 boloss		12
@@ -136,11 +136,11 @@ bordel	isPrecededBySpecificTerm///le|ce|quel+++!isImmediatelyFollowedBySpecificT
 boulechite		12
 bozo		12
 branleux		12
-broche à foin		12
+broche Ã  foin		12
 broyer du noir		12
 bullshit		12
 ca craint		12
-ça craint		12
+Ã§a craint		12
 calomnie		12
 calomnieux 		12
 capable	isPrecededBySpecificTerm///pas	12:10
@@ -148,55 +148,55 @@ c est n importe quoi		12
 chagrin		12
 chagrinait		12
 chagrinant		12
-chagriné		12
-chagrinée		12
-chagrinées		12
+chagrinÃ©		12
+chagrinÃ©e		12
+chagrinÃ©es		12
 chagrinerait		12
-chagrinés		12
+chagrinÃ©s		12
 chiant		12
 chier	isPrecededBySpecificTerm///fais|fait|faire	12:10
-chiâleux		12
+chiÃ¢leux		12
 chiante		12
-choqué		12
-choquée		12
+choquÃ©		12
+choquÃ©e		12
 chragrine		12
 chragrinera		12
-coeur brisé		12
+coeur brisÃ©		12
 coeur gros		12
 coeur lourd		12
-coeur serré		12
-colère		12
-colères		12
-coléreuse		12
-coléreuses		12
-coléreux		12
-colérique		12
-colérques		12
+coeur serrÃ©		12
+colÃ¨re		12
+colÃ¨res		12
+colÃ©reuse		12
+colÃ©reuses		12
+colÃ©reux		12
+colÃ©rique		12
+colÃ©rques		12
 comprend	isImmediatelyFollowedByANegation	12:10
 comprends	isImmediatelyFollowedByANegation	12:10
-commence à bien faire		12
+commence Ã  bien faire		12
 con		12
 connard		12
 connards		12
 connasse		12
 conne		12
 connerie		12
-consterné		12
-consternés		12
-consternées		12
+consternÃ©		12
+consternÃ©s		12
+consternÃ©es		12
 consternant		12
 consternation		12
 consterne		12
-consterné		12
-consternées		12
+consternÃ©		12
+consternÃ©es		12
 consternerait		12
-consternés		12
+consternÃ©s		12
 contrariant		12
-contrarié		12
-contrariée		12
-contrariées		12
-contrariés		12
-contrariété		12
+contrariÃ©		12
+contrariÃ©e		12
+contrariÃ©es		12
+contrariÃ©s		12
+contrariÃ©tÃ©		12
 contrit		12
 contrite		12
 contrites		12
@@ -206,10 +206,10 @@ couilles	!isPrecededBySpecificTerm///des	12:11
 coup de gueule		12
 coupable		12
 coupables		12
-courroucé		12
-courroucée		12
-courroucées		12
-courroucés		12
+courroucÃ©		12
+courroucÃ©e		12
+courroucÃ©es		12
+courroucÃ©s		12
 courroux		12
 crainte		12
 craintes		12
@@ -217,8 +217,8 @@ craintif		12
 craintifs		12
 craintive		12
 craintives		12
-crétin		12
-crétins		12
+crÃ©tin		12
+crÃ©tins		12
 crevard		12
 crevarde		12
 crevardes		12
@@ -229,156 +229,156 @@ criminelles		12
 criminels		12
 critique		12
 critiques		12
-cruauté		12
-cruautés		12
+cruautÃ©		12
+cruautÃ©s		12
 cruel		12
 cruelle		12
 cruelles		12
 cruels		12
-culpabilité		12
+culpabilitÃ©		12
 d humeur chagrine		12
 d humeur massacrante		12
-d humeur mélancolique		12
+d humeur mÃ©lancolique		12
 d humeur noire		12
-décalisser		12
-décalisse		12
+dÃ©calisser		12
+dÃ©calisse		12
 de la peine		12
 de mauvais poil		12
 de mauvaise humeur		12
-débilité		12
-déception		12
-déception		12
-décevaient		12
-décevais		12
-décevait		12
-décevant		12
-décevante		12
-décevantes		12
-décevants		12
-décevez		12
-déceviez		12
-décevions		12
-décevons		12
-décevra		12
-décevrai		12
-décevraient		12
-décevrais		12
-décevrait		12
-décevras		12
-décevrez		12
-décevriez		12
-décevrions		12
-décevrons		12
-décevront		12
-déçois		12
-déçoit		12
-déçoivent		12
-décourage		12
-décourage		12
-découragé		12
-découragé		12
-décourageant		12
-décourageant		12
-décourageante		12
-décourageantes		12
-décourageants		12
-découragée		12
-découragée		12
-découragées		12
-découragées		12
-découragement		12
-découragés		12
-découragés		12
-décrisser		12
-décrisse		12
-déçu		12
-déçue		12
-déçues		12
-déçus		12
-dédaigneuse		12
-dédaigneuses		12
-dédaigneux		12
-dédain		12
-dédains		12
-défaite		12
-défaite		12
-défaitisme		12
-défaitiste		12
-défaitistes		12
-dégueulasse		12:11
-dégeulasse		12:11
-dégeu		12:11
-dégueu		12:11
-dégout		12
-dégoutant		12
-dégoutante		12
-dégoutantes		12
-dégoutants		12
+dÃ©bilitÃ©		12
+dÃ©ception		12
+dÃ©ception		12
+dÃ©cevaient		12
+dÃ©cevais		12
+dÃ©cevait		12
+dÃ©cevant		12
+dÃ©cevante		12
+dÃ©cevantes		12
+dÃ©cevants		12
+dÃ©cevez		12
+dÃ©ceviez		12
+dÃ©cevions		12
+dÃ©cevons		12
+dÃ©cevra		12
+dÃ©cevrai		12
+dÃ©cevraient		12
+dÃ©cevrais		12
+dÃ©cevrait		12
+dÃ©cevras		12
+dÃ©cevrez		12
+dÃ©cevriez		12
+dÃ©cevrions		12
+dÃ©cevrons		12
+dÃ©cevront		12
+dÃ©Ã§ois		12
+dÃ©Ã§oit		12
+dÃ©Ã§oivent		12
+dÃ©courage		12
+dÃ©courage		12
+dÃ©couragÃ©		12
+dÃ©couragÃ©		12
+dÃ©courageant		12
+dÃ©courageant		12
+dÃ©courageante		12
+dÃ©courageantes		12
+dÃ©courageants		12
+dÃ©couragÃ©e		12
+dÃ©couragÃ©e		12
+dÃ©couragÃ©es		12
+dÃ©couragÃ©es		12
+dÃ©couragement		12
+dÃ©couragÃ©s		12
+dÃ©couragÃ©s		12
+dÃ©crisser		12
+dÃ©crisse		12
+dÃ©Ã§u		12
+dÃ©Ã§ue		12
+dÃ©Ã§ues		12
+dÃ©Ã§us		12
+dÃ©daigneuse		12
+dÃ©daigneuses		12
+dÃ©daigneux		12
+dÃ©dain		12
+dÃ©dains		12
+dÃ©faite		12
+dÃ©faite		12
+dÃ©faitisme		12
+dÃ©faitiste		12
+dÃ©faitistes		12
+dÃ©gueulasse		12:11
+dÃ©geulasse		12:11
+dÃ©geu		12:11
+dÃ©gueu		12:11
+dÃ©gout		12
+dÃ©goutant		12
+dÃ©goutante		12
+dÃ©goutantes		12
+dÃ©goutants		12
 degoute		12
-dégouté		12
-dégoûté		12
-dégoutée		12
-dégoutées		12
-dégoutés		12
-dépité		12
-dépitée		12
-dépitées		12
-dépités		12
-déprime		12
-désabusé		12
-désabusée		12
-désabusées		12
-désabusement		12
-désabusés		12
-désastreux		12
-désastreuse		12
-désenchanté		12
-désenchantée		12
-désenchantées		12
-désenchantement		12
-désenchantés		12
-desepère		12
-désespéré		12
-désespéré		12
-désespérée		12
-désespèrent		12
-desespérés		12
-désespères		12
-desespérez		12
-desespérons		12
-désespoir		12
-désillusion		12
-désillusionné		12
-désillusionnée		12
-désolation		12
-désolé		12
-désolée		12
-désolées		12
-désolés		12
-désopilant		12
-désopilé		12
-désopilée		12
-détestable		12
-déteste		12
+dÃ©goutÃ©		12
+dÃ©goÃ»tÃ©		12
+dÃ©goutÃ©e		12
+dÃ©goutÃ©es		12
+dÃ©goutÃ©s		12
+dÃ©pitÃ©		12
+dÃ©pitÃ©e		12
+dÃ©pitÃ©es		12
+dÃ©pitÃ©s		12
+dÃ©prime		12
+dÃ©sabusÃ©		12
+dÃ©sabusÃ©e		12
+dÃ©sabusÃ©es		12
+dÃ©sabusement		12
+dÃ©sabusÃ©s		12
+dÃ©sastreux		12
+dÃ©sastreuse		12
+dÃ©senchantÃ©		12
+dÃ©senchantÃ©e		12
+dÃ©senchantÃ©es		12
+dÃ©senchantement		12
+dÃ©senchantÃ©s		12
+desepÃ¨re		12
+dÃ©sespÃ©rÃ©		12
+dÃ©sespÃ©rÃ©		12
+dÃ©sespÃ©rÃ©e		12
+dÃ©sespÃ¨rent		12
+desespÃ©rÃ©s		12
+dÃ©sespÃ¨res		12
+desespÃ©rez		12
+desespÃ©rons		12
+dÃ©sespoir		12
+dÃ©sillusion		12
+dÃ©sillusionnÃ©		12
+dÃ©sillusionnÃ©e		12
+dÃ©solation		12
+dÃ©solÃ©		12
+dÃ©solÃ©e		12
+dÃ©solÃ©es		12
+dÃ©solÃ©s		12
+dÃ©sopilant		12
+dÃ©sopilÃ©		12
+dÃ©sopilÃ©e		12
+dÃ©testable		12
+dÃ©teste		12
 d incapable		12
 d incapables		12
 dommage		12
 effarant		12
-effaré		12
-effarée		12
+effarÃ©		12
+effarÃ©e		12
 embarras		12
-embarrassé		12
-embarrassée		12
-embarrassées		12
-embarrassés		12
+embarrassÃ©		12
+embarrassÃ©e		12
+embarrassÃ©es		12
+embarrassÃ©s		12
 emmerde		12
 emmerdement		12
 emmerdements		12
 emmerdes		12
-en dépit du		12
+en dÃ©pit du		12
 en peux plus		12
-énerve		12
-énervé		12
+Ã©nerve		12
+Ã©nervÃ©		12
 enlaidi		12
 enlaidie		12
 enlaidies		12
@@ -403,51 +403,51 @@ ennuyants		12
 ennuyeuse		12
 ennuyeux		12
 ennuyeux		12
-enragé		12
-enragée		12
-enragées		12
-enragés		12
-entubé		12
-entubée		12
-entubées		12
+enragÃ©		12
+enragÃ©e		12
+enragÃ©es		12
+enragÃ©s		12
+entubÃ©		12
+entubÃ©e		12
+entubÃ©es		12
 entuber		12
-entubés		12
+entubÃ©s		12
 est une blague		12
-étron		12
-étronc		12
-exagéré		12
-exagérée		12
-exagérant		12
-exagérante		12
-exaspérant		12
-exaspérante		12
-exaspérantes		12
-exaspérantion		12
-exaspérants		12
-exaspéré		12
-exaspère		12
-exaspérée		12
-exaspérées		12
-exaspèrent		12
-exaspérés		12
-exaspères		12
-exaspérez 		12
-exaspérons		12
-exécrable		12
-exècre		12
-exècrent		12
-exècrer		12
-exècres		12
-exècrez		12
-exécrons		12
-fâcher		12
-fâcheuse		12
-fâcheux		12
-fainéant		12
-fainéante		12
+Ã©tron		12
+Ã©tronc		12
+exagÃ©rÃ©		12
+exagÃ©rÃ©e		12
+exagÃ©rant		12
+exagÃ©rante		12
+exaspÃ©rant		12
+exaspÃ©rante		12
+exaspÃ©rantes		12
+exaspÃ©rantion		12
+exaspÃ©rants		12
+exaspÃ©rÃ©		12
+exaspÃ¨re		12
+exaspÃ©rÃ©e		12
+exaspÃ©rÃ©es		12
+exaspÃ¨rent		12
+exaspÃ©rÃ©s		12
+exaspÃ¨res		12
+exaspÃ©rez 		12
+exaspÃ©rons		12
+exÃ©crable		12
+exÃ¨cre		12
+exÃ¨crent		12
+exÃ¨crer		12
+exÃ¨cres		12
+exÃ¨crez		12
+exÃ©crons		12
+fÃ¢cher		12
+fÃ¢cheuse		12
+fÃ¢cheux		12
+fainÃ©ant		12
+fainÃ©ante		12
 faire souffrir		12
 fanatique		12
-fanatisé		12
+fanatisÃ©		12
 faudra pas pleurer		12
 folle		12
 fou		12
@@ -464,7 +464,7 @@ froussarde		12
 froussardes		12
 froussards		12
 frousse		12
-fucké		12
+fuckÃ©		12
 fulminaient		12
 fulminais		12
 fulminait		12
@@ -508,12 +508,12 @@ haineuse		12
 haineuses		12
 haineux		12
 hais		12
-haïs		12
+haÃ¯s		12
 harassant		12
-harassé		12
+harassÃ©		12
 hater		12
 haters		12
-hélas		12
+hÃ©las		12
 hitler		12
 honte		12
 honte		12
@@ -531,19 +531,19 @@ horriblement		12
 horribles		12
 hostile		12
 hostiles		12
-hotilité		12
+hotilitÃ©		12
 humiliant		12
 humiliante		12
 humiliantes		12
 humiliants		12
 humiliation		12
 humiliations		12
-humilié		12
-humiliée		12
-humiliées		12
-humiliés		12
-idée noire		12
-idées noires		12
+humiliÃ©		12
+humiliÃ©e		12
+humiliÃ©es		12
+humiliÃ©s		12
+idÃ©e noire		12
+idÃ©es noires		12
 idiot		12
 idiots		12
 idiote		12
@@ -560,46 +560,46 @@ ignominie		12
 incapable	isPrecededBySpecificTerm///sont|est|es|un	12:10
 incapables	isPrecededBySpecificTerm///sont|est|es|des	12:10
 inconscient	isPrecededBySpecificTerm///sont|est|es|des	12:10
-inconscients	isPrecededBySpecificTerm///sont|est|es|des|êtes|etes	12:10
-inconsidéré		12
-inconsidérés		12
-inconsidérée		12
+inconscients	isPrecededBySpecificTerm///sont|est|es|des|Ãªtes|etes	12:10
+inconsidÃ©rÃ©		12
+inconsidÃ©rÃ©s		12
+inconsidÃ©rÃ©e		12
 indignation		12
 indignations		12
 indigne		12
-indigné		12
-indignée		12
-indignées		12
+indignÃ©		12
+indignÃ©e		12
+indignÃ©es		12
 indignes		12
-indignés		12
+indignÃ©s		12
 indignez		12
 indignons		12
 inhumain		12
 inhumaine		12
 ineptie		12
 inquiet		12
-inquiètant		12
-inquiètante		12
-inquiètants		12
-inquiètants		12
-inquiète		12
-inquiètes		12
+inquiÃ¨tant		12
+inquiÃ¨tante		12
+inquiÃ¨tants		12
+inquiÃ¨tants		12
+inquiÃ¨te		12
+inquiÃ¨tes		12
 inquiets		12
-inquiétude		12
-inquiétudes		12
+inquiÃ©tude		12
+inquiÃ©tudes		12
 inutile	isPrecededByStrongWord	12:10
 inutiles	isPrecededByStrongWord	12:10
-irascibilité		12
-irascibilités		12
+irascibilitÃ©		12
+irascibilitÃ©s		12
 irascible		12
 irascibles		12
 ire		12
 ires		12
 irresponsable		12
 irresponsables		12
-lâche	!isPrecededBySpecificTerm///je|il	12:10
-lâches	!isPrecededBySpecificTerm///tu	12:10
-lâcheté		12
+lÃ¢che	!isPrecededBySpecificTerm///je|il	12:10
+lÃ¢ches	!isPrecededBySpecificTerm///tu	12:10
+lÃ¢chetÃ©		12
 laid		12
 laide		12
 laideron		12
@@ -612,17 +612,17 @@ lassante		12
 lassantes		12
 lassants		12
 lasse		12
-lassé		12
-lassée		12
-lassées		12
+lassÃ©		12
+lassÃ©e		12
+lassÃ©es		12
 lasses		12
-lassés		12
+lassÃ©s		12
 lassitude		12
 lassitudes		12
 lette		12
 long		12
 mal		12
-mal à l aise		12
+mal Ã  l aise		12
 maladresse		12
 maladresses		12
 maladroit		12
@@ -630,17 +630,17 @@ maladroite		12
 maladroites		12
 maladroits		12
 malaise		12
-malaisé		12
-malaisée		12
-malaisées		12
+malaisÃ©		12
+malaisÃ©e		12
+malaisÃ©es		12
 malaises		12
-malaisés		12
+malaisÃ©s		12
 malheur		12
 malheureuse		12
 malheureusement		12
 malheureuses		12
 malheureux		12
-malhonnête		12
+malhonnÃªte		12
 marde		12
 faites marrer		12
 faite marrer		12
@@ -656,49 +656,49 @@ mauvaise		12
 mauvaise		12
 mauvaises		12
 mauvaises		12
-méchanceté		12
-méchant		12
-méchante		12
-méchantes		12
-méchants		12
-mécontent		12
-mécontente		12
-mécontente		12
-mécontenté		12
-mécontentée		12
-mécontentées		12
-mécontentement		12
-mécontentements		12
-mécontentes		12
-mécontentés		12
-mécontents		12
-mécréant		12
-mécréante		12
-mécréantes		12
-mécréants		12
-méfiant		12
-méfiante		12
-méfiantes		12
-méfiants		12
-mélancolie		12
-mélancolique		12
-mélancoliques		12
-mélancolies		12
+mÃ©chancetÃ©		12
+mÃ©chant		12
+mÃ©chante		12
+mÃ©chantes		12
+mÃ©chants		12
+mÃ©content		12
+mÃ©contente		12
+mÃ©contente		12
+mÃ©contentÃ©		12
+mÃ©contentÃ©e		12
+mÃ©contentÃ©es		12
+mÃ©contentement		12
+mÃ©contentements		12
+mÃ©contentes		12
+mÃ©contentÃ©s		12
+mÃ©contents		12
+mÃ©crÃ©ant		12
+mÃ©crÃ©ante		12
+mÃ©crÃ©antes		12
+mÃ©crÃ©ants		12
+mÃ©fiant		12
+mÃ©fiante		12
+mÃ©fiantes		12
+mÃ©fiants		12
+mÃ©lancolie		12
+mÃ©lancolique		12
+mÃ©lancoliques		12
+mÃ©lancolies		12
 merde		12
 merdes		12
 merdique		12
 miskine		12
 moche		12
 moches		12
-mocheté		12
-mochetés		12
+mochetÃ©		12
+mochetÃ©s		12
 mongolien		12
 mongoliens		12
 moron		12
 morose		12
 moroses		12
-morosité		12
-morosités		12
+morositÃ©		12
+morositÃ©s		12
 navrant		12
 navrante		12
 naze		12
@@ -719,7 +719,7 @@ paient		12
 parasite		12
 parasites		12
 pas se plaindre		12
-pathétique		12
+pathÃ©tique		12
 perd		12
 perdaient		12
 perdaient		12
@@ -741,14 +741,15 @@ perdrons		12
 perdront		12
 perds		12
 perte		12
-péter	isImmediatelyFollowedBySpecificTerm///des cables|un cable|les cables|quelques cables|les plombs|un plomb|des plombs|quelques plombs|une durite|quelques durites|les durites|des durites	12:10
-pété	isImmediatelyFollowedBySpecificTerm///des cables|un cable|les cables|quelques cables|les plombs|un plomb|des plombs|quelques plombs|une durite|quelques durites|les durites|des durites	12:10
-péteux		12
+pÃ©ter	isImmediatelyFollowedBySpecificTerm///des cables|un cable|les cables|quelques cables|les plombs|un plomb|des plombs|quelques plombs|une durite|quelques durites|les durites|des durites	12:10
+pÃ©tÃ©	isImmediatelyFollowedBySpecificTerm///des cables|un cable|les cables|quelques cables|les plombs|un plomb|des plombs|quelques plombs|une durite|quelques durites|les durites|des durites	12:10
+pÃ©teux		12
 peur		12
 peureux		12
 pire		12
 pitoune		12
 platitude		12
+pour etre poli		12
 pourri		12
 puais		12
 puait		12
@@ -775,20 +776,20 @@ repoussant		12
 repoussante		12
 repoussantes		12
 repoussants		12
-répugnant		12
-répugnante		12
-répugnantes		12
-répugnants		12
-répulsif		12
-répulsifs		12
-répulsive		12
-répulsives		12
+rÃ©pugnant		12
+rÃ©pugnante		12
+rÃ©pugnantes		12
+rÃ©pugnants		12
+rÃ©pulsif		12
+rÃ©pulsifs		12
+rÃ©pulsive		12
+rÃ©pulsives		12
 ressentiment		12
 ressentimets		12
 retard		12
-révoltant		12
-révolté		12
-révoltée		12
+rÃ©voltant		12
+rÃ©voltÃ©		12
+rÃ©voltÃ©e		12
 ridicule		12
 ripou		12
 ripoux		12
@@ -803,17 +804,17 @@ saoulante		12
 saoulantes		12
 saoulants		12
 saoule		12
-saoulé		12
-saoulée		12
-saoulées		12
-saoulés		12
+saoulÃ©		12
+saoulÃ©e		12
+saoulÃ©es		12
+saoulÃ©s		12
 scandaleux		12
 scandaleuse		12
 se gavent		12
 se gaver		12
-séparés		12
-sérieux	isImmediatelyPrecededBySpecificTerm///êtes|etes|mais+++isImmediatelyFollowedBySpecificTerm///les|là|la|le|?|!	if (A || B {12}
-sert à rien		12
+sÃ©parÃ©s		12
+sÃ©rieux	isImmediatelyPrecededBySpecificTerm///Ãªtes|etes|mais+++isImmediatelyFollowedBySpecificTerm///les|lÃ |la|le|?|!	if (A || B {12}
+sert Ã  rien		12
 seum		12
 socialos		12
 sottise		12
@@ -833,21 +834,21 @@ soulant		12
 soulante		12
 soulantes		12
 soulants		12
-soulé		12
-soulée		12
-soulées		12
-soulés		12
+soulÃ©		12
+soulÃ©e		12
+soulÃ©es		12
+soulÃ©s		12
 spleen		12
 stupide		12
 stupide		12
 stupides		12
-stupidité		12
+stupiditÃ©		12
 taponneux		12
 tarla		12
 tarlais		12
 tendancieux		12
 terrible		12
-téteux		12
+tÃ©teux		12
 touristata		12
 tout croche		12
 triste		12

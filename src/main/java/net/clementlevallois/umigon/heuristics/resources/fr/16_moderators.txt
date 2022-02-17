@@ -1,29 +1,29 @@
-à cela près que	
-alors même que	
+Ã  cela prÃ¨s que	
+alors mÃªme que	
 alors que 	
 bien que	
 cependant	
 certes	
 comme	
 cpdt	
-de toute façon	
-de toutes façons	
+de toute faÃ§on	
+de toutes faÃ§ons	
 effectivement	
-en dépit de	
+en dÃ©pit de	
 en outre	
 en revanche	
 encore que	
-excepté que	
+exceptÃ© que	
 hormis que	
 loin de	
 mais	
-malgré	
-malgré tout 	
+malgrÃ©	
+malgrÃ© tout 	
 meme si	
-même si 	
-mis à part que	
+mÃªme si 	
+mis Ã  part que	
 mm si 	
-néanmoins	
+nÃ©anmoins	
 nonobstant	
 or	
 outre	
@@ -31,8 +31,8 @@ par contre
 pendant que	
 pour autant	
 pourtant	
-quand bien même	
-quand même	
+quand bien mÃªme	
+quand mÃªme	
 quel que	
 qui que	
 quoi qu'il en soit	
@@ -43,5 +43,5 @@ sauf
 sauf que	
 si	
 tandis que	
-tout de même	
+tout de mÃªme	
 toutefois	
