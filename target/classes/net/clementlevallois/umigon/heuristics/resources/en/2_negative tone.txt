@@ -36,7 +36,7 @@ argh		12		2
 arrogance	!isImmediatelyPrecededByANegation	12:10		2
 arrogant	!isImmediatelyPrecededByANegation	12:10		2
 ashamed	!isImmediatelyPrecededByANegation	12:10		3
-ass	!isPrecededBySpecificTerm///bad|cool+++!isImmediatelyPrecededByANegation	if{A && B) {12} else {11}	x	3
+ass	!isPrecededBySpecificTerm///bad|cool+++!isImmediatelyPrecededByANegation	if(A && B) {12} else {11}	x	3
 asses		12	x	3
 asshole	!isImmediatelyPrecededByANegation	12:10		3
 assholes	!isImmediatelyPrecededByANegation	12:10		3

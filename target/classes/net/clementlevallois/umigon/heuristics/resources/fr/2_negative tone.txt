@@ -813,7 +813,7 @@ scandaleuse		12
 se gavent		12
 se gaver		12
 séparés		12
-sérieux	isImmediatelyPrecededBySpecificTerm///êtes|etes|mais+++isImmediatelyFollowedBySpecificTerm///les|là|la|le|?|!	if (A || B {12}
+sérieux	isImmediatelyPrecededBySpecificTerm///êtes|etes|mais+++isImmediatelyFollowedBySpecificTerm///les|là|la|le|?	if (A || B) {12}
 sert à rien		12
 seum		12
 socialos		12
