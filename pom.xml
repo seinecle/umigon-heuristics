@@ -72,6 +72,9 @@
                     </execution>
                 </executions>
                 <version>3.8.1</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -104,8 +107,4 @@
         </plugins>
     </build>
     <name>umigon-heuristics</name>
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
 </project>

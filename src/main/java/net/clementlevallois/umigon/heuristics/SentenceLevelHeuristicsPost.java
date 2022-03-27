@@ -19,7 +19,7 @@ import net.clementlevallois.utils.StatusCleaner;
 public class SentenceLevelHeuristicsPost {
 
     private String text;
-    private String textStripped;
+    private String textStrippedLowerCase;
     private Document document;
     private final Set<String> ironicallyPositive;
     private final Set<String> setNegations;
@@ -31,9 +31,9 @@ public class SentenceLevelHeuristicsPost {
         this.setModerators = setModerators;
     }
 
-    public void initialize(Document document, String text, String textStripped) {
+    public void initialize(Document document, String text, String textStrippedLowerCase) {
         this.text = text;
-        this.textStripped = textStripped;
+        this.textStrippedLowerCase = textStrippedLowerCase;
         this.document = document;
     }
 
@@ -75,45 +75,66 @@ public class SentenceLevelHeuristicsPost {
             return;
         }
         int indexModerator;
-        int indexPos = 0;
-        int indexNeg = 0;
+        int indexPosFirst = Integer.MAX_VALUE;
+        int indexNegFirst = Integer.MAX_VALUE;
+        int indexPosLast = -1;
+        int indexNegLast = -1;
 
         Set<String> termsInText = new HashSet();
-        termsInText.addAll(Arrays.asList(textStripped.split(" ")));
+        termsInText.addAll(Arrays.asList(textStrippedLowerCase.split(" ")));
         Iterator<Integer> iterator;
 
         iterator = indexesPos.iterator();
         while (iterator.hasNext()) {
             Integer currIndex = iterator.next();
-            if (indexPos < currIndex) {
-                indexPos = currIndex;
+            if (currIndex < indexPosFirst) {
+                indexPosFirst = currIndex;
+            }
+            if (currIndex > indexPosLast) {
+                indexPosLast = currIndex;
             }
         }
         iterator = indexesNeg.iterator();
         while (iterator.hasNext()) {
             Integer currIndex = iterator.next();
-            if (indexNeg < currIndex) {
-                indexNeg = currIndex;
+            if (currIndex < indexNegFirst) {
+                indexNegFirst = currIndex;
+            }
+            if (currIndex > indexNegLast) {
+                indexNegLast = currIndex;
             }
         }
 
         for (String moderator : setModerators) {
             if (termsInText.contains(moderator)) {
-                indexModerator = text.indexOf(moderator);
-                if ((indexPos < indexModerator & indexNeg > indexModerator)) {
+                indexModerator = textStrippedLowerCase.indexOf(moderator);
+                if ((indexPosFirst < indexModerator & indexNegFirst > indexModerator)) {
                     document.deleteFromListCategories(Category._11);
                     break;
-                } else if ((indexPos > indexModerator & indexNeg < indexModerator)) {
+                } else if ((indexPosFirst > indexModerator & indexNegFirst < indexModerator)) {
                     document.deleteFromListCategories(Category._12);
                     break;
                 }
-                if ((indexModerator < indexPos & indexModerator < indexNeg & indexPos < indexNeg)) {
+                if ((indexModerator < indexPosFirst & indexModerator < indexNegFirst & indexPosFirst < indexNegFirst)) {
                     document.deleteFromListCategories(Category._11);
                     break;
-                } else if ((indexModerator < indexPos & indexModerator < indexNeg & indexNeg < indexPos)) {
+                }
+                if ((indexPosFirst < indexModerator & indexesNeg.isEmpty())) {
+                    document.deleteFromListCategories(Category._11);
+                    break;
+                }
+                if (indexNegFirst < indexModerator & indexNegLast < indexModerator) {
                     document.deleteFromListCategories(Category._12);
                     break;
                 }
+                if (indexPosFirst < indexModerator & indexPosLast < indexModerator) {
+                    document.deleteFromListCategories(Category._11);
+                    break;
+                } else if ((indexModerator < indexPosFirst & indexModerator < indexNegFirst & indexNegFirst < indexPosFirst)) {
+                    document.deleteFromListCategories(Category._12);
+                    break;
+                }
+
             }
         }
     }
@@ -130,7 +151,7 @@ public class SentenceLevelHeuristicsPost {
         int indexNeg = 0;
 
         Set<String> termsInText = new HashSet();
-        termsInText.addAll(Arrays.asList(textStripped.split(" ")));
+        termsInText.addAll(Arrays.asList(textStrippedLowerCase.split(" ")));
         Iterator<Integer> iterator;
 
         iterator = indexesPos.iterator();
@@ -173,11 +194,11 @@ public class SentenceLevelHeuristicsPost {
         if (!document.getListCategories().isEmpty()) {
             return;
         }
-        if (textStripped.length() < 5) {
-            document.addToListCategories(Category._92, -1, textStripped);
+        if (textStrippedLowerCase.length() < 5) {
+            document.addToListCategories(Category._92, -1, textStrippedLowerCase);
         }
-        if (textStripped.split(" ").length < 4) {
-            document.addToListCategories(Category._92, -1, textStripped);
+        if (textStrippedLowerCase.split(" ").length < 4) {
+            document.addToListCategories(Category._92, -1, textStrippedLowerCase);
         }
     }
 

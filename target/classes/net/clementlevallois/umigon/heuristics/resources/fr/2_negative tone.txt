@@ -227,8 +227,8 @@ criminel		12
 criminelle		12
 criminelles		12
 criminels		12
-critique		12
-critiques		12
+critique	!isPrecededBySpecificTerm///ouvert à la|ouverts à la|accepte la|acceptent la	12:11
+critiques	!isPrecededBySpecificTerm///ouvert aux|ouverts aux|accepte les|acceptent les	12:11
 cruauté		12
 cruautés		12
 cruel		12
