@@ -47,19 +47,15 @@ public class SentenceLevelHeuristicsPost {
         }
     }
 
-    public void containsNegation() {
+    public void containsNegationInCaps() {
         StatusCleaner cleaner = new StatusCleaner();
         text = cleaner.removeStartAndFinalApostrophs(text);
-        text = cleaner.removePunctuationSigns(text).toLowerCase().trim();
+        text = cleaner.removePunctuationSigns(text).trim();
 
-        Set<String> termsInText = new HashSet();
-        termsInText.addAll(Arrays.asList(text.split(" ")));
-        if (!document.getListCategories().isEmpty()) {
-            return;
-        }
         for (String term : setNegations) {
-            if (termsInText.contains(term)) {
-                document.addToListCategories(Category._12, -1, term);
+            if (text.contains(term.toUpperCase())) {
+                int indexStrongNegation = text.indexOf(term.toUpperCase());
+                document.addToListCategories(Category._12, indexStrongNegation, term);
             }
         }
     }

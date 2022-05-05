@@ -359,7 +359,6 @@ public class SentenceLevelHeuristicsPre {
         }
 
         //smiley :/
-        
         // this matches :/ preceded by a space but specifically not :// because :// could be something in http://www....
         res = text.matches(".* :/[^/]\\s*.*");
         if (res) {
@@ -403,9 +402,13 @@ public class SentenceLevelHeuristicsPre {
         List<CategoryAndIndex> cats = new ArrayList();
 
         String textWithEmojisAsAliases = EmojiParser.parseToAliases(text);
+        long countSemiColon = textWithEmojisAsAliases.chars().filter(ch -> ch == ':').count();
+        if (countSemiColon < 2) {
+            return cats;
+        }
         String[] terms = textWithEmojisAsAliases.split(":");
         for (String term : terms) {
-            index = text.indexOf(term);
+            index = textWithEmojisAsAliases.indexOf(term);
             term = ":" + term + ":";
             if (emojis.getSetNegativeEmojis().contains(term)) {
                 cats.add(new CategoryAndIndex(Category._12, index, term));

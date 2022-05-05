@@ -35,6 +35,7 @@ brightens		11	3
 brightens	!isImmediatelyPrecededByANegation	11:12	3
 brilliance	!isImmediatelyPrecededByANegation	11:12	3
 brilliant	!isImmediatelyPrecededByANegation	11:12	3
+brilliantly	!isImmediatelyPrecededByANegation	11:12	3
 cant wait		11	3
 can t wait		11	3
 can t wait for	!isFollowedBySpecificTerm ///to be over	11:12	3
@@ -129,6 +130,7 @@ game changing	!isImmediatelyPrecededByANegation	11:12	3
 genius	!isImmediatelyPrecededByANegation	11:12	3
 glad	!isImmediatelyPrecededByANegation	11:12	2
 glorious	!isImmediatelyPrecededByANegation	11:12	3
+glory to		11	3
 god bless		11	3
 gold	isAllCaps	11	3
 good	!isImmediatelyPrecededByANegation	11:12	2
@@ -254,7 +256,7 @@ nicest	!isImmediatelyPrecededByANegation	11:12	2
 noble	!isImmediatelyPrecededByANegation	11:12	3
 nothing beats		11	3
 nutritious	!isImmediatelyPrecededByANegation	11:12	2
-one of the	isImmediatelyFollowedBySpecificTerm///few|rare|only	11:12	3
+one of the	isImmediatelyFollowedBySpecificTerm///few|rare|only	11:10	3
 outstanding	!isImmediatelyPrecededByANegation	11:12	3
 paradise	!isImmediatelyPrecededByANegation	11:12	3
 passion	!isImmediatelyPrecededByANegation	11:12	3

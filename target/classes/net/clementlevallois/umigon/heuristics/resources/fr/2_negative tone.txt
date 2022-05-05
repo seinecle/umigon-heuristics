@@ -305,10 +305,10 @@ défaite		12
 défaitisme		12
 défaitiste		12
 défaitistes		12
-dégueulasse		12:11
-dégeulasse		12:11
-dégeu		12:11
-dégueu		12:11
+dégueulasse		!isImmediatelyPrecededByANegativeOpinion	12:11
+dégeulasse		!isImmediatelyPrecededByANegativeOpinion	12:11
+dégeu		!isImmediatelyPrecededByANegativeOpinion	12:11
+dégueu		!isImmediatelyPrecededByANegativeOpinion	12:11
 dégout		12
 dégoutant		12
 dégoutante		12

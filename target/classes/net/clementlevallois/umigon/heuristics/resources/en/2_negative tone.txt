@@ -754,8 +754,8 @@ undermined	!isImmediatelyPrecededByANegation	12:10		1
 unfair	!isImmediatelyPrecededByANegation	12:10		2
 unforgivable	!isImmediatelyPrecededByANegation	12:10		3
 unfortunate	!isImmediatelyPrecededByANegation	12:10		1
-unfortunately		12:10		1
-unfortunetly		12:10		1
+unfortunately	!isImmediatelyPrecededByANegation	12:10		1
+unfortunetly	!isImmediatelyPrecededByANegation	12:10		1
 ungodly	!isImmediatelyPrecededByANegation	12:10		3
 unhappy	!isImmediatelyPrecededByANegation	12:10		2
 unhealthy 	!isImmediatelyPrecededByANegation	12:10		2
