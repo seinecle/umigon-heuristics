@@ -68,7 +68,7 @@ public class TermLevelHeuristics {
     private String termOrig;
     private int indexTerm;
     private String lang;
-    private HeuristicsLoaderOnDemand heuristics;
+    private final HeuristicsLoaderOnDemand heuristics;
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     InterpreterOfConditionalExpressions interpreter;
@@ -443,6 +443,15 @@ public class TermLevelHeuristics {
             return true;
         } else if (temp.length > 2 && parameters.contains(temp[temp.length - 3].trim().toLowerCase() + " " + temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
             return true;
+        } // fait un peu chier
+        // fait vraiment trop chier
+        else if (temp.length > 2 && parameters.contains(temp[temp.length - 3].trim().toLowerCase())) {
+            String intervalWord = temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase();
+            if (heuristics.getMapH3().containsKey(intervalWord)) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
@@ -625,7 +634,16 @@ public class TermLevelHeuristics {
                     if (parameters.contains(specificTerm.trim()) && heuristics.getMapH3().containsKey(booster)) {
                         return true;
                     }
+                    for (String parameter : parameters) {
+                        if (leftPart.contains(parameter)) {
+                            String fromParamExcludedToTermExcluded = leftPart.substring(leftPart.indexOf(parameter) + parameter.length()).toLowerCase().trim();
+                            if (fromParamExcludedToTermExcluded.isBlank() || heuristics.getMapH3().containsKey(fromParamExcludedToTermExcluded)) {
+                                return true;
+                            }
+                        }
+                    }
                 }
+
                 return false;
             }
         } catch (StringIndexOutOfBoundsException e) {

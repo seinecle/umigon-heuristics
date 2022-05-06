@@ -14,6 +14,7 @@ JPP	isHashtagStart	11
 OPGDC	isHashtagStart	11
 lose	isHashtagStart	12
 maudit	isHashtagStart	12
+nimp	isHashtagStart	12
 nul	isHashtagStart	12
 OKLM	isHashtagStart	11
 pascontent	isHashtagStart	12

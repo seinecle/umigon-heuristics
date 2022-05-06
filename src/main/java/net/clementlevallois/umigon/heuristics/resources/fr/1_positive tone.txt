@@ -449,6 +449,7 @@ fier	!isImmediatelyPrecededByANegation	11:12
 fleurir	!isImmediatelyPrecededByANegation	11:12
 florissant	!isImmediatelyPrecededByANegation	11:12
 force	!isImmediatelyPrecededByANegation	11:12
+fort	!isImmediatelyPrecededByANegation	11:12
 fortifié	!isImmediatelyPrecededByANegation	11:12
 fou de joie	!isImmediatelyPrecededByANegation	11:12
 frémissant	!isImmediatelyPrecededByANegation	11:12

@@ -17,31 +17,12 @@ import org.mvel2.MVEL;
  *
  * example below: human-written rule:
  *
- * A?(B?(321:C?(322:355)):122)
- *
- * => letters are true / false conditions => digits are outcomes => reads like:
- * "is A true? if so, evaluate B. If not, return 122. Is B true? if so, return
- * 321. If not, evaluate C. Etc...
- *
- * in the example below, we imagine that A, C D are true, while B is false.
- *
- * This class evaluates the expression: A is true => evaluate B B is false: skip
- * 321, go and evaluate C C is true: return 322
- *
- *
- * Why is it interesting? In this example, simple digits are returned. These
- * digits can be mapped to complex objects in a map (or in a dictionary as you
- * would say in Python). So that this class provides a bridge between complex
- * rules set in combination and complex outcomes.
- *
- * IF (A:12:13) IF (A:IF(B:12:13):14)
- *
  *
  */
 public class InterpreterOfConditionalExpressions {
 
     public static void main(String args[]) {
-        String rule = "if(A||B){12}";
+        String rule = "if(A||B){12} else{11}";
 
         Map<String, Boolean> c = new HashMap();
         c.put("A", false);
