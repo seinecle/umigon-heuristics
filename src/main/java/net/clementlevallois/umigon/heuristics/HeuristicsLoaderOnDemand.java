@@ -5,9 +5,9 @@
  */
 package net.clementlevallois.umigon.heuristics;
 
-import net.clementlevallois.umigon.heuristics.model.LanguageSpecificLexicons;
-import net.clementlevallois.umigon.heuristics.model.ConditionalExpression;
-import net.clementlevallois.umigon.heuristics.model.LexiconsAndConditionalExpressions;
+import net.clementlevallois.umigon.model.heuristics.LanguageSpecificLexicons;
+import net.clementlevallois.umigon.model.heuristics.ConditionalExpression;
+import net.clementlevallois.umigon.model.heuristics.LexiconsAndConditionalExpressions;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -237,11 +237,19 @@ public class HeuristicsLoaderOnDemand {
                             parametersArray = featureString.substring(featureString.indexOf("///") + 3, featureString.length()).split("\\|");
                             condition = featureString.substring(0, featureString.indexOf("///"));
                             if (condition != null & !condition.isEmpty()) {
-                                feature.setCondition(condition);
+                                if (condition.startsWith("!")) {
+                                    feature.setCondition(condition.substring(1), true);
+                                } else {
+                                    feature.setCondition(condition, false);
+                                }
                                 feature.setKeywords(new HashSet(Arrays.asList(parametersArray)));
                             }
                         } else {
-                            feature.setCondition(featureString);
+                            if (condition.startsWith("!")) {
+                                feature.setCondition(condition.substring(1), true);
+                            } else {
+                                feature.setCondition(condition, false);
+                            }
                         }
                         heuristic.addFeature(feature);
                     }

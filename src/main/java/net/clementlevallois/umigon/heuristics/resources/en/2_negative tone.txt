@@ -113,6 +113,7 @@ complaining	!isImmediatelyPrecededByANegation	12:10		2
 complaint	!isImmediatelyPrecededByANegation	12:10		1
 complaints	!isImmediatelyPrecededByANegation	12:10		2
 complicit	!isImmediatelyPrecededByANegation	12:10		2
+concerning	isPrecededByStrongWord	12:10		2
 concussion	!isImmediatelyPrecededByANegation	12:10		2
 conflicting	!isImmediatelyPrecededByANegation	12:10		2
 confused	!isImmediatelyPrecededByANegation	12:10		2

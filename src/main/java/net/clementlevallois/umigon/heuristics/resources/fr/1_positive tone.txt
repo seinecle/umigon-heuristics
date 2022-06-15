@@ -505,7 +505,6 @@ kiffe	!isImmediatelyPrecededByANegation	11:12
 kiffer	!isImmediatelyPrecededByANegation	11:12
 lauriers	!isImmediatelyPrecededByANegation	11:12
 léger	!isImmediatelyPrecededByANegation	11:12
-lumière	!isImmediatelyPrecededByANegation	11:12
 magie	!isImmediatelyPrecededByANegation	11:12
 magique	!isImmediatelyPrecededByANegation	11:12
 magiques	!isImmediatelyPrecededByANegation	11:12
@@ -520,11 +519,9 @@ m enchante	!isImmediatelyFollowedByANegation	11:12
 merci	!isImmediatelyPrecededByANegation	11:12
 merveilleuse	!isImmediatelyPrecededByANegation	11:12
 merveilleux	!isImmediatelyPrecededByANegation	11:12
-mot	!isImmediatelyPrecededByANegation	11:12
 OKLM	!isImmediatelyPrecededByANegation	11:12
 optimiste	!isImmediatelyPrecededByANegation	11:12
 ouf	!isImmediatelyPrecededByANegation	11:12
-pacifier	!isImmediatelyPrecededByANegation	11:12
 paisible	!isImmediatelyPrecededByANegation	11:12
 paradisiaque	!isImmediatelyPrecededByANegation	11:12
 parfait	!isImmediatelyPrecededByANegation	11:12

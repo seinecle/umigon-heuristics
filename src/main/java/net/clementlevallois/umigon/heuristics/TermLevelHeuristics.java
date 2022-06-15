@@ -5,8 +5,8 @@
  */
 package net.clementlevallois.umigon.heuristics;
 
-import net.clementlevallois.umigon.heuristics.model.ConditionalExpression;
-import net.clementlevallois.umigon.heuristics.model.LexiconsAndConditionalExpressions;
+import net.clementlevallois.umigon.model.heuristics.ConditionalExpression;
+import net.clementlevallois.umigon.model.heuristics.LexiconsAndConditionalExpressions;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,8 +16,11 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import net.clementlevallois.ngramops.NGramFinder;
-import net.clementlevallois.umigon.model.Categories.Category;
-import net.clementlevallois.umigon.model.CategoryAndIndex;
+import net.clementlevallois.umigon.model.Categories;
+import net.clementlevallois.umigon.model.Category;
+import net.clementlevallois.umigon.model.ResultOneHeuristics;
+import net.clementlevallois.umigon.model.TypeOfToken;
+import org.apache.commons.lang3.StringUtils;
 
 /*
  Copyright 2008-2013 Clement Levallois
@@ -77,7 +80,7 @@ public class TermLevelHeuristics {
         this.heuristics = heuristics;
     }
 
-    public List<CategoryAndIndex> checkFeatures(LexiconsAndConditionalExpressions heuristic, String textParam, String textStripped, String termOrig, int indexTerm, boolean stripped) {
+    public List<ResultOneHeuristics> checkFeatures(LexiconsAndConditionalExpressions heuristic, String textParam, String textStripped, String termOrig, int indexTerm, boolean stripped) {
         this.termHeuristic = heuristic.getTerm();
         this.features = heuristic.getMapFeatures();
         this.rule = heuristic.getRule();
@@ -86,7 +89,7 @@ public class TermLevelHeuristics {
         this.termOrigCasePreserved = termOrig;
         this.indexTerm = indexTerm;
 
-        List<CategoryAndIndex> cats = new ArrayList();
+        List<ResultOneHeuristics> resultsHeuristics = new ArrayList();
 
         interpreter = new InterpreterOfConditionalExpressions();
         Category cat;
@@ -94,15 +97,19 @@ public class TermLevelHeuristics {
         Map<String, Boolean> conditions = new HashMap();
         boolean outcome = false;
         text = text.toLowerCase();
-        if ((features == null || features.isEmpty()) & rule != null && !rule.isBlank()) {
+        if ((features == null || features.isEmpty()) & rule != null && !rule.isBlank() & StringUtils.isNumeric(rule)) {
             try {
-                cat = Category.valueOf("_" + rule);
-                cats.add(new CategoryAndIndex(cat, indexTerm, termOrigCasePreserved));
-                return cats;
+                cat = Categories.getCategory(rule);
+                ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(cat, indexTerm, termOrigCasePreserved);
+                resultOneHeuristics.setTypeOfToken(TypeOfToken.TypeOfTokenEnum.NGRAM);
+                resultsHeuristics.add(resultOneHeuristics);
+                return resultsHeuristics;
             } catch (IllegalArgumentException wrongCode) {
                 System.out.println("rule was misspelled or just wrong:");
                 System.out.println(rule);
-                return cats;
+                System.out.println("for term:");
+                System.out.println(termOrig);
+                return resultsHeuristics;
             }
         }
 
@@ -116,9 +123,8 @@ public class TermLevelHeuristics {
             keywords = feature.getKeywords();
 
             boolean opposite = false;
-            if (condition.startsWith("!")) {
+            if (feature.getFlipped()) {
                 opposite = true;
-                condition = condition.substring(1);
             }
 
             switch (condition) {
@@ -230,16 +236,16 @@ public class TermLevelHeuristics {
                 System.out.println("text: " + text);
             }
             try {
-                cat = Category.valueOf("_" + result);
-                cats.add(new CategoryAndIndex(cat, indexTerm, termOrigCasePreserved));
-                return cats;
+                cat = new Category(result);
+                resultsHeuristics.add(new ResultOneHeuristics(cat, indexTerm, termOrigCasePreserved));
+                return resultsHeuristics;
             } catch (IllegalArgumentException wrongCode) {
                 System.out.println("outcome was misspelled or just wrong, after evaluating the heuristics:");
                 System.out.println(result);
-                return cats;
+                return resultsHeuristics;
             }
         }
-        return cats;
+        return resultsHeuristics;
     }
 
     public boolean isImmediatelyFollowedByAnOpinion() {

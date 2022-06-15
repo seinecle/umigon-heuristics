@@ -8,5 +8,4 @@ module net.clementlevallois.umigon.heuristics {
     requires mvel2;
     
     exports net.clementlevallois.umigon.heuristics;
-    exports net.clementlevallois.umigon.heuristics.model;
 }
