@@ -16,10 +16,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
 import net.clementlevallois.umigon.heuristics.resources.multilingual.PlaceHolderMULTI;
-import net.clementlevallois.umigon.model.Categories;
 import net.clementlevallois.umigon.model.Category;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.PatternOfInterest;
+import net.clementlevallois.umigon.model.TypeOfToken;
 
 /*
  *
@@ -44,7 +44,7 @@ public class SentenceLevelHeuristicsPre {
                 poi.setShouldApplyToLowerCaseText(Boolean.valueOf(elements[2]));
                 List<String> categoriesIds = Arrays.asList(elements[3].split(","));
                 for (String categoryId : categoriesIds) {
-                    Category category = Categories.getCategory(categoryId);
+                    Category category = new Category(categoryId);
                     poi.getCategories().add(category);
                 }
                 poi.setTypeOfToken(elements[4]);
@@ -71,7 +71,7 @@ public class SentenceLevelHeuristicsPre {
     public List<ResultOneHeuristics> containsOnomatopaesAsciiOrEmojis(String text) {
         List<ResultOneHeuristics> cats = new ArrayList();
 
-        int index = 0;
+        int index;
 
         Matcher matcher;
         for (PatternOfInterest poiLoop : patternsOfInterest) {
@@ -80,7 +80,7 @@ public class SentenceLevelHeuristicsPre {
                 String match = matcher.group();
                 index = text.indexOf(match);
                 for (Category cat : poiLoop.getCategories()) {
-                    ResultOneHeuristics catAndIndex = new ResultOneHeuristics(cat, index, match);
+                    ResultOneHeuristics catAndIndex = new ResultOneHeuristics(cat.getCategoryEnum(), index, match, poiLoop.getTypeOfToken());
                     catAndIndex.setTypeOfToken(poiLoop.getTypeOfToken());
                     cats.add(catAndIndex);
                 }
@@ -119,11 +119,11 @@ public class SentenceLevelHeuristicsPre {
             index = textWithEmojisAsAliases.indexOf(term);
             term = ":" + term + ":";
             if (emojis.getSetNegativeEmojis().contains(term)) {
-                cats.add(new ResultOneHeuristics(Categories.getCategory("12"), index, term));
+                cats.add(new ResultOneHeuristics(Category.CategoryEnum._12, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI));
             } else if (emojis.getSetPositiveEmojis().contains(term)) {
-                cats.add(new ResultOneHeuristics(Categories.getCategory("12"), index, term));
+                cats.add(new ResultOneHeuristics(Category.CategoryEnum._12, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI));
             } else if (emojis.getSetHyperSatisfactionEmojis().contains(term)) {
-                cats.add(new ResultOneHeuristics(Categories.getCategory("17"), index, term));
+                cats.add(new ResultOneHeuristics(Category.CategoryEnum._17, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI));
             }
         }
 

@@ -11,6 +11,8 @@ import java.util.Iterator;
 import java.util.Set;
 import net.clementlevallois.umigon.model.Category;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
+import net.clementlevallois.umigon.model.TypeOfToken;
+import net.clementlevallois.umigon.model.heuristics.ConditionalExpression;
 import net.clementlevallois.utils.StatusCleaner;
 
 /**
@@ -39,10 +41,10 @@ public class SentenceLevelHeuristicsPost {
     }
 
     public void isIronicallyPositive() {
-        if (document.getListCategories().contains(new Category("11")) & document.getListCategories().contains(new Category("12"))) {
+        if (document.getListCategories().contains(Category.CategoryEnum._11) & document.getListCategories().contains(Category.CategoryEnum._12)) {
             for (String irony : ironicallyPositive) {
                 if (text.contains(irony)) {
-                    document.deleteFromListCategories(new Category("12"));
+                    document.deleteFromListCategories(Category.CategoryEnum._12);
                 }
             }
         }
@@ -56,7 +58,8 @@ public class SentenceLevelHeuristicsPost {
         for (String term : setNegations) {
             if (text.contains(term.toUpperCase())) {
                 int indexStrongNegation = text.indexOf(term.toUpperCase());
-                ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(new Category("12"), indexStrongNegation, term);
+                ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, indexStrongNegation, term, TypeOfToken.TypeOfTokenEnum.NGRAM);
+                resultOneHeuristics.setConditionEnum(ConditionalExpression.ConditionEnum.isNegationInCaps);
                 document.addToListCategories(resultOneHeuristics);
             }
         }
@@ -66,8 +69,8 @@ public class SentenceLevelHeuristicsPost {
         if (document.getListCategories().isEmpty()) {
             return;
         }
-        Set<Integer> indexesPos = document.getAllIndexesForCategory(new Category("11"));
-        Set<Integer> indexesNeg = document.getAllIndexesForCategory(new Category("12"));
+        Set<Integer> indexesPos = document.getAllIndexesForCategory(Category.CategoryEnum._11);
+        Set<Integer> indexesNeg = document.getAllIndexesForCategory(Category.CategoryEnum._12);
 
         if (indexesPos.isEmpty() || indexesNeg.isEmpty()) {
             return;
@@ -107,29 +110,29 @@ public class SentenceLevelHeuristicsPost {
             if (termsInText.contains(moderator)) {
                 indexModerator = textStrippedLowerCase.indexOf(moderator);
                 if ((indexPosFirst < indexModerator & indexNegFirst > indexModerator)) {
-                    document.deleteFromListCategories(new Category("11"));
+                    document.deleteFromListCategories(Category.CategoryEnum._11);
                     break;
                 } else if ((indexPosFirst > indexModerator & indexNegFirst < indexModerator)) {
-                    document.deleteFromListCategories(new Category("12"));
+                    document.deleteFromListCategories(Category.CategoryEnum._12);
                     break;
                 }
                 if ((indexModerator < indexPosFirst & indexModerator < indexNegFirst & indexPosFirst < indexNegFirst)) {
-                    document.deleteFromListCategories(new Category("11"));
+                    document.deleteFromListCategories(Category.CategoryEnum._11);
                     break;
                 }
                 if ((indexPosFirst < indexModerator & indexesNeg.isEmpty())) {
-                    document.deleteFromListCategories(new Category("11"));
+                    document.deleteFromListCategories(Category.CategoryEnum._11);
                     break;
                 }
                 if (indexNegFirst < indexModerator & indexNegLast < indexModerator) {
-                    document.deleteFromListCategories(new Category("12"));
+                    document.deleteFromListCategories(Category.CategoryEnum._12);
                     break;
                 }
                 if (indexPosFirst < indexModerator & indexPosLast < indexModerator) {
-                    document.deleteFromListCategories(new Category("11"));
+                    document.deleteFromListCategories(Category.CategoryEnum._11);
                     break;
                 } else if ((indexModerator < indexPosFirst & indexModerator < indexNegFirst & indexNegFirst < indexPosFirst)) {
-                    document.deleteFromListCategories(new Category("12"));
+                    document.deleteFromListCategories(Category.CategoryEnum._12);
                     break;
                 }
 
@@ -138,8 +141,8 @@ public class SentenceLevelHeuristicsPost {
     }
 
     public void containsANegationAndAPositiveAndNegativeSentiment() {
-        Set<Integer> indexesPos = document.getAllIndexesForCategory(new Category("11"));
-        Set<Integer> indexesNeg = document.getAllIndexesForCategory(new Category("12"));
+        Set<Integer> indexesPos = document.getAllIndexesForCategory(Category.CategoryEnum._11);
+        Set<Integer> indexesNeg = document.getAllIndexesForCategory(Category.CategoryEnum._12);
 
         if (indexesPos.isEmpty() || indexesNeg.isEmpty()) {
             return;
@@ -171,17 +174,17 @@ public class SentenceLevelHeuristicsPost {
             if (termsInText.contains(negation + " ")) {
                 indexNegation = text.indexOf(negation);
                 if ((indexPos < indexNegation & indexNeg > indexNegation)) {
-                    document.deleteFromListCategories(new Category("11"));
+                    document.deleteFromListCategories(Category.CategoryEnum._11);
                     break;
                 } else if ((indexPos > indexNegation & indexNeg < indexNegation)) {
-                    document.deleteFromListCategories(new Category("12"));
+                    document.deleteFromListCategories(Category.CategoryEnum._12);
                     break;
                 }
                 if ((indexNegation < indexPos & indexNegation < indexNeg & indexPos < indexNeg)) {
-                    document.deleteFromListCategories(new Category("11"));
+                    document.deleteFromListCategories(Category.CategoryEnum._11);
                     break;
                 } else if ((indexNegation < indexPos & indexNegation < indexNeg & indexNeg < indexPos)) {
-                    document.deleteFromListCategories(new Category("12"));
+                    document.deleteFromListCategories(Category.CategoryEnum._12);
                     break;
                 }
             }
@@ -193,21 +196,21 @@ public class SentenceLevelHeuristicsPost {
             return;
         }
         if (textStrippedLowerCase.length() < 5) {
-            document.addToListCategories(new Category("92"), -1, textStrippedLowerCase);
+            document.addToListCategories(Category.CategoryEnum._92, -1, textStrippedLowerCase, TypeOfToken.TypeOfTokenEnum.TOO_SHORT);
         }
-        if (textStrippedLowerCase.split(" ").length < 4) {
-            document.addToListCategories(new Category("92"), -1, textStrippedLowerCase);
+        if (textStrippedLowerCase.split(" ").length < 3) {
+            document.addToListCategories(Category.CategoryEnum._92, -1, textStrippedLowerCase, TypeOfToken.TypeOfTokenEnum.TOO_SHORT);
         }
     }
 
     public void whenAllElseFailed() {
         //what to do when a tweet contains both positive and negative markers?
         //classify it as negative, except if it ends by a positive final note
-        if (document.getListCategories().contains(new Category("11")) & document.getListCategories().contains(new Category("12"))) {
+        if (document.getListCategories().contains(Category.CategoryEnum._11) & document.getListCategories().contains(Category.CategoryEnum._12)) {
             if (document.getFinalNote() == null) {
-                document.deleteFromListCategories(new Category("11"));
-            } else if (document.getFinalNote() == new Category("11")) {
-                document.deleteFromListCategories(new Category("12"));
+                document.deleteFromListCategories(Category.CategoryEnum._11);
+            } else if (document.getFinalNote() == Category.CategoryEnum._11) {
+                document.deleteFromListCategories(Category.CategoryEnum._12);
             }
         }
     }

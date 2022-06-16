@@ -226,7 +226,7 @@ public class HeuristicsLoaderOnDemand {
                     featuresListIterator = featuresList.iterator();
                     heuristic = new LexiconsAndConditionalExpressions();
                     while (featuresListIterator.hasNext()) {
-                        ConditionalExpression feature = new ConditionalExpression();
+                        ConditionalExpression conditionalExpression = new ConditionalExpression();
                         String condition = "";
 
                         featureString = featuresListIterator.next();
@@ -238,20 +238,20 @@ public class HeuristicsLoaderOnDemand {
                             condition = featureString.substring(0, featureString.indexOf("///"));
                             if (condition != null & !condition.isEmpty()) {
                                 if (condition.startsWith("!")) {
-                                    feature.setCondition(condition.substring(1), true);
+                                    conditionalExpression.setCondition(condition.substring(1), true);
                                 } else {
-                                    feature.setCondition(condition, false);
+                                    conditionalExpression.setCondition(condition, false);
                                 }
-                                feature.setKeywords(new HashSet(Arrays.asList(parametersArray)));
+                                conditionalExpression.setKeywords(new HashSet(Arrays.asList(parametersArray)));
                             }
                         } else {
                             if (condition.startsWith("!")) {
-                                feature.setCondition(condition.substring(1), true);
+                                conditionalExpression.setCondition(condition.substring(1), true);
                             } else {
-                                feature.setCondition(condition, false);
+                                conditionalExpression.setCondition(condition, false);
                             }
                         }
-                        heuristic.addFeature(feature);
+                        heuristic.addFeature(conditionalExpression);
                     }
                     if (hashtagRelevant.equalsIgnoreCase("x")) {
                         heuristic.setHashtagRelevant(false);

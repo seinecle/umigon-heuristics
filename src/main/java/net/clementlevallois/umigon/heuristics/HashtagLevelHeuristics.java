@@ -7,7 +7,9 @@ package net.clementlevallois.umigon.heuristics;
 import java.util.ArrayList;
 import java.util.List;
 import net.clementlevallois.umigon.model.Categories;
+import net.clementlevallois.umigon.model.Category;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
+import net.clementlevallois.umigon.model.TypeOfToken;
 import net.clementlevallois.umigon.model.heuristics.LexiconsAndConditionalExpressions;
 
 /**
@@ -85,9 +87,9 @@ public class HashtagLevelHeuristics {
             if (hashtag.startsWith(term) && heuristics.getMapH1().get(term) != null) {
                 if (heuristics.getMapH1().get(term).isHashtagRelevant()) {
                     if (!startsWithNegativeTerm) {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("11"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._11, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     } else {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("12"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._12, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     }
                 }
             }
@@ -100,9 +102,9 @@ public class HashtagLevelHeuristics {
             if (hashtag.startsWith(term) && heuristics.getMapH2().get(term) != null) {
                 if (heuristics.getMapH2().get(term).isHashtagRelevant()) {
                     if (!startsWithNegativeTerm) {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("12"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._12, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     } else {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("11"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._11, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     }
                 }
             }
@@ -116,9 +118,9 @@ public class HashtagLevelHeuristics {
             if (hashtag.startsWith(term) && heuristics.getMapH17().get(term) != null) {
                 if (heuristics.getMapH17().get(term).isHashtagRelevant()) {
                     if (!startsWithNegativeTerm) {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("17"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._17, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     } else {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("12"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._12, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     }
                 }
             }
@@ -139,17 +141,17 @@ public class HashtagLevelHeuristics {
                 hashtag = hashtag.replace(term, "");
                 if (hashtag.length() > 1) {
                     if (heuristics.getSetNegations().contains(hashtag)) {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("12"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._12, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     }
                     if (heuristics.getMapH3().keySet().contains(hashtag)) {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("11"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._11, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     } else {
                         if (hashtag.equals(term)) {
-                            resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("11"), -1, hashtag));
+                            resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._11, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                         }
                     }
                 } else {
-                    resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("11"), -1, hashtag));
+                    resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._11, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                 }
             }
         }
@@ -163,17 +165,17 @@ public class HashtagLevelHeuristics {
                 hashtag = hashtag.replace(term, "");
                 if (hashtag.length() > 1) {
                     if (heuristics.getSetNegations().contains(hashtag)) {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("11"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._11, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     }
                     if (heuristics.getMapH3().keySet().contains(hashtag)) {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("12"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._12, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     } else {
                         if (hashtag.equals(term)) {
-                            resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("12"), -1, hashtag));
+                            resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._12, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                         }
                     }
                 } else {
-                    resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("12"), -1, hashtag));
+                    resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._12, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                 }
             }
         }
@@ -187,17 +189,17 @@ public class HashtagLevelHeuristics {
                 hashtag = hashtag.replace(term, "");
                 if (hashtag.length() > 1) {
                     if (heuristics.getSetNegations().contains(hashtag)) {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("12"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._12, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     }
                     if (heuristics.getMapH3().keySet().contains(hashtag)) {
-                        resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("17"), -1, hashtag));
+                        resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._17, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                     } else {
                         if (hashtag.equals(term)) {
-                            resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("17"), -1, hashtag));
+                            resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._17, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                         }
                     }
                 } else {
-                    resultsHeuristics.add(new ResultOneHeuristics(Categories.getCategory("17"), -1, hashtag));
+                    resultsHeuristics.add(new ResultOneHeuristics(Category.CategoryEnum._17, -1, hashtag, TypeOfToken.TypeOfTokenEnum.HASHTAG));
                 }
             }
         }
