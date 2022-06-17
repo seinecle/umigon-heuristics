@@ -5,9 +5,9 @@
  */
 package net.clementlevallois.umigon.heuristics;
 
-import net.clementlevallois.umigon.model.heuristics.LanguageSpecificLexicons;
-import net.clementlevallois.umigon.model.heuristics.ConditionalExpression;
-import net.clementlevallois.umigon.model.heuristics.LexiconsAndConditionalExpressions;
+import net.clementlevallois.umigon.model.LanguageSpecificLexicons;
+import net.clementlevallois.umigon.model.ConditionalExpression;
+import net.clementlevallois.umigon.model.LexiconsAndConditionalExpressions;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -30,7 +30,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author LEVALLOIS
  */
-public class HeuristicsLoaderOnDemand {
+public class LoaderOfLexiconsAndConditionalExpressions {
 
     private final String lang;
     private BufferedReader br;
@@ -62,7 +62,7 @@ public class HeuristicsLoaderOnDemand {
 
     private Map<String, LanguageSpecificLexicons> multilingualLexicons = new HashMap();
 
-    public HeuristicsLoaderOnDemand(String lang) {
+    public LoaderOfLexiconsAndConditionalExpressions(String lang) {
         this.lang = lang;
     }
 

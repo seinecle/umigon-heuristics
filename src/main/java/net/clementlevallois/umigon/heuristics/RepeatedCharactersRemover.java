@@ -50,10 +50,10 @@ import java.util.Set;
 
 public class RepeatedCharactersRemover {
 
-    private final HeuristicsLoaderOnDemand heuristics;
+    private final LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions;
 
-    public RepeatedCharactersRemover(HeuristicsLoaderOnDemand heuristics) {
-        this.heuristics = heuristics;
+    public RepeatedCharactersRemover(LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions) {
+        this.lexiconsAndConditionalExpressions = lexiconsAndConditionalExpressions;
     }
 
     public String repeatedCharacters(String currTerm) {
@@ -107,12 +107,12 @@ public class RepeatedCharactersRemover {
                 if (rl.getCount() > 2) {
                     toReplace = letter + letter;
                     subs = toReturn.replace(toBeReplaced, toReplace);
-                    if (heuristics.getMapHeuristics().containsKey(subs.toLowerCase())) {
+                    if (lexiconsAndConditionalExpressions.getMapHeuristics().containsKey(subs.toLowerCase())) {
                         toReturn = subs;
                     } else {
                         toReplace = letter;
                         subs = toReturn.replace(toBeReplaced, toReplace);
-                        if (heuristics.getMapHeuristics().containsKey(subs.toLowerCase())) {
+                        if (lexiconsAndConditionalExpressions.getMapHeuristics().containsKey(subs.toLowerCase())) {
                             toReturn = subs;
                         }
                     }
@@ -157,14 +157,5 @@ public class RepeatedCharactersRemover {
         return true;
     }
 
-    private boolean isNumeric(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-            if (!Character.isDigit(c)) {
-                return false;
-            }
-        }
-        return true;
-    }
 
 }

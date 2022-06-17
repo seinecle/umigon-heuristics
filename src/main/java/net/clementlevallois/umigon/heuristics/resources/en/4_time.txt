@@ -32,12 +32,12 @@ future	null	33
 i present you		321	
 in	isImmediatelyFollowedByTimeIndication	33	
 introduce	null	321	
-introducing	isFirstTermOfStatus	321	
+introducing	isFirstTermOfText	321	
 is available now		321	
 is now	null	321	
 is on!	null	321	
 is out!	null	321	
-it s here!	isFirstTermOfStatus	321	
+it s here!	isFirstTermOfText	321	
 it s time:		321	
 january	null	3	
 july	null	3	

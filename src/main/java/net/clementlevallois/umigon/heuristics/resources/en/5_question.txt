@@ -1,26 +1,26 @@
  no?	null	40	
  thoughts?	null	40	
 anyone	null	40	
-can	isFirstTermOfStatus	40	
+can	isFirstTermOfText	40	
 does anyone	null	40	
 follow	isFirstLetterCapitalized	40	
 have you	null	40	
-how	isFirstTermOfStatus	40	
+how	isFirstTermOfText	40	
 how do I	null	40	
 how do you	null	40	
 i am wondering	null	40	
 i was wondering	null	40	
 ideas?	null	40	
-is	isFirstTermOfStatus	40	
+is	isFirstTermOfText	40	
 join	isFirstLetterCapitalized	40	
-should	isFirstTermOfStatus+++isQuestionMarkAtEndOfStatus	if(A && B){40}	
-wait	isFirstTermOfStatus+++isQuestionMarkAtEndOfStatus	if(A && B){40}	
-wat	isFirstTermOfStatus	40	
-what	isFirstLetterCapitalized+++isQuestionMarkAtEndOfStatus	if(A && B){40}	
+should	isFirstTermOfText+++isQuestionMarkAtEndOfText	if(A && B){40}	
+wait	isFirstTermOfText+++isQuestionMarkAtEndOfText	if(A && B){40}	
+wat	isFirstTermOfText	40	
+what	isFirstLetterCapitalized+++isQuestionMarkAtEndOfText	if(A && B){40}	
 what to do	null	40	
 whats		40	
 what s		40	
 which is	isFirstLetterCapitalized	40	
 whom	isFirstLetterCapitalized	40	
-why	isFirstTermOfStatus	40	
-will	isFirstTermOfStatus	40	
+why	isFirstTermOfText	40	
+will	isFirstTermOfText	40	

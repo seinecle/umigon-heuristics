@@ -28,7 +28,7 @@ big ups	!isImmediatelyPrecededByANegation	11:12	3
 bitch	!isImmediatelyPrecededByANegation	11:12	3
 blessed	!isImmediatelyPrecededByANegation	11:12	3
 blessing	!isImmediatelyPrecededByANegation	11:12	3
-blown	isPrecededBySpecificTerm ///mind+++isPrecededBySubjectiveTerm+++isFirstTermOfStatus	if(A || B || C){11} else {10}	3
+blown	isPrecededBySpecificTerm ///mind+++isPrecededBySubjectiveTerm+++isFirstTermOfText	if(A || B || C){11} else {10}	3
 bright	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///light	if(A && B){11} else {10}	3
 brightening	!isImmediatelyPrecededByANegation	11:12	3
 brightens		11	3

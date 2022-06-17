@@ -5,28 +5,38 @@
  */
 package net.clementlevallois.umigon.heuristics;
 
-import net.clementlevallois.umigon.model.heuristics.ConditionalExpression;
-import net.clementlevallois.umigon.model.heuristics.LexiconsAndConditionalExpressions;
+import net.clementlevallois.umigon.model.ConditionalExpression;
+import net.clementlevallois.umigon.model.LexiconsAndConditionalExpressions;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import net.clementlevallois.ngramops.NGramFinder;
+import net.clementlevallois.umigon.heuristics.termlevel.IsAllCaps;
+import net.clementlevallois.umigon.heuristics.termlevel.IsFirstLetterCapitalized;
 import net.clementlevallois.umigon.heuristics.termlevel.IsImmediatelyFollowedByANegation;
 import net.clementlevallois.umigon.heuristics.termlevel.IsImmediatelyFollowedByAnOpinion;
 import net.clementlevallois.umigon.heuristics.termlevel.IsImmediatelyFollowedBySpecificTerm;
 import net.clementlevallois.umigon.heuristics.termlevel.IsImmediatelyPrecededByANegation;
 import net.clementlevallois.umigon.heuristics.termlevel.IsImmediatelyPrecededBySpecificTerm;
-import net.clementlevallois.umigon.heuristics.termlevel.IsFirstTermOfStatus;
+import net.clementlevallois.umigon.heuristics.termlevel.IsFirstTermOfText;
 import net.clementlevallois.umigon.heuristics.termlevel.IsFollowedByAPositiveOpinion;
 import net.clementlevallois.umigon.heuristics.termlevel.IsFollowedBySpecificTerm;
+import net.clementlevallois.umigon.heuristics.termlevel.IsHashtag;
+import net.clementlevallois.umigon.heuristics.termlevel.IsHashtagStart;
 import net.clementlevallois.umigon.heuristics.termlevel.IsImmediatelyFollowedByANegativeOpinion;
 import net.clementlevallois.umigon.heuristics.termlevel.IsImmediatelyFollowedByAPositiveOpinion;
+import net.clementlevallois.umigon.heuristics.termlevel.IsImmediatelyPrecededByPositive;
+import net.clementlevallois.umigon.heuristics.termlevel.IsInATextWithOneOfTheseSpecificTerms;
+import net.clementlevallois.umigon.heuristics.termlevel.IsInHashtag;
+import net.clementlevallois.umigon.heuristics.termlevel.IsPrecededByPositive;
+import net.clementlevallois.umigon.heuristics.termlevel.IsPrecededBySpecificTerm;
+import net.clementlevallois.umigon.heuristics.termlevel.IsPrecededByStrongWord;
 import net.clementlevallois.umigon.heuristics.termlevel.IsPrecededBySubjectiveTerm;
+import net.clementlevallois.umigon.heuristics.termlevel.IsQuestionMarkAtEndOfText;
 import net.clementlevallois.umigon.model.Category;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken;
@@ -80,15 +90,13 @@ public class TermLevelHeuristics {
     private String text;
     private String termOrigCasePreserved;
     private String termOrig;
-    private int indexTerm;
-    private String lang;
-    private final HeuristicsLoaderOnDemand heuristics;
+    private final LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions;
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     InterpreterOfConditionalExpressions interpreter;
 
-    public TermLevelHeuristics(HeuristicsLoaderOnDemand heuristics) {
-        this.heuristics = heuristics;
+    public TermLevelHeuristics(LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions) {
+        this.lexiconsAndConditionalExpressions = lexiconsAndConditionalExpressions;
     }
 
     public List<ResultOneHeuristics> checkFeatures(LexiconsAndConditionalExpressions heuristic, String textParam, String textStripped, String termOrig, int indexTerm, boolean stripped) {
@@ -98,7 +106,6 @@ public class TermLevelHeuristics {
         this.text = stripped ? textStripped.toLowerCase() : textParam.toLowerCase();
         this.termOrig = termOrig.toLowerCase();
         this.termOrigCasePreserved = termOrig;
-        this.indexTerm = indexTerm;
 
         List<ResultOneHeuristics> resultsHeuristics = new ArrayList();
 
@@ -106,12 +113,12 @@ public class TermLevelHeuristics {
         Category cat;
 
         Map<String, Boolean> conditions = new HashMap();
-        ResultOneHeuristics outcome;
+        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(null, indexTerm, termOrigCasePreserved, TypeOfTokenEnum.NGRAM);
         text = text.toLowerCase();
         if ((conditionalExpressions == null || conditionalExpressions.isEmpty()) & rule != null && !rule.isBlank() & StringUtils.isNumeric(rule)) {
             try {
                 cat = new Category(rule);
-                ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(cat.getCategoryEnum(), indexTerm, termOrigCasePreserved, TypeOfTokenEnum.NGRAM);
+                resultOneHeuristics = new ResultOneHeuristics(cat.getCategoryEnum(), indexTerm, termOrigCasePreserved, TypeOfTokenEnum.NGRAM);
                 resultOneHeuristics.setTypeOfToken(TypeOfToken.TypeOfTokenEnum.NGRAM);
                 resultsHeuristics.add(resultOneHeuristics);
                 return resultsHeuristics;
@@ -141,100 +148,101 @@ public class TermLevelHeuristics {
             switch (conditionEnum) {
 
                 case isImmediatelyPrecededByANegation:
-                    outcome = IsImmediatelyPrecededByANegation.check(text, termOrig, indexTerm, heuristics);
+                    resultOneHeuristics = IsImmediatelyPrecededByANegation.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isImmediatelyFollowedByANegation:
-                    outcome = IsImmediatelyFollowedByANegation.check(text, termOrig, indexTerm, heuristics);
+                    resultOneHeuristics = IsImmediatelyFollowedByANegation.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isImmediatelyPrecededBySpecificTerm:
-                    outcome = IsImmediatelyPrecededBySpecificTerm.check(text, termOrig, indexTerm, heuristics, keywords);
+                    resultOneHeuristics = IsImmediatelyPrecededBySpecificTerm.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions, keywords);
                     break;
 
                 case isImmediatelyFollowedBySpecificTerm:
-                    outcome = IsImmediatelyFollowedBySpecificTerm.check(text, termOrig, indexTerm, heuristics, keywords);
+                    resultOneHeuristics = IsImmediatelyFollowedBySpecificTerm.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions, keywords);
                     break;
 
                 case isImmediatelyFollowedByAnOpinion:
-                    outcome = IsImmediatelyFollowedByAnOpinion.check(text, termOrig, indexTerm, heuristics);
+                    resultOneHeuristics = IsImmediatelyFollowedByAnOpinion.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isPrecededBySubjectiveTerm:
-                    outcome = IsPrecededBySubjectiveTerm.check(text, termOrig, indexTerm, heuristics);
+                    resultOneHeuristics = IsPrecededBySubjectiveTerm.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
-                case isFirstTermOfStatus:
-                    outcome = IsFirstTermOfStatus.check(text, termOrig, indexTerm, heuristics);
+                case isFirstTermOfText:
+                    resultOneHeuristics = IsFirstTermOfText.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isFollowedByAPositiveOpinion:
-                    outcome = IsFollowedByAPositiveOpinion.check(text, termOrig, indexTerm, heuristics);
+                    resultOneHeuristics = IsFollowedByAPositiveOpinion.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isImmediatelyFollowedByAPositiveOpinion:
-                    outcome = IsImmediatelyFollowedByAPositiveOpinion.check(text, termOrig, indexTerm, heuristics);
+                    resultOneHeuristics = IsImmediatelyFollowedByAPositiveOpinion.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isImmediatelyFollowedByANegativeOpinion:
-                    outcome = IsImmediatelyFollowedByANegativeOpinion.check(text, termOrig, indexTerm, heuristics);
+                    resultOneHeuristics = IsImmediatelyFollowedByANegativeOpinion.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isFollowedBySpecificTerm:
-                    outcome = IsFollowedBySpecificTerm.check(text, termOrig, indexTerm, heuristics, keywords);
+                    resultOneHeuristics = IsFollowedBySpecificTerm.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions, keywords);
                     break;
 
-                case isInAStatusWithOneOfTheseSpecificTerms:
-                    outcome = isInAStatusWithOneOfTheseSpecificTerms(keywords);
+                case isInATextWithOneOfTheseSpecificTerms:
+                    resultOneHeuristics = IsInATextWithOneOfTheseSpecificTerms.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions, keywords);
                     break;
 
                 case isHashtagStart:
-                    outcome = isHashtagStart();
+                    resultOneHeuristics = IsHashtagStart.check(text, termOrig, termHeuristic, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isInHashtag:
-                    outcome = isInHashtag();
+                    resultOneHeuristics = IsInHashtag.check(text, termOrig, termHeuristic, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isHashtag:
-                    outcome = isHashtag();
+                    resultOneHeuristics = IsHashtag.check(text, termOrig, termHeuristic, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isPrecededBySpecificTerm:
-                    outcome = isPrecededBySpecificTerm(keywords);
+                    resultOneHeuristics = IsPrecededBySpecificTerm.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions, keywords);
                     break;
 
-                case isQuestionMarkAtEndOfStatus:
-                    outcome = isQuestionMarkAtEndOfStatus();
+                case isQuestionMarkAtEndOfText:
+                    resultOneHeuristics = IsQuestionMarkAtEndOfText.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isAllCaps:
-                    outcome = isAllCaps();
+                    resultOneHeuristics = IsAllCaps.check(text, termOrig, termOrigCasePreserved, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isPrecededByStrongWord:
-                    outcome = isPrecededByStrongWord();
+                    resultOneHeuristics = IsPrecededByStrongWord.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isImmediatelyPrecededByPositive:
-                    outcome = isImmediatelyPrecededByPositive();
+                    resultOneHeuristics = IsImmediatelyPrecededByPositive.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isPrecededByPositive:
-                    outcome = isPrecededByPositive();
+                    resultOneHeuristics = IsPrecededByPositive.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isPrecededByOpinion:
-                    outcome = isPrecededByOpinion();
+                    resultOneHeuristics = IsPrecededByPositive.check(text, termOrig, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isFirstLetterCapitalized:
-                    outcome = isFirstLetterCapitalized();
+                    resultOneHeuristics = IsFirstLetterCapitalized.check(text, termOrig, termOrigCasePreserved, indexTerm, lexiconsAndConditionalExpressions);
                     break;
-
             }
-            outcome = opposite ? !outcome : outcome;
-            conditions.put(ALPHABET.substring(count, (count + 1)), outcome);
+            if (opposite) {
+                resultOneHeuristics.setTokenInvestigatedGetsMatched(!resultOneHeuristics.getTokenInvestigatedGetsMatched());
+            }
+            conditions.put(ALPHABET.substring(count, (count + 1)), resultOneHeuristics.getTokenInvestigatedGetsMatched());
             count++;
         }
 
@@ -258,7 +266,6 @@ public class TermLevelHeuristics {
         }
         return resultsHeuristics;
     }
-
 
     public boolean isImmediatelyFollowedByVerbPastTense() {
         try {
@@ -285,26 +292,6 @@ public class TermLevelHeuristics {
 
     }
 
-    public boolean isInAStatusWithOneOfTheseSpecificTerms(Set<String> parameters) {
-        NGramFinder nGramFinder = new NGramFinder(text);
-
-        Map<String, Integer> ngramsInMap = nGramFinder.runIt(2, true);
-        if (ngramsInMap.isEmpty()) {
-            return false;
-        }
-
-        Set<String> terms = ngramsInMap.keySet();
-        Iterator<String> it = terms.iterator();
-
-        while (it.hasNext()) {
-            String next = it.next().trim();
-            if (parameters.contains(next)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public boolean isFollowedBySpecificTerm(Set<String> parameters) {
         try {
             String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
@@ -315,18 +302,6 @@ public class TermLevelHeuristics {
             System.out.println("term was: " + termOrig);
             return false;
         }
-    }
-
-    public boolean isHashtagStart() {
-        return (termOrig.toLowerCase().startsWith(termHeuristic.toLowerCase()));
-    }
-
-    public boolean isInHashtag() {
-        return (termOrig.toLowerCase().contains(termHeuristic));
-    }
-
-    public boolean isHashtag() {
-        return (termOrig.toLowerCase().contains(termHeuristic));
     }
 
     public boolean isFirstLetterCapitalized() {
@@ -352,7 +327,7 @@ public class TermLevelHeuristics {
         // fait vraiment trop chier
         else if (temp.length > 2 && parameters.contains(temp[temp.length - 3].trim().toLowerCase())) {
             String intervalWord = temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase();
-            if (heuristics.getMapH3().containsKey(intervalWord)) {
+            if (lexiconsAndConditionalExpressions.getMapH3().containsKey(intervalWord)) {
                 return true;
             } else {
                 return false;
@@ -362,26 +337,12 @@ public class TermLevelHeuristics {
         }
     }
 
-    public boolean isPrecededBySpecificTerm(Set<String> parameters) {
-        try {
-            String temp = text.substring(0, text.indexOf(termOrig)).trim().toLowerCase();
-            return parameters.stream().anyMatch((candidate) -> (temp.contains(candidate)));
-
-        } catch (StringIndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-            System.out.println("status was: " + text);
-            System.out.println("term was: " + termOrig);
-            return false;
-        }
-
-    }
-
     public boolean isPrecededByStrongWord() {
         String left = text.substring(0, text.indexOf(termOrig)).toLowerCase().trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
 
         for (String term : ngrams) {
-            if (heuristics.getMapH3().containsKey(term)) {
+            if (lexiconsAndConditionalExpressions.getMapH3().containsKey(term)) {
                 return true;
             }
         }
@@ -394,11 +355,11 @@ public class TermLevelHeuristics {
             return false;
         }
 
-        if (temp.length > 0 && heuristics.getMapH1().containsKey(temp[temp.length - 1].trim().toLowerCase())) {
+        if (temp.length > 0 && lexiconsAndConditionalExpressions.getMapH1().containsKey(temp[temp.length - 1].trim().toLowerCase())) {
             return true;
-        } else if (temp.length > 1 && heuristics.getMapH1().containsKey(temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
+        } else if (temp.length > 1 && lexiconsAndConditionalExpressions.getMapH1().containsKey(temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
             return true;
-        } else if (temp.length > 2 && heuristics.getMapH1().containsKey(temp[temp.length - 3].trim().toLowerCase() + " " + temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
+        } else if (temp.length > 2 && lexiconsAndConditionalExpressions.getMapH1().containsKey(temp[temp.length - 3].trim().toLowerCase() + " " + temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
             return true;
         } else {
             return false;
@@ -410,14 +371,14 @@ public class TermLevelHeuristics {
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
 
         for (String term : ngrams) {
-            if (heuristics.getMapH1().containsKey(term)) {
+            if (lexiconsAndConditionalExpressions.getMapH1().containsKey(term)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean isQuestionMarkAtEndOfStatus() {
+    public boolean isQuestionMarkAtEndOfText() {
         List<String> terms = new ArrayList();
         Collections.addAll(terms, text.trim().split(" "));
         StringBuilder sb = new StringBuilder();
@@ -455,12 +416,12 @@ public class TermLevelHeuristics {
         String left = text.substring(0, text.indexOf(termOrig)).toLowerCase().trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
         for (String term : ngrams) {
-            if (heuristics.getMapH1().containsKey(term)) {
+            if (lexiconsAndConditionalExpressions.getMapH1().containsKey(term)) {
                 return true;
             }
         }
         for (String term : ngrams) {
-            if (heuristics.getMapH2().containsKey(term)) {
+            if (lexiconsAndConditionalExpressions.getMapH2().containsKey(term)) {
                 return true;
             }
         }

@@ -6,11 +6,10 @@ package net.clementlevallois.umigon.heuristics;
 
 import java.util.ArrayList;
 import java.util.List;
-import net.clementlevallois.umigon.model.Categories;
 import net.clementlevallois.umigon.model.Category;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken;
-import net.clementlevallois.umigon.model.heuristics.LexiconsAndConditionalExpressions;
+import net.clementlevallois.umigon.model.LexiconsAndConditionalExpressions;
 
 /**
  *
@@ -24,7 +23,7 @@ public class HashtagLevelHeuristics {
     public HashtagLevelHeuristics() {
     }
 
-    public List<ResultOneHeuristics> checkAgainstListOfHashtags(HeuristicsLoaderOnDemand heuristics, String hashtag, String text) {
+    public List<ResultOneHeuristics> checkAgainstListOfHashtags(LoaderOfLexiconsAndConditionalExpressions heuristics, String hashtag, String text) {
         List<ResultOneHeuristics> resultsHeuristics = new ArrayList();
 
         /*
@@ -45,7 +44,7 @@ public class HashtagLevelHeuristics {
         return resultsHeuristics;
     }
 
-    public List<ResultOneHeuristics> isHashTagStartingWithAffectiveTerm(HeuristicsLoaderOnDemand heuristics, String hashtag) {
+    public List<ResultOneHeuristics> isHashTagStartingWithAffectiveTerm(LoaderOfLexiconsAndConditionalExpressions heuristics, String hashtag) {
 
         List<ResultOneHeuristics> resultsHeuristics = new ArrayList();
 
@@ -128,7 +127,7 @@ public class HashtagLevelHeuristics {
         return resultsHeuristics;
     }
 
-    public List<ResultOneHeuristics> isHashTagContainingAffectiveTerm(HeuristicsLoaderOnDemand heuristics, String hashtag) {
+    public List<ResultOneHeuristics> isHashTagContainingAffectiveTerm(LoaderOfLexiconsAndConditionalExpressions heuristics, String hashtag) {
 
         List<ResultOneHeuristics> resultsHeuristics = new ArrayList();
 

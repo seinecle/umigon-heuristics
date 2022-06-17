@@ -3,10 +3,10 @@
  */
 package net.clementlevallois.umigon.heuristics.termlevel;
 
-import net.clementlevallois.umigon.heuristics.HeuristicsLoaderOnDemand;
+import net.clementlevallois.umigon.heuristics.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.heuristics.ConditionalExpression.ConditionEnum.isImmediatelyFollowedByAnOpinion;
+import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isImmediatelyFollowedByAnOpinion;
 
 /**
  *
@@ -14,7 +14,7 @@ import static net.clementlevallois.umigon.model.heuristics.ConditionalExpression
  */
 public class IsImmediatelyFollowedByAnOpinion {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, HeuristicsLoaderOnDemand heuristics) {
+    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
         ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isImmediatelyFollowedByAnOpinion, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
         try {
             String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();

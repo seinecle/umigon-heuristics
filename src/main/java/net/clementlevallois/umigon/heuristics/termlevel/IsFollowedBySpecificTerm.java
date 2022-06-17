@@ -4,10 +4,10 @@
 package net.clementlevallois.umigon.heuristics.termlevel;
 
 import java.util.Set;
-import net.clementlevallois.umigon.heuristics.HeuristicsLoaderOnDemand;
+import net.clementlevallois.umigon.heuristics.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.heuristics.ConditionalExpression.ConditionEnum.isFollowedBySpecificTerm;
+import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isFollowedBySpecificTerm;
 
 /**
  *
@@ -15,7 +15,7 @@ import static net.clementlevallois.umigon.model.heuristics.ConditionalExpression
  */
 public class IsFollowedBySpecificTerm {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, HeuristicsLoaderOnDemand heuristics, Set<String> keywords) {
+    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
         ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isFollowedBySpecificTerm, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
         try {
             String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();

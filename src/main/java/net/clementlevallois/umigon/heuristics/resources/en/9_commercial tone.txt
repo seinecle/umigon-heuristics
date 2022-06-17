@@ -3,7 +3,7 @@ allows		611
 announcements		611
 available at		611
 book now	isFirstLetterCapitalized	611
-buy	isFirstTermOfStatus+++isFollowedBySpecificTerm///now	if(A && B){611}
+buy	isFirstTermOfText+++isFollowedBySpecificTerm///now	if(A && B){611}
 complimentary		611
 could be the	isPrecededBySpecificTerm///why	611
 deal	isFirstLetterCapitalized	611

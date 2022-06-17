@@ -3,29 +3,29 @@
  */
 package net.clementlevallois.umigon.heuristics.termlevel;
 
+import java.util.Set;
 import net.clementlevallois.umigon.heuristics.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isFollowedByAPositiveOpinion;
+import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isPrecededBySpecificTerm;
 
 /**
  *
  * @author LEVALLOIS
  */
-public class IsFollowedByAPositiveOpinion {
+public class IsPrecededBySpecificTerm {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isFollowedByAPositiveOpinion, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
+        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isPrecededBySpecificTerm, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
         try {
-            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
-            boolean found = heuristics.getMapH1().keySet().stream().anyMatch((positiveTerm) -> {
-                boolean contains = temp.contains(positiveTerm);
+            String temp = text.substring(0, text.indexOf(termOrig)).trim().toLowerCase();
+            boolean found = keywords.stream().anyMatch((candidate) -> {
+                boolean contains = temp.contains(candidate.toLowerCase());
                 if (contains) {
-                    resultOneHeuristics.setKeywordMatched(positiveTerm);
+                    resultOneHeuristics.setKeywordMatched(candidate);
                 }
                 return contains;
             });
-
             resultOneHeuristics.setTokenInvestigatedGetsMatched(found);
             return resultOneHeuristics;
 

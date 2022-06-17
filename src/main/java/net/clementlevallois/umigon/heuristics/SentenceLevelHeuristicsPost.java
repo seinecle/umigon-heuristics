@@ -12,7 +12,7 @@ import java.util.Set;
 import net.clementlevallois.umigon.model.Category;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken;
-import net.clementlevallois.umigon.model.heuristics.ConditionalExpression;
+import net.clementlevallois.umigon.model.ConditionalExpression;
 import net.clementlevallois.utils.StatusCleaner;
 
 /**
@@ -50,27 +50,14 @@ public class SentenceLevelHeuristicsPost {
         }
     }
 
-    public void containsNegationInCaps() {
-        StatusCleaner cleaner = new StatusCleaner();
-        text = cleaner.removeStartAndFinalApostrophs(text);
-        text = cleaner.removePunctuationSigns(text).trim();
 
-        for (String term : setNegations) {
-            if (text.contains(term.toUpperCase())) {
-                int indexStrongNegation = text.indexOf(term.toUpperCase());
-                ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, indexStrongNegation, term, TypeOfToken.TypeOfTokenEnum.NGRAM);
-                resultOneHeuristics.setConditionEnum(ConditionalExpression.ConditionEnum.isNegationInCaps);
-                document.addToListCategories(resultOneHeuristics);
-            }
-        }
-    }
 
     public void containsModerator() {
         if (document.getListCategories().isEmpty()) {
             return;
         }
-        Set<Integer> indexesPos = document.getAllIndexesForCategory(Category.CategoryEnum._11);
-        Set<Integer> indexesNeg = document.getAllIndexesForCategory(Category.CategoryEnum._12);
+        Set<Integer> indexesPos = document.getAllHeuristicsResultsForOneCategory(Category.CategoryEnum._11);
+        Set<Integer> indexesNeg = document.getAllHeuristicsResultsForOneCategory(Category.CategoryEnum._12);
 
         if (indexesPos.isEmpty() || indexesNeg.isEmpty()) {
             return;
@@ -140,56 +127,6 @@ public class SentenceLevelHeuristicsPost {
         }
     }
 
-    public void containsANegationAndAPositiveAndNegativeSentiment() {
-        Set<Integer> indexesPos = document.getAllIndexesForCategory(Category.CategoryEnum._11);
-        Set<Integer> indexesNeg = document.getAllIndexesForCategory(Category.CategoryEnum._12);
-
-        if (indexesPos.isEmpty() || indexesNeg.isEmpty()) {
-            return;
-        }
-        int indexNegation;
-        int indexPos = 0;
-        int indexNeg = 0;
-
-        Set<String> termsInText = new HashSet();
-        termsInText.addAll(Arrays.asList(textStrippedLowerCase.split(" ")));
-        Iterator<Integer> iterator;
-
-        iterator = indexesPos.iterator();
-        while (iterator.hasNext()) {
-            Integer currIndex = iterator.next();
-            if (indexPos < currIndex) {
-                indexPos = currIndex;
-            }
-        }
-        iterator = indexesNeg.iterator();
-        while (iterator.hasNext()) {
-            Integer currIndex = iterator.next();
-            if (indexNeg < currIndex) {
-                indexNeg = currIndex;
-            }
-        }
-
-        for (String negation : setNegations) {
-            if (termsInText.contains(negation + " ")) {
-                indexNegation = text.indexOf(negation);
-                if ((indexPos < indexNegation & indexNeg > indexNegation)) {
-                    document.deleteFromListCategories(Category.CategoryEnum._11);
-                    break;
-                } else if ((indexPos > indexNegation & indexNeg < indexNegation)) {
-                    document.deleteFromListCategories(Category.CategoryEnum._12);
-                    break;
-                }
-                if ((indexNegation < indexPos & indexNegation < indexNeg & indexPos < indexNeg)) {
-                    document.deleteFromListCategories(Category.CategoryEnum._11);
-                    break;
-                } else if ((indexNegation < indexPos & indexNegation < indexNeg & indexNeg < indexPos)) {
-                    document.deleteFromListCategories(Category.CategoryEnum._12);
-                    break;
-                }
-            }
-        }
-    }
 
     private void isStatusGarbled() {
         if (!document.getListCategories().isEmpty()) {
@@ -204,7 +141,7 @@ public class SentenceLevelHeuristicsPost {
     }
 
     public void whenAllElseFailed() {
-        //what to do when a tweet contains both positive and negative markers?
+        //what to do when a text contains both positive and negative markers?
         //classify it as negative, except if it ends by a positive final note
         if (document.getListCategories().contains(Category.CategoryEnum._11) & document.getListCategories().contains(Category.CategoryEnum._12)) {
             if (document.getFinalNote() == null) {

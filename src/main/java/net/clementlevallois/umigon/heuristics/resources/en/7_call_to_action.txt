@@ -12,12 +12,12 @@ dont miss	isFirstLetterCapitalized	521
 find out	isFirstLetterCapitalized	521	
 get	isFirstLetterCapitalized	521	
 give	isFirstLetterCapitalized	521	
-got	isFirstTermOfStatus+++isFollowedBySpecificTerm///?	if (A && B) {52}	
+got	isFirstTermOfText+++isFollowedBySpecificTerm///?	if (A && B) {52}	
 grab	isFirstLetterCapitalized	521	
 hey	null	52	
-hi	isFirstTermOfStatus	52	
+hi	isFirstTermOfText	52	
 join us	isFirstLetterCapitalized	521	
-learn	isFirstTermOfStatus+++isFirstLetterCapitalized	if (A && B) {521}	
+learn	isFirstTermOfText+++isFirstLetterCapitalized	if (A && B) {521}	
 learn how	isFirstLetterCapitalized	521	
 make	isFirstLetterCapitalized	521	
 master	isFirstLetterCapitalized	521	
