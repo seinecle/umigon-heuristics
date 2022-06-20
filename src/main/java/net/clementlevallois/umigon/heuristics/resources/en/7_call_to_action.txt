@@ -26,7 +26,7 @@ navigate	isFirstLetterCapitalized	521
 play	isFirstLetterCapitalized	521	
 please	null	52	
 read	isFirstLetterCapitalized	521	
-ready for	plus question mark in the next 10 words	52	
+ready for	isQuestionMarkAtEndOfText	52	
 reduce	isFirstLetterCapitalized	521	
 register	isFirstLetterCapitalized	521	
 retweet	null	521	

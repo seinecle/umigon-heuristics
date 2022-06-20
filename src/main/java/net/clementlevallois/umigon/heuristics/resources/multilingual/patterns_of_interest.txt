@@ -1,45 +1,45 @@
 description	regex	to lowercase	categories	type of token
-awww	.*[\\s*|#]aww+\\s*.*	true	11,22	onomatopae
-yesss	.*[\\s*|#]yess+\\s*.*	true	11,22	onomatopae
-arrgh	.*[\\s*|#]arr+g\\s*.*	true	12,22	onomatopae
-ouchhh	.*[\\s*|#]ouu+ch+\\s*.*	true	12,22	onomatopae
-yeeey or yaaaay	.*[\\s*|#]y[e|a]+y\\s*.*	true	11,22	onomatopae
-hahahaha	.*haha\\s*.*	true	11,22	onomatopae
-ewww	.*[^n|\\s*|#]eww+\\s*.*	true	12,22	onomatopae
-LMFAO	.*lmfao+\\s*.*	true	11,22	texto speak
-LMAO	.*lmao+\\s*.*	true	11,22	texto speak
-yeaaa	.*yeaa+\\s*.*	true	11,22	onomatopae
-yuummm	.*yu+mm+\\s*.*	true	11,22	onomatopae
-yeee	yeeeee	true	11,22	onomatopae
-whyyy	.*whyy+\\s*.*	true	12,22	onomatopae
-helpp	.*helpp+\\s*.*	true	12,22	onomatopae
-nooo	.* nooo+\\s*.	true	12,22	onomatopae
-wuhuu	.*wu+huu+\\s*.*	true	12,22	onomatopae
-buhuu	.*bu+hu+\\s*.*	true	12,22	onomatopae
-boooo	.* booo+\\s*.*	true	12,22	onomatopae
-uuugh	.*? [u]{3,}+gh+\\s*.*	true	12,22	onomatopae
-woohoo	.*wo+hoo+\\s*.*	true	12,22	onomatopae
-yaaaaahooooo	.*?y[a]{3,}+ho+\\s*.*	true	11,22	onomatopae
-multiple exclamation marks	.*!!+\\s*.*	true	22	punctuation
-question mark	.*\\?+\\s*.*	true	40	punctuation
-heart	"&lt;3"	true	11,22	ascii emoji
-heart and smileys ending in 3: <3 :3 =3	.*[<:=]3+\\s*.*	true	11,22	ascii emoji
-smiley :)	.*:\\)+\\s*.*	true	11	ascii emoji
-smiley :-)	.*:-\\)+\\s*.*	true	11	ascii emoji
-smiley : )	.*: \\)+\\s*.*	true	11	ascii emoji
-smiley :]	.*:\\]+\\s*.*	true	11	ascii emoji
-smiley ^_^	.*\\^_*\\^\\s*.*	true	11,22	ascii emoji
-"smiley :O or :D or :0 or ;p or :-p or :p"	".*(?<!\\S)(:d|:o|:0|;p|:-p|:p)(?!\\S).*"	true	11	ascii emoji
-smiley (:	.*(?<!\\S)\\(:(?!\\S).*	true	11	ascii emoji
-"smiley ;)"	".*;\\)+\\s*.*"	true	11	ascii emoji
-smiley :|	.*:\\|+\\s*.*	true	12	ascii emoji
-smiley :S	.*:S\\s*.*	true	12	ascii emoji
-smiley =(	.*=\\(+\\s*.*	true	12	ascii emoji
-smiley T_T	.*T_T.*	false	12	ascii emoji
-smiley :-(	.*:-\\(+\\s*.*	true	12	ascii emoji
-smiley :-/	.*:-/+\\s*.*	true	12	ascii emoji
-smiley :'(	.*:'\\(+\\s*.*	true	12	ascii emoji
-smiley :(	.*:\\(+\\s*.*	true	12	ascii emoji
-smiley :/	.* :/[^/]\\s*.*	true	12	ascii emoji
-kisses xxx	.*xx+\\s*.*	true	11	texto speak
-kisses xoxoxo	.*(xo)\\1{1,}x*o*\\s*.*	true	11	texto speak
+awww	.*[\s*|#]aww+\s*.*	true	11,22	ONOMATOPAE
+yesss	.*[\s*|#]yess+\s*.*	true	11,22	ONOMATOPAE
+arrgh	.*[\s*|#]arr+g\s*.*	true	12,22	ONOMATOPAE
+ouchhh	.*[\s*|#]ouu+ch+\s*.*	true	12,22	ONOMATOPAE
+yeeey or yaaaay	.*[\s*|#]y[e|a]+y\s*.*	true	11,22	ONOMATOPAE
+hahahaha	.*haha\s*.*	true	11,22	ONOMATOPAE
+ewww	.*[^n|\s*|#]eww+\s*.*	true	12,22	ONOMATOPAE
+LMFAO	.*lmfao+\s*.*	true	11,22	TEXTO_SPEAK
+LMAO	.*lmao+\s*.*	true	11,22	TEXTO_SPEAK
+yeaaa	.*yeaa+\s*.*	true	11,22	ONOMATOPAE
+yuummm	.*yu+mm+\s*.*	true	11,22	ONOMATOPAE
+yeee	yeeeee	true	11,22	ONOMATOPAE
+whyyy	.*whyy+\s*.*	true	12,22	ONOMATOPAE
+helpp	.*helpp+\s*.*	true	12,22	ONOMATOPAE
+nooo	.* nooo+\s*.	true	12,22	ONOMATOPAE
+wuhuu	.*wu+huu+\s*.*	true	12,22	ONOMATOPAE
+buhuu	.*bu+hu+\s*.*	true	12,22	ONOMATOPAE
+boooo	.* booo+\s*.*	true	12,22	ONOMATOPAE
+uuugh	.*? [u]{3,}+gh+\s*.*	true	12,22	ONOMATOPAE
+woohoo	.*wo+hoo+\s*.*	true	12,22	ONOMATOPAE
+yaaaaahooooo	.*?y[a]{3,}+ho+\s*.*	true	11,22	ONOMATOPAE
+multiple exclamation marks	.*!!+\s*.*	true	22	PUNCTUATION
+question mark	.*\?+\s*.*	true	40	PUNCTUATION
+heart	"&lt;3"	true	11,22	ASCII_EMOJI
+heart and smileys ending in 3: <3 :3 =3	.*[<:=]3+\s*.*	true	11,22	ASCII_EMOJI
+smiley :)	.*:\)+\s*.*	true	11	ASCII_EMOJI
+smiley :-)	.*:-\)+\s*.*	true	11	ASCII_EMOJI
+smiley : )	.*: \)+\s*.*	true	11	ASCII_EMOJI
+smiley :]	.*:\]+\s*.*	true	11	ASCII_EMOJI
+smiley ^_^	.*\^_*\^\s*.*	true	11,22	ASCII_EMOJI
+smiley :O or :D or :0 or ;p or :-p or :p	.*(?<!\S)(:d|:o|:0|;p|:-p|:p)(?!\S).*	true	11	ASCII_EMOJI
+smiley (:	.*(?<!\S)\(:(?!\S).*	true	11	ASCII_EMOJI
+smiley ;)"	".*;\)+\s*.*	true	11	ASCII_EMOJI
+smiley :|	.*:\|+\s*.*	true	12	ASCII_EMOJI
+smiley :S	.*:S\s*.*	true	12	ASCII_EMOJI
+smiley =(	.*=\(+\s*.*	true	12	ASCII_EMOJI
+smiley T_T	.*T_T.*	false	12	ASCII_EMOJI
+smiley :-(	.*:-\(+\s*.*	true	12	ASCII_EMOJI
+smiley :-/	.*:-/+\s*.*	true	12	ASCII_EMOJI
+smiley :'(	.*:'\(+\s*.*	true	12	ASCII_EMOJI
+smiley :(	.*:\(+\s*.*	true	12	ASCII_EMOJI
+smiley :/	.* :/[^/]\s*.*	true	12	ASCII_EMOJI
+kisses xxx	.*xx+\s*.*	true	11	TEXTO_SPEAK
+kisses xoxoxo	.*(xo)\1{1,}x*o*\s*.*	true	11	TEXTO_SPEAK

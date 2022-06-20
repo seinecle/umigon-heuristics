@@ -835,8 +835,8 @@ merde		12
 merdes		12
 merdique		12
 méritez des	isImmediatelyFollowedBySpecificTerm///claques|baffes|gifles|patates|droites|tartes	12:10
-méritez des	grosses		12
-méritez des	bonnes		12
+méritez des grosses		12
+méritez des bonnes		12
 mesquin		12
 mesquine		12
 meurs	isImmediatelyPrecededBySpecificTerm///je	12:10
@@ -872,9 +872,9 @@ nazes		12
 nerfs vont		12
 niaiseux		12
 nimp		12
-nique isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm+++pique	if(A && B){12}
-niques isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm+++pique	if(A && B){12}
-niquez isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm+++pique	if(A && B){12}
+nique	isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm///pique	if(A && B){12}
+niques	isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm///pique	if(A && B){12}
+niquez	isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm///pique	if(A && B){12}
 nprtk		12
 nul		12
 nul		12

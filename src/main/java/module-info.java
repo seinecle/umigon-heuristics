@@ -7,5 +7,6 @@ module net.clementlevallois.umigon.heuristics {
     requires emoji.java;
     requires mvel2;
     
-    exports net.clementlevallois.umigon.heuristics;
+    exports net.clementlevallois.umigon.heuristics.tools;
+    exports net.clementlevallois.umigon.heuristics.catalog;
 }

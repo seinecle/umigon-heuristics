@@ -232,7 +232,7 @@ doucheclown		12		3
 doucheclowns		12		3
 downbeat		12		1
 downhearted		12		1
-drained	!isInAStatusWithOneOfTheseSpecificTerms///water|pipe|flood	12:10		2
+drained	!isInATextWithOneOfTheseSpecificTerms///water|pipe|flood	12:10		2
 dread		12	x	2
 dreaded		12		2
 dreading	!isImmediatelyPrecededByANegation	12:10		2
@@ -448,13 +448,13 @@ looser		12		3
 loosers		12		3
 loser		12		3
 losers		12		3
-loses	!isImmediatelyPrecededByANegation:10	12		1
+loses	!isImmediatelyPrecededByANegation	12:10		1
 loss		12	x	1
 lousy		12		2
 low	isPrecededByStrongWord	12	x	2
 mad	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///max	if(A && B){12} else{10}		2
 maddening	+++!isFollowedByAPositiveOpinion	12:10		3
-malignious tumor	!isImmediatelyPrecededByANegation:10	12		2
+malignious tumor	!isImmediatelyPrecededByANegation	12:10		2
 mess	!isImmediatelyPrecededByANegation+++!isPrecededBySpecificTerm///go to the|went to the|watched the|watch the|attend the|attended the	12:10	x	2
 mess up	!isImmediatelyPrecededByANegation	12:10		2
 messed	!isImmediatelyPrecededByANegation	12:10		2
@@ -503,8 +503,8 @@ neglected	!isImmediatelyPrecededByANegation	12:10		2
 never	!isFollowedBySpecificTerm///get tired+++isAllCaps	if(A && B){12} else {10}	x	1
 never again		12		2
 never buy		12		2
-nigga	!isFollowedByAPositiveOpinion+++!isPrecededByAPositiveOpinion	if (A && B) {12} else {10}		3
-niggas	!isFollowedByAPositiveOpinion+++!isPrecededByAPositiveOpinion	if (A && B) {12} else{10}		3
+nigga	!isFollowedByAPositiveOpinion+++!isPrecededByPositive	if (A && B) {12} else {10}		3
+niggas	!isFollowedByAPositiveOpinion+++!isPrecededByPositive	if (A && B) {12} else{10}		3
 nightmare		12		3
 nightmares		12		3
 no	isAllCaps	12	x	3
@@ -713,7 +713,7 @@ swollen	!isImmediatelyPrecededByANegation	12:10		2
 tacky	!isImmediatelyPrecededByANegation	12:10		2
 taken forever		12		1
 takes forever		12		1
-terrible	!isImmediatelyPrecededByANegation:10	12		2
+terrible	!isImmediatelyPrecededByANegation	12:10		2
 terrifying		12		3
 terrifyingly		12		3
 that s it		12		1

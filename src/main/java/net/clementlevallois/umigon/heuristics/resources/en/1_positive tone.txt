@@ -205,7 +205,7 @@ kicked your butt	!isImmediatelyPrecededByANegation	11:12	3
 kind	isImmediatelyFollowedBySpecificTerm///of her|of him|of you	11	2
 knighted	!isImmediatelyPrecededByANegation	11:12	2
 kudos	!isImmediatelyPrecededByANegation	11:12	3
-laugh	!isImmediatelyPrecededByANegationis+++!isImmediatelyFollowedBySpecificTerm///at	if (A && B) {11} else {12}	2
+laugh	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///at	if (A && B) {11} else {12}	2
 laughed	!isImmediatelyPrecededByANegation	11:12	2
 laughs	!isImmediatelyPrecededByANegation	11:12	2
 leg up	!isImmediatelyPrecededByANegation	11:12	3
