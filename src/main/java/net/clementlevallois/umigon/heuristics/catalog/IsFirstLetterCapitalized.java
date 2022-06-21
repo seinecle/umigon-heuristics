@@ -3,10 +3,8 @@
  */
 package net.clementlevallois.umigon.heuristics.catalog;
 
-import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
-import net.clementlevallois.umigon.model.ResultOneHeuristics;
-import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isFirstLetterCapitalized;
+import net.clementlevallois.umigon.model.BooleanCondition;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isFirstLetterCapitalized;
 
 /**
  *
@@ -14,15 +12,15 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsFirstLetterCapitalized {
 
-    public static ResultOneHeuristics check(String text, String termOrig, String termOrigCasePreserved, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isFirstLetterCapitalized, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static BooleanCondition check(String termOrigCasePreserved) {
+        BooleanCondition booleanCondition = new BooleanCondition(isFirstLetterCapitalized);
         if (!termOrigCasePreserved.isEmpty()) {
             boolean res = (Character.isUpperCase(termOrigCasePreserved.codePointAt(0)));
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(res);
-            return resultOneHeuristics;
+            booleanCondition.setTokenInvestigatedGetsMatched(res);
+            return booleanCondition;
         } else {
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            return resultOneHeuristics;
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            return booleanCondition;
         }
     }
 }

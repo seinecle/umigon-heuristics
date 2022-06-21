@@ -10,7 +10,7 @@ import net.clementlevallois.ngramops.NGramFinder;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isInATextWithOneOfTheseSpecificTerms;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isInATextWithOneOfTheseSpecificTerms;
 
 /**
  *
@@ -18,8 +18,8 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsInATextWithOneOfTheseSpecificTerms {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isInATextWithOneOfTheseSpecificTerms, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
+        BooleanCondition booleanCondition = new BooleanCondition(isInATextWithOneOfTheseSpecificTerms, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
         NGramFinder nGramFinder = new NGramFinder(text);
 
         Map<String, Integer> ngramsInMap = nGramFinder.runIt(2, true);

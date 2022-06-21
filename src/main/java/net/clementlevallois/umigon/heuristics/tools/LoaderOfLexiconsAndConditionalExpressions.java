@@ -6,7 +6,7 @@
 package net.clementlevallois.umigon.heuristics.tools;
 
 import net.clementlevallois.umigon.model.LanguageSpecificLexicons;
-import net.clementlevallois.umigon.model.ConditionalExpression;
+import net.clementlevallois.umigon.model.BooleanCondition;
 import net.clementlevallois.umigon.model.TermWithConditionalExpressions;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -229,8 +229,8 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                     featuresListIterator = featuresList.iterator();
                     lexiconsAndConditionalExpressions = new TermWithConditionalExpressions();
                     while (featuresListIterator.hasNext()) {
-                        ConditionalExpression conditionalExpression = new ConditionalExpression();
-                        String condition = "";
+                        BooleanCondition conditionalExpression = new BooleanCondition();
+                        String condition;
 
                         featureString = featuresListIterator.next();
                         if (featureString == null || featureString.isEmpty() || featureString.equals("null")) {
@@ -253,6 +253,10 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                             } else {
                                 conditionalExpression.setCondition(featureString, false);
                             }
+                        }
+                        if (conditionalExpression.getBooleanConditionEnum() == null){
+                            System.out.println("problem with conditional expression for line: ");
+                            System.out.println(string);
                         }
                         lexiconsAndConditionalExpressions.addFeature(conditionalExpression);
                     }

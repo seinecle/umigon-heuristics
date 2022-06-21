@@ -6,7 +6,7 @@ package net.clementlevallois.umigon.heuristics.catalog;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isImmediatelyPrecededByPositive;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isImmediatelyPrecededByPositive;
 
 /**
  *
@@ -14,8 +14,8 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsImmediatelyPrecededByPositive {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isImmediatelyPrecededByPositive, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+        BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyPrecededByPositive, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
         String[] temp = text.substring(0, text.indexOf(termOrig)).trim().split(" ");
         if (temp.length == 0) {
             resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);

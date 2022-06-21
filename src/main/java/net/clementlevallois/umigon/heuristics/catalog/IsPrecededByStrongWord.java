@@ -8,7 +8,7 @@ import net.clementlevallois.ngramops.NGramFinder;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isPrecededByStrongWord;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isPrecededByStrongWord;
 
 /**
  *
@@ -16,8 +16,8 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsPrecededByStrongWord {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isPrecededByStrongWord, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+        BooleanCondition booleanCondition = new BooleanCondition(isPrecededByStrongWord, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
         String left = text.substring(0, text.indexOf(termOrig)).toLowerCase().trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
 

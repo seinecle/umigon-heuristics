@@ -123,7 +123,7 @@ attristerait		12
 attristés		12
 bagatelle	isImmediatelyPrecededBySpecificTerm///une	12:10
 bagatelles	isImmediatelyPrecededBySpecificTerm///des	12:10
-baiser leur	12
+baiser leur		12
 ballec		12
 balec		12
 baltringue		12
@@ -281,8 +281,6 @@ criminel		12
 criminelle		12
 criminelles		12
 criminels		12
-critique	!isImmediatelyPrecededBySpecificTerm///ouvert à la|ouverts à la|accepte la|acceptent la	12:11
-critiques	!isImmediatelyPrecededBySpecificTerm///ouvert aux|ouverts aux|accepte les|acceptent les	12:11
 cruauté		12
 cruautés		12
 cruel		12
@@ -366,10 +364,10 @@ défaitisme		12
 défaitiste		12
 défaitistes		12
 deg		12
-dégueulasse		!isImmediatelyPrecededByANegativeOpinion	12:11
-dégeulasse		!isImmediatelyPrecededByANegativeOpinion	12:11
-dégeu		!isImmediatelyPrecededByANegativeOpinion	12:11
-dégueu		!isImmediatelyPrecededByANegativeOpinion	12:11
+dégueulasse		!isImmediatelyPrecededByNegative	12:11
+dégeulasse		!isImmediatelyPrecededByNegative	12:11
+dégeu		!isImmediatelyPrecededByNegative	12:11
+dégueu		!isImmediatelyPrecededByNegative	12:11
 dégout		12
 dégoutant		12
 dégoutante		12

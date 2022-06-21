@@ -10,7 +10,7 @@ import java.util.ListIterator;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isQuestionMarkAtEndOfText;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isQuestionMarkAtEndOfText;
 
 /**
  *
@@ -18,8 +18,8 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsQuestionMarkAtEndOfText {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isQuestionMarkAtEndOfText, termOrig, indexTerm, TypeOfTokenEnum.QUESTION);
+    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+        BooleanCondition booleanCondition = new BooleanCondition(isQuestionMarkAtEndOfText, termOrig, indexTerm, TypeOfTokenEnum.QUESTION);
         List<String> terms = new ArrayList();
         Collections.addAll(terms, text.trim().split(" "));
         StringBuilder sb = new StringBuilder();

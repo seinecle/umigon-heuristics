@@ -1,6 +1,6 @@
 a de la chance	!isImmediatelyPrecededByANegation	11:12
 à l aise	!isImmediatelyPrecededByANegation	11:12
-à tomber	!isImmediatelyPrecededByANegativeOpinion	11:12
+à tomber	!isImmediatelyPrecededByNegative	11:12
 abondance	!isImmediatelyPrecededByANegation	11:12
 abonder	!isImmediatelyPrecededByANegation	11:12
 admirable	!isImmediatelyPrecededByANegation	11:12

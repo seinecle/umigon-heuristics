@@ -5,9 +5,8 @@ package net.clementlevallois.umigon.heuristics.catalog;
 
 import java.util.Set;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
-import net.clementlevallois.umigon.model.ResultOneHeuristics;
-import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isImmediatelyFollowedBySpecificTerm;
+import net.clementlevallois.umigon.model.BooleanCondition;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isImmediatelyFollowedBySpecificTerm;
 
 /**
  *
@@ -15,8 +14,8 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsImmediatelyFollowedBySpecificTerm {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isImmediatelyFollowedBySpecificTerm, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
+        BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyFollowedBySpecificTerm);
         try {
             String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
             String[] nextTerms = temp.split(" ");
@@ -24,40 +23,43 @@ public class IsImmediatelyFollowedBySpecificTerm {
                 temp = nextTerms[0].trim();
                 boolean isNextTermRelevant = keywords.contains(temp);
                 if (isNextTermRelevant) {
-                    resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+                    booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                     if (isNextTermRelevant) {
-                        resultOneHeuristics.setKeywordMatched(temp);
+                        booleanCondition.setKeywordMatched(temp);
+                        booleanCondition.setKeywordMatchedIndex(text.indexOf(temp));
                     }
-                    return resultOneHeuristics;
+                    return booleanCondition;
                 } else if (nextTerms.length > 1) {
                     temp = nextTerms[0].trim() + " " + nextTerms[1].trim();
                     boolean found = keywords.contains(temp);
                     if (found) {
-                        resultOneHeuristics.setKeywordMatched(temp);
+                        booleanCondition.setKeywordMatched(temp);
+                        booleanCondition.setKeywordMatchedIndex(text.indexOf(temp));
                     }
-                    resultOneHeuristics.setTokenInvestigatedGetsMatched(found);
-                    return resultOneHeuristics;
+                    booleanCondition.setTokenInvestigatedGetsMatched(found);
+                    return booleanCondition;
                 } else if (nextTerms.length > 2) {
                     temp = nextTerms[0].trim() + " " + nextTerms[1].trim() + " " + nextTerms[2].trim();
                     boolean found = keywords.contains(temp);
                     if (found) {
-                        resultOneHeuristics.setKeywordMatched(temp);
+                        booleanCondition.setKeywordMatched(temp);
+                        booleanCondition.setKeywordMatchedIndex(text.indexOf(temp));
                     }
-                    resultOneHeuristics.setTokenInvestigatedGetsMatched(found);
-                    return resultOneHeuristics;
+                    booleanCondition.setTokenInvestigatedGetsMatched(found);
+                    return booleanCondition;
                 } else {
-                    resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-                    return resultOneHeuristics;
+                    booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+                    return booleanCondition;
                 }
             }
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            return resultOneHeuristics;
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            return booleanCondition;
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
             System.out.println("status was: " + text);
             System.out.println("term was: " + termOrig);
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            return resultOneHeuristics;
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            return booleanCondition;
         }
     }
 }

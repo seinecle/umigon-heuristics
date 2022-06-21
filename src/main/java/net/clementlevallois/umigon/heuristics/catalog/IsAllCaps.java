@@ -3,10 +3,8 @@
  */
 package net.clementlevallois.umigon.heuristics.catalog;
 
-import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
-import net.clementlevallois.umigon.model.ResultOneHeuristics;
-import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isAllCaps;
+import net.clementlevallois.umigon.model.BooleanCondition;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isAllCaps;
 
 /**
  *
@@ -14,17 +12,16 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsAllCaps {
 
-    public static ResultOneHeuristics check(String text, String termOrig, String termOrigCasePreserved, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isAllCaps, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static BooleanCondition check(String termOrigCasePreserved) {
+        BooleanCondition booleanCondition = new BooleanCondition(isAllCaps);
         String temp = termOrigCasePreserved.replaceAll(" ", "").trim();
         char[] charArray = temp.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
             if (!Character.isUpperCase(charArray[i])) {
-                resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-                return resultOneHeuristics;
+                return booleanCondition;
             }
         }
-        resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-        return resultOneHeuristics;
+        booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+        return booleanCondition;
     }
 }

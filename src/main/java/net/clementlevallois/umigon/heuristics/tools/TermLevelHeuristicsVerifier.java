@@ -5,7 +5,7 @@
  */
 package net.clementlevallois.umigon.heuristics.tools;
 
-import net.clementlevallois.umigon.model.ConditionalExpression;
+import net.clementlevallois.umigon.model.BooleanCondition;
 import net.clementlevallois.umigon.model.TermWithConditionalExpressions;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ import net.clementlevallois.umigon.heuristics.catalog.IsImmediatelyPrecededBySpe
 import net.clementlevallois.umigon.heuristics.catalog.IsFirstTermOfText;
 import net.clementlevallois.umigon.heuristics.catalog.IsFollowedByAPositiveOpinion;
 import net.clementlevallois.umigon.heuristics.catalog.IsFollowedBySpecificTerm;
-import net.clementlevallois.umigon.heuristics.catalog.IsHashtag;
+import net.clementlevallois.umigon.heuristics.catalog.IsHashtagPositiveSentiment;
 import net.clementlevallois.umigon.heuristics.catalog.IsHashtagStart;
 import net.clementlevallois.umigon.heuristics.catalog.IsImmediatelyFollowedByANegativeOpinion;
 import net.clementlevallois.umigon.heuristics.catalog.IsImmediatelyFollowedByAPositiveOpinion;
@@ -36,7 +36,7 @@ import net.clementlevallois.umigon.heuristics.catalog.IsPrecededByStrongWord;
 import net.clementlevallois.umigon.heuristics.catalog.IsPrecededBySubjectiveTerm;
 import net.clementlevallois.umigon.heuristics.catalog.IsQuestionMarkAtEndOfText;
 import net.clementlevallois.umigon.model.Category;
-import net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum;
+import net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.Term;
 import net.clementlevallois.umigon.model.Text;
@@ -110,7 +110,7 @@ public class TermLevelHeuristicsVerifier {
     public static List<ResultOneHeuristics> check(TermWithConditionalExpressions termWithConditionalExpressions, Text textParam, String termOrig, int indexTerm, boolean stripped, LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions) {
         String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String termFromLexicon = termWithConditionalExpressions.getTerm();
-        List<ConditionalExpression> conditionalExpressions = termWithConditionalExpressions.getMapFeatures();
+        List<BooleanCondition> conditionalExpressions = termWithConditionalExpressions.getMapFeatures();
         String rule = termWithConditionalExpressions.getRule();
         String text = stripped ? textParam.getStrippedFormLowercase() : textParam.getCleanedFormLowercase();
 
@@ -122,7 +122,7 @@ public class TermLevelHeuristicsVerifier {
         Map<String, Boolean> conditions = new HashMap();
         ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(null, indexTerm, termOrig, TypeOfTokenEnum.NGRAM);
         text = text.toLowerCase();
-        if (conditionalExpressions.size() == 1 && conditionalExpressions.get(0).getConditionEnum().equals(ConditionEnum.none) & rule != null && !rule.isBlank() & StringUtils.isNumeric(rule)) {
+        if (conditionalExpressions.size() == 1 && conditionalExpressions.get(0).getBooleanConditionEnum().equals(BooleanConditionEnum.none) & rule != null && !rule.isBlank() & StringUtils.isNumeric(rule)) {
             try {
                 cat = new Category(rule);
                 resultOneHeuristics = new ResultOneHeuristics(cat.getCategoryEnum(), indexTerm, termOrig, TypeOfTokenEnum.NGRAM);
@@ -141,11 +141,11 @@ public class TermLevelHeuristicsVerifier {
 
         int count = 0;
 
-        ConditionalExpression.ConditionEnum conditionEnum;
+        BooleanCondition.BooleanConditionEnum conditionEnum;
         Set<String> keywords;
-        for (ConditionalExpression conditionalExpression : conditionalExpressions) {
+        for (BooleanCondition conditionalExpression : conditionalExpressions) {
 
-            conditionEnum = conditionalExpression.getConditionEnum();
+            conditionEnum = conditionalExpression.getBooleanConditionEnum();
             keywords = conditionalExpression.getKeywords();
 
             boolean opposite = false;
@@ -211,8 +211,8 @@ public class TermLevelHeuristicsVerifier {
                     resultOneHeuristics = IsInHashtag.check(text, termOrig.toLowerCase(), termFromLexicon, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
-                case isHashtag:
-                    resultOneHeuristics = IsHashtag.check(text, termOrig.toLowerCase(), termFromLexicon, indexTerm, lexiconsAndConditionalExpressions);
+                case isHashtagPositiveSentiment:
+                    resultOneHeuristics = IsHashtagPositiveSentiment.check(text, termOrig.toLowerCase(), termFromLexicon, indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isPrecededBySpecificTerm:
@@ -255,6 +255,8 @@ public class TermLevelHeuristicsVerifier {
             }
             conditions.put(ALPHABET.substring(count, (count + 1)), resultOneHeuristics.getTokenInvestigatedGetsMatched());
             count++;
+            
+            resultsHeuristics.add(resultOneHeuristics);
         }
 
         String result = interpreter.interprete(rule, conditions);

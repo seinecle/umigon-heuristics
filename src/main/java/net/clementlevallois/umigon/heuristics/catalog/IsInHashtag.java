@@ -6,7 +6,7 @@ package net.clementlevallois.umigon.heuristics.catalog;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isInHashtag;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isInHashtag;
 
 /**
  *
@@ -14,8 +14,8 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsInHashtag {
 
-    public static ResultOneHeuristics check(String text, String termOrig, String termHeuristic, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isInHashtag, termOrig, indexTerm, TypeOfTokenEnum.HASHTAG);
+    public static BooleanCondition check(String text, String termOrig, String termHeuristic, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+        BooleanCondition booleanCondition = new BooleanCondition(isInHashtag, termOrig, indexTerm, TypeOfTokenEnum.HASHTAG);
         boolean found = termOrig.toLowerCase().contains(termHeuristic.toLowerCase());
         if (found) {
             resultOneHeuristics.setKeywordMatched(termHeuristic);

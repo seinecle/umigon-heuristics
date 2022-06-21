@@ -7,7 +7,7 @@ import java.util.Set;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isImmediatelyPrecededBySpecificTerm;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isImmediatelyPrecededBySpecificTerm;
 
 /**
  *
@@ -15,8 +15,8 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsImmediatelyPrecededBySpecificTerm {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isImmediatelyPrecededBySpecificTerm, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
+        BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyPrecededBySpecificTerm, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
         try {
             String leftPart = text.substring(0, indexTerm).toLowerCase().trim();
             String[] temp = leftPart.split(" ");

@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Set;
 import net.clementlevallois.umigon.heuristics.catalog.IsHashTagContainingAffectiveTerm;
 import net.clementlevallois.umigon.heuristics.catalog.IsHashTagStartingWithAffectiveTerm;
+import net.clementlevallois.umigon.heuristics.catalog.IsHashtagPositiveSentiment;
+import net.clementlevallois.umigon.heuristics.catalog.IsHashtagStart;
+import net.clementlevallois.umigon.heuristics.catalog.IsInHashtag;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.Text;
 
@@ -34,10 +37,13 @@ public class HashtagLevelHeuristicsVerifier {
         }
 
         for (String hashtag : hashtags) {
-            List<ResultOneHeuristics> checkAgainstListOfHashtags = IsHashTagContainingAffectiveTerm.check(lexiconsAndTheirConditionalExpressions, hashtag);
+            List<ResultOneHeuristics> checkAgainstListOfHashtags = IsHashtagPositiveSentiment.check(lexiconsAndTheirConditionalExpressions, hashtag);
             resultsHeuristics.addAll(checkAgainstListOfHashtags);
 
-            checkAgainstListOfHashtags = IsHashTagStartingWithAffectiveTerm.check(lexiconsAndTheirConditionalExpressions, hashtag);
+            checkAgainstListOfHashtags = IsInHashtag.check(lexiconsAndTheirConditionalExpressions, hashtag);
+            resultsHeuristics.addAll(checkAgainstListOfHashtags);
+
+            checkAgainstListOfHashtags = IsHashtagStart.check(lexiconsAndTheirConditionalExpressions, hashtag);
             resultsHeuristics.addAll(checkAgainstListOfHashtags);
 
         }

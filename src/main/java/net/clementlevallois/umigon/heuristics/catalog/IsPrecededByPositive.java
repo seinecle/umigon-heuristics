@@ -8,7 +8,7 @@ import net.clementlevallois.ngramops.NGramFinder;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isPrecededByPositive;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isPrecededByPositive;
 
 /**
  *
@@ -16,8 +16,8 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsPrecededByPositive {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isPrecededByPositive, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+        BooleanCondition booleanCondition = new BooleanCondition(isPrecededByPositive, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
         String left = text.substring(0, text.indexOf(termOrig)).toLowerCase().trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
 

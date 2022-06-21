@@ -69,7 +69,7 @@ this	isImmediatelyFollowedByTimeIndication	33
 til	isImmediatelyFollowedByTimeIndication	33	
 tmw	null	331	
 to begin on	isImmediatelyFollowedByTimeIndication	331	
-today	isHashTag	321	
+today	isHashtag	321	
 today s		321	
 tomorrow	null	331	
 tonight	null	321	

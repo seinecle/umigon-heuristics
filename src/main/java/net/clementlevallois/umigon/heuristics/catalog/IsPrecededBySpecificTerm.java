@@ -7,7 +7,7 @@ import java.util.Set;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
-import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionEnum.isPrecededBySpecificTerm;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isPrecededBySpecificTerm;
 
 /**
  *
@@ -15,8 +15,8 @@ import static net.clementlevallois.umigon.model.ConditionalExpression.ConditionE
  */
 public class IsPrecededBySpecificTerm {
 
-    public static ResultOneHeuristics check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(isPrecededBySpecificTerm, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
+        BooleanCondition booleanCondition = new BooleanCondition(isPrecededBySpecificTerm, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
         try {
             String temp = text.substring(0, text.indexOf(termOrig)).trim().toLowerCase();
             boolean found = keywords.stream().anyMatch((candidate) -> {

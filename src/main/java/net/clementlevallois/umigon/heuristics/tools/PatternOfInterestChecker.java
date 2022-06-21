@@ -84,9 +84,10 @@ public class PatternOfInterestChecker {
                 String match = matcher.group();
                 index = text.indexOf(match);
                 for (Category cat : poiLoop.getCategories()) {
-                    ResultOneHeuristics catAndIndex = new ResultOneHeuristics(cat.getCategoryEnum(), index, match, poiLoop.getTypeOfToken());
-                    catAndIndex.setTypeOfToken(poiLoop.getTypeOfToken());
-                    cats.add(catAndIndex);
+                    ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(cat.getCategoryEnum(), index, match, poiLoop.getTypeOfToken());
+                    resultOneHeuristics.setTypeOfToken(poiLoop.getTypeOfToken());
+                    resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+                    cats.add(resultOneHeuristics);
                 }
             }
         }
@@ -111,27 +112,34 @@ public class PatternOfInterestChecker {
 //    }
     public static List<ResultOneHeuristics> containsAffectiveEmojis(String text) {
         int index;
-        List<ResultOneHeuristics> cats = new ArrayList();
+        List<ResultOneHeuristics> resultsHeuristics = new ArrayList();
 
         String textWithEmojisAsAliases = EmojiParser.parseToAliases(text);
         long countSemiColon = textWithEmojisAsAliases.chars().filter(ch -> ch == ':').count();
         if (countSemiColon < 2) {
-            return cats;
+            return resultsHeuristics;
         }
         String[] terms = textWithEmojisAsAliases.split(":");
         for (String term : terms) {
             index = textWithEmojisAsAliases.indexOf(term);
             term = ":" + term + ":";
+            ResultOneHeuristics resultOneHeuristics = null;
             if (EmojisHeuristicsandResourcesLoader.getSetNegativeEmojis().contains(term)) {
-                cats.add(new ResultOneHeuristics(Category.CategoryEnum._12, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI));
+                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI);
+                resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
             } else if (EmojisHeuristicsandResourcesLoader.getSetPositiveEmojis().contains(term)) {
-                cats.add(new ResultOneHeuristics(Category.CategoryEnum._12, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI));
+                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._11, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI);
+                resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
             } else if (EmojisHeuristicsandResourcesLoader.getSetHyperSatisfactionEmojis().contains(term)) {
-                cats.add(new ResultOneHeuristics(Category.CategoryEnum._17, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI));
+                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._17, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI);
+                resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+            }
+            if (resultOneHeuristics != null) {
+                resultsHeuristics.add(resultOneHeuristics);
             }
         }
 
-        return cats;
+        return resultsHeuristics;
 
     }
 }
