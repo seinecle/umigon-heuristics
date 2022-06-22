@@ -4,8 +4,7 @@
 package net.clementlevallois.umigon.heuristics.catalog;
 
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
-import net.clementlevallois.umigon.model.ResultOneHeuristics;
-import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
+import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isImmediatelyPrecededByPositive;
 
 /**
@@ -14,29 +13,32 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsImmediatelyPrecededByPositive {
 
-    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyPrecededByPositive, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
-        String[] temp = text.substring(0, text.indexOf(termOrig)).trim().split(" ");
+    public static BooleanCondition check(String text, String term, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+        BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyPrecededByPositive);
+        String[] temp = text.substring(0, text.indexOf(term)).trim().split(" ");
         if (temp.length == 0) {
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            return resultOneHeuristics;
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            return booleanCondition;
         }
 
         if (temp.length > 0 && heuristics.getMapH1().containsKey(temp[temp.length - 1].trim().toLowerCase())) {
-            resultOneHeuristics.setKeywordMatched(temp[temp.length - 1]);
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-            return resultOneHeuristics;
+            booleanCondition.setKeywordMatched(temp[temp.length - 1]);
+            booleanCondition.setKeywordMatchedIndex(text.indexOf(temp[temp.length - 1]));
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+            return booleanCondition;
         } else if (temp.length > 1 && heuristics.getMapH1().containsKey(temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
-            resultOneHeuristics.setKeywordMatched(temp[temp.length - 2] + " " + temp[temp.length - 1]);
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-            return resultOneHeuristics;
+            booleanCondition.setKeywordMatched(temp[temp.length - 2] + " " + temp[temp.length - 1]);
+            booleanCondition.setKeywordMatchedIndex(text.indexOf(temp[temp.length - 2] + " " + temp[temp.length - 1]));
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+            return booleanCondition;
         } else if (temp.length > 2 && heuristics.getMapH1().containsKey(temp[temp.length - 3].trim().toLowerCase() + " " + temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
-            resultOneHeuristics.setKeywordMatched(temp[temp.length - 3] + " " + temp[temp.length - 2] + " " + temp[temp.length - 1]);
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-            return resultOneHeuristics;
+            booleanCondition.setKeywordMatched(temp[temp.length - 3] + " " + temp[temp.length - 2] + " " + temp[temp.length - 1]);
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+            booleanCondition.setKeywordMatchedIndex(text.indexOf(temp[temp.length - 3] + " " + temp[temp.length - 2] + " " + temp[temp.length - 1]));
+            return booleanCondition;
         } else {
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            return resultOneHeuristics;
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            return booleanCondition;
         }
     }
 }

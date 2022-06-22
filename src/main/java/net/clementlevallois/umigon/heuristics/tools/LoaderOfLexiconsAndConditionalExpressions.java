@@ -229,7 +229,7 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                     featuresListIterator = featuresList.iterator();
                     lexiconsAndConditionalExpressions = new TermWithConditionalExpressions();
                     while (featuresListIterator.hasNext()) {
-                        BooleanCondition conditionalExpression = new BooleanCondition();
+                        BooleanCondition booleanExpression = new BooleanCondition();
                         String condition;
 
                         featureString = featuresListIterator.next();
@@ -241,24 +241,24 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                             condition = featureString.substring(0, featureString.indexOf("///"));
                             if (condition != null & !condition.isEmpty()) {
                                 if (condition.startsWith("!")) {
-                                    conditionalExpression.setCondition(condition.substring(1), true);
+                                    booleanExpression.setCondition(condition.substring(1), true);
                                 } else {
-                                    conditionalExpression.setCondition(condition, false);
+                                    booleanExpression.setCondition(condition, false);
                                 }
-                                conditionalExpression.setKeywords(new HashSet(Arrays.asList(parametersArray)));
+                                booleanExpression.setKeywords(new HashSet(Arrays.asList(parametersArray)));
                             }
                         } else {
                             if (featureString.startsWith("!")) {
-                                conditionalExpression.setCondition(featureString.substring(1), true);
+                                booleanExpression.setCondition(featureString.substring(1), true);
                             } else {
-                                conditionalExpression.setCondition(featureString, false);
+                                booleanExpression.setCondition(featureString, false);
                             }
                         }
-                        if (conditionalExpression.getBooleanConditionEnum() == null){
+                        if (booleanExpression.getBooleanConditionEnum() == null){
                             System.out.println("problem with conditional expression for line: ");
                             System.out.println(string);
                         }
-                        lexiconsAndConditionalExpressions.addFeature(conditionalExpression);
+                        lexiconsAndConditionalExpressions.addFeature(booleanExpression);
                     }
                     if (hashtagRelevant.equalsIgnoreCase("x")) {
                         lexiconsAndConditionalExpressions.setHashtagRelevant(false);

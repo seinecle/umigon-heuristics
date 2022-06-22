@@ -12,9 +12,9 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsHashtagStart {
 
-    public static BooleanCondition check(String termOrig, String termHeuristic) {
+    public static BooleanCondition check(String term, String termHeuristic) {
         BooleanCondition booleanCondition = new BooleanCondition(isHashtagStart);
-        boolean found = termOrig.toLowerCase().startsWith(termHeuristic.toLowerCase());
+        boolean found = term.toLowerCase().startsWith(termHeuristic.toLowerCase());
         if (found) {
             booleanCondition.setKeywordMatched(termHeuristic);
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);

@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import net.clementlevallois.umigon.heuristics.catalog.IsHashTagContainingAffectiveTerm;
-import net.clementlevallois.umigon.heuristics.catalog.IsHashTagStartingWithAffectiveTerm;
 import net.clementlevallois.umigon.heuristics.catalog.IsHashtagPositiveSentiment;
 import net.clementlevallois.umigon.heuristics.catalog.IsHashtagStart;
 import net.clementlevallois.umigon.heuristics.catalog.IsInHashtag;

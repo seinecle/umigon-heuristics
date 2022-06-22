@@ -7,9 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import net.clementlevallois.ngramops.NGramFinder;
-import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
-import net.clementlevallois.umigon.model.ResultOneHeuristics;
-import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
+import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isInATextWithOneOfTheseSpecificTerms;
 
 /**
@@ -18,14 +16,14 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsInATextWithOneOfTheseSpecificTerms {
 
-    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
-        BooleanCondition booleanCondition = new BooleanCondition(isInATextWithOneOfTheseSpecificTerms, termOrig, indexTerm, TypeOfTokenEnum.NGRAM);
+    public static BooleanCondition check(String text, Set<String> keywords) {
+        BooleanCondition booleanCondition = new BooleanCondition(isInATextWithOneOfTheseSpecificTerms);
         NGramFinder nGramFinder = new NGramFinder(text);
 
         Map<String, Integer> ngramsInMap = nGramFinder.runIt(2, true);
         if (ngramsInMap.isEmpty()) {
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            return resultOneHeuristics;
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            return booleanCondition;
         }
 
         Set<String> terms = ngramsInMap.keySet();
@@ -34,12 +32,13 @@ public class IsInATextWithOneOfTheseSpecificTerms {
         while (it.hasNext()) {
             String next = it.next().trim();
             if (keywords.contains(next)) {
-                resultOneHeuristics.setKeywordMatched(next);
-                resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-                return resultOneHeuristics;
+                booleanCondition.setKeywordMatched(next);
+                booleanCondition.setKeywordMatchedIndex(text.indexOf(next));
+                booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+                return booleanCondition;
             }
         }
-        resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-        return resultOneHeuristics;
+        booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+        return booleanCondition;
     }
 }
