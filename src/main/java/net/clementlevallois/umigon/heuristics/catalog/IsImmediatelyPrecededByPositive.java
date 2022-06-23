@@ -13,9 +13,9 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsImmediatelyPrecededByPositive {
 
-    public static BooleanCondition check(String text, String term, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+    public static BooleanCondition check(String text, String term, int termIndex, LoaderOfLexiconsAndConditionalExpressions heuristics) {
         BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyPrecededByPositive);
-        String[] temp = text.substring(0, text.indexOf(term)).trim().split(" ");
+        String[] temp = text.substring(0, termIndex).trim().split(" ");
         if (temp.length == 0) {
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
             return booleanCondition;

@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
-import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
-import net.clementlevallois.umigon.model.ResultOneHeuristics;
-import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
+import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isQuestionMarkAtEndOfText;
 
 /**
@@ -18,8 +16,8 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsQuestionMarkAtEndOfText {
 
-    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        BooleanCondition booleanCondition = new BooleanCondition(isQuestionMarkAtEndOfText, termOrig, indexTerm, TypeOfTokenEnum.QUESTION);
+    public static BooleanCondition check(String text) {
+        BooleanCondition booleanCondition = new BooleanCondition(isQuestionMarkAtEndOfText);
         List<String> terms = new ArrayList();
         Collections.addAll(terms, text.trim().split(" "));
         StringBuilder sb = new StringBuilder();
@@ -36,13 +34,12 @@ public class IsQuestionMarkAtEndOfText {
         }
         String temp = sb.toString().trim();
         if (temp.isEmpty()) {
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            return resultOneHeuristics;
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            return booleanCondition;
         } else {
             boolean found = ("?".equals(String.valueOf(temp.charAt(temp.length() - 1))));
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(found);
-            return resultOneHeuristics;
-
+            booleanCondition.setTokenInvestigatedGetsMatched(found);
+            return booleanCondition;
         }
     }
 }

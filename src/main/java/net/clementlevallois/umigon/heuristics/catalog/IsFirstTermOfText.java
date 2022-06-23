@@ -12,7 +12,7 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsFirstTermOfText {
 
-    public static BooleanCondition check(String text, String termOrig) {
+    public static BooleanCondition check(String text, String term) {
         BooleanCondition booleanCondition = new BooleanCondition(isFirstTermOfText);
         String[] terms = text.trim().split(" ");
         StringBuilder sb = new StringBuilder();
@@ -29,7 +29,7 @@ public class IsFirstTermOfText {
             }
         }
         String textWithCheckOnStart = sb.toString().trim();
-        boolean res = textWithCheckOnStart.startsWith(termOrig);
+        boolean res = textWithCheckOnStart.startsWith(term);
         booleanCondition.setTokenInvestigatedGetsMatched(res);
         return booleanCondition;
     }

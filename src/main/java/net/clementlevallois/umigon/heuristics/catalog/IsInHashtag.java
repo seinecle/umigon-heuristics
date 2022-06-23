@@ -3,9 +3,7 @@
  */
 package net.clementlevallois.umigon.heuristics.catalog;
 
-import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
-import net.clementlevallois.umigon.model.ResultOneHeuristics;
-import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
+import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isInHashtag;
 
 /**
@@ -14,16 +12,17 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsInHashtag {
 
-    public static BooleanCondition check(String text, String termOrig, String termHeuristic, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
-        BooleanCondition booleanCondition = new BooleanCondition(isInHashtag, termOrig, indexTerm, TypeOfTokenEnum.HASHTAG);
-        boolean found = termOrig.toLowerCase().contains(termHeuristic.toLowerCase());
+    public static BooleanCondition check(String text, String term, String termHeuristic, int indexTerm) {
+        BooleanCondition booleanCondition = new BooleanCondition(isInHashtag);
+        boolean found = term.toLowerCase().contains(termHeuristic.toLowerCase());
         if (found) {
-            resultOneHeuristics.setKeywordMatched(termHeuristic);
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+            booleanCondition.setKeywordMatched(termHeuristic);
+            booleanCondition.setKeywordMatchedIndex(indexTerm);
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
         } else {
-            resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
         }
-        return resultOneHeuristics;
+        return booleanCondition;
 
     }
 }

@@ -81,12 +81,11 @@ public class PatternOfInterestChecker {
         for (PatternOfInterest poiLoop : patternsOfInterest) {
             matcher = poiLoop.getPattern().matcher(text);
             if (matcher.find()) {
-                String match = matcher.group();
-                index = text.indexOf(match);
+                String termMatched = matcher.group();
+                index = text.indexOf(termMatched);
                 for (Category cat : poiLoop.getCategories()) {
-                    ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(cat.getCategoryEnum(), index, match, poiLoop.getTypeOfToken());
+                    ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(cat.getCategoryEnum(), index, termMatched, poiLoop.getTypeOfToken());
                     resultOneHeuristics.setTypeOfToken(poiLoop.getTypeOfToken());
-                    resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                     cats.add(resultOneHeuristics);
                 }
             }
@@ -126,13 +125,10 @@ public class PatternOfInterestChecker {
             ResultOneHeuristics resultOneHeuristics = null;
             if (EmojisHeuristicsandResourcesLoader.getSetNegativeEmojis().contains(term)) {
                 resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI);
-                resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
             } else if (EmojisHeuristicsandResourcesLoader.getSetPositiveEmojis().contains(term)) {
                 resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._11, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI);
-                resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
             } else if (EmojisHeuristicsandResourcesLoader.getSetHyperSatisfactionEmojis().contains(term)) {
                 resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._17, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI);
-                resultOneHeuristics.setTokenInvestigatedGetsMatched(Boolean.TRUE);
             }
             if (resultOneHeuristics != null) {
                 resultsHeuristics.add(resultOneHeuristics);

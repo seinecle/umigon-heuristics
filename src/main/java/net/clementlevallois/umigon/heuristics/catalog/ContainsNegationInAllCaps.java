@@ -14,11 +14,11 @@ public class ContainsNegationInAllCaps {
 
     public static BooleanCondition check(String text, Set<String> negations) {
         BooleanCondition booleanCondition = new BooleanCondition(BooleanCondition.BooleanConditionEnum.isNegationInCaps);
-        for (String term : negations) {
-            if (text.contains(term.toUpperCase())) {
+        for (String negation : negations) {
+            if (text.contains(negation.toUpperCase())) {
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-                booleanCondition.setKeywordMatched(term);
-                booleanCondition.setKeywordMatchedIndex(text.indexOf(term.toUpperCase()));
+                booleanCondition.setKeywordMatched(negation);
+                booleanCondition.setKeywordMatchedIndex(text.indexOf(negation.toUpperCase()));
             }
         }
         return booleanCondition;

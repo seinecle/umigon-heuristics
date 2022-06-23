@@ -13,10 +13,10 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsFollowedBySpecificTerm {
 
-    public static BooleanCondition check(String text, String termOrig, Set<String> keywords) {
+    public static BooleanCondition check(String text, String term, int termIndex, Set<String> keywords) {
         BooleanCondition booleanCondition = new BooleanCondition(isFollowedBySpecificTerm);
         try {
-            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
+            String temp = text.substring(termIndex + term.length()).trim();
             keywords.stream().anyMatch((candidate) -> {
                 boolean contains = temp.contains(candidate);
                 if (contains) {
@@ -32,7 +32,7 @@ public class IsFollowedBySpecificTerm {
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
             System.out.println("status was: " + text);
-            System.out.println("term was: " + termOrig);
+            System.out.println("term was: " + term);
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
             return booleanCondition;
         }

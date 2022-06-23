@@ -41,7 +41,6 @@ import net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.Term;
 import net.clementlevallois.umigon.model.Text;
-import net.clementlevallois.umigon.model.TypeOfToken;
 import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
 import org.apache.commons.lang3.StringUtils;
 
@@ -86,14 +85,14 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class TermLevelHeuristicsVerifier {
 
-    public static List<ResultOneHeuristics> checkTermHeuristicsOnNGrams(boolean useStrippedVersion, Term termParam, Text textParam, Map<String, TermWithConditionalExpressions> mapTermToRule, Set<String> alreadyExamined, LoaderOfLexiconsAndConditionalExpressions lexiconsWithTheirConditionalExpressions) {
+    public static List<ResultOneHeuristics> checkHeuristicsOnNGrams(boolean useStrippedVersion, Term termParam, Text textParam, Map<String, TermWithConditionalExpressions> mapTermToRule, Set<String> alreadyExamined, LoaderOfLexiconsAndConditionalExpressions lexiconsWithTheirConditionalExpressions) {
         String term = useStrippedVersion ? termParam.getStrippedFormLowercase() : termParam.getOriginalFormLowercase();
         Set<String> nGrams = new NGramFinder(term).runIt(4, false).keySet();
         TermWithConditionalExpressions termWithConditionalExpressions;
         List<ResultOneHeuristics> resultsHeuristicsFinal = new ArrayList();
 
         for (String element : nGrams) {
-            int indexElement = useStrippedVersion ? termParam.getIndexStrippedForm(): termParam.getIndexOriginalForm();
+            int indexElement = useStrippedVersion ? termParam.getIndexStrippedForm() : termParam.getIndexOriginalForm();
             if (alreadyExamined.contains(element.toLowerCase() + "_" + indexElement)) {
                 continue;
             }
@@ -101,17 +100,17 @@ public class TermLevelHeuristicsVerifier {
             termElement.setOriginalForm(element);
             termElement.setIndexOriginalForm(indexElement);
             termElement.setStrippedForm(element);
-            termElement.setIndexStrippedForm(indexElement);            
+            termElement.setIndexStrippedForm(indexElement);
             termWithConditionalExpressions = mapTermToRule.get(element);
             if (termWithConditionalExpressions != null) {
-                List<ResultOneHeuristics> resultsHeuristics = check(useStrippedVersion, termElement, textParam, termWithConditionalExpressions, lexiconsWithTheirConditionalExpressions);
-                resultsHeuristicsFinal.addAll(resultsHeuristics);
+                ResultOneHeuristics resultsOneHeuristics = checkTermHeuristicsOnOneTerm(useStrippedVersion, termElement, textParam, termWithConditionalExpressions, lexiconsWithTheirConditionalExpressions);
+                resultsHeuristicsFinal.add(resultsOneHeuristics);
             }
         }
         return resultsHeuristicsFinal;
     }
 
-    public static List<ResultOneHeuristics> check(boolean stripped, Term termParam, Text textParam, TermWithConditionalExpressions termWithConditionalExpressions, LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions) {
+    public static ResultOneHeuristics checkTermHeuristicsOnOneTerm(boolean stripped, Term termParam, Text textParam, TermWithConditionalExpressions termWithConditionalExpressions, LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions) {
         String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String termFromLexicon = termWithConditionalExpressions.getTerm();
         List<BooleanCondition> booleanConditions = termWithConditionalExpressions.getMapFeatures();
@@ -119,8 +118,6 @@ public class TermLevelHeuristicsVerifier {
         String text = stripped ? textParam.getStrippedFormLowercase() : textParam.getCleanedFormLowercase();
         String term = stripped ? termParam.getStrippedFormLowercase() : termParam.getOriginalFormLowercase();
         int indexTerm = stripped ? termParam.getIndexStrippedForm() : termParam.getIndexOriginalForm();
-
-        List<ResultOneHeuristics> resultsHeuristics = new ArrayList();
 
         InterpreterOfConditionalExpressions interpreter = new InterpreterOfConditionalExpressions();
         Category cat;
@@ -135,14 +132,13 @@ public class TermLevelHeuristicsVerifier {
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 resultOneHeuristics.setCategoryEnum(cat.getCategoryEnum());
                 resultOneHeuristics.getBooleanConditions().add(booleanCondition);
-                resultsHeuristics.add(resultOneHeuristics);
-                return resultsHeuristics;
+                return resultOneHeuristics;
             } catch (IllegalArgumentException wrongCode) {
                 System.out.println("rule was misspelled or just wrong:");
                 System.out.println(rule);
                 System.out.println("for term:");
                 System.out.println(term);
-                return resultsHeuristics;
+                return resultOneHeuristics;
             }
         }
 
@@ -203,7 +199,7 @@ public class TermLevelHeuristicsVerifier {
                     break;
 
                 case isFollowedBySpecificTerm:
-                    booleanCondition = IsFollowedBySpecificTerm.check(text, term.toLowerCase(), keywords);
+                    booleanCondition = IsFollowedBySpecificTerm.check(text, term.toLowerCase(), indexTerm, keywords);
                     break;
 
                 case isInATextWithOneOfTheseSpecificTerms:
@@ -215,7 +211,7 @@ public class TermLevelHeuristicsVerifier {
                     break;
 
                 case isInHashtag:
-                    booleanCondition = IsInHashtag.check(text, term.toLowerCase(), termFromLexicon, indexTerm, lexiconsAndConditionalExpressions);
+                    booleanCondition = IsInHashtag.check(text, term.toLowerCase(), termFromLexicon, indexTerm);
                     break;
 
                 case isHashtagPositiveSentiment:
@@ -227,11 +223,11 @@ public class TermLevelHeuristicsVerifier {
                     break;
 
                 case isPrecededBySpecificTerm:
-                    booleanCondition = IsPrecededBySpecificTerm.check(text, term.toLowerCase(), keywords);
+                    booleanCondition = IsPrecededBySpecificTerm.check(text, term.toLowerCase(), indexTerm, keywords);
                     break;
 
                 case isQuestionMarkAtEndOfText:
-                    booleanCondition = IsQuestionMarkAtEndOfText.check(text, term.toLowerCase(), indexTerm, lexiconsAndConditionalExpressions);
+                    booleanCondition = IsQuestionMarkAtEndOfText.check(text);
                     break;
 
                 case isAllCaps:
@@ -243,7 +239,7 @@ public class TermLevelHeuristicsVerifier {
                     break;
 
                 case isImmediatelyPrecededByPositive:
-                    booleanCondition = IsImmediatelyPrecededByPositive.check(text, term.toLowerCase(), lexiconsAndConditionalExpressions);
+                    booleanCondition = IsImmediatelyPrecededByPositive.check(text, term.toLowerCase(), indexTerm, lexiconsAndConditionalExpressions);
                     break;
 
                 case isPrecededByPositive:
@@ -261,13 +257,13 @@ public class TermLevelHeuristicsVerifier {
             if (opposite) {
                 booleanCondition.setFlipped(Boolean.TRUE);
             }
-            if (booleanCondition.getTokenInvestigatedGetsMatched() == null){
-                System.out.println("stop a boolean expression didnt get a match result");
+            if (booleanCondition.getTokenInvestigatedGetsMatched() == null) {
+                System.out.println("stop: a boolean expression didnt get a match result in Term Heuristics Verifier");
             }
             conditions.put(ALPHABET.substring(count, (count + 1)), booleanCondition.getTokenInvestigatedGetsMatched());
             count++;
-            
-            resultsHeuristics.add(resultOneHeuristics);
+
+            resultOneHeuristics.getBooleanConditions().add(booleanCondition);
         }
 
         String result = interpreter.interprete(rule, conditions);
@@ -281,17 +277,14 @@ public class TermLevelHeuristicsVerifier {
             try {
                 cat = new Category(result);
                 ResultOneHeuristics resultAllConditions = new ResultOneHeuristics(cat.getCategoryEnum(), indexTerm, term, TypeOfTokenEnum.NGRAM);
-                resultAllConditions.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-                resultsHeuristics.add(resultAllConditions);
-
-                return resultsHeuristics;
+                return resultAllConditions;
             } catch (IllegalArgumentException wrongCode) {
                 System.out.println("outcome was misspelled or just wrong, after evaluating the heuristics:");
                 System.out.println(result);
-                return resultsHeuristics;
+                return new ResultOneHeuristics(term, indexTerm, TypeOfTokenEnum.NGRAM);
             }
         }
-        return resultsHeuristics;
+        return new ResultOneHeuristics(term, indexTerm, TypeOfTokenEnum.NGRAM);
     }
 
 //    public boolean isImmediatelyFollowedByVerbPastTense() {

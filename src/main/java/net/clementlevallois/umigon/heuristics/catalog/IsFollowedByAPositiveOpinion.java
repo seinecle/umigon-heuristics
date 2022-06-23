@@ -13,11 +13,11 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsFollowedByAPositiveOpinion {
 
-    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+    public static BooleanCondition check(String text, String term, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
         BooleanCondition booleanCondition = new BooleanCondition(isFollowedByAPositiveOpinion);
         try {
-            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
-            boolean found = heuristics.getMapH1().keySet().stream().anyMatch((positiveTerm) -> {
+            String temp = text.substring(indexTerm + term.length()).trim();
+            heuristics.getMapH1().keySet().stream().anyMatch((positiveTerm) -> {
                 boolean contains = temp.contains(positiveTerm);
                 if (contains) {
                     booleanCondition.setKeywordMatched(positiveTerm);
@@ -32,7 +32,7 @@ public class IsFollowedByAPositiveOpinion {
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
             System.out.println("status was: " + text);
-            System.out.println("term was: " + termOrig);
+            System.out.println("term was: " + term);
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
             return booleanCondition;
         }
