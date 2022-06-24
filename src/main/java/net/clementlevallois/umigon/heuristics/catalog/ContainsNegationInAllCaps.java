@@ -17,7 +17,7 @@ public class ContainsNegationInAllCaps {
         for (String negation : negations) {
             if (text.contains(negation.toUpperCase())) {
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-                booleanCondition.setKeywordMatched(negation);
+                booleanCondition.setKeywordMatched(negation.toUpperCase());
                 booleanCondition.setKeywordMatchedIndex(text.indexOf(negation.toUpperCase()));
             }
         }

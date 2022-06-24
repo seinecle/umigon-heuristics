@@ -20,29 +20,29 @@ public class IsImmediatelyFollowedByAPositiveOpinion {
             String[] nextTerms = temp.split(" ");
             if (nextTerms.length > 0) {
                 temp = nextTerms[0].trim();
-                boolean found = (heuristics.getMapH1().keySet().contains(temp));
+                boolean found = (heuristics.getMapH1().keySet().contains(temp.toLowerCase()));
                 if (found) {
                     booleanCondition.setKeywordMatched(temp);
-                    booleanCondition.setKeywordMatchedIndex(text.indexOf(temp));
+                    booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                 }
                 booleanCondition.setTokenInvestigatedGetsMatched(found);
                 return booleanCondition;
 
             } else if (nextTerms.length > 1) {
                 temp = nextTerms[0].trim() + " " + nextTerms[1].trim();
-                boolean found =  (heuristics.getMapH1().keySet().contains(temp));
+                boolean found =  (heuristics.getMapH1().keySet().contains(temp.toLowerCase()));
                 if (found) {
                     booleanCondition.setKeywordMatched(temp);
-                    booleanCondition.setKeywordMatchedIndex(text.indexOf(temp));
+                    booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                 }
                 booleanCondition.setTokenInvestigatedGetsMatched(found);
                 return booleanCondition;
             } else if (nextTerms.length > 2) {
                 temp = nextTerms[0].trim() + " " + nextTerms[1].trim() + " " + nextTerms[2].trim();
-                boolean found =  (heuristics.getMapH1().keySet().contains(temp));
+                boolean found =  (heuristics.getMapH1().keySet().contains(temp.toLowerCase()));
                 if (found) {
                     booleanCondition.setKeywordMatched(temp);
-                    booleanCondition.setKeywordMatchedIndex(text.indexOf(temp));
+                    booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                 }
                 booleanCondition.setTokenInvestigatedGetsMatched(found);
                 return booleanCondition;

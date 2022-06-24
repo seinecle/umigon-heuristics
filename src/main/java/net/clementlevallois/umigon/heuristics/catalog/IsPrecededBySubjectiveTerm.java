@@ -15,14 +15,14 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsPrecededBySubjectiveTerm {
 
-    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+    public static BooleanCondition check(String text, String term, int indexTerm, LoaderOfLexiconsAndConditionalExpressions lexiconsandTheirConditionalExpressions) {
         BooleanCondition booleanCondition = new BooleanCondition(isPrecededBySubjectiveTerm);
-        String left = text.substring(0, text.indexOf(termOrig)).toLowerCase().trim();
+        String left = text.substring(0, text.indexOf(term)).trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
 
-        for (String term : ngrams) {
-            if (heuristics.getMapH1().containsKey(term)) {
-                booleanCondition.setKeywordMatched(term);
+        for (String element : ngrams) {
+            if (lexiconsandTheirConditionalExpressions.getSetSubjective().contains(element.toLowerCase())) {
+                booleanCondition.setKeywordMatched(element);
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 return booleanCondition;
             }

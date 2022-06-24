@@ -16,15 +16,15 @@ public class IsFollowedByAPositiveOpinion {
     public static BooleanCondition check(String text, String term, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
         BooleanCondition booleanCondition = new BooleanCondition(isFollowedByAPositiveOpinion);
         try {
-            String temp = text.substring(indexTerm + term.length()).trim();
+            String temp = text.substring(indexTerm + term.length()).trim().toLowerCase();
             heuristics.getMapH1().keySet().stream().anyMatch((positiveTerm) -> {
-                boolean contains = temp.contains(positiveTerm);
-                if (contains) {
+                int index = temp.toLowerCase().indexOf(positiveTerm.toLowerCase());
+                if (index != -1) {
                     booleanCondition.setKeywordMatched(positiveTerm);
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-                    booleanCondition.setKeywordMatchedIndex(temp.indexOf(positiveTerm));
+                    booleanCondition.setKeywordMatchedIndex(index);
                 }
-                return contains;
+                return (index != -1);
             });
 
             return booleanCondition;

@@ -29,7 +29,7 @@ public class IsFirstTermOfText {
             }
         }
         String textWithCheckOnStart = sb.toString().trim();
-        boolean res = textWithCheckOnStart.startsWith(term);
+        boolean res = textWithCheckOnStart.toLowerCase().startsWith(term.toLowerCase());
         booleanCondition.setTokenInvestigatedGetsMatched(res);
         return booleanCondition;
     }

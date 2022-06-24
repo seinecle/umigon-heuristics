@@ -13,10 +13,10 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsHashtagNegativeSentiment {
 
-    public static BooleanCondition check(String hashtag, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+    public static BooleanCondition check(String hashtag, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalExpressions) {
         BooleanCondition booleanCondition = new BooleanCondition(isHashtagNegativeSentiment);
         boolean startsWithNegativeTerm = false;
-        for (String term : heuristics.getMapH3().keySet()) {
+        for (String term : lexiconsAndTheirConditionalExpressions.getMapH3().keySet()) {
             if (term.length() < 4) {
                 continue;
             }
@@ -25,7 +25,7 @@ public class IsHashtagNegativeSentiment {
                 hashtag = hashtag.replace(term, "");
             }
         }
-        for (String term : heuristics.getSetNegations()) {
+        for (String term : lexiconsAndTheirConditionalExpressions.getSetNegations()) {
             if (term.length() < 4) {
                 continue;
             }
@@ -35,7 +35,7 @@ public class IsHashtagNegativeSentiment {
                 hashtag = hashtag.replace(term, "");
             }
         }
-        for (String term : heuristics.getMapH3().keySet()) {
+        for (String term : lexiconsAndTheirConditionalExpressions.getMapH3().keySet()) {
             if (term.length() < 4) {
                 continue;
             }
@@ -45,26 +45,28 @@ public class IsHashtagNegativeSentiment {
             }
         }
 
-        for (String term : heuristics.getMapH2().keySet()) {
+        for (String term : lexiconsAndTheirConditionalExpressions.getMapH2().keySet()) {
             if (term.length() < 4) {
                 continue;
             }
             term = term.replace(" ", "");
-            if (hashtag.startsWith(term) && heuristics.getMapH2().get(term) != null) {
-                if (heuristics.getMapH2().get(term).isHashtagRelevant() && !startsWithNegativeTerm) {
+            if (hashtag.startsWith(term) && lexiconsAndTheirConditionalExpressions.getMapH2().get(term) != null) {
+                if (lexiconsAndTheirConditionalExpressions.getMapH2().get(term).isHashtagRelevant() && !startsWithNegativeTerm) {
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+                    booleanCondition.setKeywordMatched(hashtag);
                 }
             }
         }
 
-        for (String term : heuristics.getMapH1().keySet()) {
+        for (String term : lexiconsAndTheirConditionalExpressions.getMapH1().keySet()) {
             if (term.length() < 4) {
                 continue;
             }
             term = term.replace(" ", "");
-            if (hashtag.startsWith(term) && heuristics.getMapH1().get(term) != null) {
-                if (heuristics.getMapH1().get(term).isHashtagRelevant() && startsWithNegativeTerm) {
+            if (hashtag.startsWith(term) && lexiconsAndTheirConditionalExpressions.getMapH1().get(term) != null) {
+                if (lexiconsAndTheirConditionalExpressions.getMapH1().get(term).isHashtagRelevant() && startsWithNegativeTerm) {
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+                    booleanCondition.setKeywordMatched(hashtag);
                 }
             }
         }

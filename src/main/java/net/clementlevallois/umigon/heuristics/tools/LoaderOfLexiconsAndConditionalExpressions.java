@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Set;
 import net.clementlevallois.umigon.heuristics.resources.en.PlaceHolderEN;
 import net.clementlevallois.umigon.heuristics.resources.fr.PlaceHolderFR;
-import org.apache.commons.lang3.StringUtils;
+import net.clementlevallois.utils.StatusCleaner;
 
 /**
  *
@@ -127,6 +127,7 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                 if (map == 0 || map == 14) {
                     continue;
                 }
+
                 String term = null;
                 String featureString;
                 String rule = null;
@@ -150,7 +151,7 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                         continue;
                     }
                     if (!lang.equals("zh")) {
-                        field0 = StringUtils.stripAccents(fields[0].trim());
+                        field0 = StatusCleaner.flattenToAscii(fields[0].trim());
                     }
                     if (field0.isEmpty()) {
                         continue;
@@ -165,7 +166,7 @@ public class LoaderOfLexiconsAndConditionalExpressions {
 //                    }
 
                     featureString = field1;
-                    if (featureString == null | map == 3) {
+                    if (map == 3 || map == 6 || map == 10 || map == 11 || map == 12 || map == 14 || map == 15 || map == 16) {
                         //negations
                         if (map == 10) {
                             setNegations.add(term);
@@ -250,11 +251,12 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                         } else {
                             if (featureString.startsWith("!")) {
                                 booleanExpression.setCondition(featureString.substring(1), true);
+                                booleanExpression.setFlipped(Boolean.TRUE);
                             } else {
                                 booleanExpression.setCondition(featureString, false);
                             }
                         }
-                        if (booleanExpression.getBooleanConditionEnum() == null){
+                        if (booleanExpression.getBooleanConditionEnum() == null) {
                             System.out.println("problem with conditional expression for line: ");
                             System.out.println(string);
                         }
@@ -306,9 +308,9 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                         mapH9.put(term, lexiconsAndConditionalExpressions);
                         continue;
                     }
-                    //hashtag specific terms
+                    //hashtag specific terms !! WE NEGLECT THE CASE
                     if (map == 13) {
-                        mapH13.put(term, lexiconsAndConditionalExpressions);
+                        mapH13.put(term.toLowerCase(), lexiconsAndConditionalExpressions);
                     }
                 }
                 br.close();
@@ -344,8 +346,12 @@ public class LoaderOfLexiconsAndConditionalExpressions {
         multilingualLexicons.put(lang, lex);
     }
 
-    public Set<String> getSetNegations() {
-        return multilingualLexicons.get(lang).getSetNegations();
+    public Map<String, TermWithConditionalExpressions> getMapH1() {
+        return multilingualLexicons.get(lang).getMapH1();
+    }
+
+    public Map<String, TermWithConditionalExpressions> getMapH2() {
+        return multilingualLexicons.get(lang).getMapH2();
     }
 
     public Map<String, TermWithConditionalExpressions> getMapH3() {
@@ -356,14 +362,6 @@ public class LoaderOfLexiconsAndConditionalExpressions {
         return multilingualLexicons.get(lang).getMapH13();
     }
 
-    public Map<String, TermWithConditionalExpressions> getMapH6() {
-        return mapH6;
-    }
-
-    public Map<String, TermWithConditionalExpressions> getMapH1() {
-        return multilingualLexicons.get(lang).getMapH1();
-    }
-
     public Map<String, TermWithConditionalExpressions> getMapH17() {
         return multilingualLexicons.get(lang).getMapH17();
     }
@@ -372,16 +370,16 @@ public class LoaderOfLexiconsAndConditionalExpressions {
         return multilingualLexicons.get(lang).getMapH9();
     }
 
+    public Set<String> getSetNegations() {
+        return multilingualLexicons.get(lang).getSetNegations();
+    }
+
     public Set<String> getSetModerators() {
         return multilingualLexicons.get(lang).getSetModerators();
     }
 
     public Set<String> getSetIronicallyPositive() {
         return multilingualLexicons.get(lang).getSetIronicallyPositive();
-    }
-
-    public Map<String, TermWithConditionalExpressions> getMapH2() {
-        return multilingualLexicons.get(lang).getMapH2();
     }
 
     public Set<String> getLexiconsWithoutTheirConditionalExpressions() {

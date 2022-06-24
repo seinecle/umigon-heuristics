@@ -16,12 +16,12 @@ public class IsPrecededBySpecificTerm {
     public static BooleanCondition check(String text, String term, int indexTerm, Set<String> keywords) {
         BooleanCondition booleanCondition = new BooleanCondition(isPrecededBySpecificTerm);
         try {
-            String temp = text.substring(0, indexTerm).trim().toLowerCase();
+            String temp = text.substring(0, indexTerm).trim();
             boolean found = keywords.stream().anyMatch((candidate) -> {
                 boolean contains = temp.contains(candidate.toLowerCase());
                 if (contains) {
                     booleanCondition.setKeywordMatched(candidate);
-                    booleanCondition.setKeywordMatchedIndex(text.indexOf(candidate));
+                    booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(candidate.toLowerCase()));
                 }
                 return contains;
             });

@@ -36,12 +36,12 @@
             <version>1.0</version>
             <type>jar</type>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.11</version>
             <type>jar</type>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>net.clementlevallois</groupId>
             <artifactId>NGramOps</artifactId>

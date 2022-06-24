@@ -17,11 +17,11 @@ public class IsPrecededByStrongWord {
 
     public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
         BooleanCondition booleanCondition = new BooleanCondition(isPrecededByStrongWord);
-        String left = text.substring(0, text.indexOf(termOrig)).toLowerCase().trim();
+        String left = text.substring(0, text.indexOf(termOrig)).trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
 
         for (String term : ngrams) {
-            if (heuristics.getMapH3().containsKey(term)) {
+            if (heuristics.getMapH3().containsKey(term.toLowerCase())) {
                 booleanCondition.setKeywordMatched(term);
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 return booleanCondition;

@@ -17,12 +17,12 @@ public class IsPrecededByOpinion {
 
     public static BooleanCondition check(String text, String term, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
         BooleanCondition booleanCondition = new BooleanCondition(isPrecededByOpinion);
-        String left = text.substring(0, text.indexOf(term)).toLowerCase().trim();
+        String left = text.substring(0, text.indexOf(term)).trim();
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
         for (String element : ngrams) {
-            if (heuristics.getMapH1().containsKey(element) || heuristics.getMapH2().containsKey(element)) {
+            if (heuristics.getMapH1().containsKey(element.toLowerCase()) || heuristics.getMapH2().containsKey(element.toLowerCase())) {
                 booleanCondition.setKeywordMatched(element);
-                booleanCondition.setKeywordMatchedIndex(text.indexOf(element));
+                booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(element.toLowerCase()));
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 return booleanCondition;
             }

@@ -18,13 +18,13 @@ public class IsFollowedBySpecificTerm {
         try {
             String temp = text.substring(termIndex + term.length()).trim();
             keywords.stream().anyMatch((candidate) -> {
-                boolean contains = temp.contains(candidate);
-                if (contains) {
+                int index = temp.toLowerCase().indexOf(candidate.toLowerCase());
+                if (index != -1) {
                     booleanCondition.setKeywordMatched(candidate);
-                    booleanCondition.setKeywordMatchedIndex(temp.indexOf(candidate));
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+                    booleanCondition.setKeywordMatchedIndex(index);
                 }
-                return contains;
+                return (index != -1);
             });
             
             return booleanCondition;

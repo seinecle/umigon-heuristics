@@ -31,7 +31,7 @@ public class IsInATextWithOneOfTheseSpecificTerms {
 
         while (it.hasNext()) {
             String next = it.next().trim();
-            if (keywords.contains(next)) {
+            if (keywords.contains(next.toLowerCase())) {
                 booleanCondition.setKeywordMatched(next);
                 booleanCondition.setKeywordMatchedIndex(text.indexOf(next));
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);

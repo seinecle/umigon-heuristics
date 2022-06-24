@@ -12,17 +12,14 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsInHashtag {
 
-    public static BooleanCondition check(String text, String term, String termHeuristic, int indexTerm) {
+    public static BooleanCondition check(String hashtag, int indexHashtag, String termFromLexicon) {
         BooleanCondition booleanCondition = new BooleanCondition(isInHashtag);
-        boolean found = term.toLowerCase().contains(termHeuristic.toLowerCase());
-        if (found) {
-            booleanCondition.setKeywordMatched(termHeuristic);
-            booleanCondition.setKeywordMatchedIndex(indexTerm);
+        if (hashtag.contains(termFromLexicon.toLowerCase())) {
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-        } else {
-            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            booleanCondition.setKeywordMatched(hashtag);
+            booleanCondition.setKeywordMatchedIndex(indexHashtag);
+            return booleanCondition;
         }
         return booleanCondition;
-
     }
 }

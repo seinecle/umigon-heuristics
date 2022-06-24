@@ -14,36 +14,34 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsImmediatelyFollowedBySpecificTerm {
 
-    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics, Set<String> keywords) {
+    public static BooleanCondition check(String text, String term, int indexTerm, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalExpressions, Set<String> keywords) {
         BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyFollowedBySpecificTerm);
         try {
-            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
+            String temp = text.substring(text.indexOf(term) + term.length()).trim();
             String[] nextTerms = temp.split(" ");
             if (nextTerms.length > 0) {
                 temp = nextTerms[0].trim();
-                boolean isNextTermRelevant = keywords.contains(temp);
+                boolean isNextTermRelevant = keywords.contains(temp.toLowerCase());
                 if (isNextTermRelevant) {
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-                    if (isNextTermRelevant) {
-                        booleanCondition.setKeywordMatched(temp);
-                        booleanCondition.setKeywordMatchedIndex(text.indexOf(temp));
-                    }
+                    booleanCondition.setKeywordMatched(temp);
+                    booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                     return booleanCondition;
                 } else if (nextTerms.length > 1) {
                     temp = nextTerms[0].trim() + " " + nextTerms[1].trim();
-                    boolean found = keywords.contains(temp);
+                    boolean found = keywords.contains(temp.toLowerCase());
                     if (found) {
                         booleanCondition.setKeywordMatched(temp);
-                        booleanCondition.setKeywordMatchedIndex(text.indexOf(temp));
+                        booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                     }
                     booleanCondition.setTokenInvestigatedGetsMatched(found);
                     return booleanCondition;
                 } else if (nextTerms.length > 2) {
                     temp = nextTerms[0].trim() + " " + nextTerms[1].trim() + " " + nextTerms[2].trim();
-                    boolean found = keywords.contains(temp);
+                    boolean found = keywords.contains(temp.toLowerCase());
                     if (found) {
                         booleanCondition.setKeywordMatched(temp);
-                        booleanCondition.setKeywordMatchedIndex(text.indexOf(temp));
+                        booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                     }
                     booleanCondition.setTokenInvestigatedGetsMatched(found);
                     return booleanCondition;
@@ -57,7 +55,7 @@ public class IsImmediatelyFollowedBySpecificTerm {
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
             System.out.println("status was: " + text);
-            System.out.println("term was: " + termOrig);
+            System.out.println("term was: " + term);
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
             return booleanCondition;
         }
