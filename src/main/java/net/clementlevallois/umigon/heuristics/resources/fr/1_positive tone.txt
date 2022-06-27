@@ -210,6 +210,7 @@ bouffée d oxygène	!isImmediatelyPrecededByANegation	11:12
 bouffées d oxygène	!isImmediatelyPrecededByANegation	11:12
 buen	!isImmediatelyPrecededByANegation	11:12
 bonifiée	!isImmediatelyPrecededByANegation	11:12
+burnes	isPrecededBySpecificTerm///a des|a de|a deux+++!isPrecededBySpecificTerm///y a des|y a de	if (A && B) {11} else {10}
 ça défonce	!isImmediatelyPrecededByANegation	11:12
 capable	!isImmediatelyPrecededByANegation	11:12
 captivé	!isImmediatelyPrecededByANegation	11:12

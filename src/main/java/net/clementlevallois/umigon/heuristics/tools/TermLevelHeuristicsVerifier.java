@@ -91,7 +91,7 @@ public class TermLevelHeuristicsVerifier {
         List<ResultOneHeuristics> resultsHeuristicsFinal = new ArrayList();
 
         for (String element : nGrams) {
-            int indexElement = useStrippedVersion ? termParam.getIndexStrippedForm() : termParam.getIndexOriginalForm();
+            int indexElement = useStrippedVersion ? textParam.getStrippedForm().indexOf(element) : textParam.getCleanedForm().indexOf(element);
             if (alreadyExamined.contains(element.toLowerCase() + "_" + indexElement)) {
                 continue;
             }
@@ -209,7 +209,7 @@ public class TermLevelHeuristicsVerifier {
                     break;
 
                 case isInHashtag:
-                    booleanCondition = IsInHashtag.check(term, indexTerm, termFromLexicon);
+                    booleanCondition = IsInHashtag.check(term, text, lexiconsAndConditionalExpressions);
                     break;
 
                 case isHashtagPositiveSentiment:
@@ -265,7 +265,6 @@ public class TermLevelHeuristicsVerifier {
             }
             conditions.put(ALPHABET.substring(count, (count + 1)), booleanOutcomeAfterPossibleInversion);
             count++;
-
             resultOneHeuristics.getBooleanConditions().add(booleanCondition);
         }
 

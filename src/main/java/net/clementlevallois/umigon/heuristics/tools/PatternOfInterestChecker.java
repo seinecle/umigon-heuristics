@@ -72,7 +72,7 @@ public class PatternOfInterestChecker {
         return null;
     }
 
-    public static List<ResultOneHeuristics> containsOnomatopaesAsciiOrEmojis(String text) {
+    public static List<ResultOneHeuristics> containsOnomatopaesOrAsciiEmoticons(String text) {
         List<ResultOneHeuristics> cats = new ArrayList();
 
         int index;
@@ -84,7 +84,7 @@ public class PatternOfInterestChecker {
                 String termMatched = matcher.group();
                 index = text.indexOf(termMatched);
                 for (Category cat : poiLoop.getCategories()) {
-                    ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(cat.getCategoryEnum(), index, termMatched, poiLoop.getTypeOfToken());
+                    ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(cat.getCategoryEnum(), index, termMatched.trim(), poiLoop.getTypeOfToken());
                     resultOneHeuristics.setTypeOfToken(poiLoop.getTypeOfToken());
                     cats.add(resultOneHeuristics);
                 }
@@ -122,13 +122,14 @@ public class PatternOfInterestChecker {
         for (String term : terms) {
             index = textWithEmojisAsAliases.indexOf(term);
             term = ":" + term + ":";
+            String emojiBackToUnicode = EmojiParser.parseToUnicode(term);
             ResultOneHeuristics resultOneHeuristics = null;
             if (EmojisHeuristicsandResourcesLoader.getSetNegativeEmojis().contains(term)) {
-                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI);
+                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, index, emojiBackToUnicode, TypeOfToken.TypeOfTokenEnum.EMOJI);
             } else if (EmojisHeuristicsandResourcesLoader.getSetPositiveEmojis().contains(term)) {
-                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._11, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI);
+                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._11, index, emojiBackToUnicode, TypeOfToken.TypeOfTokenEnum.EMOJI);
             } else if (EmojisHeuristicsandResourcesLoader.getSetHyperSatisfactionEmojis().contains(term)) {
-                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._17, index, term, TypeOfToken.TypeOfTokenEnum.EMOJI);
+                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._17, index, emojiBackToUnicode, TypeOfToken.TypeOfTokenEnum.EMOJI);
             }
             if (resultOneHeuristics != null) {
                 resultsHeuristics.add(resultOneHeuristics);

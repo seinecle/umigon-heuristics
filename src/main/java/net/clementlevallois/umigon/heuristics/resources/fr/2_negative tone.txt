@@ -165,8 +165,8 @@ branleux		12
 broche à foin		12
 broyer du noir		12
 bullshit		12
-burnes	!isImmediatelyPrecededBySpecificTerm///a des|a de|ont des|ont de+++isImmediatelyPrecededBySpecificTerm///il y a des|il y a de	if(A || B){12} else {11}
-burne	!isImmediatelyPrecededBySpecificTerm///a une|ont une+++isImmediatelyPrecededBySpecificTerm///est une	if(A || B){12} else {11}
+burnes	isPrecededBySpecificTerm///il y a des|il y a de|c'est des|ce sont des|ce sont de|vous �tes|vous etes	12
+burne	isImmediatelyPrecededBySpecificTerm///est une|es une	12
 bz leur		12
 ca craint		12
 ça craint		12

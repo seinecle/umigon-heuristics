@@ -61,6 +61,11 @@ public class InterpreterOfConditionalExpressions {
             System.out.println("map of booleans was: " + heuristics.toString());
             return "-1";
         }
+        if (result.isBlank()){
+            System.out.println("error with rule: " + rule);
+            System.out.println("map of booleans was: " + heuristics.toString());
+            return "-1";            
+        }
         return result;
     }
 

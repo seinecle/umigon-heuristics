@@ -18,7 +18,7 @@ public class IsPrecededBySpecificTerm {
         try {
             String temp = text.substring(0, indexTerm).trim();
             boolean found = keywords.stream().anyMatch((candidate) -> {
-                boolean contains = temp.contains(candidate.toLowerCase());
+                boolean contains = temp.toLowerCase().contains(candidate.toLowerCase());
                 if (contains) {
                     booleanCondition.setKeywordMatched(candidate);
                     booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(candidate.toLowerCase()));
