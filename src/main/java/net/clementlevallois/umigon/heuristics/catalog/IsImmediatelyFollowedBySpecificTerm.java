@@ -33,6 +33,8 @@ public class IsImmediatelyFollowedBySpecificTerm {
                     if (found) {
                         booleanCondition.setKeywordMatched(temp);
                         booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
+                    } else {
+                        booleanCondition.setKeywords(keywords);
                     }
                     booleanCondition.setTokenInvestigatedGetsMatched(found);
                     return booleanCondition;
@@ -42,15 +44,19 @@ public class IsImmediatelyFollowedBySpecificTerm {
                     if (found) {
                         booleanCondition.setKeywordMatched(temp);
                         booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
+                    } else {
+                        booleanCondition.setKeywords(keywords);
                     }
                     booleanCondition.setTokenInvestigatedGetsMatched(found);
                     return booleanCondition;
                 } else {
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+                    booleanCondition.setKeywords(keywords);
                     return booleanCondition;
                 }
             }
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            booleanCondition.setKeywords(keywords);
             return booleanCondition;
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());

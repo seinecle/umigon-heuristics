@@ -26,6 +26,7 @@ public class IsPrecededBySpecificTerm {
                 return contains;
             });
             booleanCondition.setTokenInvestigatedGetsMatched(found);
+            booleanCondition.setKeywords(keywords);
             return booleanCondition;
 
         } catch (StringIndexOutOfBoundsException e) {

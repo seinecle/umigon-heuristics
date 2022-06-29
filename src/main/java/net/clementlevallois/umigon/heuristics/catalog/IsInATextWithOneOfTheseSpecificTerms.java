@@ -23,6 +23,7 @@ public class IsInATextWithOneOfTheseSpecificTerms {
         Map<String, Integer> ngramsInMap = nGramFinder.runIt(2, true);
         if (ngramsInMap.isEmpty()) {
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+            booleanCondition.setKeywords(keywords);
             return booleanCondition;
         }
 
@@ -39,6 +40,7 @@ public class IsInATextWithOneOfTheseSpecificTerms {
             }
         }
         booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+        booleanCondition.setKeywords(keywords);
         return booleanCondition;
     }
 }

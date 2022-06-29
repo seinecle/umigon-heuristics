@@ -24,6 +24,7 @@ public class IsImmediatelyPrecededBySpecificTerm {
             switch (temp.length) {
                 case 0: {
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+                    booleanCondition.setKeywords(keywords);
                     return booleanCondition;
                 }
                 case 1: {
@@ -78,6 +79,7 @@ public class IsImmediatelyPrecededBySpecificTerm {
                 }
 
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+                booleanCondition.setKeywords(keywords);
                 return booleanCondition;
             }
         } catch (StringIndexOutOfBoundsException e) {

@@ -26,7 +26,10 @@ public class IsFollowedBySpecificTerm {
                 }
                 return (index != -1);
             });
-            
+
+            if (!booleanCondition.getTokenInvestigatedGetsMatched()) {
+                booleanCondition.setKeywords(keywords);
+            }
             return booleanCondition;
 
         } catch (StringIndexOutOfBoundsException e) {

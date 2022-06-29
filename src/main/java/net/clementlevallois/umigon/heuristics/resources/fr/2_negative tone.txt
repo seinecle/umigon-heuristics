@@ -287,7 +287,7 @@ cruel		12
 cruelle		12
 cruelles		12
 cruels		12
-cul	!isImmediatelyPrecededBySpecificTerm///ras le|plein le	12
+cul	!isImmediatelyPrecededBySpecificTerm///ras le|plein le	12:10
 culpabilité		12
 d humeur chagrine		12
 d humeur massacrante		12
