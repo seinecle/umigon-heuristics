@@ -5,10 +5,11 @@ awww		22
 awwww		22
 beyond	isImmediatelyFollowedByAnOpinion	22
 big	isImmediatelyFollowedByAnOpinion	22
-big		22
+biggest		22
 complete	isImmediatelyFollowedByAnOpinion	22
 completely	isImmediatelyFollowedByAnOpinion	22
 crazy		22
+damn		22
 epic	isImmediatelyFollowedByAnOpinion	22
 ever	isPrecededByAnOpinion	22
 exactly	isImmediatelyFollowedByAnOpinion	22
@@ -37,6 +38,7 @@ geniusly	isImmediatelyFollowedByAnOpinion	22
 great		22
 greatest		22
 high		22
+highest	isImmediatelyFollowedByAnOpinion	22
 highly	isImmediatelyFollowedByAnOpinion	22
 holy	isImmediatelyFollowedByAnOpinion	22
 incredibly	isImmediatelyFollowedByAnOpinion	22
@@ -67,6 +69,7 @@ smashing	isImmediatelyFollowedByAnOpinion	22
 so	isImmediatelyFollowedByAnOpinion	22
 sobering		22
 spectactularly	isImmediatelyFollowedByAnOpinion	22
+such a	isImmediatelyFollowedByAnOpinion	22
 super	isImmediatelyFollowedByAnOpinion	22
 thoroughly	isImmediatelyFollowedByAnOpinion	22
 too	isImmediatelyFollowedByAnOpinion	22
@@ -74,6 +77,7 @@ tremendous	isImmediatelyFollowedByAnOpinion	22
 tremendously	isImmediatelyFollowedByAnOpinion	22
 true	isImmediatelyFollowedByAnOpinion	22
 uber	isImmediatelyFollowedByAnOpinion	22
+unlimited	isImmediatelyFollowedByAnOpinion	22
 ultra	isImmediatelyFollowedByAnOpinion	22
 utterly	isImmediatelyFollowedByAnOpinion	22
 v	isImmediatelyFollowedByAnOpinion	22

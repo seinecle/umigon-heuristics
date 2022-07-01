@@ -130,7 +130,7 @@ crashing	!isImmediatelyPrecededByANegation	12:10		2
 creep	!isPrecededBySpecificTerm///im a|i am a	12:10		3
 creepy	!isImmediatelyPrecededByANegation	12:10		3
 cretin	!isImmediatelyPrecededByANegation	12:10		3
-cross	isPrecededBySpecificTerm///im|i am+++isFollowedBySpecificTerm///about|that	12:10		3
+cross	isPrecededBySpecificTerm///im|i am+++isFollowedBySpecificTerm///about|that	if (A && B) {12} else {10}		3
 cruel	!isImmediatelyPrecededByANegation	12:10		3
 crushed	!isImmediatelyPrecededByANegation	12:10		3
 cry	!isImmediatelyPrecededByANegation	12:10	x	3
@@ -175,9 +175,9 @@ died	!isImmediatelyPrecededByANegation	12:10	x	2
 dies	!isImmediatelyPrecededByANegation	12:10	x	2
 dimwit		12		3
 dire		12		3
+disappointment	!isImmediatelyPrecededByANegation+++isPrecededByStrongWord	if (A && B) {12} else {10}		2
 disappointed	!isImmediatelyPrecededByANegation	12:10		2
 disappointing	!isImmediatelyPrecededByANegation	12:10		2
-disaster	!isImmediatelyPrecededByANegation	12:10		2
 disaster	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///recovery	if (A && B) {12} else {10}		2
 discouraged	!isImmediatelyPrecededByANegation	12:10		2
 disenchanted	!isImmediatelyPrecededByANegation	12:10		2
@@ -336,7 +336,8 @@ halfwit		12		3
 half wit		12		3
 hapless		12		3
 harassed		12		3
-hard	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///work|disk|disks|drive|drives|worked|working|skill|skills|part+++!isImmediatelyPrecededBySpecificTerm///push|work|works|working|worked|work so|working so|worked so|works so|play|party	if (A && B && C) {12} else if (A && B && C == 'false'){11} else {10}	x	1
+hard	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///work|disk|disks|drive|drives|worked|working|skill|skills|part|time|on+++!isImmediatelyPrecededBySpecificTerm///push|work|works|working|worked|work so|working so|worked so|works so|play|party	if (A && B && C) {12} else if (A && B && C == 'false'){11} else {10}	x	1
+hard time	isImmediatelyPrecededBySpecificTerm///gives me|give me+++isPrecededByStrongWord	if (A || B) {12} else {10}
 harried		12		2
 harsh		12	x	2
 hate	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///to	if(A && B){12} else if (A == 'false' && B){99} else {11}	x	3
@@ -350,7 +351,7 @@ have to work		12		1
 headache	!isImmediatelyPrecededByANegation	12:10		2
 headaches	!isImmediatelyPrecededByANegation	12:10		2
 headachy		12		2
-heart	isPrecededBySpecificTerm///break|breaking|broke+++isFollowedBySpecificTerm///break|breaking|wrenched|wrenching	if(A || B){12} else {10}	x	1
+heart	isPrecededBySpecificTerm///break|breaking|broke+++isFollowedBySpecificTerm///break|breaking|wrenched|wrenching	if(A || B) {12} else {10}	x	1
 heartbroken	!isImmediatelyPrecededByANegation	12:10		3
 heart broken	!isImmediatelyPrecededByANegation	12:10		3
 heinous		12		3
@@ -455,7 +456,7 @@ low	isPrecededByStrongWord	12	x	2
 mad	!isImmediatelyPrecededByANegation+++!isFollowedBySpecificTerm///max	if(A && B){12} else{10}		2
 maddening	+++!isFollowedByAPositiveOpinion	12:10		3
 malignious tumor	!isImmediatelyPrecededByANegation	12:10		2
-mess	!isImmediatelyPrecededByANegation+++!isPrecededBySpecificTerm///go to the|went to the|watched the|watch the|attend the|attended the	12:10	x	2
+mess	!isImmediatelyPrecededByANegation+++!isPrecededBySpecificTerm///go to the|went to the|watched the|watch the|attend the|attended the	if (A && B) {12} else {10}	x	2
 mess up	!isImmediatelyPrecededByANegation	12:10		2
 messed	!isImmediatelyPrecededByANegation	12:10		2
 messed up	!isImmediatelyPrecededByANegation	12:10		2
