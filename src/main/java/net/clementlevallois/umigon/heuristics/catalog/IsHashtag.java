@@ -19,7 +19,7 @@ public class IsHashtag {
         Set<String> hashtagsInList = lexiconsAndTheirConditionalExpressions.getMapH13().keySet();
         boolean found = hashtagsInList.contains(hashtag.toLowerCase());
         if (found) {
-            booleanCondition.setKeywordMatched(hashtag);
+            booleanCondition.setTextFragmentMatched(hashtag);
             booleanCondition.setKeywordMatchedIndex(-1);
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
         } else {

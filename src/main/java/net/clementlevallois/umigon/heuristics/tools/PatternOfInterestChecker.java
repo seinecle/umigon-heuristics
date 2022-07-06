@@ -15,11 +15,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
-import net.clementlevallois.umigon.heuristics.resources.multilingual.PlaceHolderMULTI;
 import net.clementlevallois.umigon.model.Category;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.PatternOfInterest;
-import net.clementlevallois.umigon.model.TypeOfToken;
+import net.clementlevallois.umigon.model.TypeOfTextFragment;
 
 /*
  *
@@ -51,7 +50,7 @@ public class PatternOfInterestChecker {
                     Category category = new Category(categoryId);
                     poi.getCategories().add(category);
                 }
-                poi.setTypeOfToken(elements[4]);
+                poi.setTypeOfTextFragment(elements[4]);
                 patternsOfInterest.add(poi);
             }
         }
@@ -84,15 +83,16 @@ public class PatternOfInterestChecker {
                 String termMatched = matcher.group();
                 index = text.indexOf(termMatched);
                 for (Category cat : poiLoop.getCategories()) {
-                    ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(cat.getCategoryEnum(), index, termMatched.trim(), poiLoop.getTypeOfToken());
-                    resultOneHeuristics.setTypeOfToken(poiLoop.getTypeOfToken());
+                    ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(cat.getCategoryEnum(), index, termMatched.trim(), poiLoop.getTypeOfTextFragment());
+                    resultOneHeuristics.setTypeOfTextFragment(poiLoop.getTypeOfTextFragment());
                     cats.add(resultOneHeuristics);
                 }
             }
         }
 
         return cats;
-    }
+    }    
+    
 
 //    public void containsTimeIndication() {
 //        Heuristic heuristic;
@@ -125,11 +125,11 @@ public class PatternOfInterestChecker {
             String emojiBackToUnicode = EmojiParser.parseToUnicode(term);
             ResultOneHeuristics resultOneHeuristics = null;
             if (EmojisHeuristicsandResourcesLoader.getSetNegativeEmojis().contains(term)) {
-                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, index, emojiBackToUnicode, TypeOfToken.TypeOfTokenEnum.EMOJI);
+                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, index, emojiBackToUnicode, TypeOfTextFragment.TypeOfTextFragmentEnum.EMOJI);
             } else if (EmojisHeuristicsandResourcesLoader.getSetPositiveEmojis().contains(term)) {
-                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._11, index, emojiBackToUnicode, TypeOfToken.TypeOfTokenEnum.EMOJI);
+                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._11, index, emojiBackToUnicode, TypeOfTextFragment.TypeOfTextFragmentEnum.EMOJI);
             } else if (EmojisHeuristicsandResourcesLoader.getSetHyperSatisfactionEmojis().contains(term)) {
-                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._17, index, emojiBackToUnicode, TypeOfToken.TypeOfTokenEnum.EMOJI);
+                resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._17, index, emojiBackToUnicode, TypeOfTextFragment.TypeOfTextFragmentEnum.EMOJI);
             }
             if (resultOneHeuristics != null) {
                 resultsHeuristics.add(resultOneHeuristics);

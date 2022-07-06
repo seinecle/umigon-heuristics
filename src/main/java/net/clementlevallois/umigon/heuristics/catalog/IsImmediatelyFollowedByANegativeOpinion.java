@@ -22,7 +22,7 @@ public class IsImmediatelyFollowedByANegativeOpinion {
                 temp = nextTerms[0].trim();
                 boolean found = (heuristics.getMapH2().keySet().contains(temp.toLowerCase()));
                 if (found) {
-                    booleanCondition.setKeywordMatched(temp);
+                    booleanCondition.setTextFragmentMatched(temp);
                     booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                 }
                 booleanCondition.setTokenInvestigatedGetsMatched(found);
@@ -32,7 +32,7 @@ public class IsImmediatelyFollowedByANegativeOpinion {
                 boolean found = (heuristics.getMapH2().keySet().contains(temp.toLowerCase()));
                 booleanCondition.setTokenInvestigatedGetsMatched(found);
                 if (found) {
-                    booleanCondition.setKeywordMatched(temp);
+                    booleanCondition.setTextFragmentMatched(temp);
                     booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                 }
                 return booleanCondition;
@@ -40,7 +40,7 @@ public class IsImmediatelyFollowedByANegativeOpinion {
                 temp = nextTerms[0].trim() + " " + nextTerms[1].trim() + " " + nextTerms[2].trim();
                 boolean found = (heuristics.getMapH2().keySet().contains(temp.toLowerCase()));
                 if (found) {
-                    booleanCondition.setKeywordMatched(temp);
+                    booleanCondition.setTextFragmentMatched(temp);
                     booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                 }
                 booleanCondition.setTokenInvestigatedGetsMatched(found);

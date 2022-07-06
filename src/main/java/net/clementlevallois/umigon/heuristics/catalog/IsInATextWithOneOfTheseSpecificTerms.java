@@ -23,7 +23,7 @@ public class IsInATextWithOneOfTheseSpecificTerms {
         Map<String, Integer> ngramsInMap = nGramFinder.runIt(2, true);
         if (ngramsInMap.isEmpty()) {
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            booleanCondition.setKeywords(keywords);
+            booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
             return booleanCondition;
         }
 
@@ -33,14 +33,14 @@ public class IsInATextWithOneOfTheseSpecificTerms {
         while (it.hasNext()) {
             String next = it.next().trim();
             if (keywords.contains(next.toLowerCase())) {
-                booleanCondition.setKeywordMatched(next);
+                booleanCondition.setTextFragmentMatched(next);
                 booleanCondition.setKeywordMatchedIndex(text.indexOf(next));
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 return booleanCondition;
             }
         }
         booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-        booleanCondition.setKeywords(keywords);
+        booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
         return booleanCondition;
     }
 }

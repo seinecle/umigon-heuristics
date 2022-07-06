@@ -3,10 +3,13 @@
  */
 package net.clementlevallois.umigon.heuristics.catalog;
 
+import java.util.List;
 import java.util.Set;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isImmediatelyPrecededBySpecificTerm;
+import net.clementlevallois.umigon.model.NGram;
+import net.clementlevallois.umigon.model.TextFragment;
 
 /**
  *
@@ -14,34 +17,32 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsImmediatelyPrecededBySpecificTerm {
 
-    public static BooleanCondition check(String text, String term, int indexTerm, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalExpressions, Set<String> keywords) {
+    public static BooleanCondition check(boolean stripped, List<NGram> textFragmentsThatAreNGrams, NGram ngram,  LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalExpressions, Set<TextFragment> textFragmentsAssociatedWithTheBooleanCondition) {
         BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyPrecededBySpecificTerm);
         try {
-            String leftPart = text.substring(0, indexTerm).toLowerCase().trim();
-            String[] temp = leftPart.split(" ");
-
+            List<NGram> leftPart = textFragmentsThatAreNGrams.subList(0, textFragmentsThatAreNGrams.indexOf(ngram));
+            
             //if the array is empty it means that the term is the first of the status;
-            switch (temp.length) {
+            switch (leftPart.size()) {
                 case 0: {
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-                    booleanCondition.setKeywords(keywords);
+                    booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(textFragmentsAssociatedWithTheBooleanCondition);
                     return booleanCondition;
                 }
                 case 1: {
-                    booleanCondition.setTokenInvestigatedGetsMatched(keywords.contains(temp[0].toLowerCase()));
-                    booleanCondition.setKeywordMatched(temp[0]);
-                    booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp[0].toLowerCase()));
+                    booleanCondition.setTokenInvestigatedGetsMatched(textFragmentsAssociatedWithTheBooleanCondition.contains(leftPart.get(0).getCleanedAndStrippedNgramIfCondition(stripped).toLowerCase()));
+                    booleanCondition.setTextFragmentMatched(leftPart.get(0));
                     return booleanCondition;
                 }
                 default: {
-                    if (keywords.contains(temp[temp.length - 1].toLowerCase())) {
-                        booleanCondition.setKeywordMatched(temp[temp.length - 1]);
+                    if (textFragmentsAssociatedWithTheBooleanCondition.contains(leftPart.get(leftPart.size() - 1))) {
+                        booleanCondition.setTextFragmentMatched(temp[temp.length - 1]);
                         booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp[temp.length - 1].toLowerCase()));
                         booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                         return booleanCondition;
                     }
                     if (temp.length > 1 && lexiconsAndTheirConditionalExpressions.getMapH3().containsKey(temp[temp.length - 1].toLowerCase()) & keywords.contains(temp[temp.length - 2].toLowerCase())) {
-                        booleanCondition.setKeywordMatched(temp[temp.length - 2]);
+                        booleanCondition.setTextFragmentMatched(temp[temp.length - 2]);
                         booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp[temp.length - 2].toLowerCase()));
                         booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                         return booleanCondition;
@@ -49,7 +50,7 @@ public class IsImmediatelyPrecededBySpecificTerm {
                     //in the case of "not the hottest", return true
                     String specificTerm = temp[temp.length - 2] + " " + temp[temp.length - 1];
                     if (keywords.contains(specificTerm.toLowerCase().trim())) {
-                        booleanCondition.setKeywordMatched(specificTerm);
+                        booleanCondition.setTextFragmentMatched(specificTerm);
                         booleanCondition.setKeywordMatchedIndex(text.indexOf(specificTerm));
                         booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                         return booleanCondition;
@@ -60,7 +61,7 @@ public class IsImmediatelyPrecededBySpecificTerm {
                     String specificTerm = temp[temp.length - 3] + " " + temp[temp.length - 2];
                     String booster = temp[temp.length - 1];
                     if (keywords.contains(specificTerm.toLowerCase().trim()) && lexiconsAndTheirConditionalExpressions.getMapH3().containsKey(booster.toLowerCase())) {
-                        booleanCondition.setKeywordMatched(specificTerm.trim());
+                        booleanCondition.setTextFragmentMatched(specificTerm.trim());
                         booleanCondition.setKeywordMatchedIndex(text.indexOf(specificTerm.trim()));
                         booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                         return booleanCondition;
@@ -69,7 +70,7 @@ public class IsImmediatelyPrecededBySpecificTerm {
                         if (leftPart.toLowerCase().contains(parameter.toLowerCase())) {
                             String fromParamExcludedToTermExcluded = leftPart.substring(leftPart.indexOf(parameter.toLowerCase()) + parameter.length()).toLowerCase().trim();
                             if (!fromParamExcludedToTermExcluded.isBlank() && lexiconsAndTheirConditionalExpressions.getMapH3().containsKey(fromParamExcludedToTermExcluded.toLowerCase())) {
-                                booleanCondition.setKeywordMatched(fromParamExcludedToTermExcluded);
+                                booleanCondition.setTextFragmentMatched(fromParamExcludedToTermExcluded);
                                 booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(fromParamExcludedToTermExcluded.toLowerCase()));
                                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                                 return booleanCondition;
@@ -79,7 +80,7 @@ public class IsImmediatelyPrecededBySpecificTerm {
                 }
 
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-                booleanCondition.setKeywords(keywords);
+                booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
                 return booleanCondition;
             }
         } catch (StringIndexOutOfBoundsException e) {

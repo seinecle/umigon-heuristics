@@ -20,7 +20,7 @@ public class IsFollowedByAPositiveOpinion {
             heuristics.getMapH1().keySet().stream().anyMatch((positiveTerm) -> {
                 int index = temp.toLowerCase().indexOf(positiveTerm.toLowerCase());
                 if (index != -1) {
-                    booleanCondition.setKeywordMatched(positiveTerm);
+                    booleanCondition.setTextFragmentMatched(positiveTerm);
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                     booleanCondition.setKeywordMatchedIndex(index);
                 }

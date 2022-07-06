@@ -22,7 +22,7 @@ public class IsPrecededByStrongWord {
 
         for (String term : ngrams) {
             if (heuristics.getMapH3().containsKey(term.toLowerCase())) {
-                booleanCondition.setKeywordMatched(term);
+                booleanCondition.setTextFragmentMatched(term);
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 return booleanCondition;
             }

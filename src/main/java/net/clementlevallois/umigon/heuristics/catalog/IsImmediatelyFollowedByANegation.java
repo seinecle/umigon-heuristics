@@ -3,10 +3,12 @@
  */
 package net.clementlevallois.umigon.heuristics.catalog;
 
+import java.util.List;
 import java.util.Set;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isImmediatelyFollowedByANegation;
+import net.clementlevallois.umigon.model.NGram;
 
 /**
  *
@@ -14,41 +16,31 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsImmediatelyFollowedByANegation {
 
-    public static BooleanCondition check(String text, String term, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+    public static BooleanCondition check(boolean stripped, List<NGram> textFragmentsThatAreNGrams, NGram ngram, LoaderOfLexiconsAndConditionalExpressions heuristics) {
         BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyFollowedByANegation);
-        try {
-            String temp = text.substring(indexTerm + term.length()).trim();
-            String[] firstTermAfterTermOfInterest = temp.split(" ");
+        List<NGram> rightPart = textFragmentsThatAreNGrams.subList(textFragmentsThatAreNGrams.indexOf(ngram), textFragmentsThatAreNGrams.size() - 1);
 
-            //if the array is empty it means that the term is the last of the status;
-            switch (firstTermAfterTermOfInterest.length) {
-                case 0: {
-                    booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-                    return booleanCondition;
-                }
-                case 1: {
-                    booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-                    return booleanCondition;
-                }
-                default: {
-                    String nextTerm = firstTermAfterTermOfInterest[1].trim();
-                    Set<String> setNegations = heuristics.getSetNegations();
-                    boolean containsTerm = setNegations.contains(nextTerm.toLowerCase());
-                    if (containsTerm) {
-                        booleanCondition.setKeywordMatched(nextTerm);
-                        booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(nextTerm.toLowerCase()));
-                    }
-                    booleanCondition.setTokenInvestigatedGetsMatched(containsTerm);
-                    return booleanCondition;
-                }
-
+        //if the list is empty it means that the term is the last of the status;
+        switch (rightPart.size()) {
+            case 0: {
+                booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+                return booleanCondition;
             }
-        } catch (StringIndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-            System.out.println("status was: " + text);
-            System.out.println("term was: " + term);
-            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            return booleanCondition;
+            case 1: {
+                booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
+                return booleanCondition;
+            }
+            default: {
+                String nextTerm = rightPart.get(1).getCleanedAndStrippedNgramIfCondition(stripped);
+                Set<String> setNegations = heuristics.getSetNegations();
+                boolean containsTerm = setNegations.contains(nextTerm.toLowerCase());
+                if (containsTerm) {
+                    booleanCondition.setTextFragmentMatched(rightPart.get(1));
+                }
+                booleanCondition.setTokenInvestigatedGetsMatched(containsTerm);
+                return booleanCondition;
+            }
+
         }
     }
 }

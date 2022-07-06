@@ -5,6 +5,9 @@ package net.clementlevallois.umigon.heuristics.catalog;
 
 import java.util.Set;
 import net.clementlevallois.umigon.model.BooleanCondition;
+import net.clementlevallois.umigon.model.Term;
+import net.clementlevallois.umigon.model.TextFragment;
+import net.clementlevallois.umigon.model.TypeOfTextFragment;
 
 /**
  *
@@ -12,13 +15,20 @@ import net.clementlevallois.umigon.model.BooleanCondition;
  */
 public class ContainsNegationInAllCaps {
 
-    public static BooleanCondition check(String text, Set<String> negations) {
+    public static BooleanCondition check(Term term, Set<String> negations) {
         BooleanCondition booleanCondition = new BooleanCondition(BooleanCondition.BooleanConditionEnum.isNegationInCaps);
         for (String negation : negations) {
-            if (text.contains(negation.toUpperCase())) {
+            int indexOf = term.getCleanedAndStrippedForm().indexOf(negation.toUpperCase());
+            if (indexOf!= -1) {
+                TextFragment textFragmentMatched = new Term();
+                textFragmentMatched.setString(negation.toUpperCase());
+                int indexCardinalTextFragmentMatched = term.getIndexCardinal() + indexOf;
+                textFragmentMatched.setIndexCardinal(indexCardinalTextFragmentMatched);
+                textFragmentMatched.setIndexOrdinal(term.getIndexOrdinal());
+                textFragmentMatched.setTypeOfTextFragment(TypeOfTextFragment.TypeOfTextFragmentEnum.TERM);
+                booleanCondition.setTextFragmentMatched(textFragmentMatched);
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-                booleanCondition.setKeywordMatched(negation.toUpperCase());
-                booleanCondition.setKeywordMatchedIndex(text.indexOf(negation.toUpperCase()));
+                return booleanCondition;
             }
         }
         return booleanCondition;

@@ -16,7 +16,7 @@ public class IsHashtagStart {
         BooleanCondition booleanCondition = new BooleanCondition(isHashtagStart);
         boolean found = term.toLowerCase().startsWith(termHeuristic.toLowerCase());
         if (found) {
-            booleanCondition.setKeywordMatched(termHeuristic);
+            booleanCondition.setTextFragmentMatched(termHeuristic);
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
         } else {
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);

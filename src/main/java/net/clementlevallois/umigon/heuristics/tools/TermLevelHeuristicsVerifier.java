@@ -38,10 +38,12 @@ import net.clementlevallois.umigon.heuristics.catalog.IsPrecededBySubjectiveTerm
 import net.clementlevallois.umigon.heuristics.catalog.IsQuestionMarkAtEndOfText;
 import net.clementlevallois.umigon.model.Category;
 import net.clementlevallois.umigon.model.Category.CategoryEnum;
+import net.clementlevallois.umigon.model.NGram;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.Term;
 import net.clementlevallois.umigon.model.Text;
-import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
+import net.clementlevallois.umigon.model.TextFragment;
+import net.clementlevallois.umigon.model.TypeOfTextFragment.TypeOfTextFragmentEnum;
 
 /*
  Copyright 2008-2013 Clement Levallois
@@ -84,8 +86,8 @@ import net.clementlevallois.umigon.model.TypeOfToken.TypeOfTokenEnum;
  */
 public class TermLevelHeuristicsVerifier {
 
-    public static List<ResultOneHeuristics> checkHeuristicsOnNGrams(boolean useStrippedVersion, Term termParam, Text textParam, Map<String, TermWithConditionalExpressions> mapTermToRule, Set<String> alreadyExamined, LoaderOfLexiconsAndConditionalExpressions lexiconsWithTheirConditionalExpressions) {
-        String term = useStrippedVersion ? termParam.getStrippedForm() : termParam.getOriginalForm();
+    public static List<ResultOneHeuristics> checkHeuristicsOnNGrams(boolean useStrippedVersion, NGram ngramParam, List<NGram> textFragmentsThatAreNGrams, Map<String, TermWithConditionalExpressions> mapTermToRule, Set<String> alreadyExamined, LoaderOfLexiconsAndConditionalExpressions lexiconsWithTheirConditionalExpressions) {
+        String term = useStrippedVersion ? ngramParam.getCleanedAndStrippedForm() : ngramParam.getString();
         Set<String> nGrams = new NGramFinder(term).runIt(4, false).keySet();
         TermWithConditionalExpressions termWithConditionalExpressions;
         List<ResultOneHeuristics> resultsHeuristicsFinal = new ArrayList();
@@ -96,33 +98,30 @@ public class TermLevelHeuristicsVerifier {
                 continue;
             }
             Term termElement = new Term();
-            termElement.setOriginalForm(element);
+            termElement.setString(element);
             termElement.setIndexOriginalForm(indexElement);
-            termElement.setStrippedForm(element);
+            termElement.setCleanedAndStrippedForm(element);
             termElement.setIndexStrippedForm(indexElement);
             termWithConditionalExpressions = mapTermToRule.get(element);
             if (termWithConditionalExpressions != null) {
-                ResultOneHeuristics resultsOneHeuristics = checkHeuristicsOnOneTerm(useStrippedVersion, termElement, textParam, termWithConditionalExpressions, lexiconsWithTheirConditionalExpressions, TypeOfTokenEnum.NGRAM);
+                ResultOneHeuristics resultsOneHeuristics = checkHeuristicsOnOneTerm(useStrippedVersion, termElement, textParam, termWithConditionalExpressions, lexiconsWithTheirConditionalExpressions, TypeOfTextFragmentEnum.NGRAM);
                 resultsHeuristicsFinal.add(resultsOneHeuristics);
             }
         }
         return resultsHeuristicsFinal;
     }
 
-    public static ResultOneHeuristics checkHeuristicsOnOneTerm(boolean stripped, Term termParam, Text textParam, TermWithConditionalExpressions termWithConditionalExpressions, LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions, TypeOfTokenEnum typeOfTokenEnum) {
+    public static ResultOneHeuristics checkHeuristicsOnOneTerm(NGram ngramParam, List<NGram> textFragmentsThatAreNGrams, TermWithConditionalExpressions termWithConditionalExpressions, LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions) {
         String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String termFromLexicon = termWithConditionalExpressions.getTerm();
         List<BooleanCondition> booleanConditions = termWithConditionalExpressions.getMapFeatures();
         String rule = termWithConditionalExpressions.getRule();
-        String text = stripped ? textParam.getStrippedForm() : textParam.getCleanedForm();
-        String term = stripped ? termParam.getStrippedForm() : termParam.getOriginalForm();
-        int indexTerm = stripped ? termParam.getIndexStrippedForm() : termParam.getIndexOriginalForm();
 
         InterpreterOfConditionalExpressions interpreter = new InterpreterOfConditionalExpressions();
         Category cat;
 
         Map<String, Boolean> conditions = new HashMap();
-        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(term, indexTerm, typeOfTokenEnum);
+        ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(ngramParam);
         if (booleanConditions.isEmpty()) {
             try {
                 cat = new Category(rule);
@@ -135,137 +134,156 @@ public class TermLevelHeuristicsVerifier {
                 System.out.println("rule was misspelled or just wrong:");
                 System.out.println(rule);
                 System.out.println("for term:");
-                System.out.println(term);
+                System.out.println(ngramParam.getCleanedNgram());
                 return resultOneHeuristics;
             }
         }
 
-        int count = 0;
-
         BooleanCondition.BooleanConditionEnum conditionEnum;
-        Set<String> keywords;
-        for (BooleanCondition booleanCondition : booleanConditions) {
+        Set<TextFragment> textFragmentsAssociatedToTheBooleanCondition;
+        
 
-            conditionEnum = booleanCondition.getBooleanConditionEnum();
-            keywords = booleanCondition.getKeywords();
+        int numberOfExaminationsOfBooleanConditions = 1;
+        String nGramStripped = ngramParam.getCleanedAndStrippedNgramIfCondition(true);
+        String nGramNonStripped = ngramParam.getCleanedAndStrippedNgramIfCondition(false);
+        if (!nGramStripped.equals(nGramNonStripped)) {
+            numberOfExaminationsOfBooleanConditions = 2;
+        }
+        
+        boolean stripped = true;
 
-            boolean opposite = false;
-            if (booleanCondition.getFlipped()) {
-                opposite = true;
+        for (int i = 1; i <= numberOfExaminationsOfBooleanConditions; i++) {
+            /*
+            a little trick to achieve the following effect:
+            - the first loop will examine the NON stripped version of the ngram
+            - the second loop will examine the stripped version of the ngram
+            - when there is just one loop, only the NON stripped version of the ngram is examined            
+            */
+
+            stripped = !stripped;
+            for (BooleanCondition booleanCondition : booleanConditions) {
+
+                conditionEnum = booleanCondition.getBooleanConditionEnum();
+                textFragmentsAssociatedToTheBooleanCondition = booleanCondition.getTextFragmentsAssociatedTotheBooleanCondition();
+
+                boolean opposite = false;
+                if (booleanCondition.getFlipped()) {
+                    opposite = true;
+                }
+
+                switch (conditionEnum) {
+
+                    case isImmediatelyPrecededByANegation:
+                        booleanCondition = IsImmediatelyPrecededByANegation.check(stripped, textFragmentsThatAreNGrams, ngramParam, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isImmediatelyFollowedByANegation:
+                        booleanCondition = IsImmediatelyFollowedByANegation.check(stripped, textFragmentsThatAreNGrams, ngramParam, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isImmediatelyPrecededBySpecificTerm:
+                        booleanCondition = IsImmediatelyPrecededBySpecificTerm.check(stripped, textFragmentsThatAreNGrams, ngramParam, lexiconsAndConditionalExpressions, textFragmentsAssociatedToTheBooleanCondition);
+                        break;
+
+                    case isImmediatelyFollowedBySpecificTerm:
+                        booleanCondition = IsImmediatelyFollowedBySpecificTerm.check(text, term, indexTerm, lexiconsAndConditionalExpressions, textFragmentsAssociatedToTheBooleanCondition);
+                        break;
+
+                    case isImmediatelyFollowedByAnOpinion:
+                        booleanCondition = IsImmediatelyFollowedByAnOpinion.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isPrecededBySubjectiveTerm:
+                        booleanCondition = IsPrecededBySubjectiveTerm.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isFirstTermOfText:
+                        booleanCondition = IsFirstTermOfText.check(text, term);
+                        break;
+
+                    case isFollowedByAPositiveOpinion:
+                        booleanCondition = IsFollowedByAPositiveOpinion.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isImmediatelyFollowedByAPositiveOpinion:
+                        booleanCondition = IsImmediatelyFollowedByAPositiveOpinion.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isImmediatelyFollowedByANegativeOpinion:
+                        booleanCondition = IsImmediatelyFollowedByANegativeOpinion.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isFollowedBySpecificTerm:
+                        booleanCondition = IsFollowedBySpecificTerm.check(text, term, indexTerm, textFragmentsAssociatedToTheBooleanCondition);
+                        break;
+
+                    case isInATextWithOneOfTheseSpecificTerms:
+                        booleanCondition = IsInATextWithOneOfTheseSpecificTerms.check(text, textFragmentsAssociatedToTheBooleanCondition);
+                        break;
+
+                    case isHashtagStart:
+                        booleanCondition = IsHashtagStart.check(term, termFromLexicon);
+                        break;
+
+                    case isInHashtag:
+                        booleanCondition = IsInHashtag.check(term, text, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isHashtagPositiveSentiment:
+                        booleanCondition = IsHashtagPositiveSentiment.check(term, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isHashtagNegativeSentiment:
+                        booleanCondition = IsHashtagPositiveSentiment.check(term, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isPrecededBySpecificTerm:
+                        booleanCondition = IsPrecededBySpecificTerm.check(text, term, indexTerm, textFragmentsAssociatedToTheBooleanCondition);
+                        break;
+
+                    case isQuestionMarkAtEndOfText:
+                        booleanCondition = IsQuestionMarkAtEndOfText.check(text);
+                        break;
+
+                    case isAllCaps:
+                        booleanCondition = IsAllCaps.check(term);
+                        break;
+
+                    case isPrecededByStrongWord:
+                        booleanCondition = IsPrecededByStrongWord.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isImmediatelyPrecededByPositive:
+                        booleanCondition = IsImmediatelyPrecededByPositive.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isPrecededByPositive:
+                        booleanCondition = IsPrecededByPositive.check(text, term, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isPrecededByOpinion:
+                        booleanCondition = IsPrecededByOpinion.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
+                        break;
+
+                    case isFirstLetterCapitalized:
+                        booleanCondition = IsFirstLetterCapitalized.check(term);
+                        break;
+                }
+
+                boolean booleanOutcomeAfterPossibleInversion;
+                if (opposite) {
+                    booleanCondition.setFlipped(Boolean.TRUE);
+                    booleanOutcomeAfterPossibleInversion = !booleanCondition.getTokenInvestigatedGetsMatched();
+                } else {
+                    booleanOutcomeAfterPossibleInversion = booleanCondition.getTokenInvestigatedGetsMatched();
+                }
+                if (booleanCondition.getTokenInvestigatedGetsMatched() == null) {
+                    System.out.println("stop: a boolean expression didnt get a match result in Term Heuristics Verifier");
+                }
+                conditions.put(ALPHABET.substring(numberOfExaminationsOfBooleanConditions, (numberOfExaminationsOfBooleanConditions + 1)), booleanOutcomeAfterPossibleInversion);
+                numberOfExaminationsOfBooleanConditions++;
+                resultOneHeuristics.getBooleanConditions().add(booleanCondition);
             }
-
-            switch (conditionEnum) {
-
-                case isImmediatelyPrecededByANegation:
-                    booleanCondition = IsImmediatelyPrecededByANegation.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isImmediatelyFollowedByANegation:
-                    booleanCondition = IsImmediatelyFollowedByANegation.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isImmediatelyPrecededBySpecificTerm:
-                    booleanCondition = IsImmediatelyPrecededBySpecificTerm.check(text, term, indexTerm, lexiconsAndConditionalExpressions, keywords);
-                    break;
-
-                case isImmediatelyFollowedBySpecificTerm:
-                    booleanCondition = IsImmediatelyFollowedBySpecificTerm.check(text, term, indexTerm, lexiconsAndConditionalExpressions, keywords);
-                    break;
-
-                case isImmediatelyFollowedByAnOpinion:
-                    booleanCondition = IsImmediatelyFollowedByAnOpinion.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isPrecededBySubjectiveTerm:
-                    booleanCondition = IsPrecededBySubjectiveTerm.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isFirstTermOfText:
-                    booleanCondition = IsFirstTermOfText.check(text, term);
-                    break;
-
-                case isFollowedByAPositiveOpinion:
-                    booleanCondition = IsFollowedByAPositiveOpinion.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isImmediatelyFollowedByAPositiveOpinion:
-                    booleanCondition = IsImmediatelyFollowedByAPositiveOpinion.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isImmediatelyFollowedByANegativeOpinion:
-                    booleanCondition = IsImmediatelyFollowedByANegativeOpinion.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isFollowedBySpecificTerm:
-                    booleanCondition = IsFollowedBySpecificTerm.check(text, term, indexTerm, keywords);
-                    break;
-
-                case isInATextWithOneOfTheseSpecificTerms:
-                    booleanCondition = IsInATextWithOneOfTheseSpecificTerms.check(text, keywords);
-                    break;
-
-                case isHashtagStart:
-                    booleanCondition = IsHashtagStart.check(term, termFromLexicon);
-                    break;
-
-                case isInHashtag:
-                    booleanCondition = IsInHashtag.check(term, text, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isHashtagPositiveSentiment:
-                    booleanCondition = IsHashtagPositiveSentiment.check(term, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isHashtagNegativeSentiment:
-                    booleanCondition = IsHashtagPositiveSentiment.check(term, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isPrecededBySpecificTerm:
-                    booleanCondition = IsPrecededBySpecificTerm.check(text, term, indexTerm, keywords);
-                    break;
-
-                case isQuestionMarkAtEndOfText:
-                    booleanCondition = IsQuestionMarkAtEndOfText.check(text);
-                    break;
-
-                case isAllCaps:
-                    booleanCondition = IsAllCaps.check(term);
-                    break;
-
-                case isPrecededByStrongWord:
-                    booleanCondition = IsPrecededByStrongWord.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isImmediatelyPrecededByPositive:
-                    booleanCondition = IsImmediatelyPrecededByPositive.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isPrecededByPositive:
-                    booleanCondition = IsPrecededByPositive.check(text, term, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isPrecededByOpinion:
-                    booleanCondition = IsPrecededByOpinion.check(text, term, indexTerm, lexiconsAndConditionalExpressions);
-                    break;
-
-                case isFirstLetterCapitalized:
-                    booleanCondition = IsFirstLetterCapitalized.check(term);
-                    break;
-            }
-
-            boolean booleanOutcomeAfterPossibleInversion;
-            if (opposite) {
-                booleanCondition.setFlipped(Boolean.TRUE);
-                booleanOutcomeAfterPossibleInversion = !booleanCondition.getTokenInvestigatedGetsMatched();
-            } else {
-                booleanOutcomeAfterPossibleInversion = booleanCondition.getTokenInvestigatedGetsMatched();
-            }
-            if (booleanCondition.getTokenInvestigatedGetsMatched() == null) {
-                System.out.println("stop: a boolean expression didnt get a match result in Term Heuristics Verifier");
-            }
-            conditions.put(ALPHABET.substring(count, (count + 1)), booleanOutcomeAfterPossibleInversion);
-            count++;
-            resultOneHeuristics.getBooleanConditions().add(booleanCondition);
         }
 
         String result = interpreter.interprete(rule, conditions);
@@ -283,10 +301,10 @@ public class TermLevelHeuristicsVerifier {
             } catch (IllegalArgumentException wrongCode) {
                 System.out.println("outcome was misspelled or just wrong, after evaluating the heuristics:");
                 System.out.println(result);
-                return new ResultOneHeuristics(CategoryEnum._10, indexTerm, term, TypeOfTokenEnum.NGRAM);
+                return new ResultOneHeuristics(CategoryEnum._10, indexTerm, term, TypeOfTextFragmentEnum.NGRAM);
             }
         }
-        return new ResultOneHeuristics(term, indexTerm, TypeOfTokenEnum.NGRAM);
+        return new ResultOneHeuristics(term, indexTerm, TypeOfTextFragmentEnum.NGRAM);
     }
 
 //    public boolean isImmediatelyFollowedByVerbPastTense() {

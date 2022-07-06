@@ -21,7 +21,7 @@ public class IsPrecededByOpinion {
         Set<String> ngrams = new NGramFinder(left).runIt(4, true).keySet();
         for (String element : ngrams) {
             if (heuristics.getMapH1().containsKey(element.toLowerCase()) || heuristics.getMapH2().containsKey(element.toLowerCase())) {
-                booleanCondition.setKeywordMatched(element);
+                booleanCondition.setTextFragmentMatched(element);
                 booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(element.toLowerCase()));
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 return booleanCondition;

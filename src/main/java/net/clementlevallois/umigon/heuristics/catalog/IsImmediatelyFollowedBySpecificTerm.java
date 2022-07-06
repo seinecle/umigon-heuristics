@@ -24,17 +24,17 @@ public class IsImmediatelyFollowedBySpecificTerm {
                 boolean isNextTermRelevant = keywords.contains(temp.toLowerCase());
                 if (isNextTermRelevant) {
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-                    booleanCondition.setKeywordMatched(temp);
+                    booleanCondition.setTextFragmentMatched(temp);
                     booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                     return booleanCondition;
                 } else if (nextTerms.length > 1) {
                     temp = nextTerms[0].trim() + " " + nextTerms[1].trim();
                     boolean found = keywords.contains(temp.toLowerCase());
                     if (found) {
-                        booleanCondition.setKeywordMatched(temp);
+                        booleanCondition.setTextFragmentMatched(temp);
                         booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                     } else {
-                        booleanCondition.setKeywords(keywords);
+                        booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
                     }
                     booleanCondition.setTokenInvestigatedGetsMatched(found);
                     return booleanCondition;
@@ -42,21 +42,21 @@ public class IsImmediatelyFollowedBySpecificTerm {
                     temp = nextTerms[0].trim() + " " + nextTerms[1].trim() + " " + nextTerms[2].trim();
                     boolean found = keywords.contains(temp.toLowerCase());
                     if (found) {
-                        booleanCondition.setKeywordMatched(temp);
+                        booleanCondition.setTextFragmentMatched(temp);
                         booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
                     } else {
-                        booleanCondition.setKeywords(keywords);
+                        booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
                     }
                     booleanCondition.setTokenInvestigatedGetsMatched(found);
                     return booleanCondition;
                 } else {
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-                    booleanCondition.setKeywords(keywords);
+                    booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
                     return booleanCondition;
                 }
             }
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            booleanCondition.setKeywords(keywords);
+            booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
             return booleanCondition;
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());

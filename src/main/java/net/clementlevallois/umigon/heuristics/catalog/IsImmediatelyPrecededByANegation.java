@@ -3,9 +3,11 @@
  */
 package net.clementlevallois.umigon.heuristics.catalog;
 
+import java.util.List;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isImmediatelyPrecededByANegation;
+import net.clementlevallois.umigon.model.NGram;
 
 /**
  *
@@ -13,22 +15,21 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsImmediatelyPrecededByANegation {
 
-    public static BooleanCondition check(String text, String term, int indexTerm, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalEpxressions) {
+    public static BooleanCondition check(boolean stripped, List<NGram> textFragmentsThatAreNGrams, NGram ngram, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalEpxressions) {
         BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyPrecededByANegation);
         try {
-            String leftPart = text.substring(0, indexTerm).trim();
-            String[] temp = leftPart.split(" ");
+            List<NGram> leftPart = textFragmentsThatAreNGrams.subList(0, textFragmentsThatAreNGrams.indexOf(ngram));
 
             //if the array is empty it means that the term is the first of the status;
-            switch (temp.length) {
+            switch (leftPart.size()) {
                 case 0: {
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
                     return booleanCondition;
                 }
                 case 1: {
-                    boolean found = lexiconsAndTheirConditionalEpxressions.getSetNegations().contains(temp[0].toLowerCase());
+                    boolean found = lexiconsAndTheirConditionalEpxressions.getSetNegations().contains(leftPart.get(0).getCleanedAndStrippedNgramIfCondition(stripped));
                     if (found) {
-                        booleanCondition.setKeywordMatched(temp[0]);
+                        booleanCondition.setTextFragmentMatched(temp[0]);
                         booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp[0].toLowerCase()));
                     }
                     booleanCondition.setTokenInvestigatedGetsMatched(found);
@@ -36,13 +37,13 @@ public class IsImmediatelyPrecededByANegation {
                 }
                 default: {
                     if (lexiconsAndTheirConditionalEpxressions.getSetNegations().contains(temp[temp.length - 1].toLowerCase())) {
-                        booleanCondition.setKeywordMatched(temp[temp.length - 1]);
+                        booleanCondition.setTextFragmentMatched(temp[temp.length - 1]);
                         booleanCondition.setKeywordMatchedIndex(text.indexOf(temp[temp.length - 1]));
                         booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                         return booleanCondition;
                     } else if (temp.length > 1) {
                         if (lexiconsAndTheirConditionalEpxressions.getMapH3().containsKey(temp[temp.length - 1].toLowerCase()) & lexiconsAndTheirConditionalEpxressions.getSetNegations().contains(temp[temp.length - 2].toLowerCase())) {
-                            booleanCondition.setKeywordMatched(temp[temp.length - 2]);
+                            booleanCondition.setTextFragmentMatched(temp[temp.length - 2]);
                             booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp[temp.length - 2].toLowerCase()));
                             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                             return booleanCondition;
@@ -51,7 +52,7 @@ public class IsImmediatelyPrecededByANegation {
                         //in the case of "not the hottest", return true
                         String negativeTerm = temp[temp.length - 2] + " " + temp[temp.length - 1];
                         if (lexiconsAndTheirConditionalEpxressions.getSetNegations().contains(negativeTerm.toLowerCase().trim())) {
-                            booleanCondition.setKeywordMatched(negativeTerm.trim());
+                            booleanCondition.setTextFragmentMatched(negativeTerm.trim());
                             booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(negativeTerm.trim().toLowerCase()));
                             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                             return booleanCondition;
@@ -62,7 +63,7 @@ public class IsImmediatelyPrecededByANegation {
                         String negativeTerm = temp[temp.length - 3] + " " + temp[temp.length - 2];
                         String booster = temp[temp.length - 1];
                         if (lexiconsAndTheirConditionalEpxressions.getSetNegations().contains(negativeTerm.trim().toLowerCase()) && lexiconsAndTheirConditionalEpxressions.getMapH3().containsKey(booster.toLowerCase())) {
-                            booleanCondition.setKeywordMatched(negativeTerm.trim());
+                            booleanCondition.setTextFragmentMatched(negativeTerm.trim());
                             booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(negativeTerm.trim().toLowerCase()));
                             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                             return booleanCondition;

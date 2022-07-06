@@ -22,7 +22,7 @@ public class IsPrecededBySubjectiveTerm {
 
         for (String element : ngrams) {
             if (lexiconsandTheirConditionalExpressions.getSetSubjective().contains(element.toLowerCase())) {
-                booleanCondition.setKeywordMatched(element);
+                booleanCondition.setTextFragmentMatched(element);
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 return booleanCondition;
             }

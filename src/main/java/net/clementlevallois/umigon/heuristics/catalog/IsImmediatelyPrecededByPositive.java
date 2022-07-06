@@ -25,17 +25,17 @@ public class IsImmediatelyPrecededByPositive {
         }
 
         if (temp.length > 0 && positiveTermsAndTheirConditionalExpressions.containsKey(temp[temp.length - 1].trim().toLowerCase())) {
-            booleanCondition.setKeywordMatched(temp[temp.length - 1]);
+            booleanCondition.setTextFragmentMatched(temp[temp.length - 1]);
             booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp[temp.length - 1].toLowerCase()));
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
             return booleanCondition;
         } else if (temp.length > 1 && positiveTermsAndTheirConditionalExpressions.containsKey(temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
-            booleanCondition.setKeywordMatched(temp[temp.length - 2] + " " + temp[temp.length - 1]);
+            booleanCondition.setTextFragmentMatched(temp[temp.length - 2] + " " + temp[temp.length - 1]);
             booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp[temp.length - 2].toLowerCase() + " " + temp[temp.length - 1].toLowerCase()));
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
             return booleanCondition;
         } else if (temp.length > 2 && positiveTermsAndTheirConditionalExpressions.containsKey(temp[temp.length - 3].trim().toLowerCase() + " " + temp[temp.length - 2].trim().toLowerCase() + " " + temp[temp.length - 1].trim().toLowerCase())) {
-            booleanCondition.setKeywordMatched(temp[temp.length - 3] + " " + temp[temp.length - 2] + " " + temp[temp.length - 1]);
+            booleanCondition.setTextFragmentMatched(temp[temp.length - 3] + " " + temp[temp.length - 2] + " " + temp[temp.length - 1]);
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
             booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp[temp.length - 3].toLowerCase() + " " + temp[temp.length - 2].toLowerCase() + " " + temp[temp.length - 1].toLowerCase()));
             return booleanCondition;

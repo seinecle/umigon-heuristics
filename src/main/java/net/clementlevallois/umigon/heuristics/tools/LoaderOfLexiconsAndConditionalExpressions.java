@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Set;
 import net.clementlevallois.umigon.heuristics.resources.en.PlaceHolderEN;
 import net.clementlevallois.umigon.heuristics.resources.fr.PlaceHolderFR;
-import net.clementlevallois.utils.StatusCleaner;
+import net.clementlevallois.utils.TextCleaningOps;
 
 /**
  *
@@ -151,7 +151,7 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                         continue;
                     }
                     if (!lang.equals("zh")) {
-                        field0 = StatusCleaner.flattenToAscii(fields[0].trim());
+                        field0 = TextCleaningOps.flattenToAscii(fields[0].trim());
                     }
                     if (field0.isEmpty()) {
                         continue;
@@ -246,7 +246,7 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                                 } else {
                                     booleanExpression.setCondition(condition, false);
                                 }
-                                booleanExpression.setKeywords(new HashSet(Arrays.asList(parametersArray)));
+                                booleanExpression.setTextFragmentsAssociatedTotheBooleanCondition(new HashSet(Arrays.asList(parametersArray)));
                             }
                         } else {
                             if (featureString.startsWith("!")) {

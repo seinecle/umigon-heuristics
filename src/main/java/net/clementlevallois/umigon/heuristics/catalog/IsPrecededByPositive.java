@@ -22,7 +22,7 @@ public class IsPrecededByPositive {
 
         for (String element : ngrams) {
             if (heuristics.getMapH1().containsKey(element.toLowerCase())) {
-                booleanCondition.setKeywordMatched(element);
+                booleanCondition.setTextFragmentMatched(element);
                 booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(element.toLowerCase()));
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 return booleanCondition;

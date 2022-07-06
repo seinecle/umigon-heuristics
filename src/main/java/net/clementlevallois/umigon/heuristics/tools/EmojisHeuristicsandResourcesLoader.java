@@ -3,16 +3,22 @@
  */
 package net.clementlevallois.umigon.heuristics.tools;
 
+import com.vdurmont.emoji.EmojiParser;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import net.clementlevallois.umigon.heuristics.resources.multilingual.PlaceHolderMULTI;
+import net.clementlevallois.umigon.model.Category;
+import net.clementlevallois.umigon.model.ResultOneHeuristics;
+import net.clementlevallois.umigon.model.TextFragment;
+import net.clementlevallois.umigon.model.TypeOfTextFragment;
 
 /**
  *
@@ -85,4 +91,28 @@ public class EmojisHeuristicsandResourcesLoader {
     public static Set<String> getSetHyperSatisfactionEmojis() {
         return setHyperSatisfactionEmojis;
     }
+
+    public static List<ResultOneHeuristics> containsAffectiveEmojis(List<TextFragment> textFragments) {
+        List<ResultOneHeuristics> resultsHeuristics = new ArrayList();
+
+        for (TextFragment textFragment : textFragments) {
+            String emojiAsString = textFragment.getString();
+            if (textFragment.getTypeOfTextFragment().equals(TypeOfTextFragment.TypeOfTextFragmentEnum.EMOJI)) {
+                ResultOneHeuristics resultOneHeuristics = null;
+                if (setNegativeEmojis.contains(emojiAsString)) {
+                    resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, textFragment);
+                } else if (setPositiveEmojis.contains(emojiAsString)) {
+                    resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._11, textFragment);
+                } else if (setHyperSatisfactionEmojis.contains(emojiAsString)) {
+                    resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._17, textFragment);
+                }
+                if (resultOneHeuristics != null) {
+                    resultsHeuristics.add(resultOneHeuristics);
+                }
+            }
+        }
+        return resultsHeuristics;
+
+    }
+
 }

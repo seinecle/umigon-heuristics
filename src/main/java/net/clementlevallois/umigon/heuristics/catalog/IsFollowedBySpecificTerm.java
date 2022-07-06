@@ -20,7 +20,7 @@ public class IsFollowedBySpecificTerm {
             keywords.stream().anyMatch((candidate) -> {
                 int index = temp.toLowerCase().indexOf(candidate.toLowerCase());
                 if (index != -1) {
-                    booleanCondition.setKeywordMatched(candidate);
+                    booleanCondition.setTextFragmentMatched(candidate);
                     booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                     booleanCondition.setKeywordMatchedIndex(index);
                 }
@@ -28,7 +28,7 @@ public class IsFollowedBySpecificTerm {
             });
 
             if (!booleanCondition.getTokenInvestigatedGetsMatched()) {
-                booleanCondition.setKeywords(keywords);
+                booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
             }
             return booleanCondition;
 

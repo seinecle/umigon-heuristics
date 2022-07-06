@@ -20,13 +20,13 @@ public class IsPrecededBySpecificTerm {
             boolean found = keywords.stream().anyMatch((candidate) -> {
                 boolean contains = temp.toLowerCase().contains(candidate.toLowerCase());
                 if (contains) {
-                    booleanCondition.setKeywordMatched(candidate);
+                    booleanCondition.setTextFragmentMatched(candidate);
                     booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(candidate.toLowerCase()));
                 }
                 return contains;
             });
             booleanCondition.setTokenInvestigatedGetsMatched(found);
-            booleanCondition.setKeywords(keywords);
+            booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
             return booleanCondition;
 
         } catch (StringIndexOutOfBoundsException e) {
