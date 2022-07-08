@@ -6,6 +6,7 @@ package net.clementlevallois.umigon.heuristics.catalog;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isHashtagNegativeSentiment;
+import net.clementlevallois.umigon.model.NGram;
 import net.clementlevallois.umigon.model.Term;
 
 /**
@@ -14,9 +15,9 @@ import net.clementlevallois.umigon.model.Term;
  */
 public class IsHashtagNegativeSentiment {
 
-    public static BooleanCondition check(Term hashtag, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalExpressions) {
+    public static BooleanCondition check(boolean stripped, NGram hashtag, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalExpressions) {
         BooleanCondition booleanCondition = new BooleanCondition(isHashtagNegativeSentiment);
-        String cleanedAndStrippedForm = hashtag.getCleanedAndStrippedForm();
+        String cleanedAndStrippedForm = hashtag.getCleanedAndStrippedNgramIfCondition(stripped);
         boolean startsWithNegativeTerm = false;
         for (String term : lexiconsAndTheirConditionalExpressions.getMapH3().keySet()) {
             if (term.length() < 4) {

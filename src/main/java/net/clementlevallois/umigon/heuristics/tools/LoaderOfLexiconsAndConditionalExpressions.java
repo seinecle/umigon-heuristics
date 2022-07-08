@@ -246,7 +246,7 @@ public class LoaderOfLexiconsAndConditionalExpressions {
                                 } else {
                                     booleanExpression.setCondition(condition, false);
                                 }
-                                booleanExpression.setTextFragmentsAssociatedTotheBooleanCondition(new HashSet(Arrays.asList(parametersArray)));
+                                booleanExpression.setAssociatedKeywords(new HashSet(Arrays.asList(parametersArray)));
                             }
                         } else {
                             if (featureString.startsWith("!")) {

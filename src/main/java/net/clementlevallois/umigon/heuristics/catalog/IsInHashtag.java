@@ -8,6 +8,7 @@ import java.util.Map;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isInHashtag;
+import net.clementlevallois.umigon.model.NGram;
 import net.clementlevallois.umigon.model.Term;
 import net.clementlevallois.umigon.model.TermWithConditionalExpressions;
 import net.clementlevallois.umigon.model.TextFragment;
@@ -19,11 +20,11 @@ import net.clementlevallois.umigon.model.TypeOfTextFragment;
  */
 public class IsInHashtag {
 
-    public static BooleanCondition check(Term hashtag, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalEpxressions) {
+    public static BooleanCondition check(boolean stripped, NGram hashtag, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalEpxressions) {
         BooleanCondition booleanCondition = new BooleanCondition(isInHashtag);
         Map<String, TermWithConditionalExpressions> hashtagLexicon = lexiconsAndTheirConditionalEpxressions.getMapH13();
         Iterator<Map.Entry<String, TermWithConditionalExpressions>> iterator = hashtagLexicon.entrySet().iterator();
-        String hashTagStringToLowerCase = hashtag.getCleanedAndStrippedForm().toLowerCase();
+        String hashTagStringToLowerCase = hashtag.getCleanedAndStrippedNgramIfCondition(stripped).toLowerCase();
         while (iterator.hasNext()) {
             Map.Entry<String, TermWithConditionalExpressions> nextEntry = iterator.next();
             int indexCardinalOfWordInHashtag = hashTagStringToLowerCase.indexOf(nextEntry.getKey().toLowerCase());
