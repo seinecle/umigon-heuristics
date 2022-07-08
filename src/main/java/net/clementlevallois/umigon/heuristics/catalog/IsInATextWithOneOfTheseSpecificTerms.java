@@ -3,12 +3,12 @@
  */
 package net.clementlevallois.umigon.heuristics.catalog;
 
-import java.util.Iterator;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
-import net.clementlevallois.ngramops.NGramFinder;
 import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isInATextWithOneOfTheseSpecificTerms;
+import net.clementlevallois.umigon.model.NGram;
 
 /**
  *
@@ -16,31 +16,21 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsInATextWithOneOfTheseSpecificTerms {
 
-    public static BooleanCondition check(String text, Set<String> keywords) {
+    public static BooleanCondition check(boolean stripped, NGram ngram, List<NGram> ngrams, Set<String> keywords) {
         BooleanCondition booleanCondition = new BooleanCondition(isInATextWithOneOfTheseSpecificTerms);
-        NGramFinder nGramFinder = new NGramFinder(text);
-
-        Map<String, Integer> ngramsInMap = nGramFinder.runIt(2, true);
-        if (ngramsInMap.isEmpty()) {
-            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
-            return booleanCondition;
-        }
-
-        Set<String> terms = ngramsInMap.keySet();
-        Iterator<String> it = terms.iterator();
-
-        while (it.hasNext()) {
-            String next = it.next().trim();
-            if (keywords.contains(next.toLowerCase())) {
-                booleanCondition.setTextFragmentMatched(next);
-                booleanCondition.setKeywordMatchedIndex(text.indexOf(next));
-                booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
-                return booleanCondition;
+        List<NGram> nGramsThatMatched = new ArrayList();
+        for (NGram ngramLoop : ngrams) {
+            if (keywords.contains(ngramLoop.getCleanedAndStrippedNgramIfCondition(stripped))) {
+                nGramsThatMatched.add(ngramLoop);
             }
         }
-        booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-        booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
-        return booleanCondition;
+        if (nGramsThatMatched.isEmpty()) {
+            return booleanCondition;
+        } else {
+            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
+            booleanCondition.setTextFragmentMatched(ngram);
+            booleanCondition.setAssociatedKeywordMatchedAsTextFragment(nGramsThatMatched);
+            return booleanCondition;
+        }
     }
 }

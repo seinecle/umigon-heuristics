@@ -3,9 +3,13 @@
  */
 package net.clementlevallois.umigon.heuristics.catalog;
 
+import java.util.ArrayList;
+import java.util.List;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
+import net.clementlevallois.umigon.heuristics.tools.TextFragmentOps;
 import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isImmediatelyFollowedByANegativeOpinion;
+import net.clementlevallois.umigon.model.NGram;
 
 /**
  *
@@ -13,48 +17,22 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsImmediatelyFollowedByANegativeOpinion {
 
-    public static BooleanCondition check(String text, String termOrig, int indexTerm, LoaderOfLexiconsAndConditionalExpressions heuristics) {
+    public static BooleanCondition check(boolean stripped, List<NGram> textFragmentsThatAreNGrams, NGram ngram, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalExpressions) {
         BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyFollowedByANegativeOpinion);
-        try {
-            String temp = text.substring(text.indexOf(termOrig) + termOrig.length()).trim();
-            String[] nextTerms = temp.split(" ");
-            if (nextTerms.length > 0) {
-                temp = nextTerms[0].trim();
-                boolean found = (heuristics.getMapH2().keySet().contains(temp.toLowerCase()));
-                if (found) {
-                    booleanCondition.setTextFragmentMatched(temp);
-                    booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
-                }
-                booleanCondition.setTokenInvestigatedGetsMatched(found);
-                return booleanCondition;
-            } else if (nextTerms.length > 1) {
-                temp = nextTerms[0].trim() + " " + nextTerms[1].trim();
-                boolean found = (heuristics.getMapH2().keySet().contains(temp.toLowerCase()));
-                booleanCondition.setTokenInvestigatedGetsMatched(found);
-                if (found) {
-                    booleanCondition.setTextFragmentMatched(temp);
-                    booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
-                }
-                return booleanCondition;
-            } else if (nextTerms.length > 2) {
-                temp = nextTerms[0].trim() + " " + nextTerms[1].trim() + " " + nextTerms[2].trim();
-                boolean found = (heuristics.getMapH2().keySet().contains(temp.toLowerCase()));
-                if (found) {
-                    booleanCondition.setTextFragmentMatched(temp);
-                    booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(temp.toLowerCase()));
-                }
-                booleanCondition.setTokenInvestigatedGetsMatched(found);
-                return booleanCondition;
-            } else {
-                booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-                return booleanCondition;
-            }
-        } catch (StringIndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-            System.out.println("status was: " + text);
-            System.out.println("term was: " + termOrig);
-            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            return booleanCondition;
+
+        List<NGram> ngramsFoundAtIndexPlusOne = TextFragmentOps.getNGramsAtRelativeOrdinalIndex(textFragmentsThatAreNGrams, ngram, 1);
+        List<NGram> ngramsFoundAtIndexPlusTwo = TextFragmentOps.getNGramsAtRelativeOrdinalIndex(textFragmentsThatAreNGrams, ngram, 2);
+
+        List<NGram> allNgramsFound = new ArrayList();
+        allNgramsFound.addAll(ngramsFoundAtIndexPlusOne);
+        allNgramsFound.addAll(ngramsFoundAtIndexPlusTwo);
+
+        List<NGram> nGramsThatMatchedANegativeOpinion = TextFragmentOps.checkIfListOfNgramsMatchStringsFromCollection(stripped, allNgramsFound, lexiconsAndTheirConditionalExpressions.getMapH2().keySet());
+        booleanCondition.setTokenInvestigatedGetsMatched(!nGramsThatMatchedANegativeOpinion.isEmpty());
+        if (!nGramsThatMatchedANegativeOpinion.isEmpty()) {
+            booleanCondition.setAssociatedKeywordMatchedAsTextFragment(nGramsThatMatchedANegativeOpinion);
+            booleanCondition.setTextFragmentMatched(ngram);
         }
+        return booleanCondition;
     }
 }

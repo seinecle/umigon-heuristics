@@ -3,9 +3,15 @@
  */
 package net.clementlevallois.umigon.heuristics.catalog;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
+import net.clementlevallois.umigon.heuristics.tools.TextFragmentOps;
 import net.clementlevallois.umigon.model.BooleanCondition;
+import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isPrecededByPositive;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isPrecededBySpecificTerm;
+import net.clementlevallois.umigon.model.NGram;
 
 /**
  *
@@ -13,28 +19,20 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsPrecededBySpecificTerm {
 
-    public static BooleanCondition check(String text, String term, int indexTerm, Set<String> keywords) {
+    public static BooleanCondition check(boolean stripped, List<NGram> textFragmentsThatAreNGrams, NGram ngram, Set<String> keywords) {
         BooleanCondition booleanCondition = new BooleanCondition(isPrecededBySpecificTerm);
-        try {
-            String temp = text.substring(0, indexTerm).trim();
-            boolean found = keywords.stream().anyMatch((candidate) -> {
-                boolean contains = temp.toLowerCase().contains(candidate.toLowerCase());
-                if (contains) {
-                    booleanCondition.setTextFragmentMatched(candidate);
-                    booleanCondition.setKeywordMatchedIndex(text.toLowerCase().indexOf(candidate.toLowerCase()));
-                }
-                return contains;
-            });
-            booleanCondition.setTokenInvestigatedGetsMatched(found);
-            booleanCondition.setTextFragmentsAssociatedTotheBooleanCondition(keywords);
-            return booleanCondition;
 
-        } catch (StringIndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-            System.out.println("status was: " + text);
-            System.out.println("term was: " + term);
-            booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);
-            return booleanCondition;
+        List<NGram> nGramsBeforeAnOrdinalIndex = TextFragmentOps.getNGramsBeforeAnOrdinalIndex(textFragmentsThatAreNGrams, ngram);
+
+
+        List<NGram> nGramsThatMatchedSpecificTerms = TextFragmentOps.checkIfListOfNgramsMatchStringsFromCollection(stripped, nGramsBeforeAnOrdinalIndex, keywords);
+
+        booleanCondition.setTokenInvestigatedGetsMatched(!nGramsThatMatchedSpecificTerms.isEmpty());
+        if (!nGramsThatMatchedSpecificTerms.isEmpty()) {
+            booleanCondition.setAssociatedKeywordMatchedAsTextFragment(nGramsThatMatchedSpecificTerms);
+            booleanCondition.setTextFragmentMatched(ngram);
         }
+
+        return booleanCondition;
     }
 }

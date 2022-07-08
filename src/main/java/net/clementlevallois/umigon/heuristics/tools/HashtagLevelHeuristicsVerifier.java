@@ -14,9 +14,6 @@ import net.clementlevallois.umigon.model.Category;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.Term;
 import net.clementlevallois.umigon.model.TermWithConditionalExpressions;
-import net.clementlevallois.umigon.model.TextFragment;
-import net.clementlevallois.umigon.model.TypeOfTextFragment;
-import net.clementlevallois.utils.TextCleaningOps;
 
 /**
  *

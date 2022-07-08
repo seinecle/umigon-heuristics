@@ -7,6 +7,7 @@ import java.util.Set;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isHashtag;
+import net.clementlevallois.umigon.model.NGram;
 
 /**
  *
@@ -14,13 +15,12 @@ import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditio
  */
 public class IsHashtag {
 
-    public static BooleanCondition check(String hashtag, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalExpressions) {
+    public static BooleanCondition check(boolean stripped, NGram ngram, LoaderOfLexiconsAndConditionalExpressions lexiconsAndTheirConditionalExpressions) {
         BooleanCondition booleanCondition = new BooleanCondition(isHashtag);
         Set<String> hashtagsInList = lexiconsAndTheirConditionalExpressions.getMapH13().keySet();
-        boolean found = hashtagsInList.contains(hashtag.toLowerCase());
+        boolean found = hashtagsInList.contains(ngram.getCleanedAndStrippedNgramIfCondition(stripped));
         if (found) {
-            booleanCondition.setTextFragmentMatched(hashtag);
-            booleanCondition.setKeywordMatchedIndex(-1);
+            booleanCondition.setTextFragmentMatched(ngram);
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
         } else {
             booleanCondition.setTokenInvestigatedGetsMatched(Boolean.FALSE);

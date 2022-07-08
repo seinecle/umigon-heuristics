@@ -86,32 +86,7 @@ import net.clementlevallois.umigon.model.TypeOfTextFragment.TypeOfTextFragmentEn
  */
 public class TermLevelHeuristicsVerifier {
 
-    public static List<ResultOneHeuristics> checkHeuristicsOnNGrams(boolean useStrippedVersion, NGram ngramParam, List<NGram> textFragmentsThatAreNGrams, Map<String, TermWithConditionalExpressions> mapTermToRule, Set<String> alreadyExamined, LoaderOfLexiconsAndConditionalExpressions lexiconsWithTheirConditionalExpressions) {
-        String term = useStrippedVersion ? ngramParam.getCleanedAndStrippedForm() : ngramParam.getString();
-        Set<String> nGrams = new NGramFinder(term).runIt(4, false).keySet();
-        TermWithConditionalExpressions termWithConditionalExpressions;
-        List<ResultOneHeuristics> resultsHeuristicsFinal = new ArrayList();
-
-        for (String element : nGrams) {
-            int indexElement = useStrippedVersion ? textParam.getStrippedForm().indexOf(element) : textParam.getCleanedForm().indexOf(element);
-            if (alreadyExamined.contains(element.toLowerCase() + "_" + indexElement)) {
-                continue;
-            }
-            Term termElement = new Term();
-            termElement.setString(element);
-            termElement.setIndexOriginalForm(indexElement);
-            termElement.setCleanedAndStrippedForm(element);
-            termElement.setIndexStrippedForm(indexElement);
-            termWithConditionalExpressions = mapTermToRule.get(element);
-            if (termWithConditionalExpressions != null) {
-                ResultOneHeuristics resultsOneHeuristics = checkHeuristicsOnOneTerm(useStrippedVersion, termElement, textParam, termWithConditionalExpressions, lexiconsWithTheirConditionalExpressions, TypeOfTextFragmentEnum.NGRAM);
-                resultsHeuristicsFinal.add(resultsOneHeuristics);
-            }
-        }
-        return resultsHeuristicsFinal;
-    }
-
-    public static ResultOneHeuristics checkHeuristicsOnOneTerm(NGram ngramParam, List<NGram> textFragmentsThatAreNGrams, TermWithConditionalExpressions termWithConditionalExpressions, LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions) {
+    public static ResultOneHeuristics checkHeuristicsOnOneNGram(NGram ngramParam, List<NGram> nGramsInSentence, TermWithConditionalExpressions termWithConditionalExpressions, LoaderOfLexiconsAndConditionalExpressions lexiconsAndConditionalExpressions) {
         String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String termFromLexicon = termWithConditionalExpressions.getTerm();
         List<BooleanCondition> booleanConditions = termWithConditionalExpressions.getMapFeatures();
@@ -140,7 +115,7 @@ public class TermLevelHeuristicsVerifier {
         }
 
         BooleanCondition.BooleanConditionEnum conditionEnum;
-        Set<TextFragment> textFragmentsAssociatedToTheBooleanCondition;
+        Set<String> associatedKeywords;
         
 
         int numberOfExaminationsOfBooleanConditions = 1;
@@ -164,7 +139,7 @@ public class TermLevelHeuristicsVerifier {
             for (BooleanCondition booleanCondition : booleanConditions) {
 
                 conditionEnum = booleanCondition.getBooleanConditionEnum();
-                textFragmentsAssociatedToTheBooleanCondition = booleanCondition.getTextFragmentsAssociatedTotheBooleanCondition();
+                associatedKeywords = booleanCondition.getAssociatedKeywords(stripped);
 
                 boolean opposite = false;
                 if (booleanCondition.getFlipped()) {
@@ -174,19 +149,19 @@ public class TermLevelHeuristicsVerifier {
                 switch (conditionEnum) {
 
                     case isImmediatelyPrecededByANegation:
-                        booleanCondition = IsImmediatelyPrecededByANegation.check(stripped, textFragmentsThatAreNGrams, ngramParam, lexiconsAndConditionalExpressions);
+                        booleanCondition = IsImmediatelyPrecededByANegation.check(stripped, nGramsInSentence, ngramParam, lexiconsAndConditionalExpressions);
                         break;
 
                     case isImmediatelyFollowedByANegation:
-                        booleanCondition = IsImmediatelyFollowedByANegation.check(stripped, textFragmentsThatAreNGrams, ngramParam, lexiconsAndConditionalExpressions);
+                        booleanCondition = IsImmediatelyFollowedByANegation.check(stripped, nGramsInSentence, ngramParam, lexiconsAndConditionalExpressions);
                         break;
 
                     case isImmediatelyPrecededBySpecificTerm:
-                        booleanCondition = IsImmediatelyPrecededBySpecificTerm.check(stripped, textFragmentsThatAreNGrams, ngramParam, lexiconsAndConditionalExpressions, textFragmentsAssociatedToTheBooleanCondition);
+                        booleanCondition = IsImmediatelyPrecededBySpecificTerm.check(stripped, nGramsInSentence, ngramParam, lexiconsAndConditionalExpressions, associatedKeywords);
                         break;
 
                     case isImmediatelyFollowedBySpecificTerm:
-                        booleanCondition = IsImmediatelyFollowedBySpecificTerm.check(text, term, indexTerm, lexiconsAndConditionalExpressions, textFragmentsAssociatedToTheBooleanCondition);
+                        booleanCondition = IsImmediatelyFollowedBySpecificTerm.check(text, term, indexTerm, lexiconsAndConditionalExpressions, associatedKeywords);
                         break;
 
                     case isImmediatelyFollowedByAnOpinion:
@@ -214,11 +189,11 @@ public class TermLevelHeuristicsVerifier {
                         break;
 
                     case isFollowedBySpecificTerm:
-                        booleanCondition = IsFollowedBySpecificTerm.check(text, term, indexTerm, textFragmentsAssociatedToTheBooleanCondition);
+                        booleanCondition = IsFollowedBySpecificTerm.check(text, term, indexTerm, associatedKeywords);
                         break;
 
                     case isInATextWithOneOfTheseSpecificTerms:
-                        booleanCondition = IsInATextWithOneOfTheseSpecificTerms.check(text, textFragmentsAssociatedToTheBooleanCondition);
+                        booleanCondition = IsInATextWithOneOfTheseSpecificTerms.check(text, associatedKeywords);
                         break;
 
                     case isHashtagStart:
@@ -238,7 +213,7 @@ public class TermLevelHeuristicsVerifier {
                         break;
 
                     case isPrecededBySpecificTerm:
-                        booleanCondition = IsPrecededBySpecificTerm.check(text, term, indexTerm, textFragmentsAssociatedToTheBooleanCondition);
+                        booleanCondition = IsPrecededBySpecificTerm.check(text, term, indexTerm, associatedKeywords);
                         break;
 
                     case isQuestionMarkAtEndOfText:
