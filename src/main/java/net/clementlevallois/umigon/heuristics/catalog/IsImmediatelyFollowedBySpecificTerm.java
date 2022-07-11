@@ -17,10 +17,10 @@ import net.clementlevallois.umigon.model.NGram;
  */
 public class IsImmediatelyFollowedBySpecificTerm {
 
-    public static BooleanCondition check(boolean stripped, List<NGram> textFragmentsThatAreNGrams, NGram ngram, Set<String> specificTerms) {
+    public static BooleanCondition check(boolean stripped, List<NGram> ngrams, NGram ngram, Set<String> specificTerms) {
         BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyFollowedBySpecificTerm);
-        List<NGram> ngramsFoundAtIndexPlusOne = TextFragmentOps.getNGramsAtRelativeOrdinalIndex(textFragmentsThatAreNGrams, ngram, 1);
-        List<NGram> ngramsFoundAtIndexPlusTwo = TextFragmentOps.getNGramsAtRelativeOrdinalIndex(textFragmentsThatAreNGrams, ngram, 2);
+        List<NGram> ngramsFoundAtIndexPlusOne = TextFragmentOps.getNGramsAtRelativeOrdinalIndex(ngrams, ngram, 1);
+        List<NGram> ngramsFoundAtIndexPlusTwo = TextFragmentOps.getNGramsAtRelativeOrdinalIndex(ngrams, ngram, 2);
 
         List<NGram> allNgramsFound = new ArrayList();
         allNgramsFound.addAll(ngramsFoundAtIndexPlusOne);

@@ -53,7 +53,7 @@ public class HashtagLevelHeuristicsVerifier {
                      */
 
                     TermWithConditionalExpressions termWithConditionalExpressions = lexiconsAndTheirConditionalExpressions.getMapH13().get(booleanCondition4.getTextFragmentMatched().getString().toLowerCase());
-                    ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, hashtag);
+                    ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, booleanCondition4.getTextFragmentMatched());
                     resultOneHeuristics.getBooleanConditions().add(booleanCondition4);
                     resultOneHeuristics.setCategoryEnum(new Category(termWithConditionalExpressions.getRule()).getCategoryEnum());
                     resultsHeuristics.add(resultOneHeuristics);

@@ -36,6 +36,7 @@ public class IsInHashtag {
                 textFragmentMatched.setIndexOrdinal(hashtag.getIndexOrdinal());
                 textFragmentMatched.setTypeOfTextFragment(TypeOfTextFragment.TypeOfTextFragmentEnum.HASHTAG);
                 booleanCondition.setTextFragmentMatched(textFragmentMatched);
+                booleanCondition.getAssociatedKeywordMatchedAsNGrams().add(hashtag);
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 return booleanCondition;
             }

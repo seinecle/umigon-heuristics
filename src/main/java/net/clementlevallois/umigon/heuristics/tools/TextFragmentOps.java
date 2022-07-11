@@ -16,25 +16,60 @@ import net.clementlevallois.umigon.model.NGram;
 public class TextFragmentOps {
 
     public static List<NGram> getNGramsAtRelativeOrdinalIndex(List<NGram> ngrams, NGram ngram, int relativeIndex) {
-        int indexToLookUp = ngram.getIndexOrdinalInSentence() + relativeIndex;
-        ListIterator<NGram> listIterator = ngrams.listIterator(indexToLookUp);
         List<NGram> ngramResults = new ArrayList();
+
+        int indexToLookUp = ngram.getIndexOrdinal() + relativeIndex;
+        if (indexToLookUp < 0 || indexToLookUp > ngrams.size() - 1) {
+            return ngramResults;
+        }
+        ListIterator<NGram> listIterator = ngrams.listIterator(ngrams.indexOf(ngram));
         int ngramSize = 0;
-        int ngramMaxSize = 5;
         if (relativeIndex < 0) {
-            while (listIterator.hasPrevious() && ngramSize++ < ngramMaxSize) {
+            while (listIterator.hasPrevious()) {
                 NGram previous = listIterator.previous();
-                if (previous.getIndexOrdinalInSentence() == (indexToLookUp + ngramSize)) {
-                    ngramResults.add(ngram);
+                if (previous.getIndexOrdinal() == indexToLookUp & (previous.getIndexOrdinal()+ previous.getTerms().size())<= ngram.getIndexOrdinal()) {
+                    ngramResults.add(previous);
                 }
             }
         } else {
             while (listIterator.hasNext()) {
                 NGram next = listIterator.next();
-                if (next.getIndexOrdinalInSentence() == (indexToLookUp + ngramSize)) {
-                    ngramResults.add(ngram);
+                if (next.getIndexOrdinal() == (indexToLookUp + ngramSize)) {
+                    ngramResults.add(next);
                 }
-                if (next.getIndexOrdinalInSentence() > (indexToLookUp + ngramSize)) {
+                if (next.getIndexOrdinal() > (indexToLookUp + ngramSize)) {
+                    break;
+                }
+            }
+        }
+
+        return ngramResults;
+    }
+
+    public static List<NGram> getNGramsAtRelativeCardinalIndex(List<NGram> ngrams, NGram ngram, int relativeIndex) {
+        List<NGram> ngramResults = new ArrayList();
+
+        int indexToLookUp = ngram.getIndexCardinal() + relativeIndex;
+        if (indexToLookUp < 0 || indexToLookUp > ngrams.size() - 1) {
+            return ngramResults;
+        }
+        ListIterator<NGram> listIterator = ngrams.listIterator(ngrams.indexOf(ngram));
+        int ngramSize = 0;
+        int ngramMaxSize = 5;
+        if (relativeIndex < 0) {
+            while (listIterator.hasPrevious() && ngramSize++ < ngramMaxSize) {
+                NGram previous = listIterator.previous();
+                if (previous.getIndexCardinal() == (indexToLookUp + ngramSize)) {
+                    ngramResults.add(previous);
+                }
+            }
+        } else {
+            while (listIterator.hasNext()) {
+                NGram next = listIterator.next();
+                if (next.getIndexCardinal() == (indexToLookUp + ngramSize)) {
+                    ngramResults.add(next);
+                }
+                if (next.getIndexCardinal() > (indexToLookUp + ngramSize)) {
                     break;
                 }
             }
@@ -44,19 +79,23 @@ public class TextFragmentOps {
     }
 
     public static List<NGram> getNGramsAfterAnOrdinalIndex(List<NGram> ngrams, NGram ngram) {
-        int indexToLookUp = ngram.getIndexOrdinalInSentence();
-        return ngrams.subList(indexToLookUp + 1, ngrams.size());
+        return ngrams.subList(ngrams.indexOf(ngram), ngrams.size());
     }
 
     public static List<NGram> getNGramsBeforeAnOrdinalIndex(List<NGram> ngrams, NGram ngram) {
-        int indexToLookUp = ngram.getIndexOrdinalInSentence();
-        return ngrams.subList(0, indexToLookUp);
+        List<NGram> results = new ArrayList();
+        for (NGram ngramLoop : ngrams) {
+            if (ngramLoop.getIndexOrdinal() < ngram.getIndexOrdinal()) {
+                results.add(ngramLoop);
+            }
+        }
+        return results;
     }
 
     public static List<NGram> checkIfListOfNgramsMatchStringsFromCollection(boolean stripped, List<NGram> ngrams, Collection<String> collection) {
         List<NGram> results = new ArrayList();
         for (NGram ngram : ngrams) {
-            if (collection.contains(ngram.getCleanedAndStrippedNgramIfCondition(stripped))) {
+            if (collection.contains(ngram.getCleanedAndStrippedNgramIfCondition(stripped).toLowerCase())) {
                 results.add(ngram);
             }
         }

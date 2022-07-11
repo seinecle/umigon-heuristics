@@ -85,6 +85,10 @@ public class TermLevelHeuristicsVerifier {
         List<BooleanCondition> booleanConditions = termWithConditionalExpressions.getMapFeatures();
         String rule = termWithConditionalExpressions.getRule();
 
+        if (termFromLexicon.equals("marre")) {
+            System.out.println("marre has been found");
+        }
+
         InterpreterOfConditionalExpressions interpreter = new InterpreterOfConditionalExpressions();
         Category cat;
 
@@ -214,7 +218,7 @@ public class TermLevelHeuristicsVerifier {
                         break;
 
                     case isAllCaps:
-                        booleanCondition = IsAllCaps.check(ngramParam.getCleanedNgram());
+                        booleanCondition = IsAllCaps.check(ngramParam);
                         break;
 
                     case isPrecededByStrongWord:
@@ -247,6 +251,9 @@ public class TermLevelHeuristicsVerifier {
                 }
                 if (booleanCondition.getTokenInvestigatedGetsMatched() == null) {
                     System.out.println("stop: a boolean expression didnt get a match result in Term Heuristics Verifier");
+                }
+                if (!stripped){
+                    conditions.put(ALPHABET.substring(count, (count + 1)), booleanOutcomeAfterPossibleInversion);
                 }
                 if (stripped && booleanCondition.getTokenInvestigatedGetsMatched()) {
                     conditions.put(ALPHABET.substring(count, (count + 1)), booleanOutcomeAfterPossibleInversion);

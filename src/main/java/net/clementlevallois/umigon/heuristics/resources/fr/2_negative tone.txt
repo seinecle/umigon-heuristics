@@ -1,7 +1,7 @@
 à chier		12
 a de la peine		12
 à jeter		12
-à me taper	isPrecededBySpecificTerm///encore+++isImmediatelyFollowedBySpecificTerm///sur	if(A || B){12}	
+à me taper	isPrecededBySpecificTerm///encore+++isImmediatelyFollowedBySpecificTerm///sur	if(A || B) {12} else {10}
 à vomir		12
 au bout de ma vie		12
 abattu		12
@@ -145,7 +145,7 @@ bon à rien		12
 bons à rien		12
 bonne à rien		12
 bonnes à rien		12
-bordel	isImmediatelyPrecededBySpecificTerm///le|ce|un|quel+++!isImmediatelyFollowedBySpecificTerm///de|pas	if(A || B){12}
+bordel	isImmediatelyPrecededBySpecificTerm///le|ce|un|quel+++!isImmediatelyFollowedBySpecificTerm///de|pas	if(A || B){12} else {10}
 bouffon		12
 bouffons		12
 bouffonne		12
@@ -787,7 +787,7 @@ malhonnête		12
 marde		12
 faites marrer		12
 faite marrer		12
-marre	isImmediatelyPrecededBySpecificTerm///ai|a|ont|trop|avoir+++isImmediatelyFollowedBySpecificTerm///toi|de	if(A||B){12}
+marre	isImmediatelyPrecededBySpecificTerm///ai|a|ont|trop|avoir+++isImmediatelyFollowedBySpecificTerm///toi|de	if (A || B) {12} else {10}
 marrez		12
 maussade		12
 maussaderie		12
@@ -855,10 +855,10 @@ morose		12
 moroses		12
 morosité		12
 morosités		12
-mort	isImmediatelyPrecededBySpecificTerm///je suis|c'est|c'est la|race de|races de+++isPrecededByStrongWord	if(A || B){12}
-morte	isImmediatelyPrecededBySpecificTerm///je suis|c'est|c'est la|race de|races de+++isPrecededByStrongWord	if(A || B){12}
-mortes	isImmediatelyPrecededBySpecificTerm///vous êtes|c'est|c'est la|race de|races de+++isPrecededByStrongWord	if(A || B){12}
-morts	isImmediatelyPrecededBySpecificTerm///vous êtes|c'est|c'est la|race de|races de+++isPrecededByStrongWord	if(A || B){12}
+mort	isImmediatelyPrecededBySpecificTerm///je suis|c'est|c'est la|race de|races de+++isPrecededByStrongWord	if(A || B){12} else {10}
+morte	isImmediatelyPrecededBySpecificTerm///je suis|c'est|c'est la|race de|races de+++isPrecededByStrongWord	if(A || B){12} else {10}
+mortes	isImmediatelyPrecededBySpecificTerm///vous êtes|c'est|c'est la|race de|races de+++isPrecededByStrongWord	if(A || B){12} else {10}
+morts	isImmediatelyPrecededBySpecificTerm///vous êtes|c'est|c'est la|race de|races de+++isPrecededByStrongWord	if(A || B){12} else {10}
 mourir	isImmediatelyPrecededBySpecificTerm///tu vas|on va|vous allez	12:10
 mourrir	isImmediatelyPrecededBySpecificTerm///je vais|tu vas|on va|vous allez	12:10
 navrant		12
@@ -870,9 +870,9 @@ nazes		12
 nerfs vont		12
 niaiseux		12
 nimp		12
-nique	isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm///pique	if(A && B){12}
-niques	isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm///pique	if(A && B){12}
-niquez	isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm///pique	if(A && B){12}
+nique	isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm///pique	if(A && B){12} else {10}
+niques	isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm///pique	if(A && B){12} else {10}
+niquez	isImmediatelyFollowedBySpecificTerm///les|ton|ta|leur|leurs|vous|te|vos+++!isImmediatelyPrecededBySpecificTerm///pique	if(A && B){12} else {10}
 nprtk		12
 nul		12
 nul		12
