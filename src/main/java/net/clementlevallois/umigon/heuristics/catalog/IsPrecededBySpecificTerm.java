@@ -18,9 +18,8 @@ public class IsPrecededBySpecificTerm {
 
     public static BooleanCondition check(boolean stripped, List<NGram> textFragmentsThatAreNGrams, NGram ngram, Set<String> keywords) {
         BooleanCondition booleanCondition = new BooleanCondition(isPrecededBySpecificTerm);
-
+        booleanCondition.setAssociatedKeywords(keywords);
         List<NGram> nGramsBeforeAnOrdinalIndex = TextFragmentOps.getNGramsBeforeAnOrdinalIndex(textFragmentsThatAreNGrams, ngram);
-
 
         List<NGram> nGramsThatMatchedSpecificTerms = TextFragmentOps.checkIfListOfNgramsMatchStringsFromCollection(stripped, nGramsBeforeAnOrdinalIndex, keywords);
 

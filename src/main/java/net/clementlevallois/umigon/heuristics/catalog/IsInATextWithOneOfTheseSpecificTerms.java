@@ -18,6 +18,7 @@ public class IsInATextWithOneOfTheseSpecificTerms {
 
     public static BooleanCondition check(boolean stripped, NGram ngram, List<NGram> ngrams, Set<String> keywords) {
         BooleanCondition booleanCondition = new BooleanCondition(isInATextWithOneOfTheseSpecificTerms);
+        booleanCondition.setAssociatedKeywords(keywords);
         List<NGram> nGramsThatMatched = new ArrayList();
         for (NGram ngramLoop : ngrams) {
             if (keywords.contains(ngramLoop.getCleanedAndStrippedNgramIfCondition(stripped))) {

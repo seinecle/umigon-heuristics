@@ -85,9 +85,9 @@ public class TermLevelHeuristicsVerifier {
         List<BooleanCondition> booleanConditions = termWithConditionalExpressions.getMapFeatures();
         String rule = termWithConditionalExpressions.getRule();
 
-        if (termFromLexicon.equals("marre")) {
-            System.out.println("marre has been found");
-        }
+//        if (termFromLexicon.equals("like")) {
+//            System.out.println("like has been found");
+//        }
 
         InterpreterOfConditionalExpressions interpreter = new InterpreterOfConditionalExpressions();
         Category cat;

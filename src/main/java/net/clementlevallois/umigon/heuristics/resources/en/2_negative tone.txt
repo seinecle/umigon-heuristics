@@ -519,7 +519,6 @@ no, no		12		1
 none	isAllCaps	12	x	3
 nonsense		12		2
 nonsensical		12		2
-not	isAllCaps	12	x	2
 not a joke		12		2
 not be working		12		2
 not exactly		12		1
@@ -528,7 +527,7 @@ not happen		12		1
 not working		12		1
 nothing to say		12		1
 now only if		12		1
-nuts	isPrecededBySpecificTerm///drive|droven|drove|driven|drived|is|are|driving me	12:10	x	3
+nuts	isPrecededBySpecificTerm///drive|droven|drove|driven|drived|is|are|driving me+++isPrecededByStrongWord	if (A || B) {12} else {10}	x	3
 obsolete		12		1
 obtuse		12		2
 offended	!isImmediatelyPrecededByANegation	12:10		2

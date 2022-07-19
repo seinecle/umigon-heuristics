@@ -19,7 +19,8 @@ public class IsImmediatelyPrecededBySpecificTerm {
 
     public static BooleanCondition check(boolean stripped, List<NGram> textFragmentsThatAreNGrams, NGram ngram, Set<String> associatedKeywords) {
         BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyPrecededBySpecificTerm);
-
+       booleanCondition.setAssociatedKeywords(associatedKeywords);
+ 
         List<NGram> ngramsFoundAtIndexMinusOne = TextFragmentOps.getNGramsAtRelativeOrdinalIndex(textFragmentsThatAreNGrams, ngram, -1);
         List<NGram> ngramsFoundAtIndexMinusTwo = TextFragmentOps.getNGramsAtRelativeOrdinalIndex(textFragmentsThatAreNGrams, ngram, -2);
 

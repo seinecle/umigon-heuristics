@@ -19,13 +19,13 @@ public class IsImmediatelyFollowedBySpecificTerm {
 
     public static BooleanCondition check(boolean stripped, List<NGram> ngrams, NGram ngram, Set<String> specificTerms) {
         BooleanCondition booleanCondition = new BooleanCondition(isImmediatelyFollowedBySpecificTerm);
+        booleanCondition.setAssociatedKeywords(specificTerms);
         List<NGram> ngramsFoundAtIndexPlusOne = TextFragmentOps.getNGramsAtRelativeOrdinalIndex(ngrams, ngram, 1);
         List<NGram> ngramsFoundAtIndexPlusTwo = TextFragmentOps.getNGramsAtRelativeOrdinalIndex(ngrams, ngram, 2);
 
         List<NGram> allNgramsFound = new ArrayList();
         allNgramsFound.addAll(ngramsFoundAtIndexPlusOne);
         allNgramsFound.addAll(ngramsFoundAtIndexPlusTwo);
-
 
         List<NGram> nGramsThatMatchedASpecificTerm = TextFragmentOps.checkIfListOfNgramsMatchStringsFromCollection(stripped, allNgramsFound, specificTerms);
         booleanCondition.setTokenInvestigatedGetsMatched(!nGramsThatMatchedASpecificTerm.isEmpty());

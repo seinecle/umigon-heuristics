@@ -18,7 +18,7 @@ public class IsFollowedBySpecificTerm {
 
         public static BooleanCondition check(boolean stripped, List<NGram> textFragmentsThatAreNGrams, NGram ngram, Set<String> associatedKeywords) {
         BooleanCondition booleanCondition = new BooleanCondition(isFollowedBySpecificTerm);
-
+        booleanCondition.setAssociatedKeywords(associatedKeywords);
         List<NGram> nGramsAfterAnOrdinalIndex = TextFragmentOps.getNGramsAfterAnOrdinalIndex(textFragmentsThatAreNGrams, ngram);
         List<NGram> nGramsThatMatchedASpecificTerm = TextFragmentOps.checkIfListOfNgramsMatchStringsFromCollection(stripped, nGramsAfterAnOrdinalIndex, associatedKeywords);
         booleanCondition.setTokenInvestigatedGetsMatched(!nGramsThatMatchedASpecificTerm.isEmpty());

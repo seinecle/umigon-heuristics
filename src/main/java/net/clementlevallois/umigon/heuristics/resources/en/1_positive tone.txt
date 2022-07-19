@@ -15,7 +15,6 @@ awesme	!isImmediatelyPrecededByANegation	11:12	3
 awesome	!isImmediatelyPrecededByANegation	11:12	3
 awesomeness	!isImmediatelyPrecededByANegation	11:12	3
 awsome	!isImmediatelyPrecededByANegation	11:12	3
-bad ass		11	3
 badass		11	3
 bang up		11	3
 beautiful	!isImmediatelyPrecededByANegation	11:12	2
