@@ -97,7 +97,7 @@ public class EmojisHeuristicsandResourcesLoader {
 
         for (TextFragment textFragment : textFragments) {
             String emojiAsString = textFragment.getString();
-            if (textFragment.getTypeOfTextFragment().equals(TypeOfTextFragment.TypeOfTextFragmentEnum.EMOJI)) {
+            if (textFragment.getTypeOfTextFragmentEnum().equals(TypeOfTextFragment.TypeOfTextFragmentEnum.EMOJI)) {
                 ResultOneHeuristics resultOneHeuristics = null;
                 if (setNegativeEmojis.contains(emojiAsString)) {
                     resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, textFragment);

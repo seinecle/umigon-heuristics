@@ -28,7 +28,7 @@ public class IsQuestionMarkAtEndOfText {
         TextFragment lastOne = workingList.get(workingList.size() - 1);
         boolean checksComplete = false;
         while (!checksComplete) {
-            if (lastOne.getTypeOfTextFragment().equals(TypeOfTextFragment.TypeOfTextFragmentEnum.NGRAM)) {
+            if (lastOne.getTypeOfTextFragmentEnum().equals(TypeOfTextFragment.TypeOfTextFragmentEnum.NGRAM)) {
                 NGram curr = (NGram) lastOne;
                 if (curr.getCleanedNgram().contains("/")) {
                     workingList.remove(workingList.size() - 1);
@@ -40,7 +40,7 @@ public class IsQuestionMarkAtEndOfText {
             }
         }
         lastOne = workingList.get(workingList.size() - 1);
-        if (lastOne.getTypeOfTextFragment().equals(TypeOfTextFragment.TypeOfTextFragmentEnum.PUNCTUATION)) {
+        if (lastOne.getTypeOfTextFragmentEnum().equals(TypeOfTextFragment.TypeOfTextFragmentEnum.PUNCTUATION)) {
             if (lastOne.getString().equals("?")) {
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 booleanCondition.setTextFragmentMatched(lastOne);

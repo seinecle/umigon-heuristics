@@ -8,11 +8,10 @@ import java.util.Map;
 import net.clementlevallois.umigon.heuristics.tools.LoaderOfLexiconsAndConditionalExpressions;
 import net.clementlevallois.umigon.model.BooleanCondition;
 import static net.clementlevallois.umigon.model.BooleanCondition.BooleanConditionEnum.isInHashtag;
+import net.clementlevallois.umigon.model.Hashtag;
 import net.clementlevallois.umigon.model.NGram;
-import net.clementlevallois.umigon.model.Term;
 import net.clementlevallois.umigon.model.TermWithConditionalExpressions;
 import net.clementlevallois.umigon.model.TextFragment;
-import net.clementlevallois.umigon.model.TypeOfTextFragment;
 
 /**
  *
@@ -29,12 +28,11 @@ public class IsInHashtag {
             Map.Entry<String, TermWithConditionalExpressions> nextEntry = iterator.next();
             int indexCardinalOfWordInHashtag = hashTagStringToLowerCase.indexOf(nextEntry.getKey().toLowerCase());
             if (indexCardinalOfWordInHashtag != -1) {
-                TextFragment textFragmentMatched = new Term();
+                TextFragment textFragmentMatched = new Hashtag();
                 textFragmentMatched.setString(nextEntry.getKey());
                 int indexCardinalTextFragmentMatched = hashtag.getIndexCardinal() + indexCardinalOfWordInHashtag;
                 textFragmentMatched.setIndexCardinal(indexCardinalTextFragmentMatched);
                 textFragmentMatched.setIndexOrdinal(hashtag.getIndexOrdinal());
-                textFragmentMatched.setTypeOfTextFragment(TypeOfTextFragment.TypeOfTextFragmentEnum.HASHTAG);
                 booleanCondition.setTextFragmentMatched(textFragmentMatched);
                 booleanCondition.getAssociatedKeywordMatchedAsNGrams().add(hashtag);
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
