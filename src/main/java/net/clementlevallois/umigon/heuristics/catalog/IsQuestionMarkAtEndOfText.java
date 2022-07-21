@@ -41,7 +41,7 @@ public class IsQuestionMarkAtEndOfText {
         }
         lastOne = workingList.get(workingList.size() - 1);
         if (lastOne.getTypeOfTextFragmentEnum().equals(TypeOfTextFragment.TypeOfTextFragmentEnum.PUNCTUATION)) {
-            if (lastOne.getString().equals("?")) {
+            if (lastOne.getOriginalForm().equals("?")) {
                 booleanCondition.setTokenInvestigatedGetsMatched(Boolean.TRUE);
                 booleanCondition.setTextFragmentMatched(lastOne);
             }

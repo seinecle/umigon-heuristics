@@ -52,7 +52,7 @@ public class HashtagLevelHeuristicsVerifier {
                 - a non numeric rule would not break the code though, it would fall back on setting a CategoryEnum 10 to the heuristics.
                      */
 
-                    TermWithConditionalExpressions termWithConditionalExpressions = lexiconsAndTheirConditionalExpressions.getMapH13().get(booleanCondition4.getTextFragmentMatched().getString().toLowerCase());
+                    TermWithConditionalExpressions termWithConditionalExpressions = lexiconsAndTheirConditionalExpressions.getMapH13().get(booleanCondition4.getTextFragmentMatched().getOriginalForm().toLowerCase());
                     ResultOneHeuristics resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, booleanCondition4.getTextFragmentMatched());
                     resultOneHeuristics.getBooleanConditions().add(booleanCondition4);
                     resultOneHeuristics.setCategoryEnum(new Category(termWithConditionalExpressions.getRule()).getCategoryEnum());

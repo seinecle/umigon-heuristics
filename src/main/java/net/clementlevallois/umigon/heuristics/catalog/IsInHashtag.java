@@ -29,7 +29,7 @@ public class IsInHashtag {
             int indexCardinalOfWordInHashtag = hashTagStringToLowerCase.indexOf(nextEntry.getKey().toLowerCase());
             if (indexCardinalOfWordInHashtag != -1) {
                 TextFragment textFragmentMatched = new Hashtag();
-                textFragmentMatched.setString(nextEntry.getKey());
+                textFragmentMatched.setOriginalForm(nextEntry.getKey());
                 int indexCardinalTextFragmentMatched = hashtag.getIndexCardinal() + indexCardinalOfWordInHashtag;
                 textFragmentMatched.setIndexCardinal(indexCardinalTextFragmentMatched);
                 textFragmentMatched.setIndexOrdinal(hashtag.getIndexOrdinal());

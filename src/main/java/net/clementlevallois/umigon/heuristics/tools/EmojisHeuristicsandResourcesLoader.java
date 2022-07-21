@@ -16,6 +16,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import net.clementlevallois.umigon.heuristics.resources.multilingual.PlaceHolderMULTI;
 import net.clementlevallois.umigon.model.Category;
+import net.clementlevallois.umigon.model.Emoji;
 import net.clementlevallois.umigon.model.ResultOneHeuristics;
 import net.clementlevallois.umigon.model.TextFragment;
 import net.clementlevallois.umigon.model.TypeOfTextFragment;
@@ -96,8 +97,9 @@ public class EmojisHeuristicsandResourcesLoader {
         List<ResultOneHeuristics> resultsHeuristics = new ArrayList();
 
         for (TextFragment textFragment : textFragments) {
-            String emojiAsString = textFragment.getString();
-            if (textFragment.getTypeOfTextFragmentEnum().equals(TypeOfTextFragment.TypeOfTextFragmentEnum.EMOJI)) {
+            if (textFragment instanceof Emoji) {
+                Emoji emoji  = (Emoji) textFragment;
+                String emojiAsString = emoji.getSemiColonForm();
                 ResultOneHeuristics resultOneHeuristics = null;
                 if (setNegativeEmojis.contains(emojiAsString)) {
                     resultOneHeuristics = new ResultOneHeuristics(Category.CategoryEnum._12, textFragment);
@@ -112,7 +114,5 @@ public class EmojisHeuristicsandResourcesLoader {
             }
         }
         return resultsHeuristics;
-
     }
-
 }
