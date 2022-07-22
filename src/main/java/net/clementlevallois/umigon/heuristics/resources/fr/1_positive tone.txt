@@ -141,12 +141,12 @@ au top	!isImmediatelyFollowedByANegativeOpinion	11:12
 aux anges	!isImmediatelyPrecededByANegation	11:12
 avons de la chance	!isImmediatelyPrecededByANegation	11:12
 béat	!isImmediatelyPrecededByANegation	11:12
-béatitude	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if(A && B){11}
-beau	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///frère|frere|père|père|fils	if(A && B){11}
-beaux	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///frères|freres|pères|pères|fils	if(A && B){11}
-beauté	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if(A && B){11}
-belle	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///soeur|mère|mere	if(A && B){11}
-belles	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///soeurs|mères|meres	if(A && B){11}
+béatitude	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if(A && B){11} else {10}
+beau	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///frère|frere|père|père|fils	if(A && B){11} else {10}
+beaux	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///frères|freres|pères|pères|fils	if(A && B){11} else {10}
+beauté	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedByANegativeOpinion	if(A && B){11} else {10}
+belle	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///soeur|mère|mere	if(A && B){11} else {10}
+belles	!isImmediatelyPrecededByANegation+++!isImmediatelyFollowedBySpecificTerm///soeurs|mères|meres	if(A && B){11} else {10}
 bénéficie	!isImmediatelyPrecededByANegation	11:12
 bénéficies	!isImmediatelyPrecededByANegation	11:12
 bénéficions	!isImmediatelyPrecededByANegation	11:12
@@ -173,7 +173,7 @@ bénéficié	!isImmediatelyPrecededByANegation	11:12
 bénéficier	!isImmediatelyPrecededByANegation	11:12
 bénéfique	!isImmediatelyPrecededByANegation	11:12
 béni	!isImmediatelyPrecededByANegation	11:12
-bien	isImmediatelyPrecededBySpecificTerm///commence+++isImmediatelyFollowedBySpecificTerm///joli|jolis|jolie|jolies|beau|beaux+++isImmediatelyFollowedBySpecificTerm///joué|vu	if(A || B){12} else if (C == 'true') {11}
+bien	isImmediatelyPrecededBySpecificTerm///commence+++isImmediatelyFollowedBySpecificTerm///joli|jolis|jolie|jolies|beau|beaux+++isImmediatelyFollowedBySpecificTerm///joué|vu	if(A || B){12} else if (C == 'true') {11} else {10}
 bienheureux	!isImmediatelyFollowedByANegation	11:12
 bienvenue	!isImmediatelyFollowedByANegation	11:12
 blindé	!isImmediatelyFollowedByANegation	11:12
@@ -500,7 +500,7 @@ jubiler	!isImmediatelyPrecededByANegation	11:12
 jubile	!isImmediatelyPrecededByANegation	11:12
 judicieux	!isImmediatelyPrecededByANegation	11:12
 judicieuse	!isImmediatelyPrecededByANegation	11:12
-juste	!isImmediatelyPrecededByANegation+++!isImmediatelyPrecededBySpecificTerm///cest|c est|est	if(A && B){11}
+juste	!isImmediatelyPrecededByANegation+++!isImmediatelyPrecededBySpecificTerm///cest|c est|est	if(A && B){11} else {10}
 kiff 	!isImmediatelyPrecededByANegation	11:12
 kiffe	!isImmediatelyPrecededByANegation	11:12
 kiffer	!isImmediatelyPrecededByANegation	11:12

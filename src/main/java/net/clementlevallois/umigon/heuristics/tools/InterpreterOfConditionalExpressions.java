@@ -22,11 +22,12 @@ import org.mvel2.MVEL;
 public class InterpreterOfConditionalExpressions {
 
     public static void main(String args[]) {
-        String rule = "if(A||B){12} else{11}";
+        String rule = "if(A || B){12} else if (C == 'true') {11} else {10}";
 
         Map<String, Boolean> c = new HashMap();
         c.put("A", false);
         c.put("B", false);
+        c.put("C", false);
         String output = "";
         try {
             output = ((Integer) MVEL.eval(rule, c)).toString();

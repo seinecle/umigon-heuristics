@@ -559,6 +559,9 @@ foutre		12
 foutu		12
 foutue		12
 foutues		12
+frileux		12
+frileuse		12
+frileuses		12
 froussard		12
 froussarde		12
 froussardes		12
@@ -702,6 +705,8 @@ inhumain		12
 inhumaine		12
 injoignable		12
 injoignables		12
+injuste		12
+injustes		12
 ineptie		12
 inquiet		12
 inquiètant		12
@@ -829,6 +834,7 @@ mélancolie		12
 mélancolique		12
 mélancoliques		12
 mélancolies		12
+mépris		12
 merde		12
 merdes		12
 merdique		12
@@ -849,6 +855,7 @@ mongolien		12
 mongoliens		12
 monstre		12
 monstres		12
+moque	isImmediatelyPrecededBySpecificTerm///se|me	12:10
 a la mord moi		12
 a la mords moi		12
 morose		12
@@ -1064,6 +1071,7 @@ tirés une balle		12
 tirer une balle		12
 touristata		12
 tout croche		12
+toutou		12
 traître		12
 traîtres		12
 traîtresse		12
@@ -1075,6 +1083,7 @@ triste		12
 tristement		12
 tristes		12
 tristesse		12
+tromperie		12
 usant	isPrecededByStrongWord	12
 vache à lait	isImmediatelyPrecededBySpecificTerm///suis une|prend pour une|prends pour une|prennent pour une	12:10
 vaches à lait	isImmediatelyPrecededBySpecificTerm///est des|sommes des|prend pour des|prends pour des|prennent pour des	12:10
